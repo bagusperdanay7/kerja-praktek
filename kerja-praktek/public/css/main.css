@@ -2,3 +2,7 @@
     --main-color: #E71618;
     --error-color: #FF3333;
 }
+
+body {
+    background-color: var(--main-color);
+}
