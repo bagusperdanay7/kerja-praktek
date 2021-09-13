@@ -13,7 +13,7 @@
     <title>{{ $title }}</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
 
     <!-- Optional JavaScript; choose one of the two! -->
 
