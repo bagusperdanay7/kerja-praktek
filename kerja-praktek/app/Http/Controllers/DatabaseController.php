@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Database;
 use Illuminate\Http\Request;
+use App\Exports\DatabaseExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DatabaseController extends Controller
 {
@@ -113,5 +115,10 @@ class DatabaseController extends Controller
     {
         $database->delete();
         return back();
+    }
+
+    public function databaseexport()
+    {
+        return Excel::download(new DatabaseExport,'database.xlsx');
     }
 }

@@ -16,7 +16,8 @@
         <div class="row">
             <div class="ml-4 mt-4 col-md-6 col-lg-6">
                 <div class="button-export">
-                    <a href="" class="btn btn-success mb-3">Export Excel</a>
+                    <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
+                    <a href="" class="btn btn-primary mb-3">Import Excel</a>
                 </div>
                 <table class="table table-bordered">
                     <thead class="thead-dark">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\WfmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,9 @@ Route::post('/database/tambah',[DatabaseController::class, 'store'])->name('data
 Route::get('/database/edit/{database}',[DatabaseController::class, 'edit'])->name('database.edit');
 Route::put('/database/update/',[DatabaseController::class, 'update'])->name('database.update');
 Route::delete('/database/delete/{database}',[DatabaseController::class, 'destroy'])->name('database.destroy');
+Route::get('/export/database',[DatabaseController::class,'databaseexport'])->name('database.export');
+
+// WFM
+Route::get('/wfm',[WfmController::class, 'index'])->name('wfm.index');
+Route::get('/wfm/create',[WfmController::class, 'create'])->name('wfm.create');
+Route::post('/wfm/store',[WfmController::class, 'store'])->name('wfm.store');
