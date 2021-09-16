@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LoginController::class, 'TampilLogin']);
 
 Route::get('/dashboard', function () {
     return view(
@@ -28,6 +26,8 @@ Route::get('/dashboard', function () {
         ]
     );
 });
+<<<<<<< HEAD
+=======
 
 Route::get('login',[LoginController::class,'TampilLogin']);
 
@@ -36,9 +36,13 @@ Route::post('/database/tambah',[DatabaseController::class, 'store'])->name('data
 Route::get('/database/edit/{database}',[DatabaseController::class, 'edit'])->name('database.edit');
 Route::put('/database/update/',[DatabaseController::class, 'update'])->name('database.update');
 Route::delete('/database/delete/{database}',[DatabaseController::class, 'destroy'])->name('database.destroy');
+<<<<<<< HEAD
 Route::get('/export/database',[DatabaseController::class,'databaseexport'])->name('database.export');
 
 // WFM
 Route::get('/wfm',[WfmController::class, 'index'])->name('wfm.index');
 Route::get('/wfm/create',[WfmController::class, 'create'])->name('wfm.create');
 Route::post('/wfm/store',[WfmController::class, 'store'])->name('wfm.store');
+=======
+>>>>>>> c6b26394938ed51f3d6457448ebd199f34e4f01d
+>>>>>>> e63084e4c377fc23ef31f4d55e77da3927a51827

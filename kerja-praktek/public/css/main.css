@@ -1,8 +1,63 @@
--root {
+:root {
     --main-color: #E71618;
     --error-color: #FF3333;
+    --white: #fff;
+    --black: #0f0f0f;
 }
 
-body {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .sidebar  */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 1rem 1.5rem;
     background-color: var(--main-color);
+    color: var(--white);
+    transition: left 300ms;
+    overflow-y: auto;
+}
+
+.logo-brand {
+    margin-bottom: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    margin: 15px 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+ul li:hover {
+    background-color: #fff;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.menu a:hover {
+    color: var(--main-color);
+}
+
+.menu-list i {
+    margin-right: 5px;
+}
+
+/* main */
+
+.main-content {
+    margin-left: 250px;
 }
