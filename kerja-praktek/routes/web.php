@@ -41,6 +41,7 @@ Route::delete('/database/delete/{database}', [DatabaseController::class, 'destro
 
 // Pekerjaan Lapangan Route
 Route::get('/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'index'])->name('pekerjaan_lapangan.index');
+
 // database
 Route::get('/database', [DatabaseController::class, 'index'])->name('database.index');
 Route::get('/database/create', [DatabaseController::class, 'create'])->name('database.create');

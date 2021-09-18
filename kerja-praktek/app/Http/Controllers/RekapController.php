@@ -20,7 +20,7 @@ class RekapController extends Controller
     public function index()
     {
 
-        return view('rekap.index',['rekap' => Rekap::all()]);
+        return view('rekap.index', ["title" => "Rekap", 'rekap' => Rekap::all()]);
     }
 
     /**
@@ -30,7 +30,7 @@ class RekapController extends Controller
      */
     public function create()
     {
-        return view('rekap.create');
+        return view('rekap.create', ["title" => "Rekap"]);
     }
 
     /**
@@ -39,7 +39,7 @@ class RekapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Rekap $rekap)
+    public function store(Request $request, Rekap $rekap)
     {
         $rekap->no = $request->no;
         $rekap->olo = $request->olo;
@@ -75,7 +75,7 @@ class RekapController extends Controller
     public function edit(Rekap $rekap)
     {
 
-        return view('rekap.edit',['rekap' => $rekap]);
+        return view('rekap.edit', ['rekap' => $rekap]);
     }
 
     /**
@@ -117,6 +117,6 @@ class RekapController extends Controller
 
     public function exportRekap()
     {
-        return Excel::download(new RekapExport,'rekap.xlsx');
+        return Excel::download(new RekapExport, 'rekap.xlsx');
     }
 }

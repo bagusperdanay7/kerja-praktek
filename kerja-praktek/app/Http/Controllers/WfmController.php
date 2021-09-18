@@ -20,7 +20,7 @@ class WfmController extends Controller
     public function index()
     {
 
-        return view('wfm.index', ['wfms' => Wfm::all()]);
+        return view('wfm.index', ["title" => "WFM", 'wfms' => Wfm::all()]);
     }
 
     /**
@@ -31,7 +31,7 @@ class WfmController extends Controller
     public function create()
     {
 
-        return view('wfm.create',['database' => Database::all()]);
+        return view('wfm.create', ["title" => "WFM Tambah Data", 'database' => Database::all()]);
     }
 
     /**
@@ -43,54 +43,53 @@ class WfmController extends Controller
     public function store(Request $request, Wfm $wfm)
     {
 
-            $wfm->no = $request->no;
-            $wfm->tgl_bulan_th = $request->tgl_bulan_th;
-            $wfm->no_ao = $request->no_ao;
-            $wfm->witel = $request->witel;
-            $wfm->olo_isp = $request->olo_isp;
-            $wfm->site_kriteria = $request->site_kriteria;
-            $wfm->sid = $request->sid;
-            $wfm->site_id = $request->site_id;
-            $wfm->order_type= $request->order_type;
-            $wfm->produk = $request->produk;
-            $wfm->satuan = $request->satuan;
-            $wfm->kapasitas_bw = $request->kapasitas_bw;
-            $wfm->longitude = $request->longitude;
-            $wfm->latitude = $request->latitude;
-            $wfm->alamat_asal = $request->alamat_asal;
-            $wfm->alamat_tujuan = $request->alamat_tujuan;
-            $wfm->status_ncx = $request->status_ncx;
-            $wfm->berita_acara = $request->berita_acara;
-            $wfm->tgl_complete = $request->tgl_complete;
-            $wfm->status_wfm = $request->status_wfm;
-            $wfm->alasan_cancel = $request->alasan_cancel;
-            $wfm->cancel_by = $request->cancel_by;
-            $wfm->start_cancel = $request->start_cancel;
-            $wfm->ready_after_cancel = $request->ready_after_cancel;
-            $wfm->integrasi = $request->integrasi;
-            $wfm->metro = $request->metro;
-            $wfm->ip = $request->ip;
-            $wfm->port = $request->port;
-            $wfm->metro2 = $request->metro2;
-            $wfm->ip2  = $request->ip2;
-            $wfm->port2 = $request->port2;
-            $wfm->vlan = $request->vlan;
-            $wfm->vcid = $request->vcid;
-            $wfm->gpon = $request->gpon;
-            $wfm->ip3 = $request->ip3;
-            $wfm->port3 = $request->port3;
-            $wfm->sn = $request->sn;
-            $wfm->port4 = $request->port4;
-            $wfm->type = $request->type;
-            $wfm->nama = $request->nama;
-            $wfm->ip4 = $request->ip4;
-            $wfm->downlink = $request->downlink;
-            $wfm->type2 = $request->type2;
-            $wfm->capture_done = $request->capture_done;
-            $wfm->pic = $request->pic;
-            $wfm->save();
-            return redirect()->route('wfm.index');
-
+        $wfm->no = $request->no;
+        $wfm->tgl_bulan_th = $request->tgl_bulan_th;
+        $wfm->no_ao = $request->no_ao;
+        $wfm->witel = $request->witel;
+        $wfm->olo_isp = $request->olo_isp;
+        $wfm->site_kriteria = $request->site_kriteria;
+        $wfm->sid = $request->sid;
+        $wfm->site_id = $request->site_id;
+        $wfm->order_type = $request->order_type;
+        $wfm->produk = $request->produk;
+        $wfm->satuan = $request->satuan;
+        $wfm->kapasitas_bw = $request->kapasitas_bw;
+        $wfm->longitude = $request->longitude;
+        $wfm->latitude = $request->latitude;
+        $wfm->alamat_asal = $request->alamat_asal;
+        $wfm->alamat_tujuan = $request->alamat_tujuan;
+        $wfm->status_ncx = $request->status_ncx;
+        $wfm->berita_acara = $request->berita_acara;
+        $wfm->tgl_complete = $request->tgl_complete;
+        $wfm->status_wfm = $request->status_wfm;
+        $wfm->alasan_cancel = $request->alasan_cancel;
+        $wfm->cancel_by = $request->cancel_by;
+        $wfm->start_cancel = $request->start_cancel;
+        $wfm->ready_after_cancel = $request->ready_after_cancel;
+        $wfm->integrasi = $request->integrasi;
+        $wfm->metro = $request->metro;
+        $wfm->ip = $request->ip;
+        $wfm->port = $request->port;
+        $wfm->metro2 = $request->metro2;
+        $wfm->ip2  = $request->ip2;
+        $wfm->port2 = $request->port2;
+        $wfm->vlan = $request->vlan;
+        $wfm->vcid = $request->vcid;
+        $wfm->gpon = $request->gpon;
+        $wfm->ip3 = $request->ip3;
+        $wfm->port3 = $request->port3;
+        $wfm->sn = $request->sn;
+        $wfm->port4 = $request->port4;
+        $wfm->type = $request->type;
+        $wfm->nama = $request->nama;
+        $wfm->ip4 = $request->ip4;
+        $wfm->downlink = $request->downlink;
+        $wfm->type2 = $request->type2;
+        $wfm->capture_done = $request->capture_done;
+        $wfm->pic = $request->pic;
+        $wfm->save();
+        return redirect()->route('wfm.index');
     }
 
     /**
@@ -113,7 +112,7 @@ class WfmController extends Controller
     public function edit(Wfm $wfm)
     {
 
-        return view('wfm.edit',['database' => Database::all(),'wfm' => $wfm]);
+        return view('wfm.edit', ['database' => Database::all(), 'wfm' => $wfm]);
     }
 
     /**
@@ -127,53 +126,53 @@ class WfmController extends Controller
     {
 
 
-            $wfm->no = $request->no;
-            $wfm->tgl_bulan_th = $request->tgl_bulan_th;
-            $wfm->no_ao = $request->no_ao;
-            $wfm->witel = $request->witel;
-            $wfm->olo_isp = $request->olo_isp;
-            $wfm->site_kriteria = $request->site_kriteria;
-            $wfm->sid = $request->sid;
-            $wfm->site_id = $request->site_id;
-            $wfm->order_type= $request->order_type;
-            $wfm->produk = $request->produk;
-            $wfm->satuan = $request->satuan;
-            $wfm->kapasitas_bw = $request->kapasitas_bw;
-            $wfm->longitude = $request->longitude;
-            $wfm->latitude = $request->latitude;
-            $wfm->alamat_asal = $request->alamat_asal;
-            $wfm->alamat_tujuan = $request->alamat_tujuan;
-            $wfm->status_ncx = $request->status_ncx;
-            $wfm->berita_acara = $request->berita_acara;
-            $wfm->tgl_complete = $request->tgl_complete;
-            $wfm->status_wfm = $request->status_wfm;
-            $wfm->alasan_cancel = $request->alasan_cancel;
-            $wfm->cancel_by = $request->cancel_by;
-            $wfm->start_cancel = $request->start_cancel;
-            $wfm->ready_after_cancel = $request->ready_after_cancel;
-            $wfm->integrasi = $request->integrasi;
-            $wfm->metro = $request->metro;
-            $wfm->ip = $request->ip;
-            $wfm->port = $request->port;
-            $wfm->metro2 = $request->metro2;
-            $wfm->ip2  = $request->ip2;
-            $wfm->port2 = $request->port2;
-            $wfm->vlan = $request->vlan;
-            $wfm->vcid = $request->vcid;
-            $wfm->gpon = $request->gpon;
-            $wfm->ip3 = $request->ip3;
-            $wfm->port3 = $request->port3;
-            $wfm->sn = $request->sn;
-            $wfm->port4 = $request->port4;
-            $wfm->type = $request->type;
-            $wfm->nama = $request->nama;
-            $wfm->ip4 = $request->ip4;
-            $wfm->downlink = $request->downlink;
-            $wfm->type2 = $request->type2;
-            $wfm->capture_done = $request->capture_done;
-            $wfm->pic = $request->pic;
-            $wfm->save();
-            return redirect()->route('wfm.index');
+        $wfm->no = $request->no;
+        $wfm->tgl_bulan_th = $request->tgl_bulan_th;
+        $wfm->no_ao = $request->no_ao;
+        $wfm->witel = $request->witel;
+        $wfm->olo_isp = $request->olo_isp;
+        $wfm->site_kriteria = $request->site_kriteria;
+        $wfm->sid = $request->sid;
+        $wfm->site_id = $request->site_id;
+        $wfm->order_type = $request->order_type;
+        $wfm->produk = $request->produk;
+        $wfm->satuan = $request->satuan;
+        $wfm->kapasitas_bw = $request->kapasitas_bw;
+        $wfm->longitude = $request->longitude;
+        $wfm->latitude = $request->latitude;
+        $wfm->alamat_asal = $request->alamat_asal;
+        $wfm->alamat_tujuan = $request->alamat_tujuan;
+        $wfm->status_ncx = $request->status_ncx;
+        $wfm->berita_acara = $request->berita_acara;
+        $wfm->tgl_complete = $request->tgl_complete;
+        $wfm->status_wfm = $request->status_wfm;
+        $wfm->alasan_cancel = $request->alasan_cancel;
+        $wfm->cancel_by = $request->cancel_by;
+        $wfm->start_cancel = $request->start_cancel;
+        $wfm->ready_after_cancel = $request->ready_after_cancel;
+        $wfm->integrasi = $request->integrasi;
+        $wfm->metro = $request->metro;
+        $wfm->ip = $request->ip;
+        $wfm->port = $request->port;
+        $wfm->metro2 = $request->metro2;
+        $wfm->ip2  = $request->ip2;
+        $wfm->port2 = $request->port2;
+        $wfm->vlan = $request->vlan;
+        $wfm->vcid = $request->vcid;
+        $wfm->gpon = $request->gpon;
+        $wfm->ip3 = $request->ip3;
+        $wfm->port3 = $request->port3;
+        $wfm->sn = $request->sn;
+        $wfm->port4 = $request->port4;
+        $wfm->type = $request->type;
+        $wfm->nama = $request->nama;
+        $wfm->ip4 = $request->ip4;
+        $wfm->downlink = $request->downlink;
+        $wfm->type2 = $request->type2;
+        $wfm->capture_done = $request->capture_done;
+        $wfm->pic = $request->pic;
+        $wfm->save();
+        return redirect()->route('wfm.index');
     }
 
     /**
@@ -191,7 +190,7 @@ class WfmController extends Controller
 
     public function exportWfm()
     {
-        return Excel::download(new WfmExport,'wfm.xlsx');
+        return Excel::download(new WfmExport, 'wfm.xlsx');
     }
 
     public function importWfm(Request $request, Wfm $wfm)
@@ -200,7 +199,7 @@ class WfmController extends Controller
         $namaFile = $file->getClientOriginalName();
         $file->move('database_temp', $namaFile);
 
-        Excel::import(new WfmImport, public_path('/database_temp/'.$namaFile));
+        Excel::import(new WfmImport, public_path('/database_temp/' . $namaFile));
 
         return redirect()->route('wfm.index');
     }
