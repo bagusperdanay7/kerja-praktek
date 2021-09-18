@@ -22,7 +22,14 @@ class DatabaseFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'witel'=>$this->faker->name(),
+            'olo_isp'=>$this->faker->name(),
+            'site_kriteria'=>$this->faker->name(),
+            'order_type'=>$this->faker->name(),
+            'produk'=>$this->faker->name(),
+            'satuan'=>$this->faker->name(),
+            'status_ncx'=>$this->faker->name()
+
         ];
     }
 }

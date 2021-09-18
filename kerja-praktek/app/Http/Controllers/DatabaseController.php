@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Database;
 use Illuminate\Http\Request;
+use App\Exports\DatabaseExport;
+use App\Imports\DatabaseImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DatabaseController extends Controller
 {
@@ -26,7 +29,7 @@ class DatabaseController extends Controller
      */
     public function create()
     {
-        //
+        return view('database_table.create');
     }
 
     /**
@@ -46,7 +49,7 @@ class DatabaseController extends Controller
         $database->status_ncx = $request->status_ncx;
         $database->save();
 
-        return back();
+        return redirect()->route('database.index');
     }
 
     /**
@@ -113,5 +116,21 @@ class DatabaseController extends Controller
     {
         $database->delete();
         return back();
+    }
+
+    public function databaseexport()
+    {
+        return Excel::download(new DatabaseExport,'database.xlsx');
+    }
+
+    public function databaseimport(Request $request, Database $database)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('database_temp', $namaFile);
+
+        Excel::import(new DatabaseImport, public_path('/database_temp/'.$namaFile));
+
+        return redirect()->route('database.index');
     }
 }
