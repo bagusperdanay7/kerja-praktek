@@ -16,7 +16,7 @@ class DatabaseController extends Controller
     public function index()
     {
 
-        return view('database_table.index',['datas' => Database::all()]);
+        return view('database_table.index', ["title" => "Database", "datas" => Database::all()]);
     }
 
     /**
@@ -69,7 +69,7 @@ class DatabaseController extends Controller
     public function edit(Database $database)
     {
 
-        return view('database_table.edit',compact('database'));
+        return view('database_table.edit', compact('database'));
     }
 
     /**

@@ -18,7 +18,64 @@
     @include('template.sidebar')
     
     <div class="main-content">
-     @yield('contain')
+      {{-- sidebar mobile --}}
+      <nav>
+        <div class="sidebar-mobile disable-mobile-sidebar shadow-sm">
+          <span class="close-bar">
+            <i class="fas fa-times"></i>
+          </span>
+            <div class="logo-brand">
+                <img src="https://www.telkom.co.id/images/logo_horizontal.svg" alt="telkom logo" width="200px">
+            </div>
+            <ul class="menu">
+                <li class="menu-list {{ ($title === "Dashboard") ? 'active-menu' : '' }}">
+                    <a href="/dashboard" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
+                        <i class="fas fa-home"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="menu-list">
+                    <a href="" id="navbarDropdown-mobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-table"></i> Data Master 
+                        <i class="float-right mt-1 fas fa-caret-down" id="arrow-mobile"></i>
+                    </a>
+                    <ul class="datamaster-mobile disable-menu">
+                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
+                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
+                        </li>
+                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
+                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> WFM</a>
+                        </li>
+                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
+                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> OSM</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="copyright-mobile">
+                  <span class="copyright">&copy; 2021 Telkom Indonesia</span>
+                 </li>
+            </ul>
+        </div>
+      </nav>
+
+      <!-- Contain -->
+      <div class="header d-flex justify-content-between">
+        <span class="icon-bar" role="button">
+          <i class="fas fa-bars" id="bar-icon"></i>
+        </span>
+        <div class="">
+            <img src="img/user.png" role="button" alt="user profile" class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 48px">
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="user-menu">
+            <a class="dropdown-item" href="#">User Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/">Logout</a>
+          </div>
+        </div>
+      </div>
+
+      @yield('contain')
     </div>
 
     @include('template.footer')
@@ -31,6 +88,9 @@
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- JS Custom -->
+    <script src="js/main.js"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
