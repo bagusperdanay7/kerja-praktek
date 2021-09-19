@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     {{-- CSS Custom --}}
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.css">
     <title>{{ $title }}</title>
@@ -30,7 +30,7 @@
             </div>
             <ul class="menu">
                 <li class="menu-list {{ ($title === "Dashboard") ? 'active-menu' : '' }}">
-                    <a href="/dashboard" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.index') }}" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
                         <i class="fas fa-home"></i>
                         Dashboard
                     </a>
@@ -41,20 +41,26 @@
                         <i class="float-right mt-1 fas fa-caret-down" id="arrow-mobile"></i>
                     </a>
                     <ul class="datamaster-mobile disable-menu">
-                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
+                        <li class="drop-menu {{ ($title === "Database") ? 'active-menu' : '' }}">
+                          <a href="{{ route('database.index') }}" class="{{ ($title === "Database") ? 'active' : '' }}"> Database</a>
                         </li>
                         <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> WFM</a>
+                            <a href="{{ route('pekerjaan_lapangan.index') }}" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
                         </li>
-                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                            <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> OSM</a>
+                        <li class="drop-menu {{ ($title === "WFM") ? 'active-menu' : '' }}">
+                            <a href="{{ route('wfm.index') }}" class="{{ ($title === "WFM") ? 'active' : '' }}"> WFM</a>
                         </li>
+                        <li class="drop-menu {{ ($title === "OSM") ? 'active-menu' : '' }}">
+                            <a href="" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
+                        </li>
+                        <li class="drop-menu {{ ($title === "Rekap") ? 'active-menu' : '' }}">
+                          <a href="{{ route('rekap.index') }}" class="{{ ($title === "Rekap") ? 'active' : '' }}"> Rekap</a>
+                      </li>
                     </ul>
                 </li>
                 <li class="copyright-mobile">
                   <span class="copyright">&copy; 2021 Telkom Indonesia</span>
-                 </li>
+                </li>
             </ul>
         </div>
       </nav>
@@ -65,13 +71,13 @@
           <i class="fas fa-bars" id="bar-icon"></i>
         </span>
         <div class="">
-            <img src="img/user.png" role="button" alt="user profile" class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 48px">
+            <img src="{{ asset('img/user.png') }}" role="button" alt="user profile" class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 48px">
           </a>
 
-          <div class="dropdown-menu" aria-labelledby="user-menu">
+          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="user-menu">
             <a class="dropdown-item" href="#">User Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/">Logout</a>
+            <a class="dropdown-item" href="{{ route('login') }}">Logout</a>
           </div>
         </div>
       </div>
@@ -89,7 +95,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
     <!-- JS Custom -->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
 
     <script>

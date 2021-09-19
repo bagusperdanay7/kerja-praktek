@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Login
-Route::get('/', [LoginController::class, 'TampilLogin']);
+Route::get('/', [LoginController::class, 'TampilLogin'])->name('login');
 
 // Route Dashboard
 Route::get('/dashboard', function () {
@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
             "title" => "Dashboard"
         ]
     );
-});
+})->name('dashboard.index');
 
 // Route Database
 Route::get('/database', [DatabaseController::class, 'index'])->name('database.index');

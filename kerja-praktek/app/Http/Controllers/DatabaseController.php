@@ -29,7 +29,7 @@ class DatabaseController extends Controller
      */
     public function create()
     {
-        return view('database_table.create');
+        return view('database_table.create', ["title" => "Tambah Data - Database"]);
     }
 
     /**
@@ -72,7 +72,7 @@ class DatabaseController extends Controller
     public function edit(Database $database)
     {
 
-        return view('database_table.edit', compact('database'));
+        return view('database_table.edit', compact('database'), ["title" => "Edit Data - Database"]);
     }
 
     /**
@@ -120,7 +120,7 @@ class DatabaseController extends Controller
 
     public function databaseexport()
     {
-        return Excel::download(new DatabaseExport,'database.xlsx');
+        return Excel::download(new DatabaseExport, 'database.xlsx');
     }
 
     public function databaseimport(Request $request, Database $database)
@@ -129,7 +129,7 @@ class DatabaseController extends Controller
         $namaFile = $file->getClientOriginalName();
         $file->move('database_temp', $namaFile);
 
-        Excel::import(new DatabaseImport, public_path('/database_temp/'.$namaFile));
+        Excel::import(new DatabaseImport, public_path('/database_temp/' . $namaFile));
 
         return redirect()->route('database.index');
     }

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     {{-- CSS Custom --}}
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <title>404 Laman Yang Dicari Tidak Ada!</title>
   </head>
@@ -25,7 +25,7 @@
                         <h3 class="error-heading">Maaf, Halaman Tidak Ada</h3>
                         <p class="">Halaman Yang Anda Cari Tidak Ada</p>
                         <h1 class="error-404">404</h1>
-                        <a href="/dashboard" class="btn btn-main">Kembali Ke Dashboard</a>
+                        <a href="{{ route('dashboard.index') }}" class="btn btn-main">Kembali Ke Dashboard</a>
                 </div>
             </div>
     </div>

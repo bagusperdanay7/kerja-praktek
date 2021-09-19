@@ -5,7 +5,7 @@
         </div>
         <ul class="menu">
             <li class="menu-list {{ ($title === "Dashboard") ? 'active-menu' : '' }}">
-                <a href="/dashboard" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
+                <a href="{{ route('dashboard.index') }}" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
                     <i class="fas fa-home"></i>
                     Dashboard
                 </a>
@@ -20,13 +20,13 @@
                         <a href="{{ route('database.index') }}" class="{{ ($title === "Database") ? 'active' : '' }}"> Database</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                        <a href="/pekerjaan_lapangan" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
+                        <a href="{{ route('pekerjaan_lapangan.index') }}" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
                     </li>
                     <li class="drop-menu {{ ($title === "WFM") ? 'active-menu' : '' }}">
                         <a href="{{ route('wfm.index') }}" class="{{ ($title === "WFM") ? 'active' : '' }}"> WFM</a>
                     </li>
                     <li class="drop-menu {{ ($title === "OSM") ? 'active-menu' : '' }}">
-                        <a href="/osm" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
+                        <a href="" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Rekap") ? 'active-menu' : '' }}">
                         <a href="{{ route('rekap.index') }}" class="{{ ($title === "Rekap") ? 'active' : '' }}"> Rekap</a>

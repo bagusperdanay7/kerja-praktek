@@ -31,7 +31,7 @@ class WfmController extends Controller
     public function create()
     {
 
-        return view('wfm.create', ["title" => "WFM Tambah Data", 'database' => Database::all()]);
+        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all()]);
     }
 
     /**
@@ -112,7 +112,7 @@ class WfmController extends Controller
     public function edit(Wfm $wfm)
     {
 
-        return view('wfm.edit', ['database' => Database::all(), 'wfm' => $wfm]);
+        return view('wfm.edit', ["title" => "Edit Data - WFM", 'database' => Database::all(), 'wfm' => $wfm]);
     }
 
     /**

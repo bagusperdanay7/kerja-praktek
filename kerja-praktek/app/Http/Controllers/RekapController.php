@@ -31,7 +31,7 @@ class RekapController extends Controller
      */
     public function create()
     {
-        return view('rekap.create', ["title" => "Rekap",'database' => Database::all()]);
+        return view('rekap.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
     }
 
     /**
@@ -76,7 +76,7 @@ class RekapController extends Controller
     public function edit(Rekap $rekap)
     {
 
-        return view('rekap.edit', ['rekap' => $rekap]);
+        return view('rekap.edit', ["rekap" => $rekap, "title" => "Edit Data - Rekap"]);
     }
 
     /**
