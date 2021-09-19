@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Database;
 use App\Exports\RekapExport;
 use App\Http\Controllers\Controller;
 use App\Models\Rekap;
@@ -30,7 +31,7 @@ class RekapController extends Controller
      */
     public function create()
     {
-        return view('rekap.create', ["title" => "Rekap"]);
+        return view('rekap.create', ["title" => "Rekap",'database' => Database::all()]);
     }
 
     /**
