@@ -26,11 +26,8 @@ return array(
     'App\\Imports\\DatabaseImport' => $baseDir . '/app/Imports/DatabaseImport.php',
     'App\\Imports\\WfmImport' => $baseDir . '/app/Imports/WfmImport.php',
     'App\\Models\\Database' => $baseDir . '/app/Models/Database.php',
-<<<<<<< HEAD
     'App\\Models\\PekerjaanLapangan' => $baseDir . '/app/Models/PekerjaanLapangan.php',
-=======
     'App\\Models\\Rekap' => $baseDir . '/app/Models/Rekap.php',
->>>>>>> c817031877fa68612496c494a332b0edc265c43e
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Wfm' => $baseDir . '/app/Models/Wfm.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
@@ -143,11 +140,8 @@ return array(
     'Cron\\MinutesField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
     'Cron\\MonthField' => $vendorDir . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
     'Database\\Factories\\DatabaseFactory' => $baseDir . '/database/factories/DatabaseFactory.php',
-<<<<<<< HEAD
     'Database\\Factories\\PekerjaanLapanganFactory' => $baseDir . '/database/factories/PekerjaanLapanganFactory.php',
-=======
     'Database\\Factories\\RekapFactory' => $baseDir . '/database/factories/RekapFactory.php',
->>>>>>> c817031877fa68612496c494a332b0edc265c43e
     'Database\\Factories\\UserFactory' => $baseDir . '/database/factories/UserFactory.php',
     'Database\\Factories\\WfmFactory' => $baseDir . '/database/factories/WfmFactory.php',
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',

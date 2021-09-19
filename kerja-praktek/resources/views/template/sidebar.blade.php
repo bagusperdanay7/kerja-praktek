@@ -20,13 +20,13 @@
                         <a href="{{ route('database.index') }}" class="{{ ($title === "Database") ? 'active' : '' }}"> Database</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                        <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
+                        <a href="/pekerjaan_lapangan" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
                     </li>
-                    <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                        <a href="{{ route('wfm.index') }}" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> WFM</a>
+                    <li class="drop-menu {{ ($title === "WFM") ? 'active-menu' : '' }}">
+                        <a href="{{ route('wfm.index') }}" class="{{ ($title === "WFM") ? 'active' : '' }}"> WFM</a>
                     </li>
-                    <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                        <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> OSM</a>
+                    <li class="drop-menu {{ ($title === "OSM") ? 'active-menu' : '' }}">
+                        <a href="/osm" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Rekap") ? 'active-menu' : '' }}">
                         <a href="{{ route('rekap.index') }}" class="{{ ($title === "Rekap") ? 'active' : '' }}"> Rekap</a>
@@ -34,7 +34,7 @@
                 </ul>
             </li>
             <li class="">
-             <span class="fixed-bottom copyright">&copy; 2021 Telkom Indonesia</span>
+                <span class="fixed-bottom copyright">&copy; 2021 Telkom Indonesia</span>
             </li>
         </ul>
     </div>

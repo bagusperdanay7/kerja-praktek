@@ -79,8 +79,6 @@
       @yield('contain')
     </div>
 
-    @include('template.footer')
-
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/22172a4fcb.js" crossorigin="anonymous"></script>
 
