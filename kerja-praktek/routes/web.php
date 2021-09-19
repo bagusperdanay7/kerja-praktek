@@ -90,3 +90,4 @@ Route::put('/rekap/update/{rekap}', [RekapController::class, 'update'])->name('r
 Route::delete('/rekap/delete/{rekap}', [RekapController::class, 'destroy'])->name('rekap.destroy');
 
 Route::get('/export/rekap', [RekapController::class, 'exportRekap'])->name('rekap.export');
+Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rekap.import');

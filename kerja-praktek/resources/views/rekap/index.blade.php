@@ -1,7 +1,6 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="card mt-3 mx-3">
@@ -66,7 +65,6 @@
                     </table>
                 </div>
             </div>
-        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,7 +77,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('database.import')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('rekap.import')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlFile1">Pilih file</label>

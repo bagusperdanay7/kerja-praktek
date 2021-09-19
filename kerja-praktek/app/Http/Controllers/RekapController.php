@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Database;
 use App\Exports\RekapExport;
+use App\Imports\RekapImport;
 use App\Http\Controllers\Controller;
 use App\Models\Rekap;
 use Illuminate\Http\Request;
@@ -119,5 +120,15 @@ class RekapController extends Controller
     public function exportRekap()
     {
         return Excel::download(new RekapExport, 'rekap.xlsx');
+    }
+    public function importRekap(Request $request, Rekap $rekap)
+    {
+        $file = $request->file('file');
+        $namaFile = $file->getClientOriginalName();
+        $file->move('database_temp', $namaFile);
+
+        Excel::import(new RekapImport, public_path('/database_temp/' . $namaFile));
+
+        return redirect()->route('rekap.index');
     }
 }
