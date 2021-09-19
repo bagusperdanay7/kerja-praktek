@@ -28,6 +28,9 @@
                     <li class="drop-menu {{ ($title === "OSM") ? 'active-menu' : '' }}">
                         <a href="/osm" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
                     </li>
+                    <li class="drop-menu {{ ($title === "Rekap") ? 'active-menu' : '' }}">
+                        <a href="{{ route('rekap.index') }}" class="{{ ($title === "Rekap") ? 'active' : '' }}"> Rekap</a>
+                    </li>
                 </ul>
             </li>
             <li class="">

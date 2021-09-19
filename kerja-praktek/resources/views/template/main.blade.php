@@ -11,12 +11,13 @@
     {{-- CSS Custom --}}
     <link rel="stylesheet" href="css/main.css">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.css">
     <title>{{ $title }}</title>
   </head>
   <body>
 
     @include('template.sidebar')
-    
+
     <div class="main-content">
       {{-- sidebar mobile --}}
       <nav>
@@ -36,7 +37,7 @@
                 </li>
                 <li class="menu-list">
                     <a href="" id="navbarDropdown-mobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-table"></i> Data Master 
+                        <i class="fas fa-table"></i> Data Master
                         <i class="float-right mt-1 fas fa-caret-down" id="arrow-mobile"></i>
                     </a>
                     <ul class="datamaster-mobile disable-menu">
@@ -66,7 +67,7 @@
         <div class="">
             <img src="img/user.png" role="button" alt="user profile" class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 48px">
           </a>
-        
+
           <div class="dropdown-menu" aria-labelledby="user-menu">
             <a class="dropdown-item" href="#">User Profile</a>
             <div class="dropdown-divider"></div>
@@ -89,7 +90,13 @@
 
     <!-- JS Custom -->
     <script src="js/main.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
 
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
