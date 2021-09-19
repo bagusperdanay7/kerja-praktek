@@ -17,7 +17,7 @@
 
     <div class="container">
         <div class="logo-brand mt-5">
-            Logo Telkom
+          <img src="https://www.telkom.co.id/images/logo_horizontal.svg" alt="telkom logo" width="200px">
         </div>
         <div class="row align-items-center">
             <div class="col d-flex justify-content-center">
