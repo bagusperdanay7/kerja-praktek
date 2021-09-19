@@ -12,15 +12,18 @@
             </li>
             <li class="menu-list">
                 <a href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-table"></i> Data Master 
+                    <i class="fas fa-table"></i> Data Master
                     <i class="float-right mt-1 fas fa-caret-down" id="arrow"></i>
                 </a>
                 <ul class="datamaster-menu disable-menu">
+                    <li class="drop-menu {{ ($title === "Database") ? 'active-menu' : '' }}">
+                        <a href="{{ route('database.index') }}" class="{{ ($title === "Database") ? 'active' : '' }}"> Database</a>
+                    </li>
                     <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
                         <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                        <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> WFM</a>
+                        <a href="{{ route('wfm.index') }}" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> WFM</a>
                     </li>
                     <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
                         <a href="" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> OSM</a>

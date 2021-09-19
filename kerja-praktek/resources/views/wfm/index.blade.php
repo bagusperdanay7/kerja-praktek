@@ -1,10 +1,9 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <div class="card">
+            <div class="card mt-3 mx-3">
                 <div class="card-header">
                     <h1>DATA WFM</h1>
                     <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a>
@@ -127,7 +126,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
     <!-- Modal -->

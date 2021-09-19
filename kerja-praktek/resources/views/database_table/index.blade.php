@@ -1,10 +1,9 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <div class="card px-4 py-4">
+            <div class="card mt-3 mx-3">
                 <div class="card-header">
                     <div class="button-export mt-4">
                         <h1>Database</h1>
@@ -63,7 +62,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
