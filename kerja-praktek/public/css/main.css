@@ -161,6 +161,11 @@ body {
     font-size: 48px;
 }
 
+/* Pekerjaan Lapangan Index.blade */
+.dropleft span {
+    cursor: pointer;
+}
+
 /* Error Page */
 .error-heading {
     font-weight: 700;

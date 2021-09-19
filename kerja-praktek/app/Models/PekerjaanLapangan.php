@@ -9,5 +9,5 @@ class PekerjaanLapangan extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = ['tanggal', 'witel', 'kegiatan', 'no_ao', 'olo', 'lokasi', 'layanan', 'bandwidth', 'datek_gpon', 'datek_odp', 'keterangan'];
 }

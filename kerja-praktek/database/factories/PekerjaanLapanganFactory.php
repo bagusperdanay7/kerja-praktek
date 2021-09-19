@@ -22,7 +22,18 @@ class PekerjaanLapanganFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'tanggal' => $this->faker->date(),
+            'witel' => $this->faker->city(),
+            'kegiatan' => $this->faker->sentence(3),
+            'no_ao' => $this->faker->randomNumber(5, true),
+            'olo' => $this->faker->company(),
+            'lokasi' => $this->faker->address(),
+            'layanan' => $this->faker->word(),
+            'bandwidth' => $this->faker->numberBetween(1, 100),
+            'datek_gpon' => $this->faker->word(),
+            'datek_odp' => $this->faker->word(),
+            'keterangan' => $this->faker->sentence(5),
+
         ];
     }
 }

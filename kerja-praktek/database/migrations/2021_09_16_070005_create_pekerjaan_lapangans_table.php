@@ -15,11 +15,13 @@ class CreatePekerjaanLapangansTable extends Migration
     {
         Schema::create('pekerjaan_lapangans', function (Blueprint $table) {
             $table->id();
+            $table->integer('no')->nullable();
             $table->date('tanggal')->nullable();
             $table->string('witel')->nullable();
             $table->string('kegiatan')->nullable();
             $table->string('no_ao')->nullable()->unique();
             $table->string('olo')->nullable();
+            $table->string('lokasi')->nullable();
             $table->string('layanan')->nullable();
             $table->string('bandwidth')->nullable();
             $table->string('datek_gpon')->nullable();
