@@ -11,7 +11,6 @@ class Wfm extends Model
     protected $fillable = [
         'no',
         'tgl_bulan_th',
-        // relasi dengan database
         'no_ao',
         'witel',
         'olo_isp',
@@ -56,9 +55,4 @@ class Wfm extends Model
         'capture_done',
         'pic'
     ];
-
-    public function database()
-    {
-        return $this->belongsTo(Database::class);
-    }
 }

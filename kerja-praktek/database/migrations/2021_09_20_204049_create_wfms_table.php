@@ -15,10 +15,9 @@ class CreateWfmsTable extends Migration
     {
         Schema::create('wfms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('database_id')->nullable()->constrained('databases')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('rekap_id')->constrained('rekaps')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('no')->nullable();
             $table->date('tgl_bulan_th')->nullable();
-            // relasi dengan database
             $table->string('no_ao')->nullable();
             $table->string('witel')->nullable();
             $table->string('olo_isp')->nullable();
@@ -62,10 +61,6 @@ class CreateWfmsTable extends Migration
             $table->string('type2')->nullable();
             $table->string('capture_done')->nullable();
             $table->string('pic')->nullable();
-
-
-
-
             $table->timestamps();
         });
     }

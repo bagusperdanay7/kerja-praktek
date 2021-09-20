@@ -26,6 +26,8 @@ class CreateRekapsTable extends Migration
             $table->integer('resume')->nullable();
             $table->integer('suspend')->nullable();
             $table->timestamps();
+
+
         });
     }
 
