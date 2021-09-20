@@ -1,7 +1,7 @@
 <nav>
     <div class="sidebar shadow-sm">
         <div class="logo-brand">
-            <img src="https://www.telkom.co.id/images/logo_horizontal.svg" alt="telkom logo" width="200px">
+            <img src="{{ asset('img/telkom.svg') }}" alt="telkom logo" width="200px">
         </div>
         <ul class="menu">
             <li class="menu-list {{ ($title === "Dashboard") ? 'active-menu' : '' }}">

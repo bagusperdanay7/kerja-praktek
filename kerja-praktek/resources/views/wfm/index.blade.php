@@ -14,8 +14,8 @@
                     </button>
                 </div>
                 <div class="card-body">
-                    <table class="table table-responsive table-bordered" id="table_id">
-                        <thead class="thead-dark">
+                    <table class="table table-responsive table-hover" id="table_id">
+                        <thead>
                             <th>NO</th>
                             <th>TGL/BLN/THN</th>
                             <th>NO. AO</th>

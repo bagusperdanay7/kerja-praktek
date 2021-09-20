@@ -166,6 +166,10 @@ body {
     cursor: pointer;
 }
 
+.header-tabel {
+    font-size: 36px;
+}
+
 /* Error Page */
 .error-heading {
     font-weight: 700;

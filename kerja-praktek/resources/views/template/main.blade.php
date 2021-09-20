@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 
     {{-- CSS Custom --}}
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
-    <!-- Icon Lineawesome -->
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!-- Icon Line Awesome -->
+    <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.css">
+    <!-- Data Tables -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}">
     <title>{{ $title }}</title>
   </head>
   <body>
@@ -22,51 +24,6 @@
     @include('template.sidebar')
 
     <div class="main-content">
-      {{-- sidebar mobile --}}
-      <nav>
-        <div class="sidebar-mobile disable-mobile-sidebar shadow-sm">
-          <span class="close-bar">
-            <i class="fas fa-times"></i>
-          </span>
-            <div class="logo-brand">
-                <img src="https://www.telkom.co.id/images/logo_horizontal.svg" alt="telkom logo" width="200px">
-            </div>
-            <ul class="menu">
-                <li class="menu-list {{ ($title === "Dashboard") ? 'active-menu' : '' }}">
-                    <a href="{{ route('dashboard.index') }}" class="{{ ($title === "Dashboard") ? 'active' : '' }}">
-                        <i class="fas fa-home"></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li class="menu-list">
-                    <a href="" id="navbarDropdown-mobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-table"></i> Data Master
-                        <i class="float-right mt-1 fas fa-caret-down" id="arrow-mobile"></i>
-                    </a>
-                    <ul class="datamaster-mobile disable-menu">
-                        <li class="drop-menu {{ ($title === "Database") ? 'active-menu' : '' }}">
-                          <a href="{{ route('database.index') }}" class="{{ ($title === "Database") ? 'active' : '' }}"> Database</a>
-                        </li>
-                        <li class="drop-menu {{ ($title === "Pekerjaan Lapangan") ? 'active-menu' : '' }}">
-                            <a href="{{ route('pekerjaan_lapangan.index') }}" class="{{ ($title === "Pekerjaan Lapangan") ? 'active' : '' }}"> Pekerjaan Lapangan</a>
-                        </li>
-                        <li class="drop-menu {{ ($title === "WFM") ? 'active-menu' : '' }}">
-                            <a href="{{ route('wfm.index') }}" class="{{ ($title === "WFM") ? 'active' : '' }}"> WFM</a>
-                        </li>
-                        <li class="drop-menu {{ ($title === "OSM") ? 'active-menu' : '' }}">
-                            <a href="" class="{{ ($title === "OSM") ? 'active' : '' }}"> OSM</a>
-                        </li>
-                        <li class="drop-menu {{ ($title === "Rekap") ? 'active-menu' : '' }}">
-                          <a href="{{ route('rekap.index') }}" class="{{ ($title === "Rekap") ? 'active' : '' }}"> Rekap</a>
-                      </li>
-                    </ul>
-                </li>
-                <li class="copyright-mobile">
-                  <span class="copyright">&copy; 2021 Telkom Indonesia</span>
-                </li>
-            </ul>
-        </div>
-      </nav>
 
       <!-- Contain -->
       <div class="header d-flex justify-content-between">
@@ -89,28 +46,22 @@
     </div>
 
     <!-- Font Awesome-->
-    <script src="https://kit.fontawesome.com/22172a4fcb.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Bootstrap 4 JS -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- JS Custom -->
     <script src="{{ asset('js/main.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script>
 
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
     </script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>

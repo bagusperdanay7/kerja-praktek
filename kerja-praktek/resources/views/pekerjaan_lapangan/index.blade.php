@@ -1,20 +1,33 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
+<div class="container-fluid ml-2 mb-5">
     <div class="row">
         <div class="col">
-            <h2 class="mt-5">Pekerjaan Lapangan</h2>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#modalTambah">
-                <i class="fas fa-plus mr-2"></i> Tambah Data
-            </button>
-            <a href="{{ route('pekerjaan_lapangan.export') }}" class="btn btn-success mb-4">
-              <i class="fas fa-file-excel mr-2"></i> Export Excel</a>
-            <button type="button" class="btn btn-outline-success mb-4" data-toggle="modal" data-target="#modalExcel">
-              <i class="fas fa-file-excel mr-2"></i> 
-                Import Excel
-            </button>
+            <div class="row mt-5">
+                <div class="col">
+                    <h2 class="header-tabel">Pekerjaan Lapangan</h2>
+                </div>
+                
+                <div class="p-1 bd-highlight">
+                    <button type="button" class="btn btn-main mb-4" data-toggle="modal" data-target="#modalTambah">
+                        <i class="fas fa-plus mr-2"></i> Tambah Data
+                    </button>
+                </div>
+                <div class="p-1 bd-highlight">
+                    <a href="{{ route('pekerjaan_lapangan.export') }}" class="btn btn-success mb-4">
+                        <i class="fas fa-file-excel mr-2"></i> Export Excel</a>
+                </div>
+                <div class="p-1 bd-highlight mr-2">
+                    <button type="button" class="btn btn-outline-success mb-4" data-toggle="modal"
+                        data-target="#modalExcel">
+                        <i class="fas fa-file-excel mr-2"></i>
+                        Import Excel
+                    </button>
+                </div>
+            </div>
+
             <table class="table table-responsive table-hover" id="table_id">
                 <thead>
                     <tr>
@@ -159,7 +172,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-save mr-2"></i> Simpan Perubahan
+                                Simpan Perubahan
                             </button>
                         </div>
                     </form>
@@ -169,32 +182,32 @@
 
         <!-- Modal Excel -->
         <div class="modal fade" id="modalExcel" tabindex="-1" aria-labelledby="modalLabelExcel" aria-hidden="true">
-          <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="modalLabelExcel">Import Excel</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      <form action="{{ route('pekerjaan_lapangan.import')}}" method="POST" enctype="multipart/form-data">
-                          @csrf
-                          <div class="form-group">
-                              <label for="pilihFile">Pilih file</label>
-                              <input type="file" name="file" class="form-control-file" id="pilihFile"
-                                  required>
-                          </div>
-                          <div class="form-group">
-                              <button type="submit" class="btn btn-secondary">Import</button>
-                          </div>
-                      </form>
-                  </div>
-                  <div class="modal-footer">
-                  </div>
-              </div>
-          </div>
-      </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabelExcel">Import Excel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('pekerjaan_lapangan.import')}}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="pilihFile">Pilih file</label>
+                                <input type="file" name="file" class="form-control-file" id="pilihFile" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-secondary">Import</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

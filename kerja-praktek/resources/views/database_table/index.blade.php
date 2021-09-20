@@ -18,8 +18,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-responsive table-bordered" id="table_id">
-                        <thead class="thead-dark">
+                    <table class="table table-responsive table-hover" id="table_id">
+                        <thead>
                             <tr>
                                 <th scope="col">NO</th>
                                 <th scope="col">WITEL</th>

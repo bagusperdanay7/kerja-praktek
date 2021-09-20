@@ -22,7 +22,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Login
-Route::get('/', [LoginController::class, 'TampilLogin'])->name('login');
+Route::get('/',[LoginController::class,'TampilLogin'])->name('login');
+Route::post('/postlogin', [LoginController::class,'PostLogin'])->name('postlogin');
 
 // Route Dashboard
 Route::get('/dashboard', function () {
