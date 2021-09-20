@@ -3,6 +3,7 @@
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
+use App\Http\Controllers\ProgresLapanganController;
 use App\Models\PekerjaanLapangan;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\WfmController;
@@ -91,3 +92,11 @@ Route::delete('/rekap/delete/{rekap}', [RekapController::class, 'destroy'])->nam
 
 Route::get('/export/rekap', [RekapController::class, 'exportRekap'])->name('rekap.export');
 Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rekap.import');
+
+// progres lapangan
+
+Route::get('/progres-lapangan',[ProgresLapanganController::class, 'index'])->name('progres.index');
+Route::get('/progres-lapangan/create',[ProgresLapanganController::class, 'create'])->name('progres.create');
+Route::get('/progres-lapangan/store',[ProgresLapanganController::class, 'store'])->name('progres.store');
+Route::get('/progres-lapangan/edit/{progres}',[ProgresLapanganController::class, 'edit'])->name('progres.edit');
+Route::get('/progres-lapangan/update/{progres}',[ProgresLapanganController::class, 'update'])->name('progres.update');
