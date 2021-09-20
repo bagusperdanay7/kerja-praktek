@@ -21,26 +21,11 @@
   </head>
   <body>
 
-    @include('template.sidebar')
+    @include('template.navbar')
 
     <div class="main-content">
 
       <!-- Contain -->
-      <div class="header d-flex justify-content-between">
-        <span class="icon-bar" role="button">
-          <i class="fas fa-bars" id="bar-icon"></i>
-        </span>
-        <div class="">
-            <img src="{{ asset('img/user.png') }}" role="button" alt="user profile" class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 48px">
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="user-menu">
-            <a class="dropdown-item" href="#">User Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ route('login') }}">Logout</a>
-          </div>
-        </div>
-      </div>
 
       @yield('contain')
     </div>

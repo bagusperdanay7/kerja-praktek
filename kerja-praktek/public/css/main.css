@@ -63,30 +63,13 @@ body {
 }
 
 /* .sidebar  */
-.sidebar {
-    width: 250px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    padding: 1rem 1.5rem;
-    background-color: var(--white-light);
-    color: var(--black-80);
-    transition: left 300ms;
-}
-
-.logo-brand {
-    margin-bottom: 2rem;
-}
 
 ul {
     list-style: none;
 }
 
 ul li {
-    margin: 15px 0;
-    border-radius: 5px;
-    padding: 5px 10px;
+    margin: 5px 0;
 }
 
 .active {
@@ -137,20 +120,6 @@ body {
     background-color: var(--white-background);
 }
 
-.main-content {
-    margin-left: 250px;
-}
-
-.user-pic {
-    margin: 30px 30px 0 0;
-}
-
-.icon-bar {
-    margin: 15px 0 0 15px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
 .header i {
     display: none;
 }
@@ -192,12 +161,9 @@ body {
 
 /* Handphone */
 @media (max-width: 575.98px) {
-    .sidebar {
-        display: none;
-    }
 
     .main-content {
-        margin: 0;
+        margin: 5px;
     }
 
     .header i {
@@ -206,37 +172,7 @@ body {
         margin: 20px 0 0 20px;
     }
 
-    .sidebar-mobile {
-        width: 250px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
-        padding: 1rem 1.5rem;
-        background-color: var(--white-light);
-        color: var(--black-80);
-        transition: left 500ms;
-        z-index: 1;
-    }
-
-    .disable-mobile-sidebar {
-        left: -250px;
-    }
-
-    .copyright-mobile {
-        position: absolute;
-        bottom: 0;
-    }
-
-    .user-pic {
-        margin: 15px 15px 0 0;
-    }
-
 }
 
 /* Tablet */
-@media (min-width: 576px) {
-    .sidebar-mobile {
-        display: none;
-    }
-}
+@media (min-width: 576px) {}
