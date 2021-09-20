@@ -15,17 +15,18 @@ class PekerjaanLapanganImport implements ToModel
     public function model(array $row)
     {
         return new PekerjaanLapangan([
-            'tanggal' => $row[0],
-            'witel' => $row[1],
-            'kegiatan' => $row[2],
-            'no_ao' => $row[3],
-            'olo' => $row[4],
-            'lokasi' => $row[5],
-            'layanan' => $row[6],
-            'bandwidth' => $row[7],
-            'datek_gpon' => $row[8],
-            'datek_odp' => $row[9],
-            'keterangan' => $row[10]
+            'no' => $row[0],
+            'tanggal' => $row[1],
+            'witel' => $row[2],
+            'kegiatan' => $row[3],
+            'no_ao' => $row[4],
+            'olo' => $row[5],
+            'lokasi' => $row[6],
+            'layanan' => $row[7],
+            'bandwidth' => $row[8],
+            'datek_gpon' => $row[9],
+            'datek_odp' => $row[10],
+            'keterangan' => $row[11]
         ]);
     }
 }

@@ -16,7 +16,7 @@ class CreatePekerjaanLapangansTable extends Migration
         Schema::create('pekerjaan_lapangans', function (Blueprint $table) {
             $table->id();
             $table->integer('no')->nullable();
-            $table->date('tanggal')->nullable();
+            $table->string('tanggal')->nullable();
             $table->string('witel')->nullable();
             $table->string('kegiatan')->nullable();
             $table->string('no_ao')->nullable()->unique();

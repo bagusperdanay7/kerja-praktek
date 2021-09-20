@@ -22,6 +22,7 @@ class PekerjaanLapanganFactory extends Factory
     public function definition()
     {
         return [
+            'no' => $this->faker->randomNumber(10, true),
             'tanggal' => $this->faker->date(),
             'witel' => $this->faker->city(),
             'kegiatan' => $this->faker->sentence(3),

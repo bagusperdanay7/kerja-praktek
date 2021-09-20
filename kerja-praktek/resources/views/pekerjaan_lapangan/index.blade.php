@@ -36,10 +36,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1; ?>
                     @foreach ($isidata as $isi)
                     <tr>
-                        <td class="text-center">{{ $i }}</td>
+                        <td class="text-center">{{ $isi->no }}</td>
                         <td>{{ $isi->tanggal }}</td>
                         <td>{{ $isi->witel }}</td>
                         <td>{{ $isi->kegiatan }}</td>
@@ -73,7 +72,6 @@
                             </div>
                         </td>
                     </tr>
-                    <?php $i++; ?>
                     @endforeach
                 </tbody>
             </table>
@@ -92,6 +90,10 @@
                     <form action="{{ route('pekerjaan_lapangan.store') }}" method="POST">
                         <div class="modal-body">
                             @csrf
+                            <div class="form-group">
+                                <label for="no">No</label>
+                                <input type="number" name="no" id="no" class="form-control">
+                            </div>
                             <div class="form-group">
                                 <label for="tanggal">Tanggal</label>
                                 <input type="date" name="tanggal" id="tanggal" class="form-control">

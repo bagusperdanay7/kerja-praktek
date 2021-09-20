@@ -4,8 +4,10 @@ namespace App\Exports;
 
 use App\Models\PekerjaanLapangan;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\WithMapping;
 
-class PekerjaanLapanganExport implements FromCollection
+class PekerjaanLapanganExport implements FromCollection, WithHeadings, WithMapping
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -18,6 +20,7 @@ class PekerjaanLapanganExport implements FromCollection
     public function map($pekerjaanLapangan): array
     {
         return [
+            $pekerjaanLapangan->no,
             $pekerjaanLapangan->tanggal,
             $pekerjaanLapangan->witel,
             $pekerjaanLapangan->kegiatan,
@@ -35,6 +38,7 @@ class PekerjaanLapanganExport implements FromCollection
     public function headings(): array
     {
         return [
+            'NO',
             'TANGGAL',
             'WITEL',
             'KEGIATAN',

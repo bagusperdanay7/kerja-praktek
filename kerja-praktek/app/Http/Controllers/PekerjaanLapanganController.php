@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PekerjaanLapanganExport;
+use App\Imports\PekerjaanLapanganImport;
 use App\Models\PekerjaanLapangan;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -36,6 +38,7 @@ class PekerjaanLapanganController extends Controller
      */
     public function store(Request $request, PekerjaanLapangan $pekerjaanLapangan)
     {
+        $pekerjaanLapangan->no = $request->no;
         $pekerjaanLapangan->tanggal = $request->tanggal;
         $pekerjaanLapangan->witel = $request->witel;
         $pekerjaanLapangan->kegiatan = $request->kegiatan;
@@ -83,6 +86,7 @@ class PekerjaanLapanganController extends Controller
      */
     public function update(Request $request, PekerjaanLapangan $pekerjaanLapangan)
     {
+        $pekerjaanLapangan->no = $request->no;
         $pekerjaanLapangan->tanggal = $request->tanggal;
         $pekerjaanLapangan->witel = $request->witel;
         $pekerjaanLapangan->kegiatan = $request->kegiatan;
@@ -113,16 +117,16 @@ class PekerjaanLapanganController extends Controller
 
     public function exportPekerjaanLapangan()
     {
-        return Excel::download(new PekerjaanLapangan(), 'pekerjaan_lapangan.xlsx');
+        return Excel::download(new PekerjaanLapanganExport, 'pekerjaan_lapangan.xlsx');
     }
 
     public function importPekerjaanLapangan(Request $request, PekerjaanLapangan $pekerjaanLapangan)
     {
         $file = $request->file('file');
         $namaFile = $file->getClientOriginalName();
-        $file->move('pekerjaan_lapangan_temp', $namaFile);
+        $file->move('database_temp', $namaFile);
 
-        Excel::import(new PekerjaanLapangan(), public_path('/database_temp/' . $namaFile));
+        Excel::import(new PekerjaanLapanganImport, public_path('/database_temp/' . $namaFile));
 
         return redirect()->route('pekerjaan_lapangan.index');
     }

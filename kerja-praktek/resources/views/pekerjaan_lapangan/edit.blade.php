@@ -9,6 +9,10 @@
                 @csrf
                 @method('put')
                 <div class="form-group">
+                    <label for="no">No</label>
+                    <input type="number" name="no" id="no" class="form-control" value="{{ $pekerjaan_lapangan->no }}">
+                </div>
+                <div class="form-group">
                     <label for="tanggal">Tanggal</label>
                     <input type="date" name="tanggal" id="tanggal" class="form-control" value="{{ $pekerjaan_lapangan->tanggal }}">
                 </div>
