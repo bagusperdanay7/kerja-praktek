@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,5 +16,8 @@ class DatabaseSeeder extends Seeder
     {
         // Nambah Data Dummy pada Database Pekejraan Lapangan
         \App\Models\PekerjaanLapangan::factory(10)->create();
+
+        // Manggil UserSeeder
+        \App\Models\User::factory()->create();
     }
 }
