@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ProgresLapangan extends Model
 {
     use HasFactory;
+    protected $fillable = ['wilayah', 'ao', 'olo', 'produk', 'alamat_toko', 'tanggal_order_pt1', 'keterangan_pt1', 'tanggal_order_pt2', 'keterangan_pt2', 'datek_odp', 'datek_gpon', 'keterangan'];
 }

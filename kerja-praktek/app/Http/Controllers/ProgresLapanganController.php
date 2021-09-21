@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Database;
 use App\Models\ProgresLapangan;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,8 @@ class ProgresLapanganController extends Controller
      */
     public function index()
     {
-        
-        return view('progres.index',['title' => 'Progres Lapangan', 'progres' => ProgresLapangan::all()]);
+
+        return view('progress_lapangan.index', ['title' => 'Progress Lapangan', 'progress' => ProgresLapangan::all()]);
     }
 
     /**
@@ -25,8 +26,8 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-        
-        return view('progres.create',['title' => 'Form Tambah Data']);
+
+        return view('progress_lapangan.new', ['title' => 'New Progress Lapangan', 'database' => Database::all()]);
     }
 
     /**

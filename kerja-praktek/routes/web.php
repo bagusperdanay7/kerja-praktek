@@ -8,6 +8,7 @@ use App\Models\PekerjaanLapangan;
 use App\Http\Controllers\RekapController;
 use App\Http\Controllers\WfmController;
 use App\Models\Database;
+use App\Models\ProgresLapangan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Login
-Route::get('/',[LoginController::class,'TampilLogin'])->name('login');
-Route::post('/postlogin', [LoginController::class,'PostLogin'])->name('postlogin');
+Route::get('/', [LoginController::class, 'TampilLogin'])->name('login');
+Route::post('/postlogin', [LoginController::class, 'PostLogin'])->name('postlogin');
 
 // Route Dashboard
 Route::get('/dashboard', function () {
@@ -96,8 +97,9 @@ Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rek
 
 // progres lapangan
 
-Route::get('/progres-lapangan',[ProgresLapanganController::class, 'index'])->name('progres.index');
-Route::get('/progres-lapangan/create',[ProgresLapanganController::class, 'create'])->name('progres.create');
-Route::get('/progres-lapangan/store',[ProgresLapanganController::class, 'store'])->name('progres.store');
-Route::get('/progres-lapangan/edit/{progres}',[ProgresLapanganController::class, 'edit'])->name('progres.edit');
-Route::get('/progres-lapangan/update/{progres}',[ProgresLapanganController::class, 'update'])->name('progres.update');
+Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index');
+Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create');
+Route::get('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
+Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit');
+Route::get('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
+Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
