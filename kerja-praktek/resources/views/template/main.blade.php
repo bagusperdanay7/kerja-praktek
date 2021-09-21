@@ -6,17 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-
-    {{-- CSS Custom --}}
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
     <!-- Icon Line Awesome -->
     <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
 
     <!-- Data Tables -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}">
+
+    {{-- CSS Custom --}}
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <title>{{ $title }}</title>
   </head>
   <body>
