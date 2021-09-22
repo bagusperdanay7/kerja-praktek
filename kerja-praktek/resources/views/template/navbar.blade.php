@@ -42,9 +42,9 @@
                                 Evaluasi
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                                <a class="dropdown-item" href="#">Deployment</a>
+                                <a class="dropdown-item" href="{{ route('dep.index') }}">Deployment</a>
                                 <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
-                                <a class="dropdown-item" href="#">Rekap</a>
+                                <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                             </div>
                         </li>
                     </ul>
