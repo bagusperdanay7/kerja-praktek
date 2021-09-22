@@ -22,7 +22,14 @@ class DeploymentFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            'ao' => $this->faker->numberBetween(1000,10000),
+            'tanggal' => $this->faker->date(),
+            'olo' => $this->faker->name(),
+            'witel' => $this->faker->name(),
+            'produk' => $this->faker->name(),
+            'status_ncx' => $this->faker->name(),
+            'status_wfm' => $this->faker->name()
         ];
     }
 }

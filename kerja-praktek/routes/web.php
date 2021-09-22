@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
@@ -103,3 +104,12 @@ Route::get('/progress_lapangan/store', [ProgresLapanganController::class, 'store
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit');
 Route::get('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
 Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
+
+
+// deployment
+Route::get('/deployment',[DeploymentController::class, 'index'])->name('dep.index');
+Route::get('/deployment/create',[DeploymentController::class, 'create'])->name('dep.create');
+Route::post('/deployment/store',[DeploymentController::class, 'store'])->name('dep.store');
+Route::get('/deployment/edit/{deployment}',[DeploymentController::class, 'edit'])->name('dep.edit');
+Route::put('/deployment/update/{deployment}',[DeploymentController::class, 'update'])->name('dep.update');
+Route::delete('/deployment/update/{deployment}',[DeploymentController::class, 'destroy'])->name('dep.destroy');
