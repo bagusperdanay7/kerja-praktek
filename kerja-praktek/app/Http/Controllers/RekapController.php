@@ -21,8 +21,6 @@ class RekapController extends Controller
      */
     public function index()
     {
-
-        
         return view('rekap.index', ["title" => "Rekap", 'rekap' => Rekap::all()]);
     }
 

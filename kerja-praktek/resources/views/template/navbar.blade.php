@@ -10,20 +10,20 @@
                     <img src="{{ asset('img/telkom.svg') }}" alt="logo telkom" style="max-height: 50px;">
                 </a>
             </div>
-            <div class="col-5 justify-content-end">
+            <div class="col-7 justify-content-end">
                 <div class="collapse navbar-collapse" id="navDropdown">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item menu">
-                            <a class="nav-link nav-active" href="#">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link {{ ($title === "Rekap") ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="deploymentMenu" role="button"
+                            <a class="nav-link dropdown-toggle {{ ($title === "Home") ? 'nav-active' : '' }}" href="#" id="deploymentMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Deployment
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
                                 <a class="dropdown-item" href="{{ route('dep.create') }}"><i class="las la-plus mr-3"></i>New Order</a>
-                                <a class="dropdown-item" href="{{ route('dep.index') }}"><i class="las la-pen mr-3"></i>Update Order</a>
+                                <a class="dropdown-item" href=""><i class="las la-pen mr-3"></i>Update Order</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -37,7 +37,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="evaluasiMenu" role="button"
+                            <a class="nav-link dropdown-toggle" href="" id="evaluasiMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Evaluasi
                             </a>
@@ -46,6 +46,9 @@
                                 <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                                 <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
                             </div>
+                        </li>
+                        <li class="nav-item menu">
+                            <a class="nav-link" href="">Disconnect</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">

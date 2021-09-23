@@ -109,10 +109,10 @@ body {
     display: none;
 }
 
-/* Dashboard Page */
-.dashboard-title {
-    margin: 75px 0 0px;
-    font-size: 48px;
+/* Index */
+.title-head {
+    margin: 50px 0px;
+    font-size: 42px;
 }
 
 /* Pekerjaan Lapangan Index.blade */
@@ -125,6 +125,10 @@ body {
 }
 
 /* Error Page */
+.logo-brand {
+    margin: 20px 0;
+}
+
 .error-heading {
     font-weight: 700;
     margin-top: 30px;
