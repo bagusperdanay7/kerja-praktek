@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Imports\WfmImport;
 use App\Models\Database;
 use App\Models\Wfm;
+use App\Models\Rekap;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -31,7 +32,7 @@ class WfmController extends Controller
     public function create()
     {
 
-        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all()]);
+        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all(),'rekap' => Rekap::all()]);
     }
 
     /**
@@ -43,7 +44,7 @@ class WfmController extends Controller
     public function store(Request $request, Wfm $wfm)
     {
 
-        $wfm->no = $request->no;
+        $wfm->rekap_id = $request->rekap_id;
         $wfm->tgl_bulan_th = $request->tgl_bulan_th;
         $wfm->no_ao = $request->no_ao;
         $wfm->witel = $request->witel;
@@ -82,11 +83,8 @@ class WfmController extends Controller
         $wfm->sn = $request->sn;
         $wfm->port4 = $request->port4;
         $wfm->type = $request->type;
-        $wfm->nama = $request->nama;
-        $wfm->ip4 = $request->ip4;
-        $wfm->downlink = $request->downlink;
-        $wfm->type2 = $request->type2;
-        $wfm->capture_done = $request->capture_done;
+        $wfm->capture_metro = $request->capture_metro;
+        $wfm->capture_gpon = $request->capture_gpon;
         $wfm->pic = $request->pic;
         $wfm->save();
         return redirect()->route('wfm.index');
@@ -112,7 +110,7 @@ class WfmController extends Controller
     public function edit(Wfm $wfm)
     {
 
-        return view('wfm.edit', ["title" => "Edit Data - WFM", 'database' => Database::all(), 'wfm' => $wfm]);
+        return view('wfm.edit', ["title" => "Edit Data - WFM", 'database' => Database::all(), 'wfm' => $wfm,'rekap' => Rekap::all()]);
     }
 
     /**
@@ -125,8 +123,7 @@ class WfmController extends Controller
     public function update(Request $request, Wfm $wfm)
     {
 
-
-        $wfm->no = $request->no;
+        $wfm->rekap_id = $request->rekap_id;
         $wfm->tgl_bulan_th = $request->tgl_bulan_th;
         $wfm->no_ao = $request->no_ao;
         $wfm->witel = $request->witel;
@@ -165,11 +162,8 @@ class WfmController extends Controller
         $wfm->sn = $request->sn;
         $wfm->port4 = $request->port4;
         $wfm->type = $request->type;
-        $wfm->nama = $request->nama;
-        $wfm->ip4 = $request->ip4;
-        $wfm->downlink = $request->downlink;
-        $wfm->type2 = $request->type2;
-        $wfm->capture_done = $request->capture_done;
+        $wfm->capture_metro = $request->capture_metro;
+        $wfm->capture_gpon = $request->capture_gpon;
         $wfm->pic = $request->pic;
         $wfm->save();
         return redirect()->route('wfm.index');

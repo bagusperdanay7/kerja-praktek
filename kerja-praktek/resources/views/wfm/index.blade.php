@@ -7,7 +7,7 @@
             <div class="card mt-3 mx-3">
                 <div class="card-header">
                     <h1>DATA WFM</h1>
-                    <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a>
+                    {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
                     <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Import Excel
@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            <th>NO</th>
+                            <th>REKAP ID</th>
                             <th>TGL/BLN/THN</th>
                             <th>NO. AO</th>
                             <th>WITEL</th>
@@ -41,10 +41,10 @@
                             <th>START CANCEL DATE</th>
                             <th>READY AFTER CANCEL</th>
                             <th>INTEGRASI</th>
-                            <th>METRO</th>
+                            <th>METRO BACKHAUL</th>
                             <th>IP</th>
                             <th>PORT</th>
-                            <th>METRO</th>
+                            <th>METRO ACCESS</th>
                             <th>IP</th>
                             <th>PORT</th>
                             <th>VLAN</th>
@@ -55,18 +55,15 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
-                            <th>NAMA</th>
-                            <th>IP</th>
-                            <th>DOWNLINK</th>
-                            <th>TYPE</th>
-                            <th>CAPTURE DONE</th>
+                            <th>CAPTURE METRO</th>
+                            <th>CAPTURE GPON</th>
                             <th>PIC</th>
                             <th>AKSI</th>
                         </thead>
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-                                <td>{{$wfm->no }}</td>
+                                <td>{{$wfm->rekap_id }}</td>
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
@@ -105,11 +102,8 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
-                                <td>{{$wfm->nama }}</td>
-                                <td>{{$wfm->ip4 }}</td>
-                                <td>{{$wfm->downlink }}</td>
-                                <td>{{$wfm->type2 }}</td>
-                                <td>{{$wfm->capture_done }}</td>
+                                <td>{{ $wfm->capture_metro }}</td>
+                                <td>{{ $wfm->capture_gpon }}</td>
                                 <td>{{$wfm->pic }}</td>
                                 <td>
                                     <a href="{{ route('wfm.edit',$wfm->id) }}" class="btn btn-success">Edit</a>
