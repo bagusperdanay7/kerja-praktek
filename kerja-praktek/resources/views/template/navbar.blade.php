@@ -17,7 +17,7 @@
                             <a class="nav-link {{ ($title === "Rekap") ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ ($title === "Home") ? 'nav-active' : '' }}" href="#" id="deploymentMenu" role="button"
+                            <a class="nav-link dropdown-toggle {{ ($title === "Home") ? 'nav-active' : '' }}" href="" id="deploymentMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Deployment
                             </a>
@@ -32,7 +32,7 @@
                                 Progress Lapangan
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="progressMenu">
-                                <a class="dropdown-item" href="#"><i class="las la-plus mr-3"></i>New Progress</a>
+                                <a class="dropdown-item" href="{{ route('progress.create') }}"><i class="las la-plus mr-3"></i>New Progress</a>
                                 <a class="dropdown-item" href="#"><i class="las la-pen mr-3"></i>Update Progress</a>
                             </div>
                         </li>
@@ -48,7 +48,7 @@
                             </div>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link" href="">Disconnect</a>
+                            <a class="nav-link" href="{{ route('dis.index') }}">Disconnect</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">

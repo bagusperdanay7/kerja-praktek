@@ -115,6 +115,10 @@ body {
     font-size: 42px;
 }
 
+.border-none {
+    border: none !important;
+}
+
 /* Pekerjaan Lapangan Index.blade */
 .dropleft span {
     cursor: pointer;

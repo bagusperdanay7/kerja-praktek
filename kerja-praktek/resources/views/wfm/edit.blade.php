@@ -11,8 +11,13 @@
                 @csrf
                 @method('put')
                 <div class="form-group">
-                    <label for="no">NO</label>
-                    <input type="text" name="no" id="no" class="form-control" value="{{ $wfm->no }}">
+                    <label for="rekap_id">REKAP ID</label>
+                    <select name="rekap_id" id="rekap_id" class="form-control">
+                        <option value="">--pilih--</option>
+                        @foreach ($rekap as $item)
+                        <option value="{{ $item->id }}">{{ $item->olo }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="TGL/BLN/THN">TGL/BLN/THN</label>
@@ -203,25 +208,12 @@
                     <input type="text" name="type" id="no" class="form-control" value="{{ $wfm->type }}">
                 </div>
                 <div class="form-group">
-                    <label for="no">NAMA</label>
-                    <input type="text" name="nama" id="no" class="form-control" value="{{ $wfm->nama }}">
+                    <label for="captur">CAPTURE METRO</label>
+                    <input type="text" name="capture_metro" id="capture" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="no">IP</label>
-                    <input type="text" name="ip4" id="no" class="form-control" value="{{ $wfm->ip4 }}">
-                </div>
-                <div class="form-group">
-                    <label for="no">DOWNLINK</label>
-                    <input type="text" name="downlink" id="no" class="form-control" value="{{ $wfm->downlink }}">
-                </div>
-                <div class="form-group">
-                    <label for="no">TYPE</label>
-                    <input type="text" name="type2" id="no" class="form-control" value="{{ $wfm->type2 }}">
-                </div>
-                <div class="form-group">
-                    <label for="no">CAPTURE DONE</label>
-                    <input type="text" name="capture_done" id="no" class="form-control"
-                        value="{{ $wfm->capture_done }}">
+                    <label for="captur">CAPTURE GPON</label>
+                    <input type="text" name="capture_gpon" id="capture" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="no">PIC</label>

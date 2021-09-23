@@ -15,7 +15,7 @@ class CreateProgresLapangansTable extends Migration
     {
         Schema::create('progres_lapangans', function (Blueprint $table) {
             $table->id();
-            $table->string('wilayah')->nullable();
+            $table->string('witel')->nullable();
             $table->string('ao')->nullable();
             $table->string('olo')->nullable();
             $table->string('produk')->nullable();

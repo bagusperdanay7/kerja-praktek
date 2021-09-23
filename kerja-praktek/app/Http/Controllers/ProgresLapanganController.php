@@ -26,7 +26,6 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-
         return view('progress_lapangan.new', ['title' => 'New Progress Lapangan', 'database' => Database::all()]);
     }
 
@@ -36,9 +35,22 @@ class ProgresLapanganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ProgresLapangan $progress)
     {
-        //
+        $progress->witel = $request->witel;
+        $progress->ao = $request->ao;
+        $progress->olo = $request->olo;
+        $progress->produk = $request->produk;
+        $progress->alamat_toko = $request->alamat_toko;
+        $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
+        $progress->keterangan_pt1 = $request->keterangan_pt1;
+        $progress->tanggal_order_pt2 = $request->tanggal_order_pt2;
+        $progress->keterangan_pt2 = $request->keterangan_pt2;
+        $progress->datek_odp = $request->datek_odp;
+        $progress->datek_gpon = $request->datek_gpon;
+        $progress->keterangan = $request->keterangan;
+        $progress->save();
+        return redirect()->route('progress.index');
     }
 
     /**
@@ -58,9 +70,9 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(ProgresLapangan $progress)
     {
-        //
+        return view('progress_lapangan.update', ['title' => 'Update Data Progress Lapangan', 'progress' => $progress, 'database' => Database::all()]);
     }
 
     /**
@@ -70,9 +82,22 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ProgresLapangan $progress)
     {
-        //
+        $progress->witel = $request->witel;
+        $progress->ao = $request->ao;
+        $progress->olo = $request->olo;
+        $progress->produk = $request->produk;
+        $progress->alamat_toko = $request->alamat_toko;
+        $progress->tanggal_order_pt1 = $request->tanggal_order_pt1;
+        $progress->keterangan_pt1 = $request->keterangan_pt1;
+        $progress->tanggal_order_pt2 = $request->tanggal_order_pt2;
+        $progress->keterangan_pt2 = $request->keterangan_pt2;
+        $progress->datek_odp = $request->datek_odp;
+        $progress->datek_gpon = $request->datek_gpon;
+        $progress->keterangan = $request->keterangan;
+        $progress->save();
+        return redirect()->route('progress.index');
     }
 
     /**
@@ -81,8 +106,9 @@ class ProgresLapanganController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ProgresLapangan $progress)
     {
-        //
+        $progress->delete();
+        return back();
     }
 }

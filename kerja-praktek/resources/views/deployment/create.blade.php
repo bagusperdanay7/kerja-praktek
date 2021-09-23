@@ -45,7 +45,13 @@
                     </div>
                     <div class="form-group">
                         <label for="produk">PRODUK</label>
-                        <input type="text" name="produk" id="produk" class="form-control">
+                        {{-- <input type="text" name="produk" id="produk" class="form-control"> --}}
+                        <select name="produk" id="olo" class="form-control">
+                            <option value="">--Pilih--</option>
+                            @foreach ($db as $item)
+                            <option value="{{ $item->order_type }}">{{ $item->order_type }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="status_ncx">STATUS NCX</label>

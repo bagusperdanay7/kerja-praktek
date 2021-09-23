@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeploymentController;
+use App\Http\Controllers\DisconnectController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
@@ -80,7 +81,6 @@ Route::get('/rekap/create', [RekapController::class, 'create'])->name('rekap.cre
 Route::post('/rekap/store', [RekapController::class, 'store'])->name('rekap.store');
 Route::get('/rekap/edit/{rekap}', [RekapController::class, 'edit'])->name('rekap.edit');
 Route::put('/rekap/update/{rekap}', [RekapController::class, 'update'])->name('rekap.update');
-
 Route::delete('/rekap/delete/{rekap}', [RekapController::class, 'destroy'])->name('rekap.destroy');
 
 Route::get('/export/rekap', [RekapController::class, 'exportRekap'])->name('rekap.export');
@@ -89,9 +89,9 @@ Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rek
 // progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index');
 Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create');
-Route::get('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
+Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit');
-Route::get('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
+Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
 Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
 
 // deployment
@@ -100,4 +100,11 @@ Route::get('/deployment/create', [DeploymentController::class, 'create'])->name(
 Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('dep.store');
 Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit');
 Route::put('/deployment/update/{deployment}', [DeploymentController::class, 'update'])->name('dep.update');
-Route::delete('/deployment/update/{deployment}', [DeploymentController::class, 'destroy'])->name('dep.destroy');
+Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, 'destroy'])->name('dep.destroy');
+
+
+// disconnect
+Route::get('/disconnect', [DisconnectController::class, 'index'])->name('dis.index');
+Route::get('/disconnect/edit/{diconnect}', [DisconnectController::class, 'edit'])->name('dis.edit');
+Route::put('/disconnect/update/{diconnect}', [DisconnectController::class, 'update'])->name('dis.update');
+Route::delete('/disconnect/delete/{diconnect}', [DisconnectController::class, 'destroy'])->name('dis.destroy');
