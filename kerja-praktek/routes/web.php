@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeploymentController;
+use App\Http\Controllers\DisconnectController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
@@ -113,3 +114,10 @@ Route::post('/deployment/store',[DeploymentController::class, 'store'])->name('d
 Route::get('/deployment/edit/{deployment}',[DeploymentController::class, 'edit'])->name('dep.edit');
 Route::put('/deployment/update/{deployment}',[DeploymentController::class, 'update'])->name('dep.update');
 Route::delete('/deployment/update/{deployment}',[DeploymentController::class, 'destroy'])->name('dep.destroy');
+
+
+// disconnect
+Route::get('/disconect',[DisconnectController::class, 'index'])->name('dis.index');
+Route::get('/disconect/edit/{diconnect}',[DisconnectController::class, 'edit'])->name('dis.edit');
+Route::put('/disconect/update/{diconnect}',[DisconnectController::class, 'update'])->name('dis.update');
+Route::delete('/disconect/delete/{diconnect}',[DisconnectController::class, 'destroy'])->name('dis.destroy');

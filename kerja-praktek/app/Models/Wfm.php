@@ -52,4 +52,9 @@ class Wfm extends Model
         'capture_gpon',
         'pic'
     ];
+
+    public function diconnect()
+    {
+        return $this->hasOne(Diconnect::class);
+    }
 }
