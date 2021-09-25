@@ -18,7 +18,7 @@ class DeploymentController extends Controller
     public function index()
     {
 
-        return view('deployment.index',['title' => 'Halaman Deployment','deps' => Deployment::all()]);
+        return view('deployment.index', ['title' => 'Halaman Deployment', 'deps' => Deployment::all()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class DeploymentController extends Controller
      */
     public function create()
     {
-        return view('deployment.create',['title' => 'Halaman Tambah Data','rekaps' => Rekap::all(),'db' => Database::all()]);
+        return view('deployment.create', ['title' => 'Halaman Tambah Data', 'rekaps' => Rekap::all(), 'db' => Database::all()]);
     }
 
     /**
@@ -49,6 +49,7 @@ class DeploymentController extends Controller
         $deployment->status_ncx = $request->status_ncx;
         $deployment->status_wfm = $request->status_wfm;
         $deployment->save();
+        sleep(1);
         return redirect()->route('dep.index');
     }
 
@@ -71,7 +72,7 @@ class DeploymentController extends Controller
      */
     public function edit(Deployment $deployment)
     {
-        return view('deployment.edit',['title' => 'Halaman edit','dep' => $deployment,'db' => Database::all(),'rekaps' => Rekap::all()]);
+        return view('deployment.edit', ['title' => 'Halaman edit', 'dep' => $deployment, 'db' => Database::all(), 'rekaps' => Rekap::all()]);
     }
 
     /**
@@ -81,7 +82,7 @@ class DeploymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Deployment $deployment)
+    public function update(Request $request, Deployment $deployment)
     {
         $deployment->rekap_id = $request->rekap_id;
         $deployment->ao = $request->ao;
@@ -92,6 +93,7 @@ class DeploymentController extends Controller
         $deployment->status_ncx = $request->status_ncx;
         $deployment->status_wfm = $request->status_wfm;
         $deployment->save();
+        sleep(1);
         return redirect()->route('dep.index');
     }
 
@@ -104,6 +106,7 @@ class DeploymentController extends Controller
     public function destroy(Deployment $deployment)
     {
         $deployment->delete();
+        sleep(1);
         return back();
     }
 }

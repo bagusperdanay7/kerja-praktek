@@ -15,7 +15,7 @@ class DisconnectController extends Controller
      */
     public function index()
     {
-        return view('disconnect.index',['title' => 'Halaman Disconnect','disconnects' => Diconnect::all()]);
+        return view('disconnect.index', ['title' => 'Disconnect', 'disconnects' => Diconnect::all()]);
     }
 
     /**
@@ -58,7 +58,7 @@ class DisconnectController extends Controller
      */
     public function edit(Diconnect $diconnect)
     {
-        return view('disconnect.edit',['title' => 'Halaman Edit','dis' => $diconnect]);
+        return view('disconnect.edit', ['title' => 'Halaman Edit', 'dis' => $diconnect]);
     }
 
     /**
@@ -80,6 +80,7 @@ class DisconnectController extends Controller
         $diconnect->plan_cabut = $request->plan_cabut;
         $diconnect->pic = $request->pic;
         $diconnect->save();
+        sleep(1);
         return redirect()->route('dis.index');
     }
 
@@ -91,8 +92,8 @@ class DisconnectController extends Controller
      */
     public function destroy(Diconnect $diconnect)
     {
-
         $diconnect->delete();
+        sleep(1);
         return redirect()->route('dis.index');
     }
 }

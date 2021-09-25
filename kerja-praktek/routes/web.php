@@ -39,14 +39,14 @@ Route::put('/database/update/', [DatabaseController::class, 'update'])->name('da
 Route::delete('/database/delete/{database}', [DatabaseController::class, 'destroy'])->name('database.destroy');
 
 // Pekerjaan Lapangan Route
-// Route::get('/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'index'])->name('pekerjaan_lapangan.index');
-// // Route::get('/pekerjaan_lapangan/create', [PekerjaanLapanganController::class, 'create'])->name('pekerjaan_lapangan.create');
-// Route::post('/pekerjaan_lapangan/tambah', [PekerjaanLapanganController::class, 'store'])->name('pekerjaan_lapangan.store');
-// Route::get('/pekerjaan_lapangan/edit/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'edit'])->name('pekerjaan_lapangan.edit');
-// Route::put('/pekerjaan_lapangan/update/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'update'])->name('pekerjaan_lapangan.update');
-// Route::delete('/pekerjaan_lapangan/delete/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'destroy'])->name('pekerjaan_lapangan.destroy');
-// Route::get('/export/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'exportPekerjaanLapangan'])->name('pekerjaan_lapangan.export');
-// Route::post('/import/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'importPekerjaanLapangan'])->name('pekerjaan_lapangan.import');
+Route::get('/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'index'])->name('pekerjaan_lapangan.index');
+Route::get('/pekerjaan_lapangan/create', [PekerjaanLapanganController::class, 'create'])->name('pekerjaan_lapangan.create');
+Route::post('/pekerjaan_lapangan/tambah', [PekerjaanLapanganController::class, 'store'])->name('pekerjaan_lapangan.store');
+Route::get('/pekerjaan_lapangan/edit/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'edit'])->name('pekerjaan_lapangan.edit');
+Route::put('/pekerjaan_lapangan/update/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'update'])->name('pekerjaan_lapangan.update');
+Route::delete('/pekerjaan_lapangan/delete/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'destroy'])->name('pekerjaan_lapangan.destroy');
+Route::get('/export/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'exportPekerjaanLapangan'])->name('pekerjaan_lapangan.export');
+Route::post('/import/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'importPekerjaanLapangan'])->name('pekerjaan_lapangan.import');
 
 
 // database

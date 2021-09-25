@@ -53,6 +53,7 @@ class RekapController extends Controller
         $rekap->resume = $request->resume;
         $rekap->suspend = $request->suspend;
         $rekap->save();
+        sleep(1);
         return redirect()->route('rekap.index');
     }
 
@@ -100,6 +101,7 @@ class RekapController extends Controller
         $rekap->resume = $request->resume;
         $rekap->suspend = $request->suspend;
         $rekap->save();
+        sleep(1);
         return redirect()->route('rekap.index');
     }
 
@@ -113,6 +115,7 @@ class RekapController extends Controller
     {
 
         $rekap->delete();
+        sleep(1);
         return back();
     }
 

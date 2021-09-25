@@ -10,7 +10,7 @@ class Diconnect extends Model
     use HasFactory;
     protected $fillable = [
         'wfm_id',
-        'older',
+        'order',
         'customer',
         'lokasi',
         'kota',

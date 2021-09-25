@@ -38,3 +38,49 @@ dataMasterMobile.onclick = function () {
     arrowMobile.classList.toggle("fa-caret-up");
     arrowMobile.classList.toggle("fa-caret-down");
 };
+
+// Manggil Sweet Alert
+
+// tambah data
+function validasiTambahDeployment() {
+    let rekapIDConfirm = document.forms["deploymentAdd"]["rekap_id"].value;
+    const pesanPeringatan = document.querySelector('#rekapIDPeringatan');
+    if (rekapIDConfirm == "") {
+        pesanPeringatan.classList.toggle("disableWarning");
+        pesanPeringatan.classList.toggle("popoutWarning");
+        return false;
+    } else {
+        Swal.fire({
+            title: 'Berhasil',
+            text: 'Data Berhasil Ditambahkan!',
+            icon: 'success'
+        })
+    }
+}
+
+function validasiTambah() {
+    Swal.fire({
+        title: 'Berhasil',
+        text: 'Data Berhasil Ditambahkan!',
+        icon: 'success'
+    })
+}
+
+// edit data
+function validasiEdit() {
+    Swal.fire({
+        title: 'Berhasil',
+        text: 'Data Berhasil Diubah!',
+        icon: 'success'
+    })
+}
+
+// hapus data
+
+function validasiHapus() {
+    Swal.fire({
+        title: 'Berhasil',
+        text: 'Data Berhasil Dihapus!',
+        icon: 'success'
+    })
+}

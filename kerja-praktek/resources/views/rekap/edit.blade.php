@@ -1,65 +1,72 @@
 @extends('template.main')
 
 @section('contain')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-lg-12">
-                <div class="card mt-4">
-                    <div class="card-header">
-                        <h1>Form Edit Data</h1>
-                    </div>
-                    <div class="card-body">
-                        <form action="{{ route('rekap.update',$rekap->id) }}" method="POST">
-                            @csrf
-                            @method('put')
-                            <div class="form-group">
-                                <label for="no">NO</label>
-                                <input type="text" name="no" id="no" class="form-control" value="{{ $rekap->no }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">OLO</label>
-                                <input type="text" name="olo" id="no" class="form-control" value="{{ $rekap->olo }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">PLAN AKTIVASI</label>
-                                <input type="text" name="plan_aktivasi" id="no" class="form-control" value="{{ $rekap->plan_aktivasi }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">PLAN MODIFY</label>
-                                <input type="text" name="plan_modify" id="no" class="form-control" value="{{ $rekap->plan_modify }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">PLAN DISCONNECT</label>
-                                <input type="text" name="plan_disconnect" id="no" class="form-control" value="{{ $rekap->plan_disconnect }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">AKTIVASI</label>
-                                <input type="text" name="aktivasi" id="no" class="form-control" value="{{ $rekap->aktivasi }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">MODIFY</label>
-                                <input type="text" name="modify" id="no" class="form-control" value="{{ $rekap->modify }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">DISCONNECT</label>
-                                <input type="text" name="disconnect" id="no" class="form-control" value="{{ $rekap->disconnect }}">
-                            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="card my-5 shadow-sm">
+                <div class="card-body">
+                    <h4 class="form-title">Form Update Rekap</h4>
+                    <form action="{{ route('rekap.update',$rekap->id) }}" method="POST">
+                        @csrf
+                        @method('put')
+                        {{-- <div class="form-group">
+                            <label for="no">NO</label>
+                            <input type="text" name="no" id="no" class="form-control" value="{{ $rekap->no }}">
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="olo">OLO</label>
+                            <input type="text" name="olo" id="olo" class="form-control" value="{{ $rekap->olo }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="plan_aktivasi">PLAN AKTIVASI</label>
+                            <input type="text" name="plan_aktivasi" id="plan_aktivasi" class="form-control"
+                                value="{{ $rekap->plan_aktivasi }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="plan_modify">PLAN MODIFY</label>
+                            <input type="text" name="plan_modify" id="plan_modify" class="form-control"
+                                value="{{ $rekap->plan_modify }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="plan_disconnect">PLAN DISCONNECT</label>
+                            <input type="text" name="plan_disconnect" id="plan_disconnect" class="form-control"
+                                value="{{ $rekap->plan_disconnect }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="aktivasi">AKTIVASI</label>
+                            <input type="text" name="aktivasi" id="aktivasi" class="form-control"
+                                value="{{ $rekap->aktivasi }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="modify">MODIFY</label>
+                            <input type="text" name="modify" id="modify" class="form-control"
+                                value="{{ $rekap->modify }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="disconnect">DISCONNECT</label>
+                            <input type="text" name="disconnect" id="disconnect" class="form-control"
+                                value="{{ $rekap->disconnect }}">
+                        </div>
 
-                            <div class="form-group">
-                                <label for="no">resume</label>
-                                <input type="text" name="resume" id="no" class="form-control" value="{{ $rekap->resume }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="no">SUSPEND</label>
-                                <input type="text" name="suspend" id="no" class="form-control" value="{{ $rekap->suspend }}">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-group">
+                            <label for="resume">resume</label>
+                            <input type="text" name="resume" id="resume" class="form-control"
+                                value="{{ $rekap->resume }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="suspend">SUSPEND</label>
+                            <input type="text" name="suspend" id="suspend" class="form-control"
+                                value="{{ $rekap->suspend }}">
+                        </div>
+                        <div class="form-group text-right mt-4">
+                            <a href="{{ route('rekap.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
+                            <button type="submit" class="btn btn-main" onclick="return validasiEdit();">Update Data</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

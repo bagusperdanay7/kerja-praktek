@@ -17,12 +17,12 @@
                             <a class="nav-link {{ ($title === "Rekap") ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ ($title === "Home") ? 'nav-active' : '' }}" href="" id="deploymentMenu" role="button"
+                            <a class="nav-link dropdown-toggle" href="" id="deploymentMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Deployment
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="deploymentMenu">
-                                <a class="dropdown-item" href="{{ route('dep.create') }}"><i class="las la-plus mr-3"></i>New Order</a>
+                                <a class="dropdown-item" href="{{ route('wfm.create') }}"><i class="las la-plus mr-3"></i>New Order</a>
                                 <a class="dropdown-item" href=""><i class="las la-pen mr-3"></i>Update Order</a>
                             </div>
                         </li>
@@ -42,13 +42,14 @@
                                 Evaluasi
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="evaluasiMenu">
-                                <a class="dropdown-item" href="{{ route('dep.index') }}">Deployment</a>
+                                <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
                                 <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                                 <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
+                                <a class="dropdown-item" href="">EXE SUMM</a>
                             </div>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link" href="{{ route('dis.index') }}">Disconnect</a>
+                            <a class="nav-link {{ ($title === "Disconnect") ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">
@@ -59,7 +60,7 @@
                             <div class="dropdown-menu w-25" aria-labelledby="user-menu">
                                 <a class="dropdown-item">Admin</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" onclick="confirm('Apakah Anda ingin keluar?');" href="{{ route('login') }}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
+                                <a class="dropdown-item" onclick="return confirm('Apakah Anda ingin keluar?');" href="{{ route('login') }}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
                             </div>
                         </li>
                     </ul>

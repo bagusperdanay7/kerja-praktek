@@ -33,7 +33,7 @@ class WfmController extends Controller
     public function create()
     {
 
-        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all(),'rekap' => Rekap::all()]);
+        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all(), 'rekap' => Rekap::all()]);
     }
 
     /**
@@ -90,51 +90,51 @@ class WfmController extends Controller
         // $wfm->save();
 
         $wfm = Wfm::create([
-        'rekap_id' => $request->rekap_id,
-        'tgl_bulan_th' => $request->tgl_bulan_th,
-        'no_ao' => $request->no_ao,
-        'witel' => $request->witel,
-        'olo_isp' => $request->olo_isp,
-        'site_kriteria' => $request->site_kriteria,
-        'sid' => $request->sid,
-        'site_id' => $request->site_id,
-        'order_type' => $request->order_type,
-        'produk' => $request->produk,
-        'satuan' => $request->satuan,
-        'kapasitas_bw' => $request->kapasitas_bw,
-        'longitude' => $request->longitude,
-        'latitude' => $request->latitude,
-        'alamat_asal' => $request->alamat_asal,
-        'alamat_tujuan' => $request->alamat_tujuan,
-        'status_ncx' => $request->status_ncx,
-        'berita_acara' => $request->berita_acara,
-        'tgl_complete' => $request->tgl_complete,
-        'status_wfm' => $request->status_wfm,
-        'alasan_cancel' => $request->alasan_cancel,
-        'cancel_by' => $request->cancel_by,
-        'start_cancel' => $request->start_cancel,
-        'ready_after_cancel' => $request->ready_after_cancel,
-        'integrasi' => $request->integrasi,
-        'metro' => $request->metro,
-        'ip' => $request->ip,
-        'port' => $request->port,
-        'metro2' => $request->metro2,
-        'ip2'  => $request->ip2,
-        'port2' => $request->port2,
-        'vlan' => $request->vlan,
-        'vcid' => $request->vcid,
-        'gpon' => $request->gpon,
-        'ip3' => $request->ip3,
-        'port3' => $request->port3,
-        'sn' => $request->sn,
-        'port4' => $request->port4,
-        'type' => $request->type,
-        'capture_metro' => $request->capture_metro,
-        'capture_gpon' => $request->capture_gpon,
-        'pic' => $request->pic
+            'rekap_id' => $request->rekap_id,
+            'tgl_bulan_th' => $request->tgl_bulan_th,
+            'no_ao' => $request->no_ao,
+            'witel' => $request->witel,
+            'olo_isp' => $request->olo_isp,
+            'site_kriteria' => $request->site_kriteria,
+            'sid' => $request->sid,
+            'site_id' => $request->site_id,
+            'order_type' => $request->order_type,
+            'produk' => $request->produk,
+            'satuan' => $request->satuan,
+            'kapasitas_bw' => $request->kapasitas_bw,
+            'longitude' => $request->longitude,
+            'latitude' => $request->latitude,
+            'alamat_asal' => $request->alamat_asal,
+            'alamat_tujuan' => $request->alamat_tujuan,
+            'status_ncx' => $request->status_ncx,
+            'berita_acara' => $request->berita_acara,
+            'tgl_complete' => $request->tgl_complete,
+            'status_wfm' => $request->status_wfm,
+            'alasan_cancel' => $request->alasan_cancel,
+            'cancel_by' => $request->cancel_by,
+            'start_cancel' => $request->start_cancel,
+            'ready_after_cancel' => $request->ready_after_cancel,
+            'integrasi' => $request->integrasi,
+            'metro' => $request->metro,
+            'ip' => $request->ip,
+            'port' => $request->port,
+            'metro2' => $request->metro2,
+            'ip2'  => $request->ip2,
+            'port2' => $request->port2,
+            'vlan' => $request->vlan,
+            'vcid' => $request->vcid,
+            'gpon' => $request->gpon,
+            'ip3' => $request->ip3,
+            'port3' => $request->port3,
+            'sn' => $request->sn,
+            'port4' => $request->port4,
+            'type' => $request->type,
+            'capture_metro' => $request->capture_metro,
+            'capture_gpon' => $request->capture_gpon,
+            'pic' => $request->pic
         ]);
 
-        if($wfm->order_type == "DISCONNECT"){
+        if ($wfm->order_type == "DISCONNECT") {
             Diconnect::create([
                 'wfm_id' => $wfm->id,
                 'older' => $wfm->no_ao,
@@ -162,10 +162,11 @@ class WfmController extends Controller
         //     }
 
         //    Handphone::create([
-    //        'user_id' => $user->id,
-    //        'noHp' => $request->noHp
-    //    ]);
+        //        'user_id' => $user->id,
+        //        'noHp' => $request->noHp
+        //    ]);
 
+        sleep(1);
         return redirect()->route('wfm.index');
     }
 
@@ -189,7 +190,7 @@ class WfmController extends Controller
     public function edit(Wfm $wfm)
     {
 
-        return view('wfm.edit', ["title" => "Edit Data - WFM", 'database' => Database::all(), 'wfm' => $wfm,'rekap' => Rekap::all()]);
+        return view('wfm.edit', ["title" => "Edit Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
     }
 
     /**
@@ -261,7 +262,7 @@ class WfmController extends Controller
         //     $diconnect->pic = "";
         // }
 
-        if($wfm->order_type == "DISCONNECT"){
+        if ($wfm->order_type == "DISCONNECT") {
             Diconnect::create([
                 'wfm_id' => $wfm->id,
                 'older' => $wfm->no_ao,
@@ -276,16 +277,17 @@ class WfmController extends Controller
         }
 
 
-    //     $user = User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => Hash::make($request->password)
-    //     ]);
+        //     $user = User::create([
+        //         'name' => $request->name,
+        //         'email' => $request->email,
+        //         'password' => Hash::make($request->password)
+        //     ]);
 
-    //    Handphone::create([
-    //        'user_id' => $user->id,
-    //        'noHp' => $request->noHp
-    //    ]);
+        //    Handphone::create([
+        //        'user_id' => $user->id,
+        //        'noHp' => $request->noHp
+        //    ]);
+        sleep(1);
         return redirect()->route('wfm.index');
     }
 
@@ -297,8 +299,8 @@ class WfmController extends Controller
      */
     public function destroy(Wfm $wfm)
     {
-
         $wfm->delete();
+        sleep(1);
         return back();
     }
 

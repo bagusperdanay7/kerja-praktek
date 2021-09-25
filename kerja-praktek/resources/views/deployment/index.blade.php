@@ -3,38 +3,32 @@
 @section('contain')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-lg-12">
-            <div class="card mt-3 mx-3">
-                <div class="card-header">
-                    <div class="button-export mt-4">
-                        <h1>Deployment</h1>
-                        <a href="{{ route('dep.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
-                        <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
-                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
-                            data-target="#exampleModal">
-                            Import Excel
-                        </button>
-
-                    </div>
-                </div>
+        <div class="col">
+            <div class="card my-5 shadow-sm">
+                {{-- <div class="button-export mt-4"> --}}
+                {{-- <a href="{{ route('dep.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+                <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
+                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                    Import Excel
+                </button> --}}
+                {{-- </div> --}}
                 <div class="card-body">
-                    <table class="table table-responsive table-hover" id="table_id">
+                    <h2 class="title-table">Deployment</h2>
+                    <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                <th scope="col">REKAP ID</th>
+                                <th scope="col" class="text-nowrap">REKAP ID</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">TANGGAL</th>
                                 <th scope="col">OLO</th>
                                 <th scope="col">WITEL</th>
                                 <th scope="col">PRODUK</th>
-                                <th scope="col">STATUS NCX</th>
-                                <th scope="col">STATUS WFM</th>
-                                <th scope="col">AKSI</th>
+                                <th scope="col" class="text-nowrap">STATUS NCX</th>
+                                <th scope="col" class="text-nowrap">STATUS WFM</th>
+                                <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             </tr>
                         </thead>
                         <tbody>
-
-
                             @foreach ($deps as $item)
                             <tr>
                                 <td>{{ $item->rekap_id; }}</td>
@@ -45,15 +39,25 @@
                                 <td>{{ $item->produk }}</td>
                                 <td>{{ $item->status_ncx }}</td>
                                 <td>{{ $item->status_wfm }}</td>
-                                <td>
-                                    <a href="{{ route('dep.edit', $item->id) }}" class="btn btn-success">Edit</a> |
-                                    <form action="{{ route('dep.destroy',$item->id) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Yakin data akan dihapus ?')">Delete</button>
-                                    </form>
+                                <td class="text-center">
+                                    <div class="dropleft">
+                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"></span>
+                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                            <a href="{{ route('dep.edit',$item->id) }}" class="dropdown-item"
+                                                type="button">
+                                                <i class="fas fa-edit mr-2"></i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('dep.destroy',$item->id) }}" method="POST" class="d-inline" onsubmit="return validasiHapus()">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="dropdown-item" type="submit"
+                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                        class="fas fa-trash mr-2"></i> Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

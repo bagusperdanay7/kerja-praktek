@@ -16,6 +16,12 @@
 
     {{-- CSS Custom --}}
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <!-- Sweet Alert -->
+    <script src="{{ asset('sweet-alert/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('sweet-alert/sweetalert2.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('sweet-alert/sweetalert2.min.css') }}">
+
     <title>{{ $title }}</title>
   </head>
   <body>
