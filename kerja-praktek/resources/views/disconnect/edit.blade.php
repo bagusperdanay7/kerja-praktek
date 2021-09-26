@@ -36,11 +36,23 @@
                         </div> --}}
                         <div class="form-group">
                             <label for="jenis_ont">JENIS ONT</label>
-                            <input type="text" name="jenis_ont" id="jenis_ont" value="{{ $dis->jenis_ont }}"
-                                class="form-control">
+                            <select name="jenis_ont" id="jenis_ont" class="form-control">
+                                <option value="{{ $dis->jenis_ont }}">{{ $dis->jenis_ont }}</option>
+                                <option value="L2SW">L2SW</option>
+                                <option value="DO LOGIC, REVISI BAKES">DO LOGIC, REVISI BAKES</option>
+                                <option value="HG6243C">HG6243C</option>
+                                <option value="HG6145F">HG6145F</option>
+                                <option value="HG8245H">HG8245H</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="status">STATUS</label>
+                            <select name="status" id="status" class="form-control">
+                                <option value="{{ $dis->status }}">{{ $dis->status }}</option>
+                                <option value="Sudah dicabut">Sudah dicabut</option>
+                                <option value="DOWN">DOWN</option>
+                                <option value="ON">ON</option>
+                            </select>
                             <input type="status" name="status" id="status" value="{{ $dis->status }}"
                                 class="form-control">
                         </div>

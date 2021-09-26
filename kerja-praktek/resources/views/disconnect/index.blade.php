@@ -17,10 +17,10 @@
                         <thead>
                             <tr>
                                 {{-- <th scope="col">WFM ID</th> --}}
+                                <th scope="col">NO</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">OLO</th>
                                 <th scope="col">ALAMAT</th>
-                                {{-- <th scope="col">KOTA</th> --}}
                                 <th scope="col">JENIS ONT</th>
                                 <th scope="col">STATUS</th>
                                 <th scope="col">PLAN CABUT</th>
@@ -31,12 +31,13 @@
                         <tbody>
 
                             @foreach ($disconnects as $item)
+                            @php $i++; @endphp
                             <tr>
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
+                                <td class="text-center">{{ $i; }}</td>
                                 <td>{{ $item->older }}</td>
                                 <td>{{ $item->customer }}</td>
                                 <td>{{ $item->lokasi }}</td>
-                                {{-- <td>{{ $item->kota }}</td> --}}
                                 <td>{{ $item->jenis_ont }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->plan_cabut }}</td>
@@ -63,6 +64,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>
