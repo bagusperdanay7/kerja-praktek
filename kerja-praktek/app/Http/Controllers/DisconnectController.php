@@ -74,7 +74,7 @@ class DisconnectController extends Controller
         $diconnect->older = $request->older;
         $diconnect->customer = $request->customer;
         $diconnect->lokasi = $request->lokasi;
-        $diconnect->kota = $request->kota;
+        $diconnect->kota = "";
         $diconnect->jenis_ont = $request->jenis_ont;
         $diconnect->status = $request->status;
         $diconnect->plan_cabut = $request->plan_cabut;

@@ -203,7 +203,7 @@ class WfmController extends Controller
     public function update(Request $request, Wfm $wfm)
     {
 
-        $wfm = new Wfm();
+
         $wfm->rekap_id = $request->rekap_id;
         $wfm->tgl_bulan_th = $request->tgl_bulan_th;
         $wfm->no_ao = $request->no_ao;

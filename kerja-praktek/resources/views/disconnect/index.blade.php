@@ -16,11 +16,11 @@
                     <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                <th scope="col">WFM ID</th>
-                                <th scope="col">ORDER</th>
-                                <th scope="col">CUSTOMER</th>
-                                <th scope="col">LOKASI</th>
-                                <th scope="col">KOTA</th>
+                                {{-- <th scope="col">WFM ID</th> --}}
+                                <th scope="col">AO</th>
+                                <th scope="col">OLO</th>
+                                <th scope="col">ALAMAT</th>
+                                {{-- <th scope="col">KOTA</th> --}}
                                 <th scope="col">JENIS ONT</th>
                                 <th scope="col">STATUS</th>
                                 <th scope="col">PLAN CABUT</th>
@@ -32,11 +32,11 @@
 
                             @foreach ($disconnects as $item)
                             <tr>
-                                <td>{{ $item->wfm_id; }}</td>
-                                <td>{{ $item->order }}</td>
+                                {{-- <td>{{ $item->wfm_id; }}</td> --}}
+                                <td>{{ $item->older }}</td>
                                 <td>{{ $item->customer }}</td>
                                 <td>{{ $item->lokasi }}</td>
-                                <td>{{ $item->kota }}</td>
+                                {{-- <td>{{ $item->kota }}</td> --}}
                                 <td>{{ $item->jenis_ont }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->plan_cabut }}</td>
