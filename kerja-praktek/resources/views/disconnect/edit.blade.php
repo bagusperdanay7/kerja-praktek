@@ -13,27 +13,27 @@
                         @method('put')
                         <div class="form-group">
                             <label for="wfm_id">WFM ID</label>
-                            <input type="text" name="wfm_id" id="wfm_id" value="{{ $dis->wfm_id }}"
+                            <input type="hidden" name="wfm_id" id="wfm_id" value="{{ $dis->wfm_id }}"
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="older">ORDER</label>
-                            <input type="text" name="older" id="older" value="{{ $dis->order }}" class="form-control">
+                            <label for="older">AO</label>
+                            <input type="text" name="older" id="older" value="{{ $dis->older }}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="customer">CUSTOMER</label>
+                            <label for="customer">OLO</label>
                             <input type="text" name="customer" id="customer" value="{{ $dis->customer }}"
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="lokasi">LOKASI</label>
+                            <label for="lokasi">ALAMAT</label>
                             <input type="text" name="lokasi" id="lokasi" value="{{ $dis->lokasi }}"
                                 class="form-control">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="kota">KOTA</label>
                             <input type="text" name="kota" id="kota" value="{{ $dis->kota }}" class="form-control">
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="jenis_ont">JENIS ONT</label>
                             <input type="text" name="jenis_ont" id="jenis_ont" value="{{ $dis->jenis_ont }}"
