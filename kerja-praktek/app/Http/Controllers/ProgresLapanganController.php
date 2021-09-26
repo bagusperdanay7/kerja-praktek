@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Database;
 use App\Models\ProgresLapangan;
+use App\Models\Wfm;
 use Illuminate\Http\Request;
 
 class ProgresLapanganController extends Controller
@@ -15,7 +16,6 @@ class ProgresLapanganController extends Controller
      */
     public function index()
     {
-
         return view('progress_lapangan.index', ['title' => 'Progress Lapangan', 'progress' => ProgresLapangan::all()]);
     }
 
@@ -26,7 +26,7 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-        return view('progress_lapangan.new', ['title' => 'New Progress Lapangan', 'database' => Database::all()]);
+        return view('progress_lapangan.new', ['title' => 'New Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
     }
 
     /**
@@ -37,6 +37,7 @@ class ProgresLapanganController extends Controller
      */
     public function store(Request $request, ProgresLapangan $progress)
     {
+        $progress->tanggal = $request->tanggal;
         $progress->witel = $request->witel;
         $progress->ao = $request->ao;
         $progress->olo = $request->olo;
@@ -47,6 +48,7 @@ class ProgresLapanganController extends Controller
         $progress->tanggal_order_pt2 = $request->tanggal_order_pt2;
         $progress->keterangan_pt2 = $request->keterangan_pt2;
         $progress->datek_odp = $request->datek_odp;
+        $progress->progress = $request->progress;
         $progress->datek_gpon = $request->datek_gpon;
         $progress->keterangan = $request->keterangan;
         $progress->save();
@@ -73,7 +75,7 @@ class ProgresLapanganController extends Controller
      */
     public function edit(ProgresLapangan $progress)
     {
-        return view('progress_lapangan.update', ['title' => 'Update Data Progress Lapangan', 'progress' => $progress, 'database' => Database::all()]);
+        return view('progress_lapangan.update', ['title' => 'Update Data Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
     }
 
     /**
@@ -85,6 +87,7 @@ class ProgresLapanganController extends Controller
      */
     public function update(Request $request, ProgresLapangan $progress)
     {
+        $progress->tanggal = $request->tanggal;
         $progress->witel = $request->witel;
         $progress->ao = $request->ao;
         $progress->olo = $request->olo;
@@ -95,6 +98,7 @@ class ProgresLapanganController extends Controller
         $progress->tanggal_order_pt2 = $request->tanggal_order_pt2;
         $progress->keterangan_pt2 = $request->keterangan_pt2;
         $progress->datek_odp = $request->datek_odp;
+        $progress->progress = $request->progress;
         $progress->datek_gpon = $request->datek_gpon;
         $progress->keterangan = $request->keterangan;
         $progress->save();

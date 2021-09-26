@@ -9,6 +9,10 @@
                     <form action="{{ route('progress.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="witel">Witel</label>
                             <select name="witel" id="witel" class="form-control">
                                 <option value="">Pilih Witel</option>
@@ -20,7 +24,12 @@
 
                         <div class="form-group">
                             <label for="ao">No Ao</label>
-                            <input type="text" name="ao" id="ao" class="form-control">
+                            <select name="ao" id="ao" class="form-control">
+                                <option value="">Pilih AO</option>
+                                @foreach ($wfm as $wfm)
+                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -91,6 +100,16 @@
                             <input type="text" name="datek_odp" id="datek_odp" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="progress">Progress</label>
+                            <select name="progress" id="progress" class="form-control">
+                                <option value="">Pilih Progress</option>
+                                <option value="Open">Open</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Done">Done</option>
+                                <option value="Cancel">Cancel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="datek_gpon">Datek GPON</label>
                             <input type="text" name="datek_gpon" id="datek_gpon" class="form-control">
                         </div>
@@ -100,7 +119,8 @@
                         </div>
                         <div class="form-group text-right">
                             <a href="{{ route('progress.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button class="btn btn-main right-side" type="submit" onclick="return validasiTambah();">Simpan Data</button>
+                            <button class="btn btn-main right-side" type="submit"
+                                onclick="return validasiTambah();">Simpan Data</button>
                         </div>
                     </form>
                 </div>

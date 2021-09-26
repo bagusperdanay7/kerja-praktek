@@ -3,6 +3,7 @@
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeploymentController;
 use App\Http\Controllers\DisconnectController;
+use App\Http\Controllers\ExeSummController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
@@ -108,3 +109,9 @@ Route::get('/disconnect', [DisconnectController::class, 'index'])->name('dis.ind
 Route::get('/disconnect/edit/{diconnect}', [DisconnectController::class, 'edit'])->name('dis.edit');
 Route::put('/disconnect/update/{diconnect}', [DisconnectController::class, 'update'])->name('dis.update');
 Route::delete('/disconnect/delete/{diconnect}', [DisconnectController::class, 'destroy'])->name('dis.destroy');
+
+//route EXE SUMM
+Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index');
+Route::get('/exe_summ/edit/{exeSumm}', [ExeSummController::class, 'edit'])->name('xSumm.edit');
+Route::put('/exe_summ/update/{exeSumm}', [ExeSummController::class, 'update'])->name('xSumm.update');
+Route::delete('/exe_summ/delete/{exeSumm}', [ExeSummController::class, 'destroy'])->name('xSumm.destroy');

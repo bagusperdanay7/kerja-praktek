@@ -230,7 +230,6 @@
                             <a href="{{ route('wfm.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
                             <button type="submit" class="btn btn-primary" onclick="return validasiEdit();">Update Data</button>
                         </div>
-
                     </form>
                 </div>
             </div>
