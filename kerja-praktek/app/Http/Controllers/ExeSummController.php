@@ -57,7 +57,7 @@ class ExeSummController extends Controller
      */
     public function edit(ExeSumm $exeSumm)
     {
-        return view('exeSumm.edit', ['title' => 'Halaman Edit', 'exeSumm' => $exeSumm, 'database' => Database::all()]);
+        return view('exeSumm.edit', ['title' => 'Update Data - Deployment', 'exeSumm' => $exeSumm, 'database' => Database::all()]);
     }
 
     /**

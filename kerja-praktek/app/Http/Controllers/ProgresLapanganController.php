@@ -26,7 +26,7 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-        return view('progress_lapangan.new', ['title' => 'New Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        return view('progress_lapangan.new', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
     }
 
     /**
@@ -75,7 +75,7 @@ class ProgresLapanganController extends Controller
      */
     public function edit(ProgresLapangan $progress)
     {
-        return view('progress_lapangan.update', ['title' => 'Update Data Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        return view('progress_lapangan.update', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
     }
 
     /**

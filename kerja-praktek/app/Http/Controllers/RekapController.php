@@ -77,7 +77,7 @@ class RekapController extends Controller
     public function edit(Rekap $rekap)
     {
 
-        return view('rekap.edit', ["rekap" => $rekap, "title" => "Edit Data - Rekap"]);
+        return view('rekap.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
     }
 
     /**

@@ -18,7 +18,7 @@ class DeploymentController extends Controller
     public function index()
     {
 
-        return view('deployment.index', ['title' => 'Halaman Deployment', 'deps' => Deployment::all()]);
+        return view('deployment.index', ['title' => 'Deployment', 'deps' => Deployment::all()]);
     }
 
     /**
@@ -28,7 +28,7 @@ class DeploymentController extends Controller
      */
     public function create()
     {
-        return view('deployment.create', ['title' => 'Halaman Tambah Data', 'rekaps' => Rekap::all(), 'db' => Database::all()]);
+        return view('deployment.create', ['title' => 'Tambah Data - Deployment', 'rekaps' => Rekap::all(), 'db' => Database::all()]);
     }
 
     /**
@@ -72,7 +72,7 @@ class DeploymentController extends Controller
      */
     public function edit(Deployment $deployment)
     {
-        return view('deployment.edit', ['title' => 'Halaman edit', 'dep' => $deployment, 'db' => Database::all(), 'rekaps' => Rekap::all()]);
+        return view('deployment.edit', ['title' => 'Update Data - Deployment', 'dep' => $deployment, 'db' => Database::all(), 'rekaps' => Rekap::all()]);
     }
 
     /**
