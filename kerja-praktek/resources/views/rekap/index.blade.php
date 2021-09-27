@@ -3,8 +3,8 @@
 @section('contain')
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="card my-5 shadow-sm">
+        <span id="ct" class="mt-3 d-block text-right"></span>
+        <div class="card mt-2 mb-5 shadow-sm">
                 {{-- <div class="button-export mt-4">
                         {{-- <a href="{{ route('rekap.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
                 <a href="{{ route('rekap.export') }}" class="btn btn-success mb-3">Export Excel</a>

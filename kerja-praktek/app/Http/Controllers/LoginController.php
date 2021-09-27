@@ -9,18 +9,17 @@ use App\Rules\Captcha;
 
 class LoginController extends Controller
 {
-    public function TampilLogin(){
+    public function TampilLogin()
+    {
         return view('login.login');
     }
 
-    public function postlogin(Request $request){
+    public function postlogin(Request $request)
+    {
         //dd($request->all());
-        if (Auth::attempt($request->only('name','password'))){
+        if (Auth::attempt($request->only('name', 'password'))) {
             return redirect(route("home"));
         }
         return redirect('/');
     }
-
-
-
 }

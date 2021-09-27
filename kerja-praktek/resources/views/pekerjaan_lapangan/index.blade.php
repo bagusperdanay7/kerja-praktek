@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="card my-5 shadow-sm">
+            <span id="ct" class="mt-3 d-block text-right"></span>
+            <div class="card mt-2 mb-5 shadow-sm">
                 <div class="card-body">
                     {{-- <div class="p-1 bd-highlight">
                     <a href="{{ route('pekerjaan_lapangan.export') }}" class="btn btn-success mb-4">
