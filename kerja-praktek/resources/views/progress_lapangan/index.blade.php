@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <span id='ct' ></span>
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h2 class="title-table">Progress Lapangan</h2>

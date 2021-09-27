@@ -13,6 +13,7 @@
                 </button>
             </div> --}}
             <div class="card-body">
+                {{-- judul rekap dihapus dihome --}}
                 <h2 class="title-table">Rekap</h2>
                 <table class="table table-responsive table-hover" id="table_id">
                     <thead>

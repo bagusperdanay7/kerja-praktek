@@ -100,18 +100,17 @@
                             <input type="text" name="datek_odp" id="datek_odp" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="datek_gpon">Datek GPON</label>
+                            <input type="text" name="datek_gpon" id="datek_gpon" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="progress">Progress</label>
                             <select name="progress" id="progress" class="form-control">
                                 <option value="">Pilih Progress</option>
-                                <option value="Open">Open</option>
                                 <option value="In Progress">In Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="Cancel">Cancel</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="datek_gpon">Datek GPON</label>
-                            <input type="text" name="datek_gpon" id="datek_gpon" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>

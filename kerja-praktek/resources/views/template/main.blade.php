@@ -24,7 +24,7 @@
 
     <title>{{ $title }}</title>
   </head>
-  <body>
+  <body onload="display_ct();">
 
     @include('template.navbar')
 
