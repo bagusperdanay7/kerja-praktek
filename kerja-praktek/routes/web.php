@@ -120,4 +120,4 @@ Route::put('/exe_summ/update/{exeSumm}', [ExeSummController::class, 'update'])->
 Route::delete('/exe_summ/delete/{exeSumm}', [ExeSummController::class, 'destroy'])->name('xSumm.destroy');
 
 //route usermanagement
-Route::get('user/management', [App\Http\Controllers\UserManagementController::class, 'index'])->name('');
+Route::get('user/management', [UserManagementController::class, 'index'])->name('');
