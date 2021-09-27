@@ -9,7 +9,7 @@ class Wfm extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'no',
+        'rekap_id',
         'tgl_bulan_th',
         'no_ao',
         'witel',
@@ -48,11 +48,13 @@ class Wfm extends Model
         'sn',
         'port4',
         'type',
-        'nama',
-        'ip4',
-        'downlink',
-        'type2',
-        'capture_done',
+        'capture_metro',
+        'capture_gpon',
         'pic'
     ];
+
+    public function diconnect()
+    {
+        return $this->hasOne(Diconnect::class);
+    }
 }

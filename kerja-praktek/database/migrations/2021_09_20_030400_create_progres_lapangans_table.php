@@ -15,7 +15,8 @@ class CreateProgresLapangansTable extends Migration
     {
         Schema::create('progres_lapangans', function (Blueprint $table) {
             $table->id();
-            $table->string('wilayah')->nullable();
+            $table->date('tanggal')->nullable();
+            $table->string('witel')->nullable();
             $table->string('ao')->nullable();
             $table->string('olo')->nullable();
             $table->string('produk')->nullable();
@@ -25,6 +26,7 @@ class CreateProgresLapangansTable extends Migration
             $table->date('tanggal_order_pt2')->nullable();
             $table->string('keterangan_pt2')->nullable();
             $table->string('datek_odp')->nullable();
+            $table->string('progress')->nullable();
             $table->string('datek_gpon')->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();

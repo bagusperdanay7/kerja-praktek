@@ -16,7 +16,6 @@ class CreateWfmsTable extends Migration
         Schema::create('wfms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rekap_id')->constrained('rekaps')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('no')->nullable();
             $table->date('tgl_bulan_th')->nullable();
             $table->string('no_ao')->nullable();
             $table->string('witel')->nullable();
@@ -55,11 +54,8 @@ class CreateWfmsTable extends Migration
             $table->string('sn')->nullable();
             $table->string('port4')->nullable();
             $table->string('type')->nullable();
-            $table->string('nama')->nullable();
-            $table->string('ip4')->nullable();
-            $table->string('downlink')->nullable();
-            $table->string('type2')->nullable();
-            $table->string('capture_done')->nullable();
+            $table->string('capture_metro')->nullable();
+            $table->string('capture_gpon')->nullable();
             $table->string('pic')->nullable();
             $table->timestamps();
         });

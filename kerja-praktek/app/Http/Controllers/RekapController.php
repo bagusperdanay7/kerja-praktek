@@ -21,8 +21,6 @@ class RekapController extends Controller
      */
     public function index()
     {
-
-        
         return view('rekap.index', ["title" => "Rekap", 'rekap' => Rekap::all()]);
     }
 
@@ -55,6 +53,7 @@ class RekapController extends Controller
         $rekap->resume = $request->resume;
         $rekap->suspend = $request->suspend;
         $rekap->save();
+        sleep(1);
         return redirect()->route('rekap.index');
     }
 
@@ -78,7 +77,7 @@ class RekapController extends Controller
     public function edit(Rekap $rekap)
     {
 
-        return view('rekap.edit', ["rekap" => $rekap, "title" => "Edit Data - Rekap"]);
+        return view('rekap.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
     }
 
     /**
@@ -102,6 +101,7 @@ class RekapController extends Controller
         $rekap->resume = $request->resume;
         $rekap->suspend = $request->suspend;
         $rekap->save();
+        sleep(1);
         return redirect()->route('rekap.index');
     }
 
@@ -115,6 +115,7 @@ class RekapController extends Controller
     {
 
         $rekap->delete();
+        sleep(1);
         return back();
     }
 

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeploymentController;
+use App\Http\Controllers\DisconnectController;
+use App\Http\Controllers\ExeSummController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
@@ -28,15 +30,8 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [LoginController::class, 'TampilLogin'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'PostLogin'])->name('postlogin');
 
-// Route Dashboard
-Route::get('/dashboard', function () {
-    return view(
-        'dashboard',
-        [
-            "title" => "Dashboard"
-        ]
-    );
-})->name('dashboard.index');
+// Route Home
+Route::get('/home', [RekapController::class, 'index'])->name('home');
 
 // Route Database
 Route::get('/database', [DatabaseController::class, 'index'])->name('database.index');
@@ -47,7 +42,7 @@ Route::delete('/database/delete/{database}', [DatabaseController::class, 'destro
 
 // Pekerjaan Lapangan Route
 Route::get('/pekerjaan_lapangan', [PekerjaanLapanganController::class, 'index'])->name('pekerjaan_lapangan.index');
-// Route::get('/pekerjaan_lapangan/create', [PekerjaanLapanganController::class, 'create'])->name('pekerjaan_lapangan.create');
+Route::get('/pekerjaan_lapangan/create', [PekerjaanLapanganController::class, 'create'])->name('pekerjaan_lapangan.create');
 Route::post('/pekerjaan_lapangan/tambah', [PekerjaanLapanganController::class, 'store'])->name('pekerjaan_lapangan.store');
 Route::get('/pekerjaan_lapangan/edit/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'edit'])->name('pekerjaan_lapangan.edit');
 Route::put('/pekerjaan_lapangan/update/{pekerjaan_lapangan}', [PekerjaanLapanganController::class, 'update'])->name('pekerjaan_lapangan.update');
@@ -63,7 +58,6 @@ Route::post('/database/tambah', [DatabaseController::class, 'store'])->name('dat
 Route::get('/database/edit/{database}', [DatabaseController::class, 'edit'])->name('database.edit');
 Route::put('/database/update/{database}', [DatabaseController::class, 'update'])->name('database.update');
 Route::delete('/database/delete/{database}', [DatabaseController::class, 'destroy'])->name('database.destroy');
-
 Route::get('/export/database', [DatabaseController::class, 'databaseexport'])->name('database.export');
 Route::post('/import/database', [DatabaseController::class, 'databaseimport'])->name('database.import');
 
@@ -77,8 +71,6 @@ Route::post('/wfm/store', [WfmController::class, 'store'])->name('wfm.store');
 Route::get('/wfm/edit/{wfm}', [WfmController::class, 'edit'])->name('wfm.edit');
 Route::put('/wfm/update/{wfm}', [WfmController::class, 'update'])->name('wfm.update');
 Route::delete('/wfm/delete/{wfm}', [WfmController::class, 'destroy'])->name('wfm.delete');
-
-
 Route::get('/export/wfm', [WfmController::class, 'exportWfm'])->name('wfm.export');
 Route::post('/import/wfm', [WfmController::class, 'importWfm'])->name('wfm.import');
 
@@ -91,26 +83,36 @@ Route::get('/rekap/create', [RekapController::class, 'create'])->name('rekap.cre
 Route::post('/rekap/store', [RekapController::class, 'store'])->name('rekap.store');
 Route::get('/rekap/edit/{rekap}', [RekapController::class, 'edit'])->name('rekap.edit');
 Route::put('/rekap/update/{rekap}', [RekapController::class, 'update'])->name('rekap.update');
-
 Route::delete('/rekap/delete/{rekap}', [RekapController::class, 'destroy'])->name('rekap.destroy');
 
 Route::get('/export/rekap', [RekapController::class, 'exportRekap'])->name('rekap.export');
 Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rekap.import');
 
-// progres lapangan
-
+// progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index');
 Route::get('/progress_lapangan/create', [ProgresLapanganController::class, 'create'])->name('progress.create');
-Route::get('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
+Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'store'])->name('progress.store');
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit');
-Route::get('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
+Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
 Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
 
-
 // deployment
-Route::get('/deployment',[DeploymentController::class, 'index'])->name('dep.index');
-Route::get('/deployment/create',[DeploymentController::class, 'create'])->name('dep.create');
-Route::post('/deployment/store',[DeploymentController::class, 'store'])->name('dep.store');
-Route::get('/deployment/edit/{deployment}',[DeploymentController::class, 'edit'])->name('dep.edit');
-Route::put('/deployment/update/{deployment}',[DeploymentController::class, 'update'])->name('dep.update');
-Route::delete('/deployment/update/{deployment}',[DeploymentController::class, 'destroy'])->name('dep.destroy');
+Route::get('/deployment', [DeploymentController::class, 'index'])->name('dep.index');
+Route::get('/deployment/create', [DeploymentController::class, 'create'])->name('dep.create');
+Route::post('/deployment/store', [DeploymentController::class, 'store'])->name('dep.store');
+Route::get('/deployment/edit/{deployment}', [DeploymentController::class, 'edit'])->name('dep.edit');
+Route::put('/deployment/update/{deployment}', [DeploymentController::class, 'update'])->name('dep.update');
+Route::delete('/deployment/delete/{deployment}', [DeploymentController::class, 'destroy'])->name('dep.destroy');
+
+
+// disconnect
+Route::get('/disconnect', [DisconnectController::class, 'index'])->name('dis.index');
+Route::get('/disconnect/edit/{diconnect}', [DisconnectController::class, 'edit'])->name('dis.edit');
+Route::put('/disconnect/update/{diconnect}', [DisconnectController::class, 'update'])->name('dis.update');
+Route::delete('/disconnect/delete/{diconnect}', [DisconnectController::class, 'destroy'])->name('dis.destroy');
+
+//route EXE SUMM
+Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index');
+Route::get('/exe_summ/edit/{exeSumm}', [ExeSummController::class, 'edit'])->name('xSumm.edit');
+Route::put('/exe_summ/update/{exeSumm}', [ExeSummController::class, 'update'])->name('xSumm.update');
+Route::delete('/exe_summ/delete/{exeSumm}', [ExeSummController::class, 'destroy'])->name('xSumm.destroy');

@@ -3,48 +3,46 @@
 @section('contain')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-lg-12">
-            <div class="card mt-3 mx-3">
-                <div class="card-header">
-                    <h1>DATA WFM</h1>
-                    <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a>
-                    <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
+        <div class="col">
+            <div class="card my-5 shadow-sm">
+                    {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
+                    {{-- <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Import Excel
-                    </button>
-                </div>
+                    </button> --}}
                 <div class="card-body">
+                    <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            <th>NO</th>
+                            <th class="text-nowrap">REKAP ID</th>
                             <th>TGL/BLN/THN</th>
-                            <th>NO. AO</th>
+                            <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
-                            <th>OLO / ISP</th>
-                            <th>SITE KRITERIA</th>
+                            <th class="text-nowrap">OLO / ISP</th>
+                            <th class="text-nowrap">SITE KRITERIA</th>
                             <th>SID</th>
-                            <th>SITE ID</th>
-                            <th>ORDER TYPE</th>
+                            <th class="text-nowrap">SITE ID</th>
+                            <th class="text-nowrap">ORDER TYPE</th>
                             <th>PRODUK</th>
                             <th>SATUAN</th>
-                            <th>KAPASITAS [BW]</th>
+                            <th class="text-nowrap">KAPASITAS [BW]</th>
                             <th>LONGITUDE</th>
                             <th>LATITUDE</th>
-                            <th>ALAMAT ASAL</th>
-                            <th>ALAMAT TUJUAN</th>
-                            <th>STATUS NCX</th>
-                            <th>BERITA ACARA</th>
-                            <th>TGL COMPLETE WFM</th>
-                            <th>STATUS WFM</th>
-                            <th>ALASAN CANCEL</th>
-                            <th>CANCEL By</th>
-                            <th>START CANCEL DATE</th>
-                            <th>READY AFTER CANCEL</th>
+                            <th class="text-nowrap">ALAMAT ASAL</th>
+                            <th class="text-nowrap">ALAMAT TUJUAN</th>
+                            <th class="text-nowrap">STATUS NCX</th>
+                            <th class="text-nowrap">BERITA ACARA</th>
+                            <th class="text-nowrap">TGL COMPLETE WFM</th>
+                            <th class="text-nowrap">STATUS WFM</th>
+                            <th class="text-nowrap">ALASAN CANCEL</th>
+                            <th class="text-nowrap">CANCEL By</th>
+                            <th class="text-nowrap">START CANCEL DATE</th>
+                            <th class="text-nowrap">READY AFTER CANCEL</th>
                             <th>INTEGRASI</th>
-                            <th>METRO</th>
+                            <th class="text-nowrap">METRO BACKHAUL</th>
                             <th>IP</th>
                             <th>PORT</th>
-                            <th>METRO</th>
+                            <th class="text-nowrap">METRO ACCESS</th>
                             <th>IP</th>
                             <th>PORT</th>
                             <th>VLAN</th>
@@ -55,18 +53,15 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
-                            <th>NAMA</th>
-                            <th>IP</th>
-                            <th>DOWNLINK</th>
-                            <th>TYPE</th>
-                            <th>CAPTURE DONE</th>
+                            <th class="text-nowrap">CAPTURE METRO</th>
+                            <th class="text-nowrap">CAPTURE GPON</th>
                             <th>PIC</th>
-                            <th>AKSI</th>
+                            <th scope="col"><span class="las la-ellipsis-v"></span></th>
                         </thead>
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-                                <td>{{$wfm->no }}</td>
+                                <td>{{$wfm->rekap_id }}</td>
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
@@ -105,20 +100,28 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
-                                <td>{{$wfm->nama }}</td>
-                                <td>{{$wfm->ip4 }}</td>
-                                <td>{{$wfm->downlink }}</td>
-                                <td>{{$wfm->type2 }}</td>
-                                <td>{{$wfm->capture_done }}</td>
+                                <td>{{ $wfm->capture_metro }}</td>
+                                <td>{{ $wfm->capture_gpon }}</td>
                                 <td>{{$wfm->pic }}</td>
-                                <td>
-                                    <a href="{{ route('wfm.edit',$wfm->id) }}" class="btn btn-success">Edit</a>
-                                    <form action="{{ route('wfm.delete',$wfm->id) }}" class="d-inline" method="POST">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Yakin anda delete ? ')">Delete</button>
-                                    </form>
+                                <td class="text-center">
+                                    <div class="dropleft">
+                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"></span>
+                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                            <a href="{{ route('wfm.edit',$wfm->id) }}" class="dropdown-item"
+                                                type="button">
+                                                <i class="fas fa-edit mr-2"></i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('wfm.delete',$wfm->id) }}" method="POST" class="d-inline" onsubmit="return validasiHapus()">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="dropdown-item" type="submit"
+                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                        class="fas fa-trash mr-2"></i> Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

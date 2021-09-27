@@ -5,51 +5,55 @@
     <div class="row">
         <div class="col">
             <div class="card my-5 shadow-sm">
-                {{-- <div class="button-export mt-4"> --}}
-                {{-- <a href="{{ route('dep.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
-                <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
+                {{-- <a href="{{ route('database.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
+                {{-- <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
                     Import Excel
                 </button> --}}
-                {{-- </div> --}}
+
                 <div class="card-body">
-                    <h2 class="title-table">Deployment</h2>
+                    <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                <th scope="col" class="text-nowrap">REKAP ID</th>
+                                {{-- <th scope="col">WFM ID</th> --}}
+                                <th scope="col">NO</th>
                                 <th scope="col">AO</th>
-                                <th scope="col">TANGGAL</th>
                                 <th scope="col">OLO</th>
-                                <th scope="col">WITEL</th>
-                                <th scope="col">PRODUK</th>
-                                <th scope="col" class="text-nowrap">STATUS NCX</th>
-                                <th scope="col" class="text-nowrap">STATUS WFM</th>
+                                <th scope="col">ALAMAT</th>
+                                <th scope="col">JENIS ONT</th>
+                                <th scope="col">STATUS</th>
+                                <th scope="col">PLAN CABUT</th>
+                                <th scope="col">PIC</th>
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($deps as $item)
+
+                            @foreach ($disconnects as $item)
+                            @php $i++; @endphp
                             <tr>
-                                <td>{{ $item->rekap_id; }}</td>
-                                <td>{{ $item->ao }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->olo }}</td>
-                                <td>{{ $item->witel }}</td>
-                                <td>{{ $item->produk }}</td>
-                                <td>{{ $item->status_ncx }}</td>
-                                <td>{{ $item->status_wfm }}</td>
+                                {{-- <td>{{ $item->wfm_id; }}</td> --}}
+                                <td class="text-center">{{ $i; }}</td>
+                                <td>{{ $item->older }}</td>
+                                <td>{{ $item->customer }}</td>
+                                <td>{{ $item->lokasi }}</td>
+                                <td>{{ $item->jenis_ont }}</td>
+                                <td>{{ $item->status }}</td>
+                                <td>{{ $item->plan_cabut }}</td>
+                                <td>{{ $item->pic }}</td>
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                            <a href="{{ route('dep.edit',$item->id) }}" class="dropdown-item"
+                                            <a href="{{ route('dis.edit',$item->id) }}" class="dropdown-item"
                                                 type="button">
                                                 <i class="fas fa-edit mr-2"></i>
                                                 Edit
                                             </a>
-                                            <form action="{{ route('dep.destroy',$item->id) }}" method="POST" class="d-inline" onsubmit="return validasiHapus()">
+                                            <form action="{{ route('dis.destroy',$item->id) }}" method="POST"
+                                                class="d-inline" onsubmit="return validasiHapus()">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="dropdown-item" type="submit"
@@ -60,6 +64,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

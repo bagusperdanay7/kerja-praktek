@@ -48,7 +48,7 @@ class DatabaseController extends Controller
         $database->satuan = $request->satuan;
         $database->status_ncx = $request->status_ncx;
         $database->save();
-
+        sleep(1);
         return redirect()->route('database.index');
     }
 
@@ -72,7 +72,7 @@ class DatabaseController extends Controller
     public function edit(Database $database)
     {
 
-        return view('database_table.edit', compact('database'), ["title" => "Edit Data - Database"]);
+        return view('database_table.edit', compact('database'), ["title" => "Update Data - Database"]);
     }
 
     /**
@@ -102,7 +102,7 @@ class DatabaseController extends Controller
         $database->satuan = $request->satuan;
         $database->status_ncx = $request->status_ncx;
         $database->save();
-
+        sleep(1);
         return redirect()->route('database.index');
     }
 
@@ -115,6 +115,7 @@ class DatabaseController extends Controller
     public function destroy(Database $database)
     {
         $database->delete();
+        sleep(1);
         return back();
     }
 

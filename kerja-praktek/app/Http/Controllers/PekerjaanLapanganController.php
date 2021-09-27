@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Exports\PekerjaanLapanganExport;
 use App\Imports\PekerjaanLapanganImport;
+use App\Models\Database;
 use App\Models\PekerjaanLapangan;
+use App\Models\Wfm;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -17,7 +19,7 @@ class PekerjaanLapanganController extends Controller
      */
     public function index()
     {
-        return view('pekerjaan_lapangan.index', ["title" => "Pekerjaan Lapangan", "isidata" => PekerjaanLapangan::all()]);
+        return view('pekerjaan_lapangan.index', ["title" => "Pekerjaan Lapangan", "isidata" => PekerjaanLapangan::all(), "database" => Database::all(), "wfm" => Wfm::all()]);
     }
 
     /**
@@ -51,7 +53,7 @@ class PekerjaanLapanganController extends Controller
         $pekerjaanLapangan->datek_odp = $request->datek_odp;
         $pekerjaanLapangan->keterangan = $request->keterangan;
         $pekerjaanLapangan->save();
-
+        sleep(1);
         return redirect()->route('pekerjaan_lapangan.index');
     }
 
@@ -74,7 +76,7 @@ class PekerjaanLapanganController extends Controller
      */
     public function edit(PekerjaanLapangan $pekerjaanLapangan)
     {
-        return view('pekerjaan_lapangan.edit', ["title" => "Edit Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan]);
+        return view('pekerjaan_lapangan.edit', ["title" => "Update Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan, "database" => Database::all(), "wfm" => Wfm::all()]);
     }
 
     /**
@@ -99,7 +101,7 @@ class PekerjaanLapanganController extends Controller
         $pekerjaanLapangan->datek_odp = $request->datek_odp;
         $pekerjaanLapangan->keterangan = $request->keterangan;
         $pekerjaanLapangan->save();
-
+        sleep(1);
         return redirect()->route('pekerjaan_lapangan.index');
     }
 
@@ -112,6 +114,7 @@ class PekerjaanLapanganController extends Controller
     public function destroy(PekerjaanLapangan $pekerjaanLapangan)
     {
         $pekerjaanLapangan->delete();
+        sleep(1);
         return back();
     }
 
