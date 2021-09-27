@@ -16,7 +16,7 @@ class CreateDiconnectsTable extends Migration
         Schema::create('diconnects', function (Blueprint $table) {
             $table->id();
             $table->foreignId('wfm_id')->constrained('wfms')->onDelete('cascade')->onDelete('cascade');
-            $table->string('order')->nullable();
+            $table->string('older')->nullable();
             $table->string('customer')->nullable();
             $table->text('lokasi')->nullable();
             $table->string('kota')->nullable();
