@@ -14,6 +14,8 @@ use App\Models\Database;
 use App\Models\ProgresLapangan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\UserManagementController;
+use Maatwebsite\Excel\Row;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,3 +118,6 @@ Route::get('/exe_summ', [ExeSummController::class, 'index'])->name('xSumm.index'
 Route::get('/exe_summ/edit/{exeSumm}', [ExeSummController::class, 'edit'])->name('xSumm.edit');
 Route::put('/exe_summ/update/{exeSumm}', [ExeSummController::class, 'update'])->name('xSumm.update');
 Route::delete('/exe_summ/delete/{exeSumm}', [ExeSummController::class, 'destroy'])->name('xSumm.destroy');
+
+//route usermanagement
+Route::get('user/management', [App\Http\Controllers\UserManagementController::class, 'index'])->name('');
