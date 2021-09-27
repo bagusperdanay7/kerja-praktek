@@ -33,7 +33,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Masuk untuk memulai sesi Anda</p>
 
-    <form action="{{ route('postlogin') }}" method="post">
+    <form action="{{ route('postlogin') }}" method="post" onsubmit="return submitUserForm()">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -43,6 +43,17 @@
         <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      <div class="form-group row mb-0">
+        <div class="col-md-6 offset-md-4">
+            <div class="g-recaptcha" data-sitekey="6LdJx5AcAAAAAIeJkKtq136wITkcMmtHCu1j2pjw" data-callback="recaptchaCallback"></div>
+        </div>
+      </div>
+
+      <div id="hiddenRecaptchaLoginError"></div>
+      @if ($errors->any('grecaptcha'))
+          <span class="text-danger">{{ $errors->first('grecaptcha') }}</span>
+      @endif
+
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
@@ -50,7 +61,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button id="submitBtn" type="submit" class="btn btn-primary btn-block btn-flat" disabled>Sign In</button>
         </div>
         <!-- /.col -->
       </div>
@@ -64,10 +75,13 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
+<!-- google recaptcha -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   $(function () {
     $('input').iCheck({
@@ -76,6 +90,12 @@
       increaseArea: '20%' // optional
     });
   });
+</script>
+<script>
+    function recaptchaCallback() {
+    $('#submitBtn').removeAttr('disabled');
+    };
+
 </script>
 </body>
 </html>

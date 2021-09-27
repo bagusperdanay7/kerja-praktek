@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
@@ -15,13 +17,29 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        User::create([
-            'name' => 'admin',
-            'level' => 'admin',
+        DB::table('users')->insert([
+            'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('12345'),
-            'remember_token' => Str::random(60),
+            'password' => Hash::make('admin123'),
+            'role' => 'admin',
+            'created_at' => \Carbon\Carbon::now(),
+            'email_verified_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Editor',
+            'email' => 'editor@gmail.com',
+            'password' => Hash::make('editor123'),
+            'role' => 'editor',
+            'created_at' => \Carbon\Carbon::now(),
+            'email_verified_at' => \Carbon\Carbon::now()
+        ]);
+        DB::table('users')->insert([
+            'name' => 'User',
+            'email' => 'user@gmail.com',
+            'password' => Hash::make('user123'),
+            'role' => 'user',
+            'created_at' => \Carbon\Carbon::now(),
+            'email_verified_at' => \Carbon\Carbon::now()
         ]);
     }
 }

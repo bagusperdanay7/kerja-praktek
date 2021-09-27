@@ -14,10 +14,6 @@ class DatabaseSeeder extends Seeder
          */
         public function run()
         {
-                // Nambah Data Dummy pada Database Pekejraan Lapangan
-                \App\Models\PekerjaanLapangan::factory(10)->create();
-
-                // Manggil UserSeeder
-                \App\Models\User::factory()->create();
+                $this->call(UserSeeder::class);
         }
 }

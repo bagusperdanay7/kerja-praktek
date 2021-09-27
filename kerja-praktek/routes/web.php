@@ -11,6 +11,7 @@ use App\Http\Controllers\WfmController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
