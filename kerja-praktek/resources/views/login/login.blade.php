@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
@@ -25,8 +25,6 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<<<<<<< HEAD
-=======
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
@@ -54,7 +52,6 @@
       @if ($errors->any('grecaptcha'))
           <span class="text-danger">{{ $errors->first('grecaptcha') }}</span>
       @endif
->>>>>>> bd1c06e7aadbbe4e2198a774510f66b0904f6da2
 
 <body class="hold-transition login-page">
     <div class="login-box">

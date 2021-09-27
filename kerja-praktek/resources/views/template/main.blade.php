@@ -29,7 +29,6 @@
     @include('template.navbar')
 
     <div class="main-content">
-
       <!-- Contain -->
 
       @yield('contain')
