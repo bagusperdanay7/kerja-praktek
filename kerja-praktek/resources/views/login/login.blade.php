@@ -54,15 +54,16 @@
                 @if ($errors->any('grecaptcha'))
                 <span class="text-danger">{{ $errors->first('grecaptcha') }}</span>
                 @endif
+                <button class="btn btn-main btn-block" id="submitBtn" disabled>Masuk</button>
             </form>
+        </div>
+    </div>
             <!-- jQuery -->
             <script src="{{ asset('js/jquery.js') }}"></script>
 
             <!-- Bootstrap 3.3.6 -->
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-            <!-- iCheck -->
-            <script src="../../plugins/iCheck/icheck.min.js"></script>
             <!-- google recaptcha -->
             <script src="https://www.google.com/recaptcha/api.js" async defer></script>
             <script>
