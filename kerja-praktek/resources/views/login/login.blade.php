@@ -25,6 +25,36 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
+<<<<<<< HEAD
+=======
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+      <h2><b>Form</b> Login</h2>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Masuk untuk memulai sesi Anda</p>
+
+    <form action="{{ route('postlogin') }}" method="post" onsubmit="return submitUserForm()">
+      {{ csrf_field() }}
+      <div class="form-group has-feedback">
+        <input type="name" class="form-control" name="name" placeholder="Name">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LdJx5AcAAAAAIeJkKtq136wITkcMmtHCu1j2pjw" data-callback="recaptchaCallback"></div>
+      </div>
+
+      <div id="hiddenRecaptchaLoginError"></div>
+      @if ($errors->any('grecaptcha'))
+          <span class="text-danger">{{ $errors->first('grecaptcha') }}</span>
+      @endif
+>>>>>>> bd1c06e7aadbbe4e2198a774510f66b0904f6da2
 
 <body class="hold-transition login-page">
     <div class="login-box">
