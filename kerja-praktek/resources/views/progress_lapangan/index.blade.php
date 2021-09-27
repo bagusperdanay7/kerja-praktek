@@ -11,6 +11,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">Witel</th>
                                 <th scope="col" class="text-nowrap">No Ao</th>
                                 <th scope="col">Olo</th>
@@ -19,6 +20,7 @@
                                 <th scope="col" colspan="2" class="text-center">Progress PT1</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT2</th>
                                 <th scope="col" class="text-nowrap">Datek ODP</th>
+                                <th scope="col">Progress</th>
                                 <th scope="col" class="text-nowrap">Datek GPON</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col"><i class="las la-ellipsis-v"></i></th>
@@ -33,10 +35,12 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
                                 <th scope="row" class="text-nowrap">Tanggal Order</th>
                                 <th scope="row">Keterangan</th>
                                 <th scope="row" class="text-nowrap">Tanggal Order</th>
                                 <th>Keterangan</th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -49,6 +53,7 @@
                             @foreach ($progress as $item)
                             <tr>
                                 <td class="text-center"> {{ $i; }} </td>
+                                <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->witel }}</td>
                                 <td>{{ $item->ao }}</td>
                                 <td>{{ $item->olo }}</td>
@@ -59,6 +64,7 @@
                                 <td>{{ $item->tanggal_order_pt2 }}</td>
                                 <td>{{ $item->keterangan_pt2 }}</td>
                                 <td>{{ $item->datek_odp }}</td>
+                                <td>{{ $item->progress }}</td>
                                 <td>{{ $item->datek_gpon }}</td>
                                 <td>{{ $item->keterangan }}</td>
                                 <td class="text-center">

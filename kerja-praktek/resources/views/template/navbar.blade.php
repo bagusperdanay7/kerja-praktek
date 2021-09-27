@@ -45,7 +45,7 @@
                                 <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
                                 <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                                 <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-                                <a class="dropdown-item" href="">EXE SUMM</a>
+                                <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
                             </div>
                         </li>
                         <li class="nav-item menu">

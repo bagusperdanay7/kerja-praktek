@@ -72,7 +72,7 @@ class DatabaseController extends Controller
     public function edit(Database $database)
     {
 
-        return view('database_table.edit', compact('database'), ["title" => "Edit Data - Database"]);
+        return view('database_table.edit', compact('database'), ["title" => "Update Data - Database"]);
     }
 
     /**

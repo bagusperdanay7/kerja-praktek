@@ -76,7 +76,7 @@ class PekerjaanLapanganController extends Controller
      */
     public function edit(PekerjaanLapangan $pekerjaanLapangan)
     {
-        return view('pekerjaan_lapangan.edit', ["title" => "Edit Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan, "database" => Database::all(), "wfm" => Wfm::all()]);
+        return view('pekerjaan_lapangan.edit', ["title" => "Update Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan, "database" => Database::all(), "wfm" => Wfm::all()]);
     }
 
     /**

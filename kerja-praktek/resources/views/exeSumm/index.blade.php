@@ -5,54 +5,49 @@
     <div class="row">
         <div class="col">
             <div class="card my-5 shadow-sm">
-                {{-- <a href="{{ route('database.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
-                {{-- <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
-                    Import Excel
-                </button> --}}
-
                 <div class="card-body">
-                    <h2 class="title-table">Disconnect</h2>
-                    <table class="table table-responsive-lg table-hover" id="table_id">
+                    <h2 class="title-table">Exe Summ</h2>
+                    <table class="table table-responsive table-hover" id="table_id">
                         <thead>
                             <tr>
-                                {{-- <th scope="col">WFM ID</th> --}}
                                 <th scope="col">NO</th>
-                                <th scope="col">AO</th>
                                 <th scope="col">OLO</th>
-                                <th scope="col">ALAMAT</th>
-                                <th scope="col">JENIS ONT</th>
-                                <th scope="col">STATUS</th>
-                                <th scope="col">PLAN CABUT</th>
-                                <th scope="col">PIC</th>
+                                <th scope="col" class="text-nowrap">PLAN AKTIVASI</th>
+                                <th scope="col" class="text-nowrap">PLAN MODIFY</th>
+                                <th scope="col" class="text-nowrap">PLAN DISCONNECT</th>
+                                <th scope="col">AKTIVASI</th>
+                                <th scope="col">MODIFY</th>
+                                <th scope="col">DISCONNECT</th>
+                                <th scope="col">RESUME</th>
+                                <th scope="col">SUSPEND</th>
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            @foreach ($disconnects as $item)
-                            @php $i++; @endphp
+                            @foreach ($exeSumm as $item)
+                            @php $i = 1; @endphp
                             <tr>
-                                {{-- <td>{{ $item->wfm_id; }}</td> --}}
-                                <td class="text-center">{{ $i; }}</td>
-                                <td>{{ $item->older }}</td>
-                                <td>{{ $item->customer }}</td>
-                                <td>{{ $item->lokasi }}</td>
-                                <td>{{ $item->jenis_ont }}</td>
-                                <td>{{ $item->status }}</td>
-                                <td>{{ $item->plan_cabut }}</td>
-                                <td>{{ $item->pic }}</td>
+                                <td>{{ $i; }}</td>
+                                <td>{{ $item->olo; }}</td>
+                                <td>{{ $item->plan_aktivasi; }}</td>
+                                <td>{{ $item->plan_modify }}</td>
+                                <td>{{ $item->plan_disconnect }}</td>
+                                <td>{{ $item->aktivasi }}</td>
+                                <td>{{ $item->modify }}</td>
+                                <td>{{ $item->disconnect }}</td>
+                                <td>{{ $item->resume }}</td>
+                                <td>{{ $item->suspend }}</td>
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">
-                                            <a href="{{ route('dis.edit',$item->id) }}" class="dropdown-item"
+                                            <a href="{{ route('xSumm.edit',$item->id) }}" class="dropdown-item"
                                                 type="button">
                                                 <i class="fas fa-edit mr-2"></i>
                                                 Edit
                                             </a>
-                                            <form action="{{ route('dis.destroy',$item->id) }}" method="POST"
+                                            <form action="{{ route('xSumm.destroy',$item->id) }}" method="POST"
                                                 class="d-inline" onsubmit="return validasiHapus()">
                                                 @csrf
                                                 @method('delete')
@@ -67,6 +62,20 @@
                             @php $i++; @endphp
                             @endforeach
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2" class="text-center">TOTAL</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <td></td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
             </div>
