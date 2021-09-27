@@ -8,6 +8,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  {{-- login merah --}}
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -61,7 +63,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button id="submitBtn" type="submit" class="btn btn-primary btn-block btn-flat" disabled>Sign In</button>
+          <button id="submitBtn" type="submit" class="btn btn-main btn-block btn-flat" disabled>Sign In
+          </button>
         </div>
         <!-- /.col -->
       </div>
@@ -75,7 +78,7 @@
 
 <!-- jQuery 2.2.3 -->
 <script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="js/bootstrap.min.js"></script>
 <!-- iCheck -->
