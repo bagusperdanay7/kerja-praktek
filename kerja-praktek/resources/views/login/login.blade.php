@@ -43,15 +43,6 @@
         <input type="password" class="form-control" name="password" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group">
-            <div class="g-recaptcha" data-sitekey="6LdJx5AcAAAAAIeJkKtq136wITkcMmtHCu1j2pjw" data-callback="recaptchaCallback"></div>
-      </div>
-
-      <div id="hiddenRecaptchaLoginError"></div>
-      @if ($errors->any('grecaptcha'))
-          <span class="text-danger">{{ $errors->first('grecaptcha') }}</span>
-      @endif
-
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox ">
@@ -59,7 +50,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button id="submitBtn" type="submit" class="btn btn-main btn-block btn-flat" disabled>Masuk
+          <button id="submitBtn" type="submit" class="btn btn-main btn-block btn-flat">Masuk
           </button>
         </div>
         <!-- /.col -->
