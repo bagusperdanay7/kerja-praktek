@@ -59,7 +59,7 @@ class DisconnectController extends Controller
      */
     public function edit(Diconnect $diconnect)
     {
-        return view('disconnect.edit', ['title' => 'Update Data - Disconnect', 'dis' => $diconnect]);
+        return view('disconnect.edit', ['title' => 'Update Data - Disconnect', 'diconnect' => $diconnect]);
     }
 
     /**
