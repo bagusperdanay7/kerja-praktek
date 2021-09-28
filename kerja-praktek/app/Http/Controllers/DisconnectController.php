@@ -83,6 +83,7 @@ class DisconnectController extends Controller
         $diconnect->pic = $request->pic;
         $diconnect->save();
         sleep(1);
+        //
         return redirect()->route('dis.index');
     }
 
