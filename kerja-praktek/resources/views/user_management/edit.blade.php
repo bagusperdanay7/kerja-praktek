@@ -26,8 +26,12 @@
                         </div>
                         <div class="form-group">
                             <label for="order_type">Role</label>
-                            <input type="text" name="role" id="role" class="form-control"
-                                value="{{ $user->role }}">
+                            <select name="role" id="role" class="form-control">
+                                <option value="{{ $user->role }}">{{ $user->role }}</option>
+                                <option value="admin">admin</option>
+                                <option value="editor">editor</option>
+                                <option value="view">view</option>
+                            </select>
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('management.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
