@@ -33,7 +33,7 @@
                             </a>
                             <div class="dropdown-menu dropmenu" aria-labelledby="progressMenu">
                                 <a class="dropdown-item" href="{{ route('progress.create') }}"><i class="las la-plus mr-3"></i>New Progress</a>
-                                <a class="dropdown-item" href="#"><i class="las la-pen mr-3"></i>Update Progress</a>
+                                <a class="dropdown-item" href="{{ route('progress.index') }}"><i class="las la-pen mr-3"></i>Update Progress</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
