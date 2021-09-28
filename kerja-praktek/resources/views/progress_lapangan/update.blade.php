@@ -89,7 +89,7 @@
                                 <div class="form-group">
                                     <label for="tanggal_order_pt2">Tanggal Order</label>
                                     <input type="date" name="tanggal_order_pt2" id="tanggal_order_pt2" class="form-control"
-                                        value="{{ $progress->tanggal_order_pt1 }}">
+                                        value="{{ $progress->tanggal_order_pt2 }}">
                                 </div>
                             </div>
         
@@ -97,7 +97,7 @@
                                 <div class="form-group">
                                     <label for="keterangan_pt2">Keterangan</label>
                                     <textarea class="form-control" name="keterangan_pt2" id="keterangan_pt2"
-                                        rows="1">{{ $progress->keterangan_pt1 }}</textarea>
+                                        rows="1">{{ $progress->keterangan_pt2 }}</textarea>
                                 </div>
                             </div>
                         </div>

@@ -26,12 +26,7 @@
 
                         <div class="form-group">
                             <label for="ao">No Ao</label>
-                            <select name="ao" id="ao" class="form-control">
-                                <option value="">Pilih AO</option>
-                                @foreach ($wfm as $wfm)
-                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                                @endforeach
-                            </select>
+                                <input type="text" name="ao" id="ao" class="form-control">
                         </div>
 
                         <div class="form-group">
