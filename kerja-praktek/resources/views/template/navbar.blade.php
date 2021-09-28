@@ -61,7 +61,7 @@
                                 class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" style="width: 48px">
                             <div class="dropdown-menu w-25" aria-labelledby="user-menu">
-                                <a class="dropdown-item">{{Auth::user()->name}}</a>
+                                <a class="dropdown-item"></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" onclick="return confirm('Apakah Anda ingin keluar?');" href="{{ route('login') }}"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a>
                             </div>
