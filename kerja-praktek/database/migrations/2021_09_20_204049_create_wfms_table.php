@@ -15,7 +15,7 @@ class CreateWfmsTable extends Migration
     {
         Schema::create('wfms', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('rekap_id')->constrained('rekaps')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('rekap_id')->constrained('rekaps')->onDelete('cascade')->onUpdate('cascade');
             $table->date('tgl_bulan_th')->nullable();
             $table->string('no_ao')->nullable();
             $table->string('witel')->nullable();

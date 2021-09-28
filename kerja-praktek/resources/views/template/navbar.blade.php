@@ -10,7 +10,7 @@
                     <img src="{{ asset('img/telkom.svg') }}" alt="logo telkom" style="max-height: 50px;">
                 </a>
             </div>
-            <div class="col-7 justify-content-end">
+            <div class="col-8 justify-content-end">
                 <div class="collapse navbar-collapse" id="navDropdown">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item menu">
@@ -50,6 +50,9 @@
                         </li>
                         <li class="nav-item menu">
                             <a class="nav-link {{ ($title === "Disconnect") ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
+                        </li>
+                        <li class="nav-item menu">
+                            <a class="nav-link {{ ($title === "User") ? 'nav-active' : '' }}" href="{{ route('user.index') }}">User</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">

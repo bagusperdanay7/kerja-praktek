@@ -14,7 +14,7 @@
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            <th class="text-nowrap">REKAP ID</th>
+                            {{-- <th class="text-nowrap">REKAP ID</th> --}}
                             <th>TGL/BLN/THN</th>
                             <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
@@ -61,7 +61,7 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-                                <td>{{$wfm->rekap_id }}</td>
+                                {{-- <td>{{$wfm->rekap_id }}</td> --}}
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
