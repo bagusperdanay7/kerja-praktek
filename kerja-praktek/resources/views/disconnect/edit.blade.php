@@ -53,8 +53,6 @@
                                 <option value="DOWN">DOWN</option>
                                 <option value="ON">ON</option>
                             </select>
-                            <input type="status" name="status" id="status" value="{{ $dis->status }}"
-                                class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="plan_cabut">PLAN CABUT</label>

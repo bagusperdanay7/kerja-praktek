@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Diconnect;
+use App\Models\Wfm;
 use Illuminate\Http\Request;
 
 class DisconnectController extends Controller
@@ -70,6 +71,7 @@ class DisconnectController extends Controller
      */
     public function update(Request $request, Diconnect $diconnect)
     {
+
         $diconnect->wfm_id = $request->wfm_id;
         $diconnect->older = $request->older;
         $diconnect->customer = $request->customer;
@@ -95,5 +97,6 @@ class DisconnectController extends Controller
         $diconnect->delete();
         sleep(1);
         return redirect()->route('dis.index');
+
     }
 }
