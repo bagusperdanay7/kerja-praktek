@@ -10,20 +10,25 @@
                     <form action="{{ route('management.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="witel">Name</label>
+                            <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="olo">Email</label>
-                            <input type="text" name="email" id="email" class="form-control">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="site_kriteria">Password</label>
+                            <label for="password">Password</label>
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="order_type">Role</label>
-                            <input type="text" name="role" id="role" class="form-control">
+                            <label for="role">Role</label>
+                            <select name="role" id="role" class="form-control">
+                                <option value="">Pilih Role</option>
+                                <option value="admin">admin</option>
+                                <option value="editor">editor</option>
+                                <option value="view">view</option>
+                            </select>
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('management.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>

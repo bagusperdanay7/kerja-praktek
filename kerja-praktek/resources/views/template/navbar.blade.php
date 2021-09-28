@@ -52,7 +52,7 @@
                             <a class="nav-link {{ ($title === "Disconnect") ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "User") ? 'nav-active' : '' }}" href="{{ route('user.index') }}">User</a>
+                            <a class="nav-link {{ ($title === "User") ? 'nav-active' : '' }}" href="{{ route('management.index') }}">User</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">

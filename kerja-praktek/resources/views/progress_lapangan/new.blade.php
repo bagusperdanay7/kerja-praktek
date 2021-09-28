@@ -17,7 +17,7 @@
                             <select name="witel" id="witel" class="form-control">
                                 <option value="">Pilih Witel</option>
                                 @foreach ($database as $db)
-                                 @if ($db->witel !== '')
+                                @if ($db->witel !== '')
                                 <option value="{{ $db->witel }}">{{ $db->witel }}</option>
                                 @endif
                                 @endforeach
@@ -49,7 +49,7 @@
                                 <option value="">Pilih Produk</option>
                                 @foreach ($database as $db)
                                 @if ($db->produk !== '')
-                                  <option value="{{ $db->produk }}">{{ $db->produk }}</option>  
+                                <option value="{{ $db->produk }}">{{ $db->produk }}</option>  
                                 @endif
                                 @endforeach
                             </select>

@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="card my-5 shadow-sm">
+            <span id="ct" class="mt-3 d-block text-right"></span>
+            <div class="card mt-2 mb-5 shadow-sm">
                     {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
                     {{-- <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">

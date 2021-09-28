@@ -32,7 +32,7 @@
                         <tbody>
 
                             @foreach ($disconnects as $item)
-                            @php $i++; @endphp
+                            @php $i = 1; @endphp
                             <tr>
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
                                 <td class="text-center">{{ $i; }}</td>

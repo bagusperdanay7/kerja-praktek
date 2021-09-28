@@ -19,11 +19,13 @@
                             <select name="witel" id="witel" class="form-control">
                                 <option value="{{ $progress->witel }}">{{ $progress->witel }}</option>
                                 @foreach ($database as $db)
+                                @if ($db->witel !== '')
                                 <option value="{{ $db->witel }}">{{ $db->witel }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
-        
+                        
                         <div class="form-group">
                             <label for="ao">No Ao</label>
                             <select name="ao" id="ao" class="form-control">
@@ -33,7 +35,7 @@
                                 @endforeach
                             </select>
                         </div>
-        
+                        
                         <div class="form-group">
                             <label for="olo">Olo</label>
                             <select name="olo" id="olo" class="form-control">
@@ -48,7 +50,9 @@
                             <select name="produk" id="produk" class="form-control">
                                 <option value="{{ $progress->produk }}">{{ $progress->produk }}</option>
                                 @foreach ($database as $db)
+                                @if ($db->produk !== '')
                                 <option value="{{ $db->produk }}">{{ $db->produk }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
