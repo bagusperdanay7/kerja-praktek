@@ -30,7 +30,9 @@
                             <label for="witel">WITEL</label>
                             <select name="witel" id="witel" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->witel !== '')
                                 <option value="{{ $item->witel }}">{{ $item->witel }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -46,7 +48,9 @@
                             <label for="site_kriteria">SITE KRITERIA</label>
                             <select name="site_kriteria" id="site_kriteria" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->site_kriteria !== '')
                                 <option value="{{ $item->site_kriteria }}">{{ $item->site_kriteria }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -62,7 +66,9 @@
                             <label for="order_type">ORDER TYPE</label>
                             <select name="order_type" id="order_type" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->order_type !== '')
                                 <option value="{{ $item->order_type }}">{{ $item->order_type }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -70,7 +76,9 @@
                             <label for="produk">PRODUK</label>
                             <select name="produk" id="produk" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->produk !== '')
                                 <option value="{{ $item->produk }}">{{ $item->produk }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -78,7 +86,9 @@
                             <label for="satuan">SATUAN</label>
                             <select name="satuan" id="satuan" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->satuan !== '')
                                 <option value="{{ $item->satuan }}">{{ $item->satuan }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -106,7 +116,9 @@
                             <label for="status_ncx">STATUS NCX</label>
                             <select name="status_ncx" id="status_ncx" class="form-control">
                                 @foreach ($database as $item)
+                                @if ($item->status_ncx !== '')
                                 <option value="{{ $item->status_ncx }}">{{ $item->status_ncx }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
