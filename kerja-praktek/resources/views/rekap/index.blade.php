@@ -12,11 +12,11 @@
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
                     Import Excel
                 </button>
-            </div> --}}
+            </div>
+            {{-- judul rekap dihapus dihome --}}
             <div class="card-body">
-                {{-- judul rekap dihapus dihome --}}
                 <h2 class="title-table">Rekap</h2>
-                <table class="table table-responsive table-hover" id="table_id">
+                <table class="table table-responsive table-hover table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">NO</th>
@@ -29,13 +29,216 @@
                             <th scope="col">DISCONNECT</th>
                             <th scope="col">RESUME</th>
                             <th scope="col">SUSPEND</th>
-                            <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                            {{-- <th scope="col"><span class="las la-ellipsis-v"></span></th> --}}
                         </tr>
                     </thead>
                     <tbody>
 
+                        @php
+                            $i = 1;
+                        @endphp
+                        @foreach ($rekaps as $item)
+                            <tr>
+                                <td>{{ $i }}</td>
+                                <td class="text-nowrap">{{ $item['olo'] }}</td>
+                                <td>{{ $item['plant_aktivasi'] }}</td>
+                                <td>{{ $item['plant_modify'] }}</td>
+                                <td>{{ $item['plant_dc'] }}</td>
+                                <td>{{ $item['aktivasi'] }}</td>
+                                <td>{{ $item['modify'] }}</td>
+                                <td>{{ $item['dc'] }}</td>
+                                <td>{{ $item['resume'] }}</td>
+                                <td>{{ $item['suspend'] }}</td>
+                            </tr>
+                            @php
+                                $i++
+                            @endphp
+                        @endforeach
+{{--
+                        <tr>
+                            <td>1</td>
+                            <td>PT TELEKOMUNIKASI SELULAR</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                        @foreach ($rekap as $item)
+                        <tr>
+                            <td>2</td>
+                            <td>APLIKANUSA LINTASARTA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>PT MORA TELEMATIKA INDONESIA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>PT HIPERNET INDODATA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>MEGA AKSES PERSADA (FIBERSTAR)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>SMART TEKNOLOGI UTAMA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>7</td>
+                            <td>LINTAS JARINGAN NUSANTARA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>8</td>
+                            <td>HUTCHINSON 3 INDONESIA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>9</td>
+                            <td>PT RADMILA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td>TIGATRA INFOKOM</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>11</td>
+                            <td>AMBHARA DUTA SHANTI</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>12</td>
+                            <td>BINA INFORMATIKA SOLUSI (BITSNET)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>13</td>
+                            <td>FIQRAN SOLUSINDO MEDIATAMA (FASTAMA)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>14</td>
+                            <td>INTERNET INI SAJA</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr> --}}
+
+
+                        {{-- @foreach ($rekap as $item)
                         <tr>
                             <td>{{ $item->no; }}</td>
                             <td>{{ $item->olo }}</td>
@@ -69,7 +272,7 @@
                                 </div>
                             </td>
                         </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                     <tfoot>
                         <tr>

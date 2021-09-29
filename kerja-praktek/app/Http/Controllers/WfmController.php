@@ -90,7 +90,7 @@ class WfmController extends Controller
         // $wfm->save();
 
         $wfm = Wfm::create([
-            // 'rekap_id' => $request->rekap_id,
+            'rekap_id' => $request->rekap_id,
             'tgl_bulan_th' => $request->tgl_bulan_th,
             'no_ao' => $request->no_ao,
             'witel' => $request->witel,
@@ -202,7 +202,7 @@ class WfmController extends Controller
      */
     public function update(Request $request, Wfm $wfm)
     {
-        // $wfm->rekap_id = $request->rekap_id;
+        $wfm->rekap_id = $request->rekap_id;
         $wfm->tgl_bulan_th = $request->tgl_bulan_th;
         $wfm->no_ao = $request->no_ao;
         $wfm->witel = $request->witel;

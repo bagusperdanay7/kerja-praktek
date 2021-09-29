@@ -7,9 +7,9 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form New Deployment</h4>
-                    <form action="{{ route('wfm.store') }}" method="POST">
+                    <form action="{{ route('wfm.store') }}" method="POST" name="deploymentAdd">
                         @csrf
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                             <label for="rekap_id">REKAP ID</label>
                             <select name="rekap_id" id="rekap_id" class="form-control" required>
                                 <option value="">Pilih Rekap ID</option>
@@ -17,7 +17,7 @@
                                 <option value="{{ $item->id }}">{{ $item->olo }}</option>
                                 @endforeach
                             </select>
-                        </div> --}}
+                        </div>
                         <div class="form-group">
                             <label for="tgl_bulan_th">TGL/BLN/THN</label>
                             <input type="date" name="tgl_bulan_th" id="tgl_bulan_th" class="form-control">

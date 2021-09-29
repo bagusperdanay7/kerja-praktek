@@ -12,14 +12,14 @@ class Rekap extends Model
     protected $fillable = [
         'no',
         'olo',
-        'plan_aktivasi',
-        'plan_modify',
-        'plan_disconnect',
-        'aktivasi',
-        'modify',
-        'disconnect',
-        'resume',
-        'suspend',
+        // 'plan_aktivasi',
+        // 'plan_modify',
+        // 'plan_disconnect',
+        // 'aktivasi',
+        // 'modify',
+        // 'disconnect',
+        // 'resume',
+        // 'suspend',
     ];
 
 
