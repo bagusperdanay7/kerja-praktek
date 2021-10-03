@@ -6,6 +6,7 @@ use App\Models\Database;
 use App\Models\ProgresLapangan;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProgresLapanganController extends Controller
 {
@@ -26,7 +27,11 @@ class ProgresLapanganController extends Controller
      */
     public function create()
     {
-        return view('progress_lapangan.new', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('progress_lapangan.new', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -75,7 +80,11 @@ class ProgresLapanganController extends Controller
      */
     public function edit(ProgresLapangan $progress)
     {
-        return view('progress_lapangan.update', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('progress_lapangan.update', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**

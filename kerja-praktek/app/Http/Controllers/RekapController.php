@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 use function Psy\bin;
 
@@ -29,94 +30,94 @@ class RekapController extends Controller
         // PT TELEKOMUNIKASI SELULAR
 
         $telkom_aktivasi = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',2)
-                    ->where('wfms.order_type','=','NEW INSTALL')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 2)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $telkom_modify = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',2)
-                    ->where('wfms.order_type','=','MODIFY')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 2)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $telkom_dc = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',2)
-                    ->where('wfms.order_type','=','DISCONNECT')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 2)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $telkom_resume = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',2)
-                    ->where('wfms.order_type','=','RESUME')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 2)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $telkom_suspend = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',2)
-                    ->where('wfms.order_type','=','SUSPEND')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 2)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
         // APLIKANUSA LINTASARTA
 
         $APLIKANUSA_aktivasi = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',3)
-                    ->where('wfms.order_type','=','NEW INSTALL')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 3)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $APLIKANUSA_modify = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',3)
-                    ->where('wfms.order_type','=','MODIFY')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 3)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $APLIKANUSA_dc = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',3)
-                    ->where('wfms.order_type','=','DISCONNECT')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 3)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $APLIKANUSA_resume = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',3)
-                    ->where('wfms.order_type','=','RESUME')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 3)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $APLIKANUSA_suspend = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',3)
-                    ->where('wfms.order_type','=','SUSPEND')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 3)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
@@ -124,1064 +125,1064 @@ class RekapController extends Controller
 
 
         $PT_MORA_TELEMATIKA_INDONESIA_aktivasi = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',4)
-                    ->where('wfms.order_type','=','NEW INSTALL')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 4)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_MORA_TELEMATIKA_INDONESIA_modify = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',4)
-                    ->where('wfms.order_type','=','MODIFY')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 4)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_MORA_TELEMATIKA_INDONESIA_dc = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',4)
-                    ->where('wfms.order_type','=','DISCONNECT')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 4)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_MORA_TELEMATIKA_INDONESIA_resume = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',4)
-                    ->where('wfms.order_type','=','RESUME')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 4)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_MORA_TELEMATIKA_INDONESIA_suspend = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',4)
-                    ->where('wfms.order_type','=','SUSPEND')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 4)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // PT HIPERNET INDODATA
 
         $PT_HIPERNET_INDODATA_aktivasi = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',5)
-                    ->where('wfms.order_type','=','NEW INSTALL')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 5)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_HIPERNET_INDODATA_modify = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',5)
-                    ->where('wfms.order_type','=','MODIFY')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 5)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_HIPERNET_INDODATA_dc = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',5)
-                    ->where('wfms.order_type','=','DISCONNECT')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 5)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_HIPERNET_INDODATA_resume = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',5)
-                    ->where('wfms.order_type','=','RESUME')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 5)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_HIPERNET_INDODATA_suspend = DB::table('rekaps')
-                    ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                    ->select('rekaps.*','wfms.order_type')
-                    ->where('rekaps.id','=',5)
-                    ->where('wfms.order_type','=','SUSPEND')
-                    ->groupBy('rekaps.id','wfms.order_type')
-                    ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 5)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // MEGA AKSES PERSADA (FIBERSTAR)
 
         $MEGA_AKSES_PERSADA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',6)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 6)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $MEGA_AKSES_PERSADA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',6)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 6)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $MEGA_AKSES_PERSADA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',6)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 6)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $MEGA_AKSES_PERSADA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',6)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 6)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $MEGA_AKSES_PERSADA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',6)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 6)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
 
         // SMART TEKNOLOGI UTAMA
         $SMART_TEKNOLOGI_UTAMA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',7)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 7)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $SMART_TEKNOLOGI_UTAMA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',7)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 7)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $SMART_TEKNOLOGI_UTAMA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',7)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 7)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $SMART_TEKNOLOGI_UTAMA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',7)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 7)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $SMART_TEKNOLOGI_UTAMA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',7)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 7)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // LINTAS JARINGAN NUSANTARA
 
         $LINTAS_JARINGAN_NUSANTARA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',8)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 8)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $LINTAS_JARINGAN_NUSANTARA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',8)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 8)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $LINTAS_JARINGAN_NUSANTARA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',8)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 8)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $LINTAS_JARINGAN_NUSANTARA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',8)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 8)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $LINTAS_JARINGAN_NUSANTARA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',8)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 8)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // HUTCHINSON 3 INDONESIA
 
 
         $HUTCHINSON_3_INDONESIA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',9)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 9)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $HUTCHINSON_3_INDONESIA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',9)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 9)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HUTCHINSON_3_INDONESIA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',9)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 9)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HUTCHINSON_3_INDONESIA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',9)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 9)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HUTCHINSON_3_INDONESIA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',9)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 9)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         // PT RADMILA
 
         $PT_RADMILA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',10)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 10)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_RADMILA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',10)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 10)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_RADMILA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',10)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 10)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_RADMILA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',10)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 10)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_RADMILA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',10)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 10)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // TIGATRA INFOKOM
 
         $TIGATRA_INFOKOM_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',11)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 11)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $TIGATRA_INFOKOM_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',11)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 11)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TIGATRA_INFOKOM_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',11)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 11)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TIGATRA_INFOKOM_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',11)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 11)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TIGATRA_INFOKOM_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',11)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 11)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // AMBHARA DUTA SHANTI
 
         $AMBHARA_DUTA_SHANTI_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',12)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 12)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $AMBHARA_DUTA_SHANTI_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',12)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 12)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $AMBHARA_DUTA_SHANTI_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',12)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 12)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $AMBHARA_DUTA_SHANTI_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',12)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 12)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $AMBHARA_DUTA_SHANTI_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // BINA INFORMATIKA SOLUSI (BITSNET)
 
         $BINA_INFORMATIKA_SOLUSI_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $BINA_INFORMATIKA_SOLUSI_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $BINA_INFORMATIKA_SOLUSI_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $BINA_INFORMATIKA_SOLUSI_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $BINA_INFORMATIKA_SOLUSI_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',13)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 13)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // FIQRAN SOLUSINDO MEDIATAMA (FASTAMA)
 
         $FIQRAN_SOLUSINDO_MEDIATAMA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',14)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 14)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $FIQRAN_SOLUSINDO_MEDIATAMA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',14)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 14)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $FIQRAN_SOLUSINDO_MEDIATAMA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',14)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 14)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $FIQRAN_SOLUSINDO_MEDIATAMA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',14)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 14)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $FIQRAN_SOLUSINDO_MEDIATAMA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',14)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 14)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // INTERNET INI SAJA
 
         $INTERNET_INI_SAJA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',15)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 15)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $INTERNET_INI_SAJA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',15)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 15)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $INTERNET_INI_SAJA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',15)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 15)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $INTERNET_INI_SAJA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',15)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 15)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $INTERNET_INI_SAJA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',15)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 15)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // PARSAORAN GLOBAL DATATRANS (HSPNET)
 
         $PARSAORAN_GLOBAL_DATATRANS_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',16)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 16)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PARSAORAN_GLOBAL_DATATRANS_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',16)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 16)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PARSAORAN_GLOBAL_DATATRANS_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',16)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 16)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PARSAORAN_GLOBAL_DATATRANS_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',16)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 16)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PARSAORAN_GLOBAL_DATATRANS_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',16)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 16)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // QUIROS NETWORKS
 
         $QUIROS_NETWORKS_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',17)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 17)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $QUIROS_NETWORKS_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',17)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 17)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $QUIROS_NETWORKS_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',17)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 17)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $QUIROS_NETWORKS_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',17)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 17)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $QUIROS_NETWORKS_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',17)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 17)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // CITRA JELAJAH INFORMATIKA (CIFO)
 
         $CITRA_JELAJAH_INFORMATIKA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',18)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 18)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $CITRA_JELAJAH_INFORMATIKA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',18)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 18)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CITRA_JELAJAH_INFORMATIKA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',18)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 18)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CITRA_JELAJAH_INFORMATIKA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',18)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 18)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CITRA_JELAJAH_INFORMATIKA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',18)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 18)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // DANKOM MITRA ABADI
 
         $DANKOM_MITRA_ABADI_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',19)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 19)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $DANKOM_MITRA_ABADI_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',19)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 19)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $DANKOM_MITRA_ABADI_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',19)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 19)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $DANKOM_MITRA_ABADI_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',19)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 19)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $DANKOM_MITRA_ABADI_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',19)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 19)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // HANASTA DAKARA
 
         $HANASTA_DAKARA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',20)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 20)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $HANASTA_DAKARA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',20)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 20)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HANASTA_DAKARA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',20)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 20)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HANASTA_DAKARA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',20)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 20)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $HANASTA_DAKARA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',20)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 20)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // PT DAYAMITRA TELEKOMUNIKASI
 
         $PT_DAYAMITRA_TELEKOMUNIKASI_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',21)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 21)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_DAYAMITRA_TELEKOMUNIKASI_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',21)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 21)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_DAYAMITRA_TELEKOMUNIKASI_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',21)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 21)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_DAYAMITRA_TELEKOMUNIKASI_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',21)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 21)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_DAYAMITRA_TELEKOMUNIKASI_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',21)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 21)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         // PT JALAWAVE CAKRAWALA
 
         $PT_JALAWAVE_CAKRAWALA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',22)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 22)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_JALAWAVE_CAKRAWALA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',22)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 22)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_JALAWAVE_CAKRAWALA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',22)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 22)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_JALAWAVE_CAKRAWALA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',22)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 22)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_JALAWAVE_CAKRAWALA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',22)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 22)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
         // PT TELE GLOBE GLOBAL
 
         $PT_TELE_GLOBE_GLOBAL_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',23)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 23)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_TELE_GLOBE_GLOBAL_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',23)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 23)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELE_GLOBE_GLOBAL_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',23)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 23)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELE_GLOBE_GLOBAL_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',23)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 23)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELE_GLOBE_GLOBAL_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',23)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 23)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
         // PT TELKOM SATELIT INDONESIA
 
         $PT_TELKOM_SATELIT_INDONESIA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',24)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 24)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $PT_TELKOM_SATELIT_INDONESIA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',24)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 24)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELKOM_SATELIT_INDONESIA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',24)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 24)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELKOM_SATELIT_INDONESIA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',24)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 24)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $PT_TELKOM_SATELIT_INDONESIA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',24)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 24)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
         // TELKOM DWS TRIAL 8IC
 
         $TELKOM_DWS_TRIAL_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',25)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 25)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $TELKOM_DWS_TRIAL_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',25)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 25)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TELKOM_DWS_TRIAL_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',25)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 25)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TELKOM_DWS_TRIAL_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',25)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 25)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $TELKOM_DWS_TRIAL_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',25)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 25)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
         // CEMERLANG MULTIMEDIA (SRARNET)
 
         $CEMERLANG_MULTIMEDIA_aktivasi = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',26)
-                ->where('wfms.order_type','=','NEW INSTALL')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 26)
+            ->where('wfms.order_type', '=', 'NEW INSTALL')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
         $CEMERLANG_MULTIMEDIA_modify = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',26)
-                ->where('wfms.order_type','=','MODIFY')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 26)
+            ->where('wfms.order_type', '=', 'MODIFY')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CEMERLANG_MULTIMEDIA_dc = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',26)
-                ->where('wfms.order_type','=','DISCONNECT')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 26)
+            ->where('wfms.order_type', '=', 'DISCONNECT')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CEMERLANG_MULTIMEDIA_resume = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',26)
-                ->where('wfms.order_type','=','RESUME')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 26)
+            ->where('wfms.order_type', '=', 'RESUME')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
         $CEMERLANG_MULTIMEDIA_suspend = DB::table('rekaps')
-                ->join('wfms','rekaps.id', '=','wfms.rekap_id')
-                ->select('rekaps.*','wfms.order_type')
-                ->where('rekaps.id','=',26)
-                ->where('wfms.order_type','=','SUSPEND')
-                ->groupBy('rekaps.id','wfms.order_type')
-                ->count();
+            ->join('wfms', 'rekaps.id', '=', 'wfms.rekap_id')
+            ->select('rekaps.*', 'wfms.order_type')
+            ->where('rekaps.id', '=', 26)
+            ->where('wfms.order_type', '=', 'SUSPEND')
+            ->groupBy('rekaps.id', 'wfms.order_type')
+            ->count();
 
 
 
@@ -1548,7 +1549,11 @@ class RekapController extends Controller
      */
     public function create()
     {
-        return view('rekap.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('rekap.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -1559,7 +1564,7 @@ class RekapController extends Controller
      */
     public function store(Request $request, Rekap $rekap)
     {
-        $rekap->no = $request->no;
+        // $rekap->no = $request->no;
         $rekap->olo = $request->olo;
         $rekap->plan_aktivasi = $request->plan_aktivasi;
         $rekap->plan_modify = $request->plan_modify;
@@ -1593,8 +1598,11 @@ class RekapController extends Controller
      */
     public function edit(Rekap $rekap)
     {
-
-        return view('rekap.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('rekap.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -1607,7 +1615,7 @@ class RekapController extends Controller
     public function update(Request $request, Rekap $rekap)
     {
 
-        $rekap->no = $request->no;
+        // $rekap->no = $request->no;
         $rekap->olo = $request->olo;
         $rekap->plan_aktivasi = $request->plan_aktivasi;
         $rekap->plan_modify = $request->plan_modify;

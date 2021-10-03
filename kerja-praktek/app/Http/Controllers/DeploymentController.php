@@ -7,6 +7,7 @@ use App\Models\Database;
 use App\Models\Deployment;
 use App\Models\Rekap;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class DeploymentController extends Controller
 {
@@ -17,7 +18,6 @@ class DeploymentController extends Controller
      */
     public function index()
     {
-
         return view('deployment.index', ['title' => 'Deployment', 'deps' => Deployment::all()]);
     }
 
@@ -28,7 +28,11 @@ class DeploymentController extends Controller
      */
     public function create()
     {
-        return view('deployment.create', ['title' => 'Tambah Data - Deployment', 'rekaps' => Rekap::all(), 'db' => Database::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('deployment.create', ['title' => 'Tambah Data - Deployment', 'rekaps' => Rekap::all(), 'db' => Database::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -39,7 +43,6 @@ class DeploymentController extends Controller
      */
     public function store(Request $request, Deployment $deployment)
     {
-
         $deployment->rekap_id = $request->rekap_id;
         $deployment->ao = $request->ao;
         $deployment->tanggal = $request->tanggal;
@@ -72,7 +75,11 @@ class DeploymentController extends Controller
      */
     public function edit(Deployment $deployment)
     {
-        return view('deployment.edit', ['title' => 'Update Data - Deployment', 'dep' => $deployment, 'db' => Database::all(), 'rekaps' => Rekap::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('deployment.edit', ['title' => 'Update Data - Deployment', 'dep' => $deployment, 'db' => Database::all(), 'rekaps' => Rekap::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**

@@ -26,7 +26,9 @@
                                 <th scope="col">PRODUK</th>
                                 <th scope="col" class="text-nowrap">STATUS NCX</th>
                                 <th scope="col" class="text-nowrap">STATUS WFM</th>
+                                @canany(['admin', 'editor'])
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                                @endcanany
                             </tr>
                         </thead>
                         <tbody>
@@ -40,6 +42,7 @@
                                 <td>{{ $item->produk }}</td>
                                 <td>{{ $item->status_ncx }}</td>
                                 <td>{{ $item->status_wfm }}</td>
+                                @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -60,6 +63,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endcanany
                             </tr>
                             @endforeach
                         </tbody>

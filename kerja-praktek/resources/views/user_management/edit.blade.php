@@ -11,21 +11,26 @@
                         @csrf
                         @method('put')
                         <div class="form-group">
-                            <label for="witel">Name</label>
+                            <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
                         </div>
                         <div class="form-group">
-                            <label for="olo">Email</label>
+                            <label for="email">Email</label>
                             <input type="text" name="email" id="email" class="form-control"
                                 value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
-                            <label for="site_kriteria">Password</label>
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" class="form-control"
+                                value="{{ $user->username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
                             <input type="text" name="password" id="password" class="form-control"
                                 value="{{ $user->password }}">
                         </div>
                         <div class="form-group">
-                            <label for="order_type">Role</label>
+                            <label for="role">Role</label>
                             <select name="role" id="role" class="form-control">
                                 <option value="{{ $user->role }}">{{ $user->role }}</option>
                                 <option value="admin">admin</option>

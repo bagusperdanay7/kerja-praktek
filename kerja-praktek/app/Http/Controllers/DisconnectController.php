@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Diconnect;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class DisconnectController extends Controller
 {
@@ -59,7 +60,11 @@ class DisconnectController extends Controller
      */
     public function edit(Diconnect $diconnect)
     {
-        return view('disconnect.edit', ['title' => 'Update Data - Disconnect', 'dis' => $diconnect]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('disconnect.edit', ['title' => 'Update Data - Disconnect', 'dis' => $diconnect]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -98,6 +103,5 @@ class DisconnectController extends Controller
         $diconnect->delete();
         sleep(1);
         return redirect()->route('dis.index');
-
     }
 }

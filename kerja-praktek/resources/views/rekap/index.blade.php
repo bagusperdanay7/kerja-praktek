@@ -33,13 +33,9 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        @php
-                            $i = 1;
-                        @endphp
                         @foreach ($rekaps as $item)
                             <tr>
-                                <td>{{ $i }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td class="text-nowrap">{{ $item['olo'] }}</td>
                                 <td>{{ $item['plant_aktivasi'] }}</td>
                                 <td>{{ $item['plant_modify'] }}</td>
@@ -50,9 +46,6 @@
                                 <td>{{ $item['resume'] }}</td>
                                 <td>{{ $item['suspend'] }}</td>
                             </tr>
-                            @php
-                                $i++
-                            @endphp
                         @endforeach
 {{--
                         <tr>

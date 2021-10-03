@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Database;
 use App\Models\ExeSumm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ExeSummController extends Controller
 {
@@ -57,7 +58,11 @@ class ExeSummController extends Controller
      */
     public function edit(ExeSumm $exeSumm)
     {
-        return view('exeSumm.edit', ['title' => 'Update Data - Deployment', 'exeSumm' => $exeSumm, 'database' => Database::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('exeSumm.edit', ['title' => 'Update Data - Deployment', 'exeSumm' => $exeSumm, 'database' => Database::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**

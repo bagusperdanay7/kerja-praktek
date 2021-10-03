@@ -17,13 +17,11 @@ class EditorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role != "editor"){
-            /*
-            silahkan modifikasi pada bagian ini
-            apa yang ingin kamu lakukan jika rolenya tidak sesuai
-            */
-            return redirect()->to('logout');
+
+        if (auth()->check() && auth()->user()->role == 'admin' || auth()->user()->role == 'editor') {
+            return $next($request);
+        } else {
+            abort(403);
         }
-        return $next($request);
     }
 }

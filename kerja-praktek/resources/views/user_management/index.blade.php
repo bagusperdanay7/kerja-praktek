@@ -14,18 +14,19 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Role</th>
                                 <th scope="col"><i class="las la-ellipsis-v"></i></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php $i = 1; @endphp
                             @foreach ($management as $item)
                             <tr>
-                                <td class="text-center"> {{ $i; }} </td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->username }}</td>
                                 <td>{{ $item->password }}</td>
                                 <td>{{ $item->role }}</td>
                                 <td class="text-center">
@@ -50,7 +51,6 @@
                                     </div>
                                 </td>
                             </tr>
-                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

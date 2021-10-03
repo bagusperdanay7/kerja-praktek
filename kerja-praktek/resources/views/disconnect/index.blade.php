@@ -26,16 +26,17 @@
                                 <th scope="col">STATUS</th>
                                 <th scope="col">PLAN CABUT</th>
                                 <th scope="col">PIC</th>
+                                @canany(['admin', 'editor'])
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                                @endcanany
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach ($disconnects as $item)
-                            @php $i = 1; @endphp
                             <tr>
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
-                                <td class="text-center">{{ $i; }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->older }}</td>
                                 <td>{{ $item->customer }}</td>
                                 <td>{{ $item->lokasi }}</td>
@@ -43,6 +44,7 @@
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->plan_cabut }}</td>
                                 <td>{{ $item->pic }}</td>
+                                @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -64,8 +66,8 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endcanany
                             </tr>
-                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

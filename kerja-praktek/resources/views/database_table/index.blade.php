@@ -31,10 +31,9 @@
                         </thead>
                         <tbody>
 
-                            <?php $i = 1; ?>
                             @foreach ($datas as $item)
                             <tr>
-                                <td class="text-center">{{ $i; }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->witel }}</td>
                                 <td>{{ $item->olo_isp }}</td>
                                 <td>{{ $item->site_kriteria }}</td>
@@ -64,7 +63,6 @@
                                     </div>
                                 </td>
                             </tr>
-                            <?php $i++ ?>
                             @endforeach
                         </tbody>
                     </table>

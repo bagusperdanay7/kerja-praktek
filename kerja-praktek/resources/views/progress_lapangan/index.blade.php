@@ -24,7 +24,9 @@
                                 <th scope="col">Progress</th>
                                 <th scope="col" class="text-nowrap">Datek GPON</th>
                                 <th scope="col">Keterangan</th>
+                                @canany(['admin', 'editor'])
                                 <th scope="col"><i class="las la-ellipsis-v"></i></th>
+                                @endcanany
                             </tr>
                         </thead>
 
@@ -45,15 +47,16 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                @canany(['admin', 'editor'])
                                 <th></th>
+                                @endcanany
                             </tr>
                         </thead>
 
                         <tbody>
-                            @php $i = 1; @endphp
                             @foreach ($progress as $item)
                             <tr>
-                                <td class="text-center"> {{ $i; }} </td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->witel }}</td>
                                 <td>{{ $item->ao }}</td>
@@ -68,6 +71,7 @@
                                 <td>{{ $item->progress }}</td>
                                 <td>{{ $item->datek_gpon }}</td>
                                 <td>{{ $item->keterangan }}</td>
+                                @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -89,8 +93,8 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endcanany
                             </tr>
-                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

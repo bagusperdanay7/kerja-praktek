@@ -9,17 +9,36 @@ use App\Rules\Captcha;
 
 class LoginController extends Controller
 {
-    public function TampilLogin()
+    public function index()
     {
         return view('login.login');
     }
 
-    public function postlogin(Request $request)
+    public function authenticate(Request $request)
     {
-        //dd($request->all());
-        if (Auth::attempt($request->only('name', 'password'))) {
-            return redirect(route("home"));
+        $credentials = $request->validate([
+            // validasi ketat
+            // 'email' => 'required|email:dns',
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/');
         }
-        return redirect('/');
+
+        return back()->with('loginError', 'Username / Password Salah!');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        request()->session()->invalidate();
+
+        request()->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
