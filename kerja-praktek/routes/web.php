@@ -120,10 +120,9 @@ Route::put('/exe_summ/update/{exeSumm}', [ExeSummController::class, 'update'])->
 Route::delete('/exe_summ/delete/{exeSumm}', [ExeSummController::class, 'destroy'])->name('xSumm.destroy');
 
 //route usermanagement
-// Route::get('user/management', [UserManagementController::class, 'index'])->name('user.index');
 Route::get('/management', [UserManagementController::class, 'index'])->name('management.index')->middleware('admin');
 Route::get('/management/create', [UserManagementController::class, 'create'])->name('management.create')->middleware('admin');
 Route::post('/management/store', [UserManagementController::class, 'store'])->name('management.store');
 Route::get('/management/edit/{user}', [UserManagementController::class, 'edit'])->name('management.edit')->middleware('admin');
-Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');
 Route::put('/management/update/{user}', [UserManagementController::class, 'update'])->name('management.update');
+Route::delete('/management/delete/{user}', [UserManagementController::class, 'destroy'])->name('management.destroy');

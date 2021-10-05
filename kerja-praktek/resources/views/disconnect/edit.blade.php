@@ -39,10 +39,15 @@
                             <select name="jenis_ont" id="jenis_ont" class="form-control">
                                 <option value="{{ $dis->jenis_ont }}">{{ $dis->jenis_ont }}</option>
                                 <option value="L2SW">L2SW</option>
-                                <option value="DO LOGIC, REVISI BAKES">DO LOGIC, REVISI BAKES</option>
-                                <option value="HG6243C">HG6243C</option>
-                                <option value="HG6145F">HG6145F</option>
-                                <option value="HG8245H">HG8245H</option>
+                                <option value="Big ONT Huawei">Big ONT Huawei</option>
+                                <option value="Big ONT ZTE">Big ONT ZTE</option>
+                                <option value="Big ONT Fiberhome">Big ONT Fiberhome</option>
+                                <option value="ONT Premium Huawei">ONT Premium Huawei</option>
+                                <option value="ONT Premium ZTE">ONT Premium ZTE</option>
+                                <option value="ONT Premium Fiberhome">ONT Premium Fiberhome</option>
+                                <option value="ONT Retail Huawei">ONT Retail Huawei</option>
+                                <option value="ONT Retail ZTE">ONT Retail ZTE</option>
+                                <option value="ONT Retail Fiberhome">ONT Retail Fiberhome</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -55,7 +60,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="plan_cabut">PLAN CABUT</label>
+                            <label for="plan_cabut">TANGGAL</label>
                             <input type="text" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}"
                                 class="form-control">
                         </div>

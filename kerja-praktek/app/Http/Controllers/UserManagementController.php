@@ -40,35 +40,26 @@ class UserManagementController extends Controller
         $validatedData['password'] = Hash::make($validatedData['password']);
 
         User::create($validatedData);
-
-        sleep(1);
-        return redirect()->route('management.index');
+        return redirect()->route('management.index')->with('success', 'User Berhasil Ditambahkan');
     }
 
     public function update(Request $request, User $user)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'username' => ['required', 'min:3', 'max:255', 'unique:users'],
-            'email' => 'required|email:dns|unique:users',
-            'role' => 'required',
-            'password' => 'required|min:5|max:255'
-        ]);
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->password = $request->password;
 
-        // $validatedData['password'] = bcrypt($validatedData['password']);
-
-        // hash
-        $validatedData['password'] = Hash::make($validatedData['password']);
-
-        User::where('id', $user->id)->update($validatedData);
-        sleep(1);
-        return redirect()->route('management.index');
+        $user->password = Hash::make($user->password);
+        $user->save();
+        return redirect()->route('management.index')->with('success', 'User Berhasil Diubah');
     }
 
     public function edit(User $user)
     {
         $this->authorize('admin');
-        return view('user_management.edit', compact('user'), ["title" => "Update Data - Database"]);
+        return view('user_management.edit', compact('user'), ["title" => "Update Data User - User Management"]);
     }
 
     public function destroy(User $user)

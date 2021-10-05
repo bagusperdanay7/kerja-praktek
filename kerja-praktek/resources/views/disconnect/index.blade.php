@@ -24,7 +24,7 @@
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS ONT</th>
                                 <th scope="col">STATUS</th>
-                                <th scope="col">PLAN CABUT</th>
+                                <th scope="col">TANGGAL</th>
                                 <th scope="col">PIC</th>
                                 @canany(['admin', 'editor'])
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>

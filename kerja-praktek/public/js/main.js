@@ -85,6 +85,13 @@ function validasiHapus() {
     })
 }
 
+
+// button close flash massage
+
+function hideFlash() {
+    document.getElementById("success-tambah").style.display = "none";
+}
+
 // Real Time
 function display_c() {
     var refresh = 1000; // Refresh rate in milli seconds

@@ -131,9 +131,9 @@
                             <div class="dropdown-menu w-25" aria-labelledby="user-menu">
                                 <a class="dropdown-item text-center">{{ auth()->user()->name }}</a>
                                 <div class="dropdown-divider"></div>
-                                <form action="/logout" method="post">
+                                <form action="/logout" method="post" onsubmit="return confirm('Apakah Anda Ingin Logout?');">
                                     @csrf
-                                    <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2" onclick="alert('Apakah Ingin Logout?')"></i> Logout
+                                    <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2" onclick="return confirm('Apakah Anda Ingin Logout?')"></i> Logout
                                     </button>
                                 </form>
                             </div>
