@@ -14,17 +14,17 @@ class CreateRekapsTable extends Migration
     public function up()
     {
         Schema::create('rekaps', function (Blueprint $table) {
-            $table->id();
-            // $table->integer('no')->nullable();
+            $table->foreignId('wfm_id')->nullable()->constrained('wfms')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('progres_id')->nullable()->constrained('progres_lapangans')->onDelete('cascade')->onUpdate('cascade');
             $table->string('olo')->nullable();
             // $table->integer('plan_aktivasi')->nullable();
             // $table->integer('plan_modify')->nullable();
-            // $table->integer('plan_disconnect')->nullable();
-            // $table->integer('aktivasi')->nullable();
-            // $table->integer('modify')->nullable();
-            // $table->integer('disconnect')->nullable();
-            // $table->integer('resume')->nullable();
-            // $table->integer('suspend')->nullable();
+            // $table->integer('plan_dc')->nullable();
+            $table->integer('aktivasi')->nullable();
+            $table->integer('modify')->nullable();
+            $table->integer('disconnect')->nullable();
+            $table->integer('resume')->nullable();
+            $table->integer('suspend')->nullable();
             $table->timestamps();
 
 

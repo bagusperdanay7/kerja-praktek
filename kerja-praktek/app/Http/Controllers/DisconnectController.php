@@ -78,10 +78,10 @@ class DisconnectController extends Controller
     {
 
         $diconnect->wfm_id = $request->wfm_id;
-        $diconnect->older = $request->older;
-        $diconnect->customer = $request->customer;
+        $diconnect->no_ao = $request->older;
+        $diconnect->witel = $request->witel;
+        $diconnect->olo = $request->olo;
         $diconnect->lokasi = $request->lokasi;
-        $diconnect->kota = "";
         $diconnect->jenis_ont = $request->jenis_ont;
         $diconnect->status = $request->status;
         $diconnect->plan_cabut = $request->plan_cabut;

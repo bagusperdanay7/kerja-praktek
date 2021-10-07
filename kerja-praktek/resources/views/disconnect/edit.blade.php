@@ -17,12 +17,16 @@
                                 class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="older">AO</label>
-                            <input type="text" name="older" id="older" value="{{ $dis->older }}" class="form-control">
+                            <label for="ao">AO</label>
+                            <input type="text" name="no_ao" id="ao" value="{{ $dis->no_ao }}" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="older">WITEL</label>
+                            <input type="text" name="witel" id="older" value="{{ $dis->witel }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="customer">OLO</label>
-                            <input type="text" name="customer" id="customer" value="{{ $dis->customer }}"
+                            <input type="text" name="olo" id="customer" value="{{ $dis->olo }}"
                                 class="form-control">
                         </div>
                         <div class="form-group">
@@ -60,9 +64,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="plan_cabut">TANGGAL</label>
-                            <input type="text" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}"
-                                class="form-control">
+                            <label for="plan_cabut">PLAN CABUT</label>
+                            <input type="date" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}"
+
                         </div>
                         <div class="form-group">
                             <label for="wfm_id">PIC</label>

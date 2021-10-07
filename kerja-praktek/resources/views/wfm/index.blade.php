@@ -121,7 +121,10 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
+<<<<<<< HEAD
+=======
                                 <td>{{$wfm->rekap_id }}</td>
+>>>>>>> 63d53cc60ad77d0fa46ff50b9ee22dacf495d5a4
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>

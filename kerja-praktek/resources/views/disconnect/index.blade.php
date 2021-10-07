@@ -20,6 +20,7 @@
                                 {{-- <th scope="col">WFM ID</th> --}}
                                 <th scope="col">NO</th>
                                 <th scope="col">AO</th>
+                                <th scope="col">WITEL</th>
                                 <th scope="col">OLO</th>
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS ONT</th>
@@ -36,9 +37,11 @@
                             @foreach ($disconnects as $item)
                             <tr>
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->older }}</td>
-                                <td>{{ $item->customer }}</td>
+
+                                <td class="text-center">{{ $i; }}</td>
+                                <td>{{ $item->no_ao }}</td>
+                                <td>{{ $item->witel }}</td>
+                                <td>{{ $item->olo }}</td>
                                 <td>{{ $item->lokasi }}</td>
                                 <td>{{ $item->jenis_ont }}</td>
                                 <td>{{ $item->status }}</td>

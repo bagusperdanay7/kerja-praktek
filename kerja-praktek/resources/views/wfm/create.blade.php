@@ -10,15 +10,6 @@
                     <form action="{{ route('wfm.store') }}" method="POST" name="deploymentAdd">
                         @csrf
                         <div class="form-group">
-                            <label for="rekap_id">REKAP ID</label>
-                            <select name="rekap_id" id="rekap_id" class="form-control" required>
-                                <option value="">Pilih Rekap ID</option>
-                                @foreach ($rekap as $item)
-                                <option value="{{ $item->id }}">{{ $item->olo }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="tgl_bulan_th">TGL/BLN/THN</label>
                             <input type="date" name="tgl_bulan_th" id="tgl_bulan_th" class="form-control">
                         </div>
