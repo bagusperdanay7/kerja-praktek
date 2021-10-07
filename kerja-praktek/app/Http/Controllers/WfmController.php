@@ -14,6 +14,7 @@ use Dotenv\Store\File\Reader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Gate;
 
 class WfmController extends Controller
 {
@@ -35,8 +36,11 @@ class WfmController extends Controller
      */
     public function create()
     {
-
-        return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all(), 'rekap' => Rekap::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('wfm.create', ["title" => "Tambah Data - WFM", 'database' => Database::all(), 'rekap' => Rekap::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**
@@ -196,8 +200,11 @@ class WfmController extends Controller
      */
     public function edit(Wfm $wfm)
     {
-
-        return view('wfm.edit', ["title" => "Update Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('wfm.edit', ["title" => "Update Data - WFM", 'database' => Database::all(), 'wfm' => $wfm, 'rekap' => Rekap::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**

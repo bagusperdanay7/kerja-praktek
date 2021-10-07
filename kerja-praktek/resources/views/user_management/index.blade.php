@@ -2,6 +2,25 @@
 
 @section('contain')
 <div class="container">
+    @if (session()->has('success'))
+        <div class="success-tambah align-items-center mt-3" id="success-tambah">
+            <div class="d-flex">
+                <div class="ml-3 p-2 align-self-center text-success">
+                    <i class="las la-check display-4"></i>
+                </div>
+                <div class="p-2 flex-grow-1 border-right">
+                    <h3 class="mt-2">Success</h3>
+                    <p class="pesan-berhasil">{{ session('success') }}</p>
+                </div>
+                <div class="px-4 align-self-center">
+                    <button id="close-flash" class="close" onclick="hideFlash()">
+                        <span class="font-weight-normal">CLOSE</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col">
             <div class="card my-5 shadow-sm">
@@ -14,18 +33,19 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Username</th>
                                 <th scope="col">Password</th>
                                 <th scope="col">Role</th>
                                 <th scope="col"><i class="las la-ellipsis-v"></i></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php $i = 1; @endphp
                             @foreach ($management as $item)
                             <tr>
-                                <td class="text-center"> {{ $i; }} </td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
+                                <td>{{ $item->username }}</td>
                                 <td>{{ $item->password }}</td>
                                 <td>{{ $item->role }}</td>
                                 <td class="text-center">
@@ -43,14 +63,14 @@
                                                 @csrf
                                                 @method('delete')
                                                 <button class="dropdown-item" type="submit"
-                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
-                                                        class="fas fa-trash mr-2"></i> Hapus</button>
+                                                    onclick="return confirm('Apakah anda yakin ingin menghapusnya?')">
+                                                    <i class="fas fa-trash mr-2"></i> Hapus
+                                                </button>
                                             </form>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                     </table>

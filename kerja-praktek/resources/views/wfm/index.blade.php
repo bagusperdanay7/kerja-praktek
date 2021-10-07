@@ -4,18 +4,112 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <form action="">
+                <h6 class="filter-title">Filter</h6>
+                <div class="filter d-flex justify-content-between">
+                    <form action="{{ route('wfm.index') }}">
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                AO
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="?no_ao=">1</a>
+                                <a class="dropdown-item" href="#">2</a>
+                                <a class="dropdown-item" href="#">3</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Tanggal
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#date">
+                                    <input type="date"> <button class="ml-2" type="submit">OK</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                OLO
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                WITEL
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                ORDER TYPE
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Produk
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Status NCX
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Status WFM
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                </div>
+            </form>
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
-                    {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
-                    {{-- <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        Import Excel
-                    </button> --}}
+                {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
+                {{-- <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Import Excel
+                </button> --}}
                 <div class="card-body">
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            {{-- <th class="text-nowrap">REKAP ID</th> --}}
+                            <th class="text-nowrap">REKAP ID</th>
                             <th>TGL/BLN/THN</th>
                             <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
@@ -57,11 +151,17 @@
                             <th class="text-nowrap">CAPTURE METRO</th>
                             <th class="text-nowrap">CAPTURE GPON</th>
                             <th>PIC</th>
+                            @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                            @endcanany
                         </thead>
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
+<<<<<<< HEAD
+=======
+                                <td>{{$wfm->rekap_id }}</td>
+>>>>>>> 63d53cc60ad77d0fa46ff50b9ee22dacf495d5a4
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
@@ -103,6 +203,7 @@
                                 <td>{{ $wfm->capture_metro }}</td>
                                 <td>{{ $wfm->capture_gpon }}</td>
                                 <td>{{$wfm->pic }}</td>
+                                @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -113,7 +214,8 @@
                                                 <i class="fas fa-edit mr-2"></i>
                                                 Edit
                                             </a>
-                                            <form action="{{ route('wfm.delete',$wfm->id) }}" method="POST" class="d-inline" onsubmit="return validasiHapus()">
+                                            <form action="{{ route('wfm.delete',$wfm->id) }}" method="POST"
+                                                class="d-inline" onsubmit="return validasiHapus()">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="dropdown-item" type="submit"
@@ -123,6 +225,7 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endcanany
                             </tr>
                             @endforeach
                         </tbody>

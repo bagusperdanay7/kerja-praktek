@@ -147,6 +147,43 @@ th {
     text-transform: uppercase;
 }
 
+.filter-title {
+    margin: 15px 0;
+}
+
+.filter button {
+    border: 1px solid var(--black-10);
+    color: var(--black);
+    background-color: var(--white-light);
+    padding: 5px 15px;
+    border-radius: 5px;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.success-tambah {
+    height: 100px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border-left: 15px solid var(--success);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.success-tambah-none {
+    display: none;
+    height: 100px;
+    border-radius: 5px;
+    background-color: var(--white);
+    border-left: 15px solid var(--success);
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+.pesan-berhasil {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black-80);
+}
+
+
 /* create & edit */
 .form-title,
 .title-table {
@@ -182,6 +219,16 @@ th {
 
 .header-tabel {
     font-size: 36px;
+}
+
+/* login */
+.login-icon {
+    transform: translate(295px, -30px);
+}
+
+.error-text {
+    color: var(--error);
+    transform: translateY(-25px);
 }
 
 /* Error Page */

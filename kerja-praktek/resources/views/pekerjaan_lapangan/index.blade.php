@@ -41,16 +41,17 @@
                             <th scope="col" class="text-nowrap">DATEK GPON</th>
                             <th scope="col" class="text-nowrap">DATEK ODP</th>
                             <th scope="col">KETERANGAN</th>
+                            @canany(['admin', 'editor'])
                             <th>
                                 <span class="las la-ellipsis-v"></span>
                             </th>
+                            @endcanany
                         </tr>
                     </thead>
                     <tbody>
-                        @php $i = 1; @endphp
                         @foreach ($isidata as $isi)
                         <tr>
-                            <td class="text-center">{{ $i++; }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
                             <td>{{ $isi->tanggal }}</td>
                             <td>{{ $isi->witel }}</td>
                             <td>{{ $isi->kegiatan }}</td>
@@ -62,6 +63,7 @@
                             <td>{{ $isi->datek_gpon }}</td>
                             <td>{{ $isi->datek_odp }}</td>
                             <td>{{ $isi->keterangan }}</td>
+                            @canany(['admin', 'editor'])
                             <td class="text-center">
                                 <div class="dropleft">
                                     <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -83,10 +85,8 @@
                                     </div>
                                 </div>
                             </td>
+                            @endcanany
                         </tr>
-                        @php
-                            $i++;
-                        @endphp
                         @endforeach
                     </tbody>
                 </table>

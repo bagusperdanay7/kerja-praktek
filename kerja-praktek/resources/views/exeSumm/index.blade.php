@@ -21,14 +21,15 @@
                                 <th scope="col">DISCONNECT</th>
                                 <th scope="col">RESUME</th>
                                 <th scope="col">SUSPEND</th>
+                                @canany(['admin', 'editor'])
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                                @endcanany
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($exeSumm as $item)
-                            @php $i = 1; @endphp
                             <tr>
-                                <td>{{ $i; }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->olo; }}</td>
                                 <td>{{ $item->plan_aktivasi; }}</td>
                                 <td>{{ $item->plan_modify }}</td>
@@ -38,6 +39,7 @@
                                 <td>{{ $item->disconnect }}</td>
                                 <td>{{ $item->resume }}</td>
                                 <td>{{ $item->suspend }}</td>
+                                @canany(['admin', 'editor'])
                                 <td class="text-center">
                                     <div class="dropleft">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
@@ -59,8 +61,8 @@
                                         </div>
                                     </div>
                                 </td>
+                                @endcanany
                             </tr>
-                            @php $i++; @endphp
                             @endforeach
                         </tbody>
                         <tfoot>

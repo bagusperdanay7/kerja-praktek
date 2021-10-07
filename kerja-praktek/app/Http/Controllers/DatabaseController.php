@@ -18,7 +18,7 @@ class DatabaseController extends Controller
      */
     public function index()
     {
-
+        $this->authorize('admin');
         return view('database_table.index', ["title" => "Database", "datas" => Database::all()]);
     }
 
@@ -29,6 +29,7 @@ class DatabaseController extends Controller
      */
     public function create()
     {
+        $this->authorize('admin');
         return view('database_table.create', ["title" => "Tambah Data - Database"]);
     }
 
@@ -71,7 +72,7 @@ class DatabaseController extends Controller
      */
     public function edit(Database $database)
     {
-
+        $this->authorize('admin');
         return view('database_table.edit', compact('database'), ["title" => "Update Data - Database"]);
     }
 

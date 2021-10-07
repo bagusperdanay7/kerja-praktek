@@ -9,6 +9,7 @@ use App\Models\PekerjaanLapangan;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Gate;
 
 class PekerjaanLapanganController extends Controller
 {
@@ -76,7 +77,11 @@ class PekerjaanLapanganController extends Controller
      */
     public function edit(PekerjaanLapangan $pekerjaanLapangan)
     {
-        return view('pekerjaan_lapangan.edit', ["title" => "Update Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan, "database" => Database::all(), "wfm" => Wfm::all()]);
+        if (Gate::any(['admin', 'editor'])) {
+            return view('pekerjaan_lapangan.edit', ["title" => "Update Data - Pekerjaan Lapangan", "pekerjaan_lapangan" => $pekerjaanLapangan, "database" => Database::all(), "wfm" => Wfm::all()]);
+        } else {
+            abort(403);
+        }
     }
 
     /**

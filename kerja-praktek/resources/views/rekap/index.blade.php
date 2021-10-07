@@ -16,6 +16,7 @@
             {{-- judul rekap dihapus dihome --}}
             <div class="card-body">
                 <h2 class="title-table">Rekap</h2>
+<<<<<<< HEAD
                 <table class="table table-striped">
                     <tr>
                         {{-- <th>WFM ID</th> --}}
@@ -50,14 +51,7 @@
                         $i++;
                     @endphp
                     @endforeach
-                    <tr>
-                        <td colspan="2">TOTAL</td>
-                        <td>{{ $total }}</td>
-                        <td>{{ $totalModify }}</td>
-                        <td>{{ $totalDc }}</td>
-                        <td>{{ $totalResume }}</td>
-                        <td>{{ $totalSuspend }}</td>
-                    </tr>
+
                 </table>
 
             </div>
