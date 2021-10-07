@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <button class="btn btn-primary mt-4" type="button" data-toggle="collapse" data-target="#filterform" aria-expanded="false" aria-controls="filterform">
+            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform" aria-expanded="false" aria-controls="filterform">
                 <i class="las la-filter"></i> Filter
             </button>
             <div class="collapse m-0 p-0" id="filterform">
@@ -158,6 +158,7 @@
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
+                            <th>No</th>
                             <th>TGL/BLN/THN</th>
                             <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
@@ -196,7 +197,8 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
-                            <th class="text-nowrap">CAPTURE METRO</th>
+                            <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
+                            <th class="text-nowrap">CAPTURE METRO ACCESS</th>
                             <th class="text-nowrap">CAPTURE GPON</th>
                             <th>PIC</th>
                             @canany(['admin', 'editor'])
@@ -206,6 +208,7 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
+                                <td class="text-center">{{$loop->iteration }}</td>
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
@@ -244,8 +247,9 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
-                                <td>{{ $wfm->capture_metro }}</td>
-                                <td>{{ $wfm->capture_gpon }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_metro_backhaul }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>
                                 <td>{{$wfm->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">

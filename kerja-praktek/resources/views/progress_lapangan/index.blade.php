@@ -4,6 +4,114 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform"
+                aria-expanded="false" aria-controls="filterform">
+                <i class="las la-filter"></i> Filter
+            </button>
+            <div class="collapse m-0 p-0" id="filterform">
+                {{-- <h4 class="filter-title">Filter</h4> --}}
+                <div class="clear-filter">
+                    <a href="{{ route('progress.index') }}" class="">Clear Filters</a>
+                </div>
+                <form action="{{ route('progress.index') }}">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="ao">NO AO</label>
+                            <select class="form-control" id="ao" name="ao">
+                                @if (request('ao'))
+                                <option value="{{ request('ao') }}">{{ request('ao') }}</option>
+                                @else
+                                <option value="">Pilih No AO</option>
+                                @endif
+
+                                @foreach ($progress_all as $progress_a)
+                                <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="tanggal">Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tanggal" id="tanggal"
+                                value="{{ request('tanggal') }}">
+                        </div>
+
+                        <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->witel !== '')
+                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="olo_isp">OLO</label>
+                            <select class="form-control" id="olo_isp" name="olo_isp">
+                                @if (request('olo_isp'))
+                                <option value="{{ request('olo_isp') }}">{{ request('olo_isp') }}</option>
+                                @else
+                                <option value="">Pilih OLO</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="produk">Produk</label>
+                            <select class="form-control" id="produk" name="produk">
+                                @if (request('produk'))
+                                <option value="{{ request('produk') }}">{{ request('produk') }}</option>
+                                @else
+                                <option value="">Pilih Produk</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->produk !== '')
+                                <option value="{{ $dbs->produk }}">{{ $dbs->produk }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="progress">Progress</label>
+                            <select class="form-control" id="progress" name="progress">
+                                @if (request('progress'))
+                                <option value="{{ request('progress') }}">{{ request('progress') }}</option>
+                                @else
+                                <option value="">Pilih Progress</option>
+                                @endif
+
+                                <option value="In Progress">In Progress</option>
+                                <option value="Done">Done</option>
+                                <option value="Cancel">Cancel</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+            {{-- akhir form filter --}}
+
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
                 <div class="card-body">
@@ -54,7 +162,7 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($progress as $item)
+                            @foreach ($pro_lap as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->tanggal }}</td>

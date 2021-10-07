@@ -221,6 +221,20 @@ th {
     border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
+.dropleft span {
+    cursor: pointer;
+}
+
+.header-tabel {
+    font-size: 36px;
+}
+
+.btn-second,
+.btn-second:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
 /* create & edit */
 .form-title,
 .title-table {
@@ -249,14 +263,6 @@ th {
     background-color: var(--white-background);
 }
 
-/* Pekerjaan Lapangan Index.blade */
-.dropleft span {
-    cursor: pointer;
-}
-
-.header-tabel {
-    font-size: 36px;
-}
 
 /* login */
 .login-icon {

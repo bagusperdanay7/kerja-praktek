@@ -25,12 +25,11 @@ class WfmController extends Controller
      */
     public function index()
     {
-
         return view('wfm.index', [
             "title" => "WFM",
             'database' => Database::all(),
             'wfm_all' => Wfm::all(),
-            'wfms' => Wfm::orderBy('no_ao')->filter(request([
+            'wfms' => Wfm::orderBy('id')->filter(request([
                 'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm'
             ]))->get()
         ]);
@@ -99,7 +98,8 @@ class WfmController extends Controller
             'sn' => $request->sn,
             'port4' => $request->port4,
             'type' => $request->type,
-            'capture_metro' => $request->capture_metro,
+            'capture_metro_backhaul' => $request->capture_metro_backhaul,
+            'capture_metro_access' => $request->capture_metro_access,
             'capture_gpon' => $request->capture_gpon,
             'pic' => $request->pic
         ]);
@@ -256,7 +256,8 @@ class WfmController extends Controller
         $wfm->sn = $request->sn;
         $wfm->port4 = $request->port4;
         $wfm->type = $request->type;
-        $wfm->capture_metro = $request->capture_metro;
+        $wfm->capture_metro_backhaul = $request->capture_metro_backhaul;
+        $wfm->capture_metro_access = $request->capture_metro_access;
         $wfm->capture_gpon = $request->capture_gpon;
         $wfm->pic = $request->pic;
         $wfm->save();

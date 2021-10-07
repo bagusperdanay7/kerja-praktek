@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Diconnect;
+use App\Models\Database;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,7 +18,15 @@ class DisconnectController extends Controller
      */
     public function index()
     {
-        return view('disconnect.index', ['title' => 'Disconnect', 'disconnects' => Diconnect::all()]);
+        return view('disconnect.index', [
+            "title" => "Disconnect",
+            'database' => Database::all(),
+            'wfms' => Wfm::all(),
+            'disconnects' => Diconnect::all(),
+            'disconnect' => Diconnect::orderBy('id')->filter(request([
+                'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
+            ]))->get()
+        ]);
     }
 
     /**

@@ -67,7 +67,7 @@
                                 <div class="dropdown-divider"></div>
                                 <form action="/logout" method="post">
                                     @csrf
-                                    <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                    <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda Ingin Logout?')"><i class="fas fa-sign-out-alt mr-2"></i> Logout
                                     </button>
                                 </form>
                             </div>

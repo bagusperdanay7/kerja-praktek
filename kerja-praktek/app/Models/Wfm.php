@@ -47,7 +47,8 @@ class Wfm extends Model
         'sn',
         'port4',
         'type',
-        'capture_metro',
+        'capture_metro_backhaul',
+        'capture_metro_access',
         'capture_gpon',
         'pic'
     ];

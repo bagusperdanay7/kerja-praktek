@@ -4,6 +4,117 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform"
+                aria-expanded="false" aria-controls="filterform">
+                <i class="las la-filter"></i> Filter
+            </button>
+            <div class="collapse m-0 p-0" id="filterform">
+                {{-- <h4 class="filter-title">Filter</h4> --}}
+                <div class="clear-filter">
+                    <a href="{{ route('dis.index') }}" class="">Clear Filters</a>
+                </div>
+                <form action="{{ route('dis.index') }}">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="no_ao">NO AO</label>
+                            <select class="form-control" id="no_ao" name="no_ao">
+                                @if (request('no_ao'))
+                                <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
+                                @else
+                                <option value="">Pilih No AO</option>
+                                @endif
+
+                                @foreach ($wfms as $wfm)
+                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="plan_cabut">Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="plan_cabut"
+                                id="plan_cabut" value="{{ request('plan_cabut') }}">
+                        </div>
+
+                        <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->witel !== '')
+                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="olo">OLO</label>
+                            <select class="form-control" id="olo" name="olo">
+                                @if (request('olo'))
+                                <option value="{{ request('olo') }}">{{ request('olo') }}</option>
+                                @else
+                                <option value="">Pilih OLO</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="jenis_ont">Jenis ONT</label>
+                            <select class="form-control" id="jenis_ont" name="jenis_ont">
+                                @if (request('jenis_ont'))
+                                <option value="{{ request('jenis_ont') }}">{{ request('jenis_ont') }}</option>
+                                @else
+                                <option value="">Pilih Jenis ONT</option>
+                                @endif
+                                <option value="L2SW">L2SW</option>
+                                <option value="Big ONT Huawei">Big ONT Huawei</option>
+                                <option value="Big ONT ZTE">Big ONT ZTE</option>
+                                <option value="Big ONT Fiberhome">Big ONT Fiberhome</option>
+                                <option value="ONT Premium Huawei">ONT Premium Huawei</option>
+                                <option value="ONT Premium ZTE">ONT Premium ZTE</option>
+                                <option value="ONT Premium Fiberhome">ONT Premium Fiberhome</option>
+                                <option value="ONT Retail Huawei">ONT Retail Huawei</option>
+                                <option value="ONT Retail ZTE">ONT Retail ZTE</option>
+                                <option value="ONT Retail Fiberhome">ONT Retail Fiberhome</option>
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="status">Status</label>
+                            <select class="form-control" id="status" name="status">
+                                @if (request('status'))
+                                <option value="{{ request('status') }}">{{ request('status') }}</option>
+                                @else
+                                <option value="">Pilih Status NCX</option>
+                                @endif
+                                <option value="Sudah dicabut">Sudah dicabut</option>
+                                <option value="DOWN">DOWN</option>
+                                <option value="ON">ON</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+            {{-- akhir form filter --}}
+
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
                 {{-- <a href="{{ route('database.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
@@ -34,11 +145,11 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($disconnects as $item)
+                            @foreach ($disconnect as $item)
                             <tr>
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
 
-                                <td class="text-center">{{ $i; }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $item->no_ao }}</td>
                                 <td>{{ $item->witel }}</td>
                                 <td>{{ $item->olo }}</td>
