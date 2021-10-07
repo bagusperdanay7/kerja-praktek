@@ -25,16 +25,14 @@ class WfmController extends Controller
      */
     public function index()
     {
-        // if (request('witel')) {
-        //     $witel = Database::firstWhere('witel', request('witel'));
-        //     $witel = ' in ' . $witel->name;
-        // }
 
         return view('wfm.index', [
             "title" => "WFM",
-            'db' => Database::all(),
-            'wfm' => Wfm::all(),
-            'wfms' => Wfm::orderBy('no_ao')->filter(request(['no_ao', 'tgl_bulan_th', 'witel']))->get()
+            'database' => Database::all(),
+            'wfm_all' => Wfm::all(),
+            'wfms' => Wfm::orderBy('no_ao')->filter(request([
+                'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm'
+            ]))->get()
         ]);
     }
 
@@ -58,7 +56,7 @@ class WfmController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Wfm $wfm, Rekap $rekap,Diconnect $diconnect)
+    public function store(Request $request, Wfm $wfm, Rekap $rekap, Diconnect $diconnect)
     {
 
 
@@ -107,15 +105,15 @@ class WfmController extends Controller
         ]);
 
 
-        $query1 = DB::table('wfms')->where('order_type','NEW INSTALL')->groupBy('olo_isp')->count();
-        $query2 = DB::table('wfms')->where('order_type','MODIFY')->groupBy('olo_isp')->count();
-        $query3 = DB::table('wfms')->where('order_type','DISCONNECT')->groupBy('olo_isp')->count();
-        $query4 = DB::table('wfms')->where('order_type','RESUME')->groupBy('olo_isp')->count();
-        $query5 = DB::table('wfms')->where('order_type','SUSPEND')->groupBy('olo_isp')->count();
+        $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
+        $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
+        $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
+        $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
+        $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
 
 
 
-        if($wfm->order_type == "NEW INSTALL"){
+        if ($wfm->order_type == "NEW INSTALL") {
 
             $rekap->wfm_id = $wfm->id;
             $rekap->olo = $wfm->olo_isp;
@@ -125,8 +123,7 @@ class WfmController extends Controller
             $rekap->resume = 0;
             $rekap->suspend = 0;
             $rekap->save();
-
-        }elseif($wfm->order_type == "MODIFY"){
+        } elseif ($wfm->order_type == "MODIFY") {
 
             $rekap->wfm_id = $wfm->id;
             $rekap->olo = $wfm->olo_isp;
@@ -136,8 +133,7 @@ class WfmController extends Controller
             $rekap->resume = 0;
             $rekap->suspend = 0;
             $rekap->save();
-
-        }elseif($wfm->order_type == "DISCONNECT"){
+        } elseif ($wfm->order_type == "DISCONNECT") {
 
             $rekap->wfm_id = $wfm->id;
             $rekap->olo = $wfm->olo_isp;
@@ -153,13 +149,12 @@ class WfmController extends Controller
             $diconnect->witel = $wfm->witel;
             $diconnect->olo = $wfm->olo_isp;
             $diconnect->lokasi = "";
-            $diconnect->jenis_ont ="";
+            $diconnect->jenis_ont = "";
             $diconnect->status = "";
             $diconnect->plan_cabut = "";
             $diconnect->pic = "";
             $diconnect->save();
-
-        }elseif($wfm->order_type == "RESUME"){
+        } elseif ($wfm->order_type == "RESUME") {
 
             $rekap->wfm_id = $wfm->id;
             $rekap->olo = $wfm->olo_isp;
@@ -169,8 +164,7 @@ class WfmController extends Controller
             $rekap->resume = $query4;
             $rekap->suspend = 0;
             $rekap->save();
-
-        }elseif($wfm->order_type == "SUSPEND"){
+        } elseif ($wfm->order_type == "SUSPEND") {
 
             $rekap->wfm_id = $wfm->id;
             $rekap->olo = $wfm->olo_isp;
@@ -180,7 +174,6 @@ class WfmController extends Controller
             $rekap->resume = 0;
             $rekap->suspend = $query5;
             $rekap->save();
-
         }
 
 

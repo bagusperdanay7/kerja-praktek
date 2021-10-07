@@ -4,62 +4,148 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h4 class="filter-title">Filter</h4>
-            <form action="{{ route('wfm.index') }}">
-                {{-- @if (request('no_ao'))
-                    <input type="hidden" name="no_ao" value="{{ request('no_ao') }}">
-                @endif
-                @if (request('witel'))
-                <input type="hidden" name="witel" value="{{ request('witel') }}">
-                @endif --}}
-
-                {{-- filter field --}}
-                <div class="form-row">
-                    <div class="col">
-                        <label for="no_ao">NO AO</label>
-                        <select class="form-control" id="no_ao" name="no_ao">
-                            @if (request('no_ao'))
-                            <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
-                            @else
-                            <option value="">Pilih No AO</option>
-                            @endif
-
-                            @foreach ($wfm as $wfm)
-                            <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <label for="tgl_bulan_th">Tanggal</label>
-                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
-                            id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
-                    </div>
-                    <div class="col">
-                        <label for="witel">Witel</label>
-                        <select class="form-control" id="witel" name="witel">
-                            @if (request('witel'))
-                            <option value="{{ request('witel') }}">{{ request('witel') }}</option>
-                            @else
-                            <option value="">Pilih Witel</option>
-                            @endif
-
-                            @foreach ($db as $db)
-                            @if ($db->witel != '')
-                            <option value="{{ $db->witel }}">{{ $db->witel }}</option>
-                            @endif
-                            @endforeach
-                        </select>
-                    </div>
+            <button class="btn btn-primary mt-4" type="button" data-toggle="collapse" data-target="#filterform" aria-expanded="false" aria-controls="filterform">
+                <i class="las la-filter"></i> Filter
+            </button>
+            <div class="collapse m-0 p-0" id="filterform">
+                {{-- <h4 class="filter-title">Filter</h4> --}}
+                <div class="clear-filter">
+                    <a href="{{ route('wfm.index') }}" class="">Clear Filters</a>
                 </div>
+                <form action="{{ route('wfm.index') }}">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="no_ao">NO AO</label>
+                            <select class="form-control" id="no_ao" name="no_ao">
+                                @if (request('no_ao'))
+                                <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
+                                @else
+                                <option value="">Pilih No AO</option>
+                                @endif
 
-                {{-- akhir filter field --}}
-                <a href="{{ route('wfm.index') }}" class="btn btn-danger">Reset</a>
-                <button class="btn btn-main mt-2 px-4 d-flex justify-content-end" type="submit">Filter</button>
-            </form>
+                                @foreach ($wfm_all as $wfm_a)
+                                <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="tgl_bulan_th">Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
+                                id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
+                        </div>
 
-            <div class="filter row">
-                
+                        <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->witel !== '')
+                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="olo_isp">OLO</label>
+                            <select class="form-control" id="olo_isp" name="olo_isp">
+                                @if (request('olo_isp'))
+                                <option value="{{ request('olo_isp') }}">{{ request('olo_isp') }}</option>
+                                @else
+                                <option value="">Pilih OLO</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label for="order_type">Order Type</label>
+                            <select class="form-control" id="order_type" name="order_type">
+                                @if (request('order_type'))
+                                <option value="{{ request('order_type') }}">{{ request('order_type') }}</option>
+                                @else
+                                <option value="">Pilih Order Type</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->order_type !== '')
+                                <option value="{{ $dbs->order_type }}">{{ $dbs->order_type }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="produk">Produk</label>
+                            <select class="form-control" id="produk" name="produk">
+                                @if (request('produk'))
+                                <option value="{{ request('produk') }}">{{ request('produk') }}</option>
+                                @else
+                                <option value="">Pilih Produk</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->produk !== '')
+                                <option value="{{ $dbs->produk }}">{{ $dbs->produk }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="status_ncx">Status NCX</label>
+                            <select class="form-control" id="status_ncx" name="status_ncx">
+                                @if (request('status_ncx'))
+                                <option value="{{ request('status_ncx') }}">{{ request('status_ncx') }}</option>
+                                @else
+                                <option value="">Pilih Status NCX</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->status_ncx !== '')
+                                <option value="{{ $dbs->status_ncx }}">{{ $dbs->status_ncx }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="status_wfm">Status WFM</label>
+                            <select class="form-control" id="status_wfm" name="status_wfm">
+                                @if (request('status_wfm'))
+                                <option value="{{ request('status_wfm') }}">{{ request('status_wfm') }}</option>
+                                @else
+                                <option value="">Pilih Status WFM</option>
+                                @endif
+
+                                @foreach ($wfm_all as $wfm_a)
+                                <option value="{{ $wfm_a->status_wfm }}">{{ $wfm_a->status_wfm }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
             </div>
+            {{-- akhir form filter --}}
 
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
@@ -72,7 +158,6 @@
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            <th class="text-nowrap">REKAP ID</th>
                             <th>TGL/BLN/THN</th>
                             <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
@@ -121,10 +206,6 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-<<<<<<< HEAD
-=======
-                                <td>{{$wfm->rekap_id }}</td>
->>>>>>> 63d53cc60ad77d0fa46ff50b9ee22dacf495d5a4
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>

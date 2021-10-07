@@ -72,10 +72,40 @@ class Wfm extends Model
             fn ($query, $tgl_bulan_th) => $query->where('tgl_bulan_th', 'like', '%' . $tgl_bulan_th . '%')
         );
 
+        // filter olo
+        $query->when(
+            $filters['olo_isp'] ?? false,
+            fn ($query, $olo_isp) => $query->where('olo_isp', 'like', '%' . $olo_isp . '%')
+        );
+
         // filter witel
         $query->when(
             $filters['witel'] ?? false,
             fn ($query, $witel) => $query->where('witel', 'like', '%' . $witel . '%')
+        );
+
+        // filter order_type
+        $query->when(
+            $filters['order_type'] ?? false,
+            fn ($query, $order_type) => $query->where('order_type', 'like', '%' . $order_type . '%')
+        );
+
+        // filter produk
+        $query->when(
+            $filters['produk'] ?? false,
+            fn ($query, $produk) => $query->where('produk', 'like', '%' . $produk . '%')
+        );
+
+        // filter status_ncx
+        $query->when(
+            $filters['status_ncx'] ?? false,
+            fn ($query, $status_ncx) => $query->where('status_ncx', 'like', '%' . $status_ncx . '%')
+        );
+
+        // filter status_wfm
+        $query->when(
+            $filters['status_wfm'] ?? false,
+            fn ($query, $status_wfm) => $query->where('status_wfm', 'like', '%' . $status_wfm . '%')
         );
     }
 }

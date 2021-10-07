@@ -16,7 +16,6 @@
             {{-- judul rekap dihapus dihome --}}
             <div class="card-body">
                 <h2 class="title-table">Rekap</h2>
-<<<<<<< HEAD
                 <table class="table table-striped">
                     <tr>
                         {{-- <th>WFM ID</th> --}}
