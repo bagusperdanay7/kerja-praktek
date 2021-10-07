@@ -4,100 +4,63 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="">
-                <h6 class="filter-title">Filter</h6>
-                <div class="filter d-flex justify-content-between">
-                    <form action="{{ route('wfm.index') }}">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                AO
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="?no_ao=">1</a>
-                                <a class="dropdown-item" href="#">2</a>
-                                <a class="dropdown-item" href="#">3</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Tanggal
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#date">
-                                    <input type="date"> <button class="ml-2" type="submit">OK</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                OLO
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                WITEL
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                ORDER TYPE
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Produk
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Status NCX
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Status WFM
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
+            <h4 class="filter-title">Filter</h4>
+            <form action="{{ route('wfm.index') }}">
+                {{-- @if (request('no_ao'))
+                    <input type="hidden" name="no_ao" value="{{ request('no_ao') }}">
+                @endif
+                @if (request('witel'))
+                <input type="hidden" name="witel" value="{{ request('witel') }}">
+                @endif --}}
+
+                {{-- filter field --}}
+                <div class="form-row">
+                    <div class="col">
+                        <label for="no_ao">NO AO</label>
+                        <select class="form-control" id="no_ao" name="no_ao">
+                            @if (request('no_ao'))
+                            <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
+                            @else
+                            <option value="">Pilih No AO</option>
+                            @endif
+
+                            @foreach ($wfm as $wfm)
+                            <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="tgl_bulan_th">Tanggal</label>
+                        <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
+                            id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
+                    </div>
+                    <div class="col">
+                        <label for="witel">Witel</label>
+                        <select class="form-control" id="witel" name="witel">
+                            @if (request('witel'))
+                            <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                            @else
+                            <option value="">Pilih Witel</option>
+                            @endif
+
+                            @foreach ($db as $db)
+                            @if ($db->witel != '')
+                            <option value="{{ $db->witel }}">{{ $db->witel }}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
+
+                {{-- akhir filter field --}}
+                <a href="{{ route('wfm.index') }}" class="btn btn-danger">Reset</a>
+                <button class="btn btn-main mt-2 px-4 d-flex justify-content-end" type="submit">Filter</button>
             </form>
+
+            <div class="filter row">
+                
+            </div>
+
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
                 {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}

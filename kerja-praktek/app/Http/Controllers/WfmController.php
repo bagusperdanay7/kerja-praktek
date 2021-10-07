@@ -22,8 +22,17 @@ class WfmController extends Controller
      */
     public function index()
     {
+        // if (request('witel')) {
+        //     $witel = Database::firstWhere('witel', request('witel'));
+        //     $witel = ' in ' . $witel->name;
+        // }
 
-        return view('wfm.index', ["title" => "WFM", 'wfms' => Wfm::all()]);
+        return view('wfm.index', [
+            "title" => "WFM",
+            'db' => Database::all(),
+            'wfm' => Wfm::all(),
+            'wfms' => Wfm::orderBy('no_ao')->filter(request(['no_ao', 'tgl_bulan_th', 'witel']))->get()
+        ]);
     }
 
     /**
