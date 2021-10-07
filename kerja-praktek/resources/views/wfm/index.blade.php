@@ -62,7 +62,6 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-                                {{-- <td>{{$wfm->rekap_id }}</td> --}}
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>

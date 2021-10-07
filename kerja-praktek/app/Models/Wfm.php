@@ -9,7 +9,6 @@ class Wfm extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'rekap_id',
         'tgl_bulan_th',
         'no_ao',
         'witel',

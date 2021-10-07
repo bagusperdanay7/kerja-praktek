@@ -10,16 +10,17 @@ class Rekap extends Model
     use HasFactory;
 
     protected $fillable = [
-        'no',
-        'olo',
+        'wfm_id',
+        // 'progres_id',
         // 'plan_aktivasi',
         // 'plan_modify',
-        // 'plan_disconnect',
-        // 'aktivasi',
-        // 'modify',
-        // 'disconnect',
-        // 'resume',
-        // 'suspend',
+        // 'plan_dc',
+        'olo',
+        'aktivasi',
+        'modify',
+        'disconnect',
+        'resume',
+        'suspend'
     ];
 
 

@@ -6,10 +6,10 @@
         <div class="col">
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
-                {{-- <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
+                <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
                     Import Excel
-                </button> --}}
+                </button>
                 <div class="card-body">
                     <div class="title-table d-flex justify-content-between">
                         <h2>Database</h2>
