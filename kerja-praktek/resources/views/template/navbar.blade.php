@@ -81,10 +81,10 @@
                 <div class="collapse navbar-collapse" id="navDropdown">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "Rekap") ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="deploymentMenu" role="button"
+                            <a class="nav-link dropdown-toggle {{ Request::is('wfm*') ? 'nav-active' : '' }}" href="" id="deploymentMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Deployment
                             </a>
@@ -96,7 +96,7 @@
                             @endcan
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="progressMenu" role="button"
+                            <a class="nav-link dropdown-toggle {{ Request::is('progress_lapangan*') ? 'nav-active' : '' }}" href="#" id="progressMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Progress Lapangan
                             </a>
@@ -120,7 +120,7 @@
                             </div>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "Disconnect") ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
+                            <a class="nav-link {{ Request::is('disconnect*') ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">
