@@ -4,100 +4,149 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form action="">
-                <h6 class="filter-title">Filter</h6>
-                <div class="filter d-flex justify-content-between">
-                    <form action="{{ route('wfm.index') }}">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                AO
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="?no_ao=">1</a>
-                                <a class="dropdown-item" href="#">2</a>
-                                <a class="dropdown-item" href="#">3</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Tanggal
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#date">
-                                    <input type="date"> <button class="ml-2" type="submit">OK</button>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                OLO
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                WITEL
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                ORDER TYPE
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Produk
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Status NCX
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Status WFM
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </div>
+            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform" aria-expanded="false" aria-controls="filterform">
+                <i class="las la-filter"></i> Filter
+            </button>
+            <div class="collapse m-0 p-0" id="filterform">
+                {{-- <h4 class="filter-title">Filter</h4> --}}
+                <div class="clear-filter">
+                    <a href="{{ route('wfm.index') }}" class="">Clear Filters</a>
                 </div>
-            </form>
+                <form action="{{ route('wfm.index') }}">
+                    {{-- filter field --}}
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="no_ao">NO AO</label>
+                            <select class="form-control" id="no_ao" name="no_ao">
+                                @if (request('no_ao'))
+                                <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
+                                @else
+                                <option value="">Pilih No AO</option>
+                                @endif
+
+                                @foreach ($wfm_all as $wfm_a)
+                                <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="tgl_bulan_th">Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
+                                id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
+                        </div>
+
+                        <div class="col">
+                            <label for="witel">Witel</label>
+                            <select class="form-control" id="witel" name="witel">
+                                @if (request('witel'))
+                                <option value="{{ request('witel') }}">{{ request('witel') }}</option>
+                                @else
+                                <option value="">Pilih Witel</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->witel !== '')
+                                <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="olo_isp">OLO</label>
+                            <select class="form-control" id="olo_isp" name="olo_isp">
+                                @if (request('olo_isp'))
+                                <option value="{{ request('olo_isp') }}">{{ request('olo_isp') }}</option>
+                                @else
+                                <option value="">Pilih OLO</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label for="order_type">Order Type</label>
+                            <select class="form-control" id="order_type" name="order_type">
+                                @if (request('order_type'))
+                                <option value="{{ request('order_type') }}">{{ request('order_type') }}</option>
+                                @else
+                                <option value="">Pilih Order Type</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->order_type !== '')
+                                <option value="{{ $dbs->order_type }}">{{ $dbs->order_type }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="produk">Produk</label>
+                            <select class="form-control" id="produk" name="produk">
+                                @if (request('produk'))
+                                <option value="{{ request('produk') }}">{{ request('produk') }}</option>
+                                @else
+                                <option value="">Pilih Produk</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->produk !== '')
+                                <option value="{{ $dbs->produk }}">{{ $dbs->produk }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="status_ncx">Status NCX</label>
+                            <select class="form-control" id="status_ncx" name="status_ncx">
+                                @if (request('status_ncx'))
+                                <option value="{{ request('status_ncx') }}">{{ request('status_ncx') }}</option>
+                                @else
+                                <option value="">Pilih Status NCX</option>
+                                @endif
+
+                                @foreach ($database as $dbs)
+                                @if ($dbs->status_ncx !== '')
+                                <option value="{{ $dbs->status_ncx }}">{{ $dbs->status_ncx }}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <label for="status_wfm">Status WFM</label>
+                            <select class="form-control" id="status_wfm" name="status_wfm">
+                                @if (request('status_wfm'))
+                                <option value="{{ request('status_wfm') }}">{{ request('status_wfm') }}</option>
+                                @else
+                                <option value="">Pilih Status WFM</option>
+                                @endif
+
+                                @foreach ($wfm_all as $wfm_a)
+                                <option value="{{ $wfm_a->status_wfm }}">{{ $wfm_a->status_wfm }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    {{-- akhir filter field --}}
+
+                    {{-- button filter --}}
+                    <div class="mt-3 text-right">
+                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                    </div>
+                </form>
+            </div>
+            {{-- akhir form filter --}}
+
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
                 {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
@@ -109,7 +158,7 @@
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
-                            <th class="text-nowrap">REKAP ID</th>
+                            <th>No</th>
                             <th>TGL/BLN/THN</th>
                             <th class="text-nowrap">NO. AO</th>
                             <th>WITEL</th>
@@ -148,7 +197,8 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
-                            <th class="text-nowrap">CAPTURE METRO</th>
+                            <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
+                            <th class="text-nowrap">CAPTURE METRO ACCESS</th>
                             <th class="text-nowrap">CAPTURE GPON</th>
                             <th>PIC</th>
                             @canany(['admin', 'editor'])
@@ -158,10 +208,7 @@
                         <tbody>
                             @foreach ($wfms as $wfm)
                             <tr>
-<<<<<<< HEAD
-=======
-                                <td>{{$wfm->rekap_id }}</td>
->>>>>>> 63d53cc60ad77d0fa46ff50b9ee22dacf495d5a4
+                                <td class="text-center">{{$loop->iteration }}</td>
                                 <td>{{$wfm->tgl_bulan_th }}</td>
                                 <td>{{$wfm->no_ao }}</td>
                                 <td>{{$wfm->witel }}</td>
@@ -200,8 +247,9 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
-                                <td>{{ $wfm->capture_metro }}</td>
-                                <td>{{ $wfm->capture_gpon }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_metro_backhaul }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
+                                <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>
                                 <td>{{$wfm->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">

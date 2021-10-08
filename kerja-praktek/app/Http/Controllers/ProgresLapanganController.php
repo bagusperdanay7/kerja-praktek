@@ -17,7 +17,14 @@ class ProgresLapanganController extends Controller
      */
     public function index()
     {
-        return view('progress_lapangan.index', ['title' => 'Progress Lapangan', 'progress' => ProgresLapangan::all()]);
+        return view('progress_lapangan.index', [
+            "title" => "Progress Lapangan",
+            'database' => Database::all(),
+            'progress_all' => ProgresLapangan::all(),
+            'pro_lap' => ProgresLapangan::orderBy('id')->filter(request([
+                'ao', 'tanggal', 'witel', 'olo', 'produk', 'progress'
+            ]))->get()
+        ]);
     }
 
     /**

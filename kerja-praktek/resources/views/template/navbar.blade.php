@@ -16,10 +16,10 @@
                 <div class="collapse navbar-collapse" id="navDropdown">
                     <ul class="navbar-nav mr-5">
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "Rekap") ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link {{ Request::is('/') ? 'nav-active' : '' }}" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="deploymentMenu" role="button"
+                            <a class="nav-link {{ Request::is('wfm*') ? 'nav-active' : '' }} dropdown-toggle" href="" id="deploymentMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Deployment
                             </a>
@@ -29,7 +29,7 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="progressMenu" role="button"
+                            <a class="nav-link {{ Request::is('progress_lapangan*') ? 'nav-active' : '' }} dropdown-toggle" href="#" id="progressMenu" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Progress Lapangan
                             </a>
@@ -51,10 +51,10 @@
                             </div>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "Disconnect") ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
+                            <a class="nav-link {{ Request::is('disconnect*') ? 'nav-active' : '' }}" href="{{ route('dis.index') }}">Disconnect</a>
                         </li>
                         <li class="nav-item menu">
-                            <a class="nav-link {{ ($title === "User") ? 'nav-active' : '' }}" href="{{ route('management.index') }}">User</a>
+                            <a class="nav-link {{ Request::is('management*') ? 'nav-active' : '' }}" href="{{ route('management.index') }}">User</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-2">
@@ -67,7 +67,7 @@
                                 <div class="dropdown-divider"></div>
                                 <form action="/logout" method="post">
                                     @csrf
-                                    <button type="submit" class="dropdown-item"><i class="fas fa-sign-out-alt mr-2"></i> Logout
+                                    <button type="submit" class="dropdown-item" onclick="return confirm('Apakah Anda Ingin Logout?')"><i class="fas fa-sign-out-alt mr-2"></i> Logout
                                     </button>
                                 </form>
                             </div>

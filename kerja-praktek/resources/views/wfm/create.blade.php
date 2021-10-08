@@ -202,8 +202,12 @@
                             <input type="text" name="type" id="type" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="capture_metro">CAPTURE METRO</label>
-                            <input type="text" name="capture_metro" id="capture_metro" class="form-control">
+                            <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
+                            <input type="text" name="capture_metro_backhaul" id="capture_metro_backhaul" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="capture_metro_access">CAPTURE METRO ACCESS</label>
+                            <input type="text" name="capture_metro_access" id="capture_metro_access" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="capture_gpon">CAPTURE GPON</label>

@@ -16,41 +16,50 @@
             {{-- judul rekap dihapus dihome --}}
             <div class="card-body">
                 <h2 class="title-table">Rekap</h2>
-<<<<<<< HEAD
-                <table class="table table-striped">
-                    <tr>
-                        {{-- <th>WFM ID</th> --}}
-                        <th>NO</th>
-                        <th>OLO</th>
-                        {{-- <th>PLAN AKTIVASI</th>
-                        <th>PLAN MODIFY</th>
-                        <th>PLAN DISCONNECT</th> --}}
-                        <th>AKTIVASI</th>
-                        <th>MODIFY</th>
-                        <th>DISCONNECT</th>
-                        <th>RESUME</th>
-                        <th>SUSPEND</th>
-                    </tr>
-                    @php
-                        $i = 1;
-                    @endphp
-                    @foreach ($rekap as $item)
-                    <tr>
-                        <td>{{ $i; }}</td>
-                        <td>{{ $item->olo }}</td>
-                        {{-- <td>{{ $item->plan_aktivasi }}</td>
-                        <td>{{ $item->plan_modify }}</td>
-                        <td>{{ $item->plan_dc }}</td> --}}
-                        <td>{{ $item->aktivasi }}</td>
-                        <td>{{ $item->modif }}</td>
-                        <td>{{ $item->disconnect }}</td>
-                        <td>{{ $item->resum }}</td>
-                        <td>{{ $item->suspen }}</td>
-                    </tr>
-                    @php
-                        $i++;
-                    @endphp
-                    @endforeach
+                <table class="table table-hover" id="table_id">
+                    <thead>
+                        <tr>
+                            {{-- <th>WFM ID</th> --}}
+                            <th class="text-center">NO</th>
+                            <th>OLO</th>
+                            {{-- <th>PLAN AKTIVASI</th>
+                            <th>PLAN MODIFY</th>
+                            <th>PLAN DISCONNECT</th> --}}
+                            <th class="text-center">AKTIVASI</th>
+                            <th class="text-center">MODIFY</th>
+                            <th class="text-center">DISCONNECT</th>
+                            <th class="text-center">RESUME</th>
+                            <th class="text-center">SUSPEND</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($rekap as $item)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td>{{ $item->olo }}</td>
+                            {{-- <td class="text-center">{{ $item->plan_aktivasi }}</td>
+                            <td class="text-center">{{ $item->plan_modify }}</td>
+                            <td class="text-center">{{ $item->plan_dc }}</td> --}}
+                            <td class="text-center">{{ $item->aktivasi }}</td>
+                            <td class="text-center">{{ $item->modif }}</td>
+                            <td class="text-center">{{ $item->disconnect }}</td>
+                            <td class="text-center">{{ $item->resum }}</td>
+                            <td class="text-center">{{ $item->suspen }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <th class="text-center">TOTAL</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
 
                 </table>
 
