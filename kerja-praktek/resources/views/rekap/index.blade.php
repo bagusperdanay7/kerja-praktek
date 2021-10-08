@@ -51,13 +51,12 @@
 
                     <tfoot>
                         <tr>
-                            <th class="text-center">TOTAL</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th colspan="2" class="text-center">TOTAL</th>
+                            <th class="text-center">{{ $total }}</th>
+                            <th class="text-center">{{ $totalModify }}</th>
+                            <th class="text-center">{{ $totalDc }}</th>
+                            <th class="text-center">{{ $totalResume }}</th>
+                            <th class="text-center">{{ $totalSuspend }}</th>
                         </tr>
                     </tfoot>
 
