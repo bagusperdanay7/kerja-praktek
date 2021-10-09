@@ -236,6 +236,10 @@ th {
 }
 
 
+.nav-pills a:hover {
+    color: var(--secondary) !important;
+}
+
 /* create & edit */
 .form-title,
 .title-table {

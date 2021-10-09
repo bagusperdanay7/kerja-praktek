@@ -51,6 +51,9 @@
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
+        $(document).ready( function () {
+            $('#table_id_2').DataTable();
+        } );
     </script>
   </body>
 </html>
