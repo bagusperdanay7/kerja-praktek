@@ -64,6 +64,8 @@ class ProgresLapanganController extends Controller
         $progress->datek_gpon = $request->datek_gpon;
         $progress->keterangan = $request->keterangan;
         $progress->save();
+
+
         sleep(1);
         return redirect()->route('progress.index');
     }

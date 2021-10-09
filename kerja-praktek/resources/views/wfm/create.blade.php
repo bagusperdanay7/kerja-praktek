@@ -97,11 +97,11 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat asal">ALAMAT ASAL</label>
-                            <input type="text" name="alamat_asal" id="alamat asal" class="form-control">
+                            <textarea class="form-control" name="alamat_asal" id="alamat_asal" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="alamat_tujuan">ALAMAT TUJUAN</label>
-                            <input type="text" name="alamat_tujuan" id="alamat_tujuan" class="form-control">
+                            <textarea class="form-control" name="alamat_tujuan" id="alamat_tujuan" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="status_ncx">STATUS NCX</label>
@@ -203,15 +203,15 @@
                         </div>
                         <div class="form-group">
                             <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
-                            <input type="text" name="capture_metro_backhaul" id="capture_metro_backhaul" class="form-control">
+                            <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="capture_metro_access">CAPTURE METRO ACCESS</label>
-                            <input type="text" name="capture_metro_access" id="capture_metro_access" class="form-control">
+                            <textarea class="form-control" name="capture_metro_access" id="capture_metro_access" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="capture_gpon">CAPTURE GPON</label>
-                            <input type="text" name="capture_gpon" id="capture_gpon" class="form-control">
+                            <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="pic">PIC</label>
