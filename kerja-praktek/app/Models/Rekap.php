@@ -22,7 +22,4 @@ class Rekap extends Model
         'resume',
         'suspend'
     ];
-
-
-
 }

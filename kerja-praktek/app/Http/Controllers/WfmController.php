@@ -58,7 +58,6 @@ class WfmController extends Controller
     public function store(Request $request, Wfm $wfm, Rekap $rekap, Diconnect $diconnect)
     {
 
-
         $wfm = Wfm::create([
             'tgl_bulan_th' => $request->tgl_bulan_th,
             'no_ao' => $request->no_ao,
@@ -110,7 +109,6 @@ class WfmController extends Controller
         $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
         $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
         $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
-
 
 
         if ($wfm->order_type == "NEW INSTALL") {
@@ -175,9 +173,6 @@ class WfmController extends Controller
             $rekap->suspend = $query5;
             $rekap->save();
         }
-
-
-
 
         sleep(1);
         return redirect()->route('wfm.index');

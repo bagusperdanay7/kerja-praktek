@@ -156,7 +156,7 @@
                 </button> --}}
                 <div class="card-body">
                     <h2 class="title-table">Deployment</h2>
-                    <table class="table table-responsive table-hover" id="table_id">
+                    <table class="table table-responsive table-hover " id="table_id">
                         <thead>
                             <th>No</th>
                             <th>TGL/BLN/THN</th>

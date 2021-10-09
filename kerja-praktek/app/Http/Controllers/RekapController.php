@@ -24,8 +24,6 @@ class RekapController extends Controller
      */
     public function index()
     {
-
-
         $rekap_akhir = DB::select('SELECT olo,SUM(aktivasi) AS aktivasi,SUM(rekaps.modify) AS modif,SUM(disconnect) AS disconnect, SUM(resume) AS resum, SUM(suspend) AS suspen FROM rekaps GROUP BY olo');
         $totalAktivasi = DB::table('rekaps')->sum('aktivasi');
         $totalModify = DB::table('rekaps')->sum('modify');
@@ -36,8 +34,7 @@ class RekapController extends Controller
         // $totalPlanModify = DB::table('rekaps')->sum('plan_modify');
         // $totalPlanDc = DB::table('rekaps')->sum('plan_dc');
 
-        return view('rekap.index',['title' => 'Halaman Rekap','rekap' => $rekap_akhir,'total' => $totalAktivasi,'totalModify' => $totalModify,'totalDc' => $totalDc,'totalResume' => $totalResume,'totalSuspend' => $totalSuspend]);
-
+        return view('rekap.index', ['title' => 'Halaman Rekap', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
     }
 
     /**
