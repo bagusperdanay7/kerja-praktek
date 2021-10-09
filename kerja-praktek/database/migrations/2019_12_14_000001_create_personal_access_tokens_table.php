@@ -14,6 +14,9 @@ class CreatePersonalAccessTokensTable extends Migration
     public function up()
     {
         Schema::create('personal_access_tokens', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->bigIncrements('id');
             $table->morphs('tokenable');
             $table->string('name');

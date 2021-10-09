@@ -65,8 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label for="plan_cabut">PLAN CABUT</label>
-                            <input type="date" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}"
-
+                            <input class="form-control" type="date" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}">
                         </div>
                         <div class="form-group">
                             <label for="wfm_id">PIC</label>

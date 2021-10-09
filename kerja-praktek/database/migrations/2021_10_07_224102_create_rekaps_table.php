@@ -14,6 +14,9 @@ class CreateRekapsTable extends Migration
     public function up()
     {
         Schema::create('rekaps', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->foreignId('wfm_id')->nullable()->constrained('wfms')->onDelete('cascade')->onUpdate('cascade');
             // $table->foreignId('progres_id')->nullable()->constrained('progres_lapangans')->onDelete('cascade')->onUpdate('cascade');
             $table->string('olo')->nullable();
@@ -26,8 +29,6 @@ class CreateRekapsTable extends Migration
             $table->integer('resume')->nullable();
             $table->integer('suspend')->nullable();
             $table->timestamps();
-
-
         });
     }
 

@@ -14,6 +14,9 @@ class CreateWfmsTable extends Migration
     public function up()
     {
         Schema::create('wfms', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->date('tgl_bulan_th')->nullable();
             $table->string('no_ao')->nullable();

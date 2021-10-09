@@ -14,6 +14,9 @@ class CreateProgresLapangansTable extends Migration
     public function up()
     {
         Schema::create('progres_lapangans', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->date('tanggal')->nullable();
             $table->string('witel')->nullable();

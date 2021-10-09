@@ -14,6 +14,9 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->string('name');
             $table->string('username')->unique();

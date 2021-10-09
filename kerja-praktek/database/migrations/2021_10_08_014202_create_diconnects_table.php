@@ -14,6 +14,9 @@ class CreateDiconnectsTable extends Migration
     public function up()
     {
         Schema::create('diconnects', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->foreignId('wfm_id')->constrained('wfms')->onDelete('cascade')->onUpdate('cascade');
             $table->string('no_ao')->nullable();

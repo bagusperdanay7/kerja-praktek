@@ -14,6 +14,9 @@ class CreateExeSummsTable extends Migration
     public function up()
     {
         Schema::create('exe_summs', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->string('olo');
             $table->integer('plan_aktivasi');

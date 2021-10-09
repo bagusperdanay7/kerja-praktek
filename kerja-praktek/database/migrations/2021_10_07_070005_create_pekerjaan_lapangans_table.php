@@ -14,6 +14,9 @@ class CreatePekerjaanLapangansTable extends Migration
     public function up()
     {
         Schema::create('pekerjaan_lapangans', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->integer('no')->nullable();
             $table->string('tanggal')->nullable();

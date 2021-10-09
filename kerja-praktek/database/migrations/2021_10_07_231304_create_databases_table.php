@@ -14,6 +14,9 @@ class CreateDatabasesTable extends Migration
     public function up()
     {
         Schema::create('databases', function (Blueprint $table) {
+            // Jenis Engine
+            $table->engine = 'InnoDB';
+
             $table->id();
             $table->string('witel')->nullable();
             $table->string('olo_isp')->nullable();
