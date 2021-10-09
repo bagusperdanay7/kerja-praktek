@@ -14,7 +14,6 @@ class Diconnect extends Model
         'witel',
         'olo',
         'lokasi',
-        'kota',
         'jenis_ont',
         'status',
         'plan_cabut',
