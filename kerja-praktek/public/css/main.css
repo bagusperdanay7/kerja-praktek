@@ -240,6 +240,34 @@ th {
     color: var(--secondary) !important;
 }
 
+.tab-rekap {
+    padding: 0 5px 0 0;
+    margin: 0 15px 0 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tab-active {
+    color: var(--secondary) !important;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.tab-rekap:hover {
+    color: var(--secondary);
+}
+
+.tab-rekap-item a {
+    text-decoration: none;
+    color: var(--black-80);
+}
+
+.tab-rekap-item a {
+    text-decoration: none;
+    color: var(--black-80);
+}
+
 /* create & edit */
 .form-title,
 .title-table {

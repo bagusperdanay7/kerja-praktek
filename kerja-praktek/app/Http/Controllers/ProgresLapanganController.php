@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Database;
 use App\Models\ProgresLapangan;
+use App\Models\Rekap;
+use App\Models\RekapProgress;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class ProgresLapanganController extends Controller
@@ -47,7 +50,7 @@ class ProgresLapanganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ProgresLapangan $progress)
+    public function store(Request $request, ProgresLapangan $progress, RekapProgress $rekapPro)
     {
         $progress->tanggal = $request->tanggal;
         $progress->witel = $request->witel;
@@ -64,6 +67,21 @@ class ProgresLapanganController extends Controller
         $progress->datek_gpon = $request->datek_gpon;
         $progress->keterangan = $request->keterangan;
         $progress->save();
+
+        // Query Database
+        $queryInProgress = DB::table('progres_lapangans')->where('progress', 'In Progress')->groupBy('olo')->count();
+        // $queryModify = DB::table('wfms')->where('progress', 'MODIFY')->groupBy('olo_isp')->count();
+        // $query3Disconnect = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
+
+        if ($progress->progress == "In Progress") {
+
+            $rekapPro->progres_id = $progress->id;
+            $rekapPro->olo = $progress->olo;
+            $rekapPro->plan_aktivasi = $queryInProgress;
+            // $rekapPro->plan_modify = 0;
+            // $rekapPro->plan_dc = 0;
+            $rekapPro->save();
+        }
 
 
         sleep(1);

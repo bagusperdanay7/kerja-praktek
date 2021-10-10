@@ -11,10 +11,6 @@ class Rekap extends Model
 
     protected $fillable = [
         'wfm_id',
-        // 'progres_id',
-        // 'plan_aktivasi',
-        // 'plan_modify',
-        // 'plan_dc',
         'olo',
         'aktivasi',
         'modify',

@@ -9,12 +9,14 @@ use App\Http\Controllers\PekerjaanLapanganController;
 use App\Http\Controllers\ProgresLapanganController;
 use App\Models\PekerjaanLapangan;
 use App\Http\Controllers\RekapController;
+use App\Http\Controllers\RekapProgressController;
 use App\Http\Controllers\WfmController;
 use App\Models\Database;
 use App\Models\ProgresLapangan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserManagementController;
+use App\Models\Rekap;
 use Maatwebsite\Excel\Row;
 
 /*
@@ -89,6 +91,9 @@ Route::delete('/rekap/delete/{rekap}', [RekapController::class, 'destroy'])->nam
 
 Route::get('/export/rekap', [RekapController::class, 'exportRekap'])->name('rekap.export');
 Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rekap.import');
+
+// rekap progress
+Route::get('/rekap_progress', [RekapProgressController::class, 'index'])->name('rekapProgress.index')->middleware('auth');
 
 // progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index')->middleware('auth');

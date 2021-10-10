@@ -7,6 +7,7 @@ use App\Imports\PekerjaanLapanganImport;
 use App\Models\Database;
 use App\Models\PekerjaanLapangan;
 use App\Models\Wfm;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Gate;
@@ -54,6 +55,7 @@ class PekerjaanLapanganController extends Controller
         $pekerjaanLapangan->datek_odp = $request->datek_odp;
         $pekerjaanLapangan->keterangan = $request->keterangan;
         $pekerjaanLapangan->save();
+
         sleep(1);
         return redirect()->route('pekerjaan_lapangan.index');
     }

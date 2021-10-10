@@ -30,11 +30,9 @@ class RekapController extends Controller
         $totalDc = DB::table('rekaps')->sum('disconnect');
         $totalResume = DB::table('rekaps')->sum('resume');
         $totalSuspend = DB::table('rekaps')->sum('suspend');
-        // $totalPlanAktivasi = DB::table('rekaps')->sum('plan_aktivasi');
-        // $totalPlanModify = DB::table('rekaps')->sum('plan_modify');
-        // $totalPlanDc = DB::table('rekaps')->sum('plan_dc');
 
-        return view('rekap.index', ['title' => 'Halaman Rekap', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
+
+        return view('rekap.deployment.index', ['title' => 'Halaman Rekap Deployment', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
     }
 
     /**
@@ -45,7 +43,7 @@ class RekapController extends Controller
     public function create()
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('rekap.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
+            return view('rekap.deployment.create', ["title" => "Tambah Data - Rekap", 'database' => Database::all()]);
         } else {
             abort(403);
         }
@@ -62,8 +60,8 @@ class RekapController extends Controller
         // $rekap->no = $request->no;
         $rekap->olo = $request->olo;
         $rekap->plan_aktivasi = $request->plan_aktivasi;
-        $rekap->plan_modify = $request->plan_modify;
-        $rekap->plan_disconnect = $request->plan_disconnect;
+        // $rekap->plan_modify = $request->plan_modify;
+        // $rekap->plan_disconnect = $request->plan_disconnect;
         $rekap->aktivasi = $request->aktivasi;
         $rekap->modify = $request->modify;
         $rekap->disconnect = $request->disconnect;
@@ -94,7 +92,7 @@ class RekapController extends Controller
     public function edit(Rekap $rekap)
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('rekap.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
+            return view('rekap.deployment.edit', ["rekap" => $rekap, "title" => "Update Data - Rekap"]);
         } else {
             abort(403);
         }
@@ -113,8 +111,8 @@ class RekapController extends Controller
         // $rekap->no = $request->no;
         $rekap->olo = $request->olo;
         $rekap->plan_aktivasi = $request->plan_aktivasi;
-        $rekap->plan_modify = $request->plan_modify;
-        $rekap->plan_disconnect = $request->plan_disconnect;
+        // $rekap->plan_modify = $request->plan_modify;
+        // $rekap->plan_disconnect = $request->plan_disconnect;
         $rekap->aktivasi = $request->aktivasi;
         $rekap->modify = $request->modify;
         $rekap->disconnect = $request->disconnect;
