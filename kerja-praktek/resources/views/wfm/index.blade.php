@@ -148,12 +148,13 @@
             {{-- akhir form filter --}}
 
             <span id="ct" class="mt-3 d-block text-right"></span>
-            <div class="card mt-2 mb-5 shadow-sm">
-                {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
-                {{-- <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
+            <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Import Excel
-                </button> --}}
+                </button>
+            <div class="card mt-2 mb-5 shadow-sm">
+                {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
+
                 <div class="card-body">
                     <h2 class="title-table">Deployment</h2>
                     <table class="table table-responsive table-hover " id="table_id">

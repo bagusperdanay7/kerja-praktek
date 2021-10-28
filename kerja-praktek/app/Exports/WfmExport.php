@@ -59,11 +59,9 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             $wfm->sn,
             $wfm->port4,
             $wfm->type,
-            $wfm->nama,
-            $wfm->ip4,
-            $wfm->downlink,
-            $wfm->type2,
-            $wfm->capture_done,
+            $wfm->capture_metro_backhaul,
+            $wfm->capture_metro_access,
+            $wfm->capture_gpon,
             $wfm->pic
 
         ];
@@ -97,10 +95,10 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             'START CANCEL DATE',
             'READY AFTER CANCEL',
             'INTEGRASI',
-            'METRO',
+            'METRO BACKHAUL',
             'IP',
             'PORT',
-            'METRO',
+            'METRO ACCESS',
             'IP',
             'PORT',
             'VLAN',
@@ -111,11 +109,8 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             'SN',
             'PORT',
             'TYPE',
-            'NAMA',
-            'IP',
-            'DOWNLINK',
-            'TYPE',
-            'CAPTURE DONE',
+            'CAPTURE METRO BACKHAUL',
+            'CAPTURE GPON',
             'PIC'
         ];
     }
