@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
+<div class="container-fluid isi">
     <div class="row">
         <div class="col">
             <span id="ct" class="mt-3 d-block text-right"></span>
@@ -17,7 +17,7 @@
             <div class="card mt-2 mb-5 shadow-sm" id="rekap-deployment">
                 <div class="card-body">
                     <h2 class="title-table">Rekap Deployment</h2>
-                    <table class="table table-hover" id="table_id">
+                    <table class="table table-hover table-responsive-md" id="table_id">
                         <thead>
                             <tr>
                                 <th class="text-center">NO</th>

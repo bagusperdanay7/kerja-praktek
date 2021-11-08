@@ -141,6 +141,10 @@ body {
 }
 
 /* Index */
+.isi {
+    padding: 0 30px;
+}
+
 .border-none {
     border: none !important;
 }
