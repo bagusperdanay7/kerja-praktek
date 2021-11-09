@@ -25,9 +25,9 @@
                                 <option value="">Pilih No AO</option>
                                 @endif
 
-                                @foreach ($wfms as $wfm)
+                                {{-- @foreach ($wfms as $wfm)
                                 <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
                         <div class="col">
@@ -45,11 +45,11 @@
                                 <option value="">Pilih Witel</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
+                                {{-- @foreach ($database as $dbs)
                                 @if ($dbs->witel !== '')
                                 <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
                                 @endif
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
 
@@ -62,9 +62,9 @@
                                 <option value="">Pilih OLO</option>
                                 @endif
 
-                                @foreach ($database as $dbs)
+                                {{-- @foreach ($database as $dbs)
                                 <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
-                                @endforeach
+                                @endforeach --}}
                             </select>
                         </div>
 

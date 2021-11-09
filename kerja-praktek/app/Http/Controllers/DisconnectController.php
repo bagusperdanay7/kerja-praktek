@@ -7,6 +7,7 @@ use App\Models\Diconnect;
 use App\Models\Database;
 use App\Models\Wfm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
 class DisconnectController extends Controller
@@ -18,15 +19,22 @@ class DisconnectController extends Controller
      */
     public function index()
     {
-        return view('disconnect.index', [
-            "title" => "Disconnect",
-            'database' => Database::all(),
-            'wfms' => Wfm::all(),
-            'disconnects' => Diconnect::all(),
-            'disconnect' => Diconnect::orderBy('id')->filter(request([
-                'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
-            ]))->get()
-        ]);
+        // return view('disconnect.index', [
+        //     "title" => "Disconnect",
+        //     'database' => Database::all(),
+        //     'wfms' => Wfm::all(),
+        //     'disconnects' => Diconnect::all(),
+        //     'disconnect' => Diconnect::orderBy('id')->filter(request([
+        //         'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
+        //     ]))->get()
+        // ]);
+
+        $disconnect = DB::table('diconnects')
+                        ->join('wfms','wfms.id','=','diconnects.wfm_id')
+                        ->where('order_type','=','DISCONNECT')
+                        ->get();
+
+        return view('disconnect.index',['disconnect' => $disconnect,'title' => 'disconnect']);
     }
 
     /**
