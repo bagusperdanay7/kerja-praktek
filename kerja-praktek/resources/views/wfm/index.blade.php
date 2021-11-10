@@ -4,13 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform" aria-expanded="false" aria-controls="filterform">
-                <i class="las la-filter"></i> Filter
-            </button>
-            <div class="collapse m-0 p-0" id="filterform">
-                {{-- <h4 class="filter-title">Filter</h4> --}}
+            <div class="m-0 p-0" id="filterform">
+                <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
                 <div class="clear-filter">
-                    <a href="{{ route('wfm.index') }}" class="">Clear Filters</a>
+                    <a href="{{ route('wfm.index') }}">Clear Filters</a>
                 </div>
                 <form action="{{ route('wfm.index') }}">
                     {{-- filter field --}}
@@ -30,9 +27,14 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="tgl_bulan_th">Tanggal</label>
+                            <label for="tgl_bulan_th">Dari Tanggal</label>
                             <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_th"
                                 id="tgl_bulan_th" value="{{ request('tgl_bulan_th') }}">
+                        </div>
+                        <div class="col">
+                            <label for="tgl_bulan_th_sd">Sampai Tanggal</label>
+                            <input type="date" class="form-control" placeholder="Tanggal" name="tgl_bulan_sd"
+                                id="tgl_bulan_th_sd" value="{{ request('tgl_bulan_sd') }}">
                         </div>
 
                         <div class="col">
@@ -51,7 +53,9 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
 
+                    <div class="form-row mt-3">
                         <div class="col">
                             <label for="olo_isp">OLO</label>
                             <select class="form-control" id="olo_isp" name="olo_isp">
@@ -66,9 +70,6 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div>
-
-                    <div class="form-row mt-3">
                         <div class="col">
                             <label for="order_type">Order Type</label>
                             <select class="form-control" id="order_type" name="order_type">
@@ -119,8 +120,10 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
 
-                        <div class="col">
+                    <div class="form-row mt-3">
+                        <div class="col-3">
                             <label for="status_wfm">Status WFM</label>
                             <select class="form-control" id="status_wfm" name="status_wfm">
                                 @if (request('status_wfm'))
@@ -140,8 +143,8 @@
 
                     {{-- button filter --}}
                     <div class="mt-3 text-right">
-                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
-                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                        <button class="btn btn-reset px-4 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-4 py-3/2" type="submit">Filter</button>
                     </div>
                 </form>
             </div>

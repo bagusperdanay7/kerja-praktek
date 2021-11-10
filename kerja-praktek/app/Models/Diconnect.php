@@ -15,6 +15,7 @@ class Diconnect extends Model
         'olo',
         'lokasi',
         'jenis_ont',
+        'jumlah_ont',
         'status',
         'plan_cabut',
         'pic'
@@ -50,7 +51,7 @@ class Diconnect extends Model
         // filter witel
         $query->when(
             $filters['witel'] ?? false,
-            fn ($query, $witel) => $query->where('witel', 'like', '%' . $witel . '%')
+            fn ($query, $witel) => $query->where('witel', 'like', '%' . $witel)
         );
 
         // filter jenis ont

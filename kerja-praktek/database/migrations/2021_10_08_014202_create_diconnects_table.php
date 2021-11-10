@@ -24,6 +24,7 @@ class CreateDiconnectsTable extends Migration
             $table->string('olo')->nullable();
             $table->text('lokasi')->nullable();
             $table->string('jenis_ont')->nullable();
+            $table->integer('jumlah_ont')->nullable();
             $table->string('status')->nullable();
             $table->date('plan_cabut')->nullable();
             $table->string('pic')->nullable();

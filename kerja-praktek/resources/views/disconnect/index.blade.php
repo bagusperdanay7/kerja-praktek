@@ -4,12 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform"
-                aria-expanded="false" aria-controls="filterform">
-                <i class="las la-filter"></i> Filter
-            </button>
-            <div class="collapse m-0 p-0" id="filterform">
-                {{-- <h4 class="filter-title">Filter</h4> --}}
+            <div class="m-0 p-0" id="filterform">
+                <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
                 <div class="clear-filter">
                     <a href="{{ route('dis.index') }}" class="">Clear Filters</a>
                 </div>
@@ -25,9 +21,9 @@
                                 <option value="">Pilih No AO</option>
                                 @endif
 
-                                {{-- @foreach ($wfms as $wfm)
+                                @foreach ($wfms as $wfm)
                                 <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
                         <div class="col">
@@ -45,11 +41,11 @@
                                 <option value="">Pilih Witel</option>
                                 @endif
 
-                                {{-- @foreach ($database as $dbs)
+                                @foreach ($database as $dbs)
                                 @if ($dbs->witel !== '')
                                 <option value="{{ $dbs->witel }}">{{ $dbs->witel }}</option>
                                 @endif
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
 
@@ -62,9 +58,9 @@
                                 <option value="">Pilih OLO</option>
                                 @endif
 
-                                {{-- @foreach ($database as $dbs)
+                                @foreach ($database as $dbs)
                                 <option value="{{ $dbs->olo_isp }}">{{ $dbs->olo_isp }}</option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
 
@@ -108,8 +104,8 @@
 
                     {{-- button filter --}}
                     <div class="mt-3 text-right">
-                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
-                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                        <button class="btn btn-reset px-4 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-4 py-3/2" type="submit">Filter</button>
                     </div>
                 </form>
             </div>
@@ -123,6 +119,8 @@
                     Import Excel
                 </button> --}}
 
+                {{-- biasa --}}
+                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') || request('jenis_ont') || request('status'))
                 <div class="card-body">
                     <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
@@ -135,8 +133,75 @@
                                 <th scope="col">OLO</th>
                                 <th scope="col">ALAMAT</th>
                                 <th scope="col">JENIS ONT</th>
+                                <th scope="col">JUMLAH ONT</th>
                                 <th scope="col">STATUS</th>
-                                <th scope="col">TANGGAL</th>
+                                <th scope="col">PLAN CABUT</th>
+                                <th scope="col">PIC</th>
+                                @canany(['admin', 'editor'])
+                                <th scope="col"><span class="las la-ellipsis-v"></span></th>
+                                @endcanany
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach ($disconnects as $items)
+                            <tr>
+                                {{-- <td>{{ $items->wfm_id; }}</td> --}}
+
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td>{{ $items->no_ao }}</td>
+                                <td>{{ $items->witel }}</td>
+                                <td>{{ $items->olo }}</td>
+                                <td>{{ $items->lokasi }}</td>
+                                <td>{{ $items->jenis_ont }}</td>
+                                <td>{{ $items->jumlah_ont }}</td>
+                                <td>{{ $items->status }}</td>
+                                <td>{{ $items->plan_cabut }}</td>
+                                <td>{{ $items->pic }}</td>
+                                @canany(['admin', 'editor'])
+                                <td class="text-center">
+                                    <div class="dropleft">
+                                        <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"></span>
+                                        <div class="dropdown-menu" aria-labelledby="menuEdit">
+                                            <a href="{{ route('dis.edit',$items->id) }}" class="dropdown-item"
+                                                type="button">
+                                                <i class="fas fa-edit mr-2"></i>
+                                                Edit
+                                            </a>
+                                            <form action="{{ route('dis.destroy',$items->id) }}" method="POST"
+                                                class="d-inline" onsubmit="return validasiHapus()">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="dropdown-item" type="submit"
+                                                    onclick="return confirm('Apakah Anda Ingin Menghapusnya?')"><i
+                                                        class="fas fa-trash mr-2"></i> Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                                @endcanany
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @else
+                <div class="card-body">
+                    <h2 class="title-table">Disconnect</h2>
+                    <table class="table table-responsive-lg table-hover" id="table_id">
+                        <thead>
+                            <tr>
+                                {{-- <th scope="col">WFM ID</th> --}}
+                                <th scope="col">NO</th>
+                                <th scope="col">AO</th>
+                                <th scope="col">WITEL</th>
+                                <th scope="col">OLO</th>
+                                <th scope="col">ALAMAT</th>
+                                <th scope="col">JENIS ONT</th>
+                                <th scope="col">JUMLAH ONT</th>
+                                <th scope="col">STATUS</th>
+                                <th scope="col">PLAN CABUT</th>
                                 <th scope="col">PIC</th>
                                 @canany(['admin', 'editor'])
                                 <th scope="col"><span class="las la-ellipsis-v"></span></th>
@@ -155,6 +220,7 @@
                                 <td>{{ $item->olo }}</td>
                                 <td>{{ $item->lokasi }}</td>
                                 <td>{{ $item->jenis_ont }}</td>
+                                <td class="text-center">{{ $item->jumlah_ont }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->plan_cabut }}</td>
                                 <td>{{ $item->pic }}</td>
@@ -186,6 +252,7 @@
                         </tbody>
                     </table>
                 </div>
+                @endif
             </div>
         </div>
 

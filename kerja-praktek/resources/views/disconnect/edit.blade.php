@@ -55,6 +55,15 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="jumlah_ont">JUMLAH ONT</label>
+                            <select name="jumlah_ont" id="jumlah_ont" class="form-control">
+                                <option value="{{ $dis->jumlah_ont }}">{{ $dis->jumlah_ont }}</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="status">STATUS</label>
                             <select name="status" id="status" class="form-control">
                                 <option value="{{ $dis->status }}">{{ $dis->status }}</option>
