@@ -30,11 +30,19 @@ class DisconnectController extends Controller
         // ]);
 
         $disconnect = DB::table('diconnects')
-                        ->join('wfms','wfms.id','=','diconnects.wfm_id')
-                        ->where('order_type','=','DISCONNECT')
-                        ->get();
+            ->join('wfms', 'wfms.id', '=', 'diconnects.wfm_id')
+            ->where('order_type', '=', 'DISCONNECT')
+            ->get();
 
-        return view('disconnect.index',['disconnect' => $disconnect,'title' => 'disconnect']);
+        return view('disconnect.index', [
+            'disconnect' => $disconnect,
+            'title' => 'Disconnect',
+            'database' => Database::all(),
+            'wfms' => Wfm::all(),
+            'disconnects' => Diconnect::orderBy('id')->filter(request([
+                'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
+            ]))->get()
+        ]);
     }
 
     /**
@@ -100,6 +108,7 @@ class DisconnectController extends Controller
         $diconnect->olo = $request->olo;
         $diconnect->lokasi = $request->lokasi;
         $diconnect->jenis_ont = $request->jenis_ont;
+        $diconnect->jumlah_ont = $request->jumlah_ont;
         $diconnect->status = $request->status;
         $diconnect->plan_cabut = $request->plan_cabut;
         $diconnect->pic = $request->pic;

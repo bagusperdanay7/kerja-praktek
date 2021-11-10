@@ -202,16 +202,16 @@ th {
 }
 
 .btn-filter {
-    background-color: var(--secondary-10);
-    color: var(--secondary);
+    background-color: var(--secondary);
+    color: var(--white);
     opacity: 0.8;
 }
 
 .btn-filter:hover {
     transition: all ease-in 0.8;
     opacity: 1;
-    background-color: var(--secondary-10);
-    color: var(--secondary);
+    background-color: var(--secondary);
+    color: var(--white);
 }
 
 .btn-reset {

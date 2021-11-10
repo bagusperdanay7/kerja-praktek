@@ -4,14 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <button class="btn btn-second mt-4" type="button" data-toggle="collapse" data-target="#filterform"
-                aria-expanded="false" aria-controls="filterform">
-                <i class="las la-filter"></i> Filter
-            </button>
-            <div class="collapse m-0 p-0" id="filterform">
-                {{-- <h4 class="filter-title">Filter</h4> --}}
+            <div class="m-0 p-0" id="filterform">
+                <h4 class="filter-title" title="Filter"><i class="las la-filter"></i> Filter</h4>
                 <div class="clear-filter">
-                    <a href="{{ route('progress.index') }}" class="">Clear Filters</a>
+                    <a href="{{ route('progress.index') }}">Clear Filters</a>
                 </div>
                 <form action="{{ route('progress.index') }}">
                     {{-- filter field --}}
@@ -54,10 +50,10 @@
                         </div>
 
                         <div class="col">
-                            <label for="olo_isp">OLO</label>
-                            <select class="form-control" id="olo_isp" name="olo_isp">
-                                @if (request('olo_isp'))
-                                <option value="{{ request('olo_isp') }}">{{ request('olo_isp') }}</option>
+                            <label for="olo">OLO</label>
+                            <select class="form-control" id="olo" name="olo">
+                                @if (request('olo'))
+                                <option value="{{ request('olo') }}">{{ request('olo') }}</option>
                                 @else
                                 <option value="">Pilih OLO</option>
                                 @endif
@@ -105,8 +101,8 @@
 
                     {{-- button filter --}}
                     <div class="mt-3 text-right">
-                        <button class="btn btn-reset px-3 py-3/2" type="reset">Reset</button>
-                        <button class="btn btn-filter px-3 py-3/2" type="submit">Filter</button>
+                        <button class="btn btn-reset px-4 py-3/2" type="reset">Reset</button>
+                        <button class="btn btn-filter px-4 py-3/2" type="submit">Filter</button>
                     </div>
                 </form>
             </div>

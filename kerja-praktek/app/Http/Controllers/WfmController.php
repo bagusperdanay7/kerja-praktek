@@ -149,7 +149,7 @@ class WfmController extends Controller
             $diconnect->lokasi = "";
             $diconnect->jenis_ont = "";
             $diconnect->status = "";
-            $diconnect->plan_cabut = "";
+            $diconnect->plan_cabut = $wfm->tgl_bulan_th;
             $diconnect->pic = "";
             $diconnect->save();
         } elseif ($wfm->order_type == "RESUME") {
