@@ -11,11 +11,14 @@ class Rekap extends Model
 
     protected $fillable = [
         'wfm_id',
-        'olo',
-        'aktivasi',
-        'modify',
-        'disconnect',
-        'resume',
-        'suspend'
+        'pekerjaan_id',
+        'olo_wfm',
+        'status_wfm',
+
+        // 'aktivasi',
+        // 'modify',
+        // 'disconnect',
+        // 'resume',
+        // 'suspend'
     ];
 }

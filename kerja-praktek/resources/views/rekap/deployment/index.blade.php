@@ -33,17 +33,17 @@
                             @foreach ($rekap as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->olo }}</td>
-                                <td class="text-center">{{ $item->aktivasi }}</td>
-                                <td class="text-center">{{ $item->modif }}</td>
-                                <td class="text-center">{{ $item->disconnect }}</td>
-                                <td class="text-center">{{ $item->resum }}</td>
-                                <td class="text-center">{{ $item->suspen }}</td>
+                                <td>{{ $item->olo_wfm }}</td>
+                                <td class="text-center">{{ $item->AKTIVASI }}</td>
+                                <td class="text-center">{{ $item->MODIF }}</td>
+                                <td class="text-center">{{ $item->DISCONNECT }}</td>
+                                <td class="text-center">{{ $item->RESUME }}</td>
+                                <td class="text-center">{{ $item->SUSPEND }}</td>
                             </tr>
                             @endforeach
                         </tbody>
 
-                        <tfoot>
+                        {{-- <tfoot>
                             <tr>
                                 <th colspan="2" class="text-center">TOTAL</th>
                                 <th class="text-center">{{ $total }}</th>
@@ -51,7 +51,7 @@
                                 <th class="text-center">{{ $totalDc }}</th>
                                 <th class="text-center">{{ $totalResume }}</th>
                                 <th class="text-center">{{ $totalSuspend }}</th>
-                            </tr>
+                            </tr> --}}
                         </tfoot>
 
                     </table>

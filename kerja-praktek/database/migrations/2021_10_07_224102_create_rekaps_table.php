@@ -18,12 +18,12 @@ class CreateRekapsTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->foreignId('wfm_id')->nullable()->constrained('wfms')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('olo')->nullable();
-            $table->integer('aktivasi')->nullable();
-            $table->integer('modify')->nullable();
-            $table->integer('disconnect')->nullable();
-            $table->integer('resume')->nullable();
-            $table->integer('suspend')->nullable();
+            $table->foreignId('pekerjaan_id')->nullable()->constrained('pekerjaan_lapangans')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('olo_wfm')->nullable();
+            $table->string('status_wfm')->nullable();
+            // $table->string('olo_lapangan')->nullable();
+            // $table->string('status_lapangan')->nullable();
+
             $table->timestamps();
         });
     }

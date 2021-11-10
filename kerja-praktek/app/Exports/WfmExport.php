@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use App\Models\Wfm;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -14,13 +15,18 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
     */
     public function collection()
     {
-        return Wfm::all();
+
+        // return DB::table('wfms')->where('order_type', '=', 'MODIFY')->get();
+
+        return Wfm::orderBy('id')->filter(request([
+            'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm'
+        ]))->get();
     }
 
     public function map($wfm): array
     {
         return [
-            $wfm->no,
+            // $wfm->id,
             $wfm->tgl_bulan_th,
             $wfm->no_ao,
             $wfm->witel,
@@ -70,7 +76,7 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
     public function headings(): array
     {
         return [
-            'NO',
+            // 'NO',
             'TGL/BLN/THN',
             'NO. AO',
             'WITEL',

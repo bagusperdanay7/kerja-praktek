@@ -24,15 +24,18 @@ class RekapController extends Controller
      */
     public function index()
     {
-        $rekap_akhir = DB::select('SELECT olo,SUM(aktivasi) AS aktivasi,SUM(rekaps.modify) AS modif,SUM(disconnect) AS disconnect, SUM(resume) AS resum, SUM(suspend) AS suspen FROM rekaps GROUP BY olo');
-        $totalAktivasi = DB::table('rekaps')->sum('aktivasi');
-        $totalModify = DB::table('rekaps')->sum('modify');
-        $totalDc = DB::table('rekaps')->sum('disconnect');
-        $totalResume = DB::table('rekaps')->sum('resume');
-        $totalSuspend = DB::table('rekaps')->sum('suspend');
+        // $rekap_akhir = DB::select('SELECT olo,SUM(aktivasi) AS aktivasi,SUM(rekaps.modify) AS modif,SUM(disconnect) AS disconnect, SUM(resume) AS resum, SUM(suspend) AS suspen FROM rekaps GROUP BY olo');
+        // $totalAktivasi = DB::table('rekaps')->sum('aktivasi');
+        // $totalModify = DB::table('rekaps')->sum('modify');
+        // $totalDc = DB::table('rekaps')->sum('disconnect');
+        // $totalResume = DB::table('rekaps')->sum('resume');
+        // $totalSuspend = DB::table('rekaps')->sum('suspend');
+
+        $data = DB::select("SELECT rekaps.olo_wfm, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM rekaps join wfms on rekaps.wfm_id = wfms.id GROUP BY olo_wfm");
 
 
-        return view('rekap.deployment.index', ['title' => 'Halaman Rekap Deployment', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
+        // return view('rekap.deployment.index', ['title' => 'Halaman Rekap Deployment', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
+        return view('rekap.deployment.index',['title' => 'Halaman Rekap','rekap' => $data]);
     }
 
     /**

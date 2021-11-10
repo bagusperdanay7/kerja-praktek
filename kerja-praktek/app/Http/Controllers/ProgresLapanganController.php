@@ -10,6 +10,7 @@ use App\Models\Wfm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use phpDocumentor\Reflection\Types\Null_;
 
 class ProgresLapanganController extends Controller
 {
@@ -50,7 +51,7 @@ class ProgresLapanganController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ProgresLapangan $progress, RekapProgress $rekapPro)
+    public function store(Request $request, ProgresLapangan $progress, RekapProgress $rekapPro,Rekap $rekap)
     {
         $progress->tanggal = $request->tanggal;
         $progress->witel = $request->witel;
@@ -68,21 +69,49 @@ class ProgresLapanganController extends Controller
         $progress->keterangan = $request->keterangan;
         $progress->save();
 
+
+
+        // $progress = ProgresLapangan::create([
+        //     'tanggal' => $request->tanggal,
+        //     'witel' => $request->witel,
+        //     'ao' => $request->ao,
+        //     'olo' => $request->olo,
+        //     'produk'=> $request->produk,
+        //     'alamat_toko' => $request->alamat_toko,
+        //     'tanggal_order_pt1' => $request->tanggal_order_pt1,
+        //     'keterangan_pt1' => $request->keterangan_pt1,
+        //     'tanggal_order_pt2' => $request->tanggal_order_pt2,
+        //     'keterangan_pt2' => $request->keterangan_pt2,
+        //     'datek_odp'=> $request->datek_odp,
+        //     'progress '=> $request->progress,
+        //     'datek_gpon '=> $request->datek_gpon,
+        //     'keterangan' => $request->keterangan,
+        // ]);
+
+
+
+
         // Query Database
-        $queryInProgress = DB::table('progres_lapangans')->where('progress', 'In Progress')->groupBy('olo')->count();
+        // $queryInProgress = DB::table('progres_lapangans')->where('progress', 'In Progress')->groupBy('olo')->count();
         // $queryModify = DB::table('wfms')->where('progress', 'MODIFY')->groupBy('olo_isp')->count();
         // $query3Disconnect = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
 
-        if ($progress->progress == "In Progress") {
+        // if ($progress->progress == "In Progress") {
 
-            $rekapPro->progres_id = $progress->id;
-            $rekapPro->olo = $progress->olo;
-            $rekapPro->plan_aktivasi = $queryInProgress;
-            // $rekapPro->plan_modify = 0;
-            // $rekapPro->plan_dc = 0;
-            $rekapPro->save();
-        }
+        //     $rekapPro->progres_id = $progress->id;
+        //     $rekapPro->olo = $progress->olo;
+        //     $rekapPro->plan_aktivasi = $queryInProgress;
+        //     // $rekapPro->plan_modify = 0;
+        //     // $rekapPro->plan_dc = 0;
+        //     $rekapPro->save();
+        // }
 
+
+        // dd($progress->progress);
+        // $rekap->pekerjaan_id = $progress->id;
+        // $rekap->olo_wfm = $progress->olo;
+        // $rekap->status_wfm = $progress->progress;
+        // $rekap->save();
 
         sleep(1);
         return redirect()->route('progress.index');

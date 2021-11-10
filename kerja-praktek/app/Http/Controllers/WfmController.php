@@ -33,7 +33,10 @@ class WfmController extends Controller
                 'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm'
             ]))->get()
         ]);
+
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -104,6 +107,8 @@ class WfmController extends Controller
         ]);
 
 
+
+
         $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
         $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
         $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
@@ -111,36 +116,45 @@ class WfmController extends Controller
         $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
 
 
-        if ($wfm->order_type == "NEW INSTALL") {
 
-            $rekap->wfm_id = $wfm->id;
-            $rekap->olo = $wfm->olo_isp;
-            $rekap->aktivasi = $query1;
-            $rekap->modify = 0;
-            $rekap->disconnect = 0;
-            $rekap->resume = 0;
-            $rekap->suspend = 0;
-            $rekap->save();
-        } elseif ($wfm->order_type == "MODIFY") {
+        $rekap->wfm_id = $wfm->id;
+        $rekap->olo_wfm = $wfm->olo_isp;
+        $rekap->status_wfm = $wfm->order_type;
+        // $rekap->olo_lapangan = "";
+        // $rekap->status_lapangan = "";
+        $rekap->save();
 
-            $rekap->wfm_id = $wfm->id;
-            $rekap->olo = $wfm->olo_isp;
-            $rekap->aktivasi = 0;
-            $rekap->modify = $query2;
-            $rekap->disconnect = 0;
-            $rekap->resume = 0;
-            $rekap->suspend = 0;
-            $rekap->save();
-        } elseif ($wfm->order_type == "DISCONNECT") {
+        // if ($wfm->order_type == "NEW INSTALL") {
 
-            $rekap->wfm_id = $wfm->id;
-            $rekap->olo = $wfm->olo_isp;
-            $rekap->aktivasi = 0;
-            $rekap->modify = 0;
-            $rekap->disconnect = $query3;
-            $rekap->resume = 0;
-            $rekap->suspend = 0;
-            $rekap->save();
+        //     $rekap->wfm_id = $wfm->id;
+        //     $rekap->olo = $wfm->olo_isp;
+        //     $rekap->aktivasi = $query1;
+        //     $rekap->modify = 0;
+        //     $rekap->disconnect = 0;
+        //     $rekap->resume = 0;
+        //     $rekap->suspend = 0;
+        //     $rekap->save();
+        // } elseif ($wfm->order_type == "MODIFY") {
+
+        //     $rekap->wfm_id = $wfm->id;
+        //     $rekap->olo = $wfm->olo_isp;
+        //     $rekap->aktivasi = 0;
+        //     $rekap->modify = $query2;
+        //     $rekap->disconnect = 0;
+        //     $rekap->resume = 0;
+        //     $rekap->suspend = 0;
+        //     $rekap->save();
+        // } else
+        if ($wfm->order_type == "DISCONNECT") {
+
+            // $rekap->wfm_id = $wfm->id;
+            // $rekap->olo = $wfm->olo_isp;
+            // $rekap->aktivasi = 0;
+            // $rekap->modify = 0;
+            // $rekap->disconnect = $query3;
+            // $rekap->resume = 0;
+            // $rekap->suspend = 0;
+            // $rekap->save();
 
             $diconnect->wfm_id = $wfm->id;
             $diconnect->no_ao = $wfm->no_ao;
@@ -152,27 +166,28 @@ class WfmController extends Controller
             $diconnect->plan_cabut = "";
             $diconnect->pic = "";
             $diconnect->save();
-        } elseif ($wfm->order_type == "RESUME") {
-
-            $rekap->wfm_id = $wfm->id;
-            $rekap->olo = $wfm->olo_isp;
-            $rekap->aktivasi = 0;
-            $rekap->modify = 0;
-            $rekap->disconnect = 0;
-            $rekap->resume = $query4;
-            $rekap->suspend = 0;
-            $rekap->save();
-        } elseif ($wfm->order_type == "SUSPEND") {
-
-            $rekap->wfm_id = $wfm->id;
-            $rekap->olo = $wfm->olo_isp;
-            $rekap->aktivasi = $query1;
-            $rekap->modify = 0;
-            $rekap->disconnect = 0;
-            $rekap->resume = 0;
-            $rekap->suspend = $query5;
-            $rekap->save();
         }
+        // } elseif ($wfm->order_type == "RESUME") {
+
+        //     $rekap->wfm_id = $wfm->id;
+        //     $rekap->olo = $wfm->olo_isp;
+        //     $rekap->aktivasi = 0;
+        //     $rekap->modify = 0;
+        //     $rekap->disconnect = 0;
+        //     $rekap->resume = $query4;
+        //     $rekap->suspend = 0;
+        //     $rekap->save();
+        // } elseif ($wfm->order_type == "SUSPEND") {
+
+        //     $rekap->wfm_id = $wfm->id;
+        //     $rekap->olo = $wfm->olo_isp;
+        //     $rekap->aktivasi = $query1;
+        //     $rekap->modify = 0;
+        //     $rekap->disconnect = 0;
+        //     $rekap->resume = 0;
+        //     $rekap->suspend = $query5;
+        //     $rekap->save();
+        // }
 
         sleep(1);
         return redirect()->route('wfm.index');
