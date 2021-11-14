@@ -33,7 +33,7 @@
                             @foreach ($rekap as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $item->olo_wfm }}</td>
+                                <td>{{ $item->olo_isp }}</td>
                                 <td class="text-center">{{ $item->AKTIVASI }}</td>
                                 <td class="text-center">{{ $item->MODIF }}</td>
                                 <td class="text-center">{{ $item->DISCONNECT }}</td>

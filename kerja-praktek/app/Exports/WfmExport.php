@@ -97,7 +97,7 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             'TGL COMPLETE WFM',
             'STATUS WFM',
             'ALASAN CANCEL',
-            'CANCEL By',
+            'CANCEL BY',
             'START CANCEL DATE',
             'READY AFTER CANCEL',
             'INTEGRASI',
