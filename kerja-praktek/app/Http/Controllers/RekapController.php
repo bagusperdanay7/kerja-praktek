@@ -33,7 +33,7 @@ class RekapController extends Controller
 
         // $data = DB::select("SELECT rekaps.olo_wfm, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM rekaps join wfms on rekaps.wfm_id = wfms.id GROUP BY olo_wfm");
 
-        $data = DB::select("SELECT wfms.olo_isp, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM wfms GROUP BY olo_isp");
+        $data = DB::select("SELECT wfms.olo_isp, COUNT(IF(wfms.order_type = 'NEW INSTALL',1,NULL))  'AKTIVASI', COUNT(IF(wfms.order_type = 'MODIFY',1,NULL)) 'MODIF', COUNT(IF(wfms.order_type = 'DISCONNECT',1,NULL)) 'DISCONNECT', COUNT(IF(wfms.order_type = 'RESUME',1,NULL)) 'RESUME', COUNT(IF(wfms.order_type = 'SUSPEND',1,NULL)) 'SUSPEND' FROM wfms GROUP BY olo_isp ASC");
 
         // return view('rekap.deployment.index', ['title' => 'Halaman Rekap Deployment', 'rekap' => $rekap_akhir, 'total' => $totalAktivasi, 'totalModify' => $totalModify, 'totalDc' => $totalDc, 'totalResume' => $totalResume, 'totalSuspend' => $totalSuspend]);
         return view('rekap.deployment.index',['title' => 'Halaman Rekap','rekap' => $data]);

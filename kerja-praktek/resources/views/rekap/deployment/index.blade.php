@@ -14,6 +14,8 @@
                 </li>
             </ul>
 
+            <a href="{{route('rekap.export')}}" class="btn btn-primary">Export Excel</a>
+
             <div class="card mt-2 mb-5 shadow-sm" id="rekap-deployment">
                 <div class="card-body">
                     <h2 class="title-table">Rekap Deployment</h2>
