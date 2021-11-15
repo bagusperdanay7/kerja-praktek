@@ -16,7 +16,7 @@ class WfmImport implements ToModel
     {
         return new Wfm([
 
-            'tgl_bulan_th' =>$row[0],
+            'tgl_bulan_th' =>$this->transformDate($row[0]),
             'no_ao' =>$row[1],
             'witel' =>$row[2],
             'olo_isp' =>$row[3],
@@ -63,4 +63,12 @@ class WfmImport implements ToModel
 
         ]);
     }
+
+    public function transformDate($value, $format = 'd/m/y'){
+    try {
+        return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+    } catch (\ErrorException $e) {
+        return \Carbon\Carbon::createFromFormat($format, $value);
+    }
+}
 }
