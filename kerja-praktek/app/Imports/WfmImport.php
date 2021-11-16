@@ -2,11 +2,19 @@
 
 namespace App\Imports;
 
+use App\Models\Diconnect;
 use App\Models\Wfm;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class WfmImport implements ToModel
 {
+
+    private $disconnect;
+
+    public function __construct()
+    {
+        $this->disconnect = Diconnect::select('');
+    }
     /**
     * @param array $row
     *

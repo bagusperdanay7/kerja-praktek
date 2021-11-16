@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\WfmExport;
 use App\Http\Controllers\Controller;
 use App\Imports\WfmImport;
+use App\Imports\WfmImportBaru;
 use App\Models\Database;
 use App\Models\Diconnect;
 use App\Models\Wfm;
@@ -339,7 +340,7 @@ class WfmController extends Controller
         $namaFile = $file->getClientOriginalName();
         $file->move('database_temp', $namaFile);
 
-        Excel::import(new WfmImport, public_path('/database_temp/' . $namaFile));
+        Excel::import(new WfmImportBaru, public_path('/database_temp/' . $namaFile));
 
         return redirect()->route('wfm.index');
     }

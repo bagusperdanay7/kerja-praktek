@@ -32,6 +32,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php
+                                $aktivasi = 0;
+                                $modify = 0;
+                                $dc = 0;
+                                $resume = 0;
+                                $suspend = 0;
+                            ?>
                             @foreach ($rekap as $item)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
@@ -42,21 +49,31 @@
                                 <td class="text-center">{{ $item->RESUME }}</td>
                                 <td class="text-center">{{ $item->SUSPEND }}</td>
                             </tr>
+                            <?php
+
+                                $aktivasi += $item->AKTIVASI;
+                                $modify += $item->MODIF;
+                                $dc += $item->DISCONNECT;
+                                $resume += $item->RESUME;
+                                $suspend += $item->SUSPEND;
+                                ?>
                             @endforeach
                         </tbody>
 
-                        {{-- <tfoot>
+                        <tfoot>
                             <tr>
                                 <th colspan="2" class="text-center">TOTAL</th>
-                                <th class="text-center">{{ $total }}</th>
-                                <th class="text-center">{{ $totalModify }}</th>
-                                <th class="text-center">{{ $totalDc }}</th>
-                                <th class="text-center">{{ $totalResume }}</th>
-                                <th class="text-center">{{ $totalSuspend }}</th>
-                            </tr> --}}
+                                <th class="text-center">{{ $aktivasi }}</th>
+                                <th class="text-center">{{ $modify }}</th>
+                                <th class="text-center">{{ $dc }}</th>
+                                <th class="text-center">{{ $resume }}</th>
+                                <th class="text-center">{{ $suspend }}</th>
+                            </tr>
                         </tfoot>
 
                     </table>
+
+
                 </div>
             </div>
 

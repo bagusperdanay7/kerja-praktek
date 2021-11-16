@@ -15,6 +15,7 @@
             </ul>
 
                 {{-- Table Rekap Progress --}}
+                <a href="{{ route('rekapProgress.export') }}" class="btn btn-primary">Export Excel</a>
                     <div class="card mt-2 mb-5 shadow-sm" id="rekap-progress">
                         <div class="card-body">
                             <h2 class="title-table">Rekap Progress</h2>
@@ -24,6 +25,8 @@
                                         <th class="text-center">NO</th>
                                         <th>OLO</th>
                                         <th class="text-center">PLAN AKTIVASI</th>
+                                        <th class="text-center">PLAN MODIFY</th>
+                                        <th class="text-center">PLAN DISCONNECT</th>
                                         {{-- <th class="text-center">PLAN MODIFY</th>
                                         <th class="text-center">PLAN DISCONNECT</th> --}}
                                     </tr>
@@ -34,21 +37,22 @@
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td>{{ $item_repro->olo }}</td>
                                         <td class="text-center">{{ $item_repro->plan_aktivasi }}</td>
+                                        <td class="text-center">{{ $item_repro->plant_modify }}</td>
+                                        <td class="text-center">{{ $item_repro->plant_dc }}</td>
                                         {{-- <td class="text-center">{{ $item->plan_modify }}</td>
                                         <td class="text-center">{{ $item->plan_dc }}</td> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>
-    
+
                                 <tfoot>
                                     <tr>
                                         <th colspan="2" class="text-center">TOTAL</th>
-                                        <th class="text-center">{{ $totalPlanAktivasi }}</th>
                                         {{-- <th class="text-center">{{ $totalPlanModify }}</th>
                                         <th class="text-center">{{ $totalPlanDc }}</th> --}}
                                     </tr>
                                 </tfoot>
-    
+
                             </table>
                         </div>
                     </div>
