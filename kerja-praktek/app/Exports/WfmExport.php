@@ -116,6 +116,7 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             'PORT',
             'TYPE',
             'CAPTURE METRO BACKHAUL',
+            'CAPTURE METRO ACCESS',
             'CAPTURE GPON',
             'PIC'
         ];
