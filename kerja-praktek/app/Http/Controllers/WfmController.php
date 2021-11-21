@@ -158,11 +158,13 @@ class WfmController extends Controller
             // $rekap->save();
 
             $diconnect->wfm_id = $wfm->id;
+            $diconnect->tanggal = $wfm->tgl_bulan_th;
             $diconnect->no_ao = $wfm->no_ao;
             $diconnect->witel = $wfm->witel;
             $diconnect->olo = $wfm->olo_isp;
-            $diconnect->lokasi = "";
-            $diconnect->jenis_ont = "";
+            $diconnect->alamat = $wfm->alamat_asal;
+            $diconnect->jenis_nte = "";
+            $diconnect->jumlah_nte ="";
             $diconnect->status = "";
             $diconnect->plan_cabut = $wfm->tgl_bulan_th;
             $diconnect->pic = "";

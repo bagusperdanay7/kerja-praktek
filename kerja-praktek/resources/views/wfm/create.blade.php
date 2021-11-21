@@ -202,6 +202,22 @@
                             <input type="text" name="type" id="type" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="nama">NAMA SWITCH</label>
+                            <textarea class="form-control" name="nama" id="nama" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ip4">IP SWITCH</label>
+                            <textarea class="form-control" name="ip4" id="ip4" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="downlink">DOWNLINK</label>
+                            <textarea class="form-control" name="downlink" id="downlink" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="type_switch">TYPE SWITCH</label>
+                            <textarea class="form-control" name="type_switch" id="type_switch" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
                             <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul" rows="3"></textarea>
                         </div>

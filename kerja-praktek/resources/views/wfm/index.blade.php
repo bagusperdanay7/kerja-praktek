@@ -201,6 +201,10 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
+                            <th>NAMA SWITCH</th>
+                            <th>IP SWITCH</th>
+                            <th>DOWNLINK</th>
+                            <th>TYPE SWITCH</th>
                             <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
                             <th class="text-nowrap">CAPTURE METRO ACCESS</th>
                             <th class="text-nowrap">CAPTURE GPON</th>

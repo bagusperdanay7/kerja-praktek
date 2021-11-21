@@ -66,14 +66,16 @@ class WfmImportBaru implements ToCollection
 
             Diconnect::create([
                 'wfm_id' => $wfm->id,
-                'older' => $wfm->no_ao,
-                'customer' => $wfm->olo_isp,
-                'lokasi' => $wfm->alamat_asal,
-                'kota' => $wfm->witel,
-                'jenis_ont' => "",
+                'tanggal' => $wfm->tgl_bulan_th,
+                'no_ao' => $wfm->no_ao,
+                'witel' => $wfm->witel,
+                'olo' => $wfm->olo_isp,
+                'alamat' => $wfm->alamat_asal,
+                'jenis_net' => "",
+                'jumlah_nte' => "",
                 'status' => "",
                 'plan_cabut' => "",
-                'pic' => "",
+                'pic'
             ]);
         }
 

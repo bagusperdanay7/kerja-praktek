@@ -56,6 +56,10 @@ class CreateWfmsTable extends Migration
             $table->string('sn')->nullable();
             $table->string('port4')->nullable();
             $table->string('type')->nullable();
+            $table->string('nama')->nullable();
+            $table->string('ip4')->nullable();
+            $table->string('downlink')->nullable();
+            $table->string('type_switch')->nullable();
             $table->text('capture_metro_backhaul')->nullable();
             $table->text('capture_metro_access')->nullable();
             $table->text('capture_gpon')->nullable();

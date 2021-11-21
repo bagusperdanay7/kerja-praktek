@@ -65,12 +65,12 @@
                         </div>
 
                         <div class="col">
-                            <label for="jenis_ont">Jenis ONT</label>
+                            <label for="jenis_ont">Jenis NTE</label>
                             <select class="form-control" id="jenis_ont" name="jenis_ont">
                                 @if (request('jenis_ont'))
                                 <option value="{{ request('jenis_ont') }}">{{ request('jenis_ont') }}</option>
                                 @else
-                                <option value="">Pilih Jenis ONT</option>
+                                <option value="">Pilih Jenis NTE</option>
                                 @endif
                                 <option value="L2SW">L2SW</option>
                                 <option value="Big ONT Huawei">Big ONT Huawei</option>
@@ -127,6 +127,7 @@
                         <thead>
                             <tr>
                                 {{-- <th scope="col">WFM ID</th> --}}
+                                <th scope="col">Tanggal</th>
                                 <th scope="col">NO</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">WITEL</th>
@@ -149,12 +150,13 @@
                                 {{-- <td>{{ $items->wfm_id; }}</td> --}}
 
                                 <td class="text-center">{{ $loop->iteration }}</td>
+                                <td>{{ $items->tanggal }}</td>
                                 <td>{{ $items->no_ao }}</td>
                                 <td>{{ $items->witel }}</td>
                                 <td>{{ $items->olo }}</td>
-                                <td>{{ $items->lokasi }}</td>
-                                <td>{{ $items->jenis_ont }}</td>
-                                <td>{{ $items->jumlah_ont }}</td>
+                                <td>{{ $items->alamat}}</td>
+                                <td>{{ $items->jenis_nte }}</td>
+                                <td>{{ $items->jumlah_nte }}</td>
                                 <td>{{ $items->status }}</td>
                                 <td>{{ $items->plan_cabut }}</td>
                                 <td>{{ $items->pic }}</td>
@@ -194,12 +196,13 @@
                             <tr>
                                 {{-- <th scope="col">WFM ID</th> --}}
                                 <th scope="col">NO</th>
+                                <th scope="col">TANGGAL</th>
                                 <th scope="col">AO</th>
                                 <th scope="col">WITEL</th>
                                 <th scope="col">OLO</th>
                                 <th scope="col">ALAMAT</th>
-                                <th scope="col">JENIS ONT</th>
-                                <th scope="col">JUMLAH ONT</th>
+                                <th scope="col">JENIS NTE</th>
+                                <th scope="col">JUMLAH NTE</th>
                                 <th scope="col">STATUS</th>
                                 <th scope="col">PLAN CABUT</th>
                                 <th scope="col">PIC</th>
@@ -215,12 +218,13 @@
                                 {{-- <td>{{ $item->wfm_id; }}</td> --}}
 
                                 <td class="text-center">{{ $loop->iteration }}</td>
+                                <td>{{ $item->tanggal }}</td>
                                 <td>{{ $item->no_ao }}</td>
                                 <td>{{ $item->witel }}</td>
                                 <td>{{ $item->olo }}</td>
-                                <td>{{ $item->lokasi }}</td>
-                                <td>{{ $item->jenis_ont }}</td>
-                                <td class="text-center">{{ $item->jumlah_ont }}</td>
+                                <td>{{ $item->alamat }}</td>
+                                <td>{{ $item->jenis_nte }}</td>
+                                <td class="text-center">{{ $item->jumlah_nte }}</td>
                                 <td>{{ $item->status }}</td>
                                 <td>{{ $item->plan_cabut }}</td>
                                 <td>{{ $item->pic }}</td>
