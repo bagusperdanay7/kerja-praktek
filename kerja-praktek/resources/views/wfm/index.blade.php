@@ -255,6 +255,10 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
+                                <td>{{ $wfm->nama }}</td>
+                                <td>{{ $wfm->ip4 }}</td>
+                                <td>{{ $wfm->downlink }}</td>
+                                <td>{{ $wfm->type_switch }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_metro_backhaul }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>

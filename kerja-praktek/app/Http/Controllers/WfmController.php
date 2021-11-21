@@ -101,6 +101,10 @@ class WfmController extends Controller
             'sn' => $request->sn,
             'port4' => $request->port4,
             'type' => $request->type,
+            'nama' => $request->nama,
+            'ip4' => $request->ip4,
+            'downlink' => $request->downlink,
+            'type_switch' => $request->type_switch,
             'capture_metro_backhaul' => $request->capture_metro_backhaul,
             'capture_metro_access' => $request->capture_metro_access,
             'capture_gpon' => $request->capture_gpon,
@@ -269,6 +273,10 @@ class WfmController extends Controller
         $wfm->sn = $request->sn;
         $wfm->port4 = $request->port4;
         $wfm->type = $request->type;
+        $wfm->nama = $request->nama;
+        $wfm->ip4 = $request->ip4;
+        $wfm->downlink = $request->downlink;
+        $wfm->type_switch = $request->type_switch;
         $wfm->capture_metro_backhaul = $request->capture_metro_backhaul;
         $wfm->capture_metro_access = $request->capture_metro_access;
         $wfm->capture_gpon = $request->capture_gpon;
