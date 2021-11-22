@@ -62,6 +62,13 @@ class WfmController extends Controller
     public function store(Request $request, Wfm $wfm, Rekap $rekap, Diconnect $diconnect)
     {
 
+        $request->validate([
+            'capture_gpon_image' => 'mimes:png,jpg,jpeg,PNG,JPG,JPEG'
+        ]);
+
+        $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
+        $request->capture_gpon_image->move(public_path('img'), $imgName);
+
         $wfm = Wfm::create([
             'tgl_bulan_th' => $request->tgl_bulan_th,
             'no_ao' => $request->no_ao,
@@ -108,6 +115,7 @@ class WfmController extends Controller
             'capture_metro_backhaul' => $request->capture_metro_backhaul,
             'capture_metro_access' => $request->capture_metro_access,
             'capture_gpon' => $request->capture_gpon,
+            'capture_gpon_image' => $imgName,
             'pic' => $request->pic
         ]);
 
@@ -235,6 +243,14 @@ class WfmController extends Controller
      */
     public function update(Request $request, Wfm $wfm)
     {
+
+
+        $request->validate([
+            'capture_gpon_image' => 'mimes:png,jpg,jpeg,PNG,JPG,JPEG'
+        ]);
+
+
+
         $wfm->tgl_bulan_th = $request->tgl_bulan_th;
         $wfm->no_ao = $request->no_ao;
         $wfm->witel = $request->witel;
@@ -281,6 +297,13 @@ class WfmController extends Controller
         $wfm->capture_metro_access = $request->capture_metro_access;
         $wfm->capture_gpon = $request->capture_gpon;
         $wfm->pic = $request->pic;
+
+        if($request->hasFile('capture_gpon_image')){
+            $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
+            $request->capture_gpon_image->move(public_path('img'), $imgName);
+            $wfm->capture_gpon_image = $imgName;
+        }
+
         $wfm->save();
 
 

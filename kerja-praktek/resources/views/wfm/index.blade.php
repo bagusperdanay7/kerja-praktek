@@ -208,6 +208,7 @@
                             <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
                             <th class="text-nowrap">CAPTURE METRO ACCESS</th>
                             <th class="text-nowrap">CAPTURE GPON</th>
+                            <th>CAPTURE GPON IMAGE</th>
                             <th>PIC</th>
                             @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
@@ -262,6 +263,9 @@
                                 <td class="text-nowrap">{{ $wfm->capture_metro_backhaul }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>
+                                <td>
+                                    <img src="{{ asset('img/'. $wfm->capture_gpon_image) }}" style="width:100px;height:100px" alt="">
+                                </td>
                                 <td>{{$wfm->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">

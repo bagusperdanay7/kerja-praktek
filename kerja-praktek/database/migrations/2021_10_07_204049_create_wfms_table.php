@@ -63,6 +63,7 @@ class CreateWfmsTable extends Migration
             $table->text('capture_metro_backhaul')->nullable();
             $table->text('capture_metro_access')->nullable();
             $table->text('capture_gpon')->nullable();
+            $table->string('capture_gpon_image')->nullable();
             $table->string('pic')->nullable();
             $table->timestamps();
         });
