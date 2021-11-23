@@ -7,6 +7,7 @@ use App\Models\Wfm;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 use Illuminate\Support\Collection;
+
 use Maatwebsite\Excel\Concerns\ToCollection;
 
 class WfmImportBaru implements ToCollection
@@ -40,7 +41,7 @@ class WfmImportBaru implements ToCollection
                 'cancel_by' =>$row[20],
                 'start_cancel' =>$row[21],
                 'ready_after_cancel' =>$row[22],
-                'integrasi' =>$row[23],
+                'integrasi' => $row[23],
                 'metro' =>$row[24],
                 'ip' =>$row[25],
                 'port' =>$row[26],
@@ -58,7 +59,11 @@ class WfmImportBaru implements ToCollection
                 'nama' =>$row[38],
                 'ip4' =>$row[39],
                 'downlink' =>$row[40],
-                'type2' =>$row[41],
+                'type_switch' =>$row[41],
+                'capture_metro_backhaul' => "",
+                'capture_metro_access' => "",
+                'capture_gpon' => "",
+                'capture_gpon_image' => "",
                 'capture_done' =>$row[42],
                 'pic' =>$row[43],
 
@@ -66,7 +71,7 @@ class WfmImportBaru implements ToCollection
 
             Diconnect::create([
                 'wfm_id' => $wfm->id,
-                'tanggal' => $wfm->tgl_bulan_th,
+                'tanggal' => $this->transformDate($row[0]),
                 'no_ao' => $wfm->no_ao,
                 'witel' => $wfm->witel,
                 'olo' => $wfm->olo_isp,
@@ -90,4 +95,6 @@ class WfmImportBaru implements ToCollection
         return \Carbon\Carbon::createFromFormat($format, $value);
     }
 }
+
+
 }

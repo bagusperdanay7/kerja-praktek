@@ -66,143 +66,291 @@ class WfmController extends Controller
             'capture_gpon_image' => 'mimes:png,jpg,jpeg,PNG,JPG,JPEG'
         ]);
 
-        $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
-        $request->capture_gpon_image->move(public_path('img'), $imgName);
-
-        $wfm = Wfm::create([
-            'tgl_bulan_th' => $request->tgl_bulan_th,
-            'no_ao' => $request->no_ao,
-            'witel' => $request->witel,
-            'olo_isp' => $request->olo_isp,
-            'site_kriteria' => $request->site_kriteria,
-            'sid' => $request->sid,
-            'site_id' => $request->site_id,
-            'order_type' => $request->order_type,
-            'produk' => $request->produk,
-            'satuan' => $request->satuan,
-            'kapasitas_bw' => $request->kapasitas_bw,
-            'longitude' => $request->longitude,
-            'latitude' => $request->latitude,
-            'alamat_asal' => $request->alamat_asal,
-            'alamat_tujuan' => $request->alamat_tujuan,
-            'status_ncx' => $request->status_ncx,
-            'berita_acara' => $request->berita_acara,
-            'tgl_complete' => $request->tgl_complete,
-            'status_wfm' => $request->status_wfm,
-            'alasan_cancel' => $request->alasan_cancel,
-            'cancel_by' => $request->cancel_by,
-            'start_cancel' => $request->start_cancel,
-            'ready_after_cancel' => $request->ready_after_cancel,
-            'integrasi' => $request->integrasi,
-            'metro' => $request->metro,
-            'ip' => $request->ip,
-            'port' => $request->port,
-            'metro2' => $request->metro2,
-            'ip2'  => $request->ip2,
-            'port2' => $request->port2,
-            'vlan' => $request->vlan,
-            'vcid' => $request->vcid,
-            'gpon' => $request->gpon,
-            'ip3' => $request->ip3,
-            'port3' => $request->port3,
-            'sn' => $request->sn,
-            'port4' => $request->port4,
-            'type' => $request->type,
-            'nama' => $request->nama,
-            'ip4' => $request->ip4,
-            'downlink' => $request->downlink,
-            'type_switch' => $request->type_switch,
-            'capture_metro_backhaul' => $request->capture_metro_backhaul,
-            'capture_metro_access' => $request->capture_metro_access,
-            'capture_gpon' => $request->capture_gpon,
-            'capture_gpon_image' => $imgName,
-            'pic' => $request->pic
-        ]);
 
 
 
+        if(isset($request->capture_gpon_image)){
+            $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
+            $request->capture_gpon_image->move(public_path('img'), $imgName);
 
-        $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
-        $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
-        $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
-        $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
-        $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
+            $wfm = Wfm::create([
+                'tgl_bulan_th' => $request->tgl_bulan_th,
+                'no_ao' => $request->no_ao,
+                'witel' => $request->witel,
+                'olo_isp' => $request->olo_isp,
+                'site_kriteria' => $request->site_kriteria,
+                'sid' => $request->sid,
+                'site_id' => $request->site_id,
+                'order_type' => $request->order_type,
+                'produk' => $request->produk,
+                'satuan' => $request->satuan,
+                'kapasitas_bw' => $request->kapasitas_bw,
+                'longitude' => $request->longitude,
+                'latitude' => $request->latitude,
+                'alamat_asal' => $request->alamat_asal,
+                'alamat_tujuan' => $request->alamat_tujuan,
+                'status_ncx' => $request->status_ncx,
+                'berita_acara' => $request->berita_acara,
+                'tgl_complete' => $request->tgl_complete,
+                'status_wfm' => $request->status_wfm,
+                'alasan_cancel' => $request->alasan_cancel,
+                'cancel_by' => $request->cancel_by,
+                'start_cancel' => $request->start_cancel,
+                'ready_after_cancel' => $request->ready_after_cancel,
+                'integrasi' => $request->integrasi,
+                'metro' => $request->metro,
+                'ip' => $request->ip,
+                'port' => $request->port,
+                'metro2' => $request->metro2,
+                'ip2'  => $request->ip2,
+                'port2' => $request->port2,
+                'vlan' => $request->vlan,
+                'vcid' => $request->vcid,
+                'gpon' => $request->gpon,
+                'ip3' => $request->ip3,
+                'port3' => $request->port3,
+                'sn' => $request->sn,
+                'port4' => $request->port4,
+                'type' => $request->type,
+                'nama' => $request->nama,
+                'ip4' => $request->ip4,
+                'downlink' => $request->downlink,
+                'type_switch' => $request->type_switch,
+                'capture_metro_backhaul' => $request->capture_metro_backhaul,
+                'capture_metro_access' => $request->capture_metro_access,
+                'capture_gpon' => $request->capture_gpon,
+                'capture_gpon_image' => $imgName,
+                'pic' => $request->pic
+            ]);
 
 
 
-        $rekap->wfm_id = $wfm->id;
-        $rekap->olo_wfm = $wfm->olo_isp;
-        $rekap->status_wfm = $wfm->order_type;
-        // $rekap->olo_lapangan = "";
-        // $rekap->status_lapangan = "";
-        $rekap->save();
 
-        // if ($wfm->order_type == "NEW INSTALL") {
+            $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
+            $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
+            $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
+            $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
+            $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
 
-        //     $rekap->wfm_id = $wfm->id;
-        //     $rekap->olo = $wfm->olo_isp;
-        //     $rekap->aktivasi = $query1;
-        //     $rekap->modify = 0;
-        //     $rekap->disconnect = 0;
-        //     $rekap->resume = 0;
-        //     $rekap->suspend = 0;
-        //     $rekap->save();
-        // } elseif ($wfm->order_type == "MODIFY") {
 
-        //     $rekap->wfm_id = $wfm->id;
-        //     $rekap->olo = $wfm->olo_isp;
-        //     $rekap->aktivasi = 0;
-        //     $rekap->modify = $query2;
-        //     $rekap->disconnect = 0;
-        //     $rekap->resume = 0;
-        //     $rekap->suspend = 0;
-        //     $rekap->save();
-        // } else
-        if ($wfm->order_type == "DISCONNECT") {
 
-            // $rekap->wfm_id = $wfm->id;
-            // $rekap->olo = $wfm->olo_isp;
-            // $rekap->aktivasi = 0;
-            // $rekap->modify = 0;
-            // $rekap->disconnect = $query3;
-            // $rekap->resume = 0;
-            // $rekap->suspend = 0;
-            // $rekap->save();
+            $rekap->wfm_id = $wfm->id;
+            $rekap->olo_wfm = $wfm->olo_isp;
+            $rekap->status_wfm = $wfm->order_type;
+            // $rekap->olo_lapangan = "";
+            // $rekap->status_lapangan = "";
+            $rekap->save();
 
-            $diconnect->wfm_id = $wfm->id;
-            $diconnect->tanggal = $wfm->tgl_bulan_th;
-            $diconnect->no_ao = $wfm->no_ao;
-            $diconnect->witel = $wfm->witel;
-            $diconnect->olo = $wfm->olo_isp;
-            $diconnect->alamat = $wfm->alamat_asal;
-            $diconnect->jenis_nte = "";
-            $diconnect->jumlah_nte ="";
-            $diconnect->status = "";
-            $diconnect->plan_cabut = $wfm->tgl_bulan_th;
-            $diconnect->pic = "";
-            $diconnect->save();
+            // if ($wfm->order_type == "NEW INSTALL") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = $query1;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } elseif ($wfm->order_type == "MODIFY") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = 0;
+            //     $rekap->modify = $query2;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } else
+            if ($wfm->order_type == "DISCONNECT") {
+
+                // $rekap->wfm_id = $wfm->id;
+                // $rekap->olo = $wfm->olo_isp;
+                // $rekap->aktivasi = 0;
+                // $rekap->modify = 0;
+                // $rekap->disconnect = $query3;
+                // $rekap->resume = 0;
+                // $rekap->suspend = 0;
+                // $rekap->save();
+
+                $diconnect->wfm_id = $wfm->id;
+                $diconnect->tanggal = $wfm->tgl_bulan_th;
+                $diconnect->no_ao = $wfm->no_ao;
+                $diconnect->witel = $wfm->witel;
+                $diconnect->olo = $wfm->olo_isp;
+                $diconnect->alamat = $wfm->alamat_asal;
+                $diconnect->jenis_nte = "";
+                $diconnect->jumlah_nte ="";
+                $diconnect->status = "";
+                $diconnect->plan_cabut = $wfm->tgl_bulan_th;
+                $diconnect->pic = "";
+                $diconnect->save();
+            }
+            // } elseif ($wfm->order_type == "RESUME") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = 0;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = $query4;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } elseif ($wfm->order_type == "SUSPEND") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = $query1;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = $query5;
+            //     $rekap->save();
+            // }
+        }else{
+            $imgName = "avatar.jpg";
+            $wfm = Wfm::create([
+                'tgl_bulan_th' => $request->tgl_bulan_th,
+                'no_ao' => $request->no_ao,
+                'witel' => $request->witel,
+                'olo_isp' => $request->olo_isp,
+                'site_kriteria' => $request->site_kriteria,
+                'sid' => $request->sid,
+                'site_id' => $request->site_id,
+                'order_type' => $request->order_type,
+                'produk' => $request->produk,
+                'satuan' => $request->satuan,
+                'kapasitas_bw' => $request->kapasitas_bw,
+                'longitude' => $request->longitude,
+                'latitude' => $request->latitude,
+                'alamat_asal' => $request->alamat_asal,
+                'alamat_tujuan' => $request->alamat_tujuan,
+                'status_ncx' => $request->status_ncx,
+                'berita_acara' => $request->berita_acara,
+                'tgl_complete' => $request->tgl_complete,
+                'status_wfm' => $request->status_wfm,
+                'alasan_cancel' => $request->alasan_cancel,
+                'cancel_by' => $request->cancel_by,
+                'start_cancel' => $request->start_cancel,
+                'ready_after_cancel' => $request->ready_after_cancel,
+                'integrasi' => $request->integrasi,
+                'metro' => $request->metro,
+                'ip' => $request->ip,
+                'port' => $request->port,
+                'metro2' => $request->metro2,
+                'ip2'  => $request->ip2,
+                'port2' => $request->port2,
+                'vlan' => $request->vlan,
+                'vcid' => $request->vcid,
+                'gpon' => $request->gpon,
+                'ip3' => $request->ip3,
+                'port3' => $request->port3,
+                'sn' => $request->sn,
+                'port4' => $request->port4,
+                'type' => $request->type,
+                'nama' => $request->nama,
+                'ip4' => $request->ip4,
+                'downlink' => $request->downlink,
+                'type_switch' => $request->type_switch,
+                'capture_metro_backhaul' => $request->capture_metro_backhaul,
+                'capture_metro_access' => $request->capture_metro_access,
+                'capture_gpon' => $request->capture_gpon,
+                'capture_gpon_image' => $imgName,
+                'pic' => $request->pic
+            ]);
+
+
+
+
+            $query1 = DB::table('wfms')->where('order_type', 'NEW INSTALL')->groupBy('olo_isp')->count();
+            $query2 = DB::table('wfms')->where('order_type', 'MODIFY')->groupBy('olo_isp')->count();
+            $query3 = DB::table('wfms')->where('order_type', 'DISCONNECT')->groupBy('olo_isp')->count();
+            $query4 = DB::table('wfms')->where('order_type', 'RESUME')->groupBy('olo_isp')->count();
+            $query5 = DB::table('wfms')->where('order_type', 'SUSPEND')->groupBy('olo_isp')->count();
+
+
+
+            $rekap->wfm_id = $wfm->id;
+            $rekap->olo_wfm = $wfm->olo_isp;
+            $rekap->status_wfm = $wfm->order_type;
+            // $rekap->olo_lapangan = "";
+            // $rekap->status_lapangan = "";
+            $rekap->save();
+
+            // if ($wfm->order_type == "NEW INSTALL") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = $query1;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } elseif ($wfm->order_type == "MODIFY") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = 0;
+            //     $rekap->modify = $query2;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } else
+            if ($wfm->order_type == "DISCONNECT") {
+
+                // $rekap->wfm_id = $wfm->id;
+                // $rekap->olo = $wfm->olo_isp;
+                // $rekap->aktivasi = 0;
+                // $rekap->modify = 0;
+                // $rekap->disconnect = $query3;
+                // $rekap->resume = 0;
+                // $rekap->suspend = 0;
+                // $rekap->save();
+
+                $diconnect->wfm_id = $wfm->id;
+                $diconnect->tanggal = $wfm->tgl_bulan_th;
+                $diconnect->no_ao = $wfm->no_ao;
+                $diconnect->witel = $wfm->witel;
+                $diconnect->olo = $wfm->olo_isp;
+                $diconnect->alamat = $wfm->alamat_asal;
+                $diconnect->jenis_nte = "";
+                $diconnect->jumlah_nte ="";
+                $diconnect->status = "";
+                $diconnect->plan_cabut = $wfm->tgl_bulan_th;
+                $diconnect->pic = "";
+                $diconnect->save();
+            }
+            // } elseif ($wfm->order_type == "RESUME") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = 0;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = $query4;
+            //     $rekap->suspend = 0;
+            //     $rekap->save();
+            // } elseif ($wfm->order_type == "SUSPEND") {
+
+            //     $rekap->wfm_id = $wfm->id;
+            //     $rekap->olo = $wfm->olo_isp;
+            //     $rekap->aktivasi = $query1;
+            //     $rekap->modify = 0;
+            //     $rekap->disconnect = 0;
+            //     $rekap->resume = 0;
+            //     $rekap->suspend = $query5;
+            //     $rekap->save();
+            // }
         }
-        // } elseif ($wfm->order_type == "RESUME") {
 
-        //     $rekap->wfm_id = $wfm->id;
-        //     $rekap->olo = $wfm->olo_isp;
-        //     $rekap->aktivasi = 0;
-        //     $rekap->modify = 0;
-        //     $rekap->disconnect = 0;
-        //     $rekap->resume = $query4;
-        //     $rekap->suspend = 0;
-        //     $rekap->save();
-        // } elseif ($wfm->order_type == "SUSPEND") {
 
-        //     $rekap->wfm_id = $wfm->id;
-        //     $rekap->olo = $wfm->olo_isp;
-        //     $rekap->aktivasi = $query1;
-        //     $rekap->modify = 0;
-        //     $rekap->disconnect = 0;
-        //     $rekap->resume = 0;
-        //     $rekap->suspend = $query5;
-        //     $rekap->save();
-        // }
+
+
+
+
+
 
         sleep(1);
         return redirect()->route('wfm.index');
