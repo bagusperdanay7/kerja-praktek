@@ -71,7 +71,7 @@ class WfmImportBaru implements ToCollection
 
             Diconnect::create([
                 'wfm_id' => $wfm->id,
-                'tanggal' => $this->transformDate($row[0]),
+                'tanggal' => $wfm->tgl_bulan_th,
                 'no_ao' => $wfm->no_ao,
                 'witel' => $wfm->witel,
                 'olo' => $wfm->olo_isp,
