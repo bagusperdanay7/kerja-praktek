@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
+<div class="container-fluid isi">
     @if (session()->has('success'))
         <div class="success-tambah align-items-center mt-3" id="success-tambah">
             <div class="d-flex">

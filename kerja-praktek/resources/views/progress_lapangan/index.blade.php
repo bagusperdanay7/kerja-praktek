@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
+<div class="container-fluid isi">
     <div class="row">
         <div class="col">
             <div class="m-0 p-0" id="filterform">

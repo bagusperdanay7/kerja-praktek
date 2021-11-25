@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('contain')
-<div class="container">
+<div class="container-fluid isi">
     <div class="row">
         <div class="col">
             <span id="ct" class="mt-3 d-block text-right"></span>
