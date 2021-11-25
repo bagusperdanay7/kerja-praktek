@@ -19,12 +19,13 @@ class CreateDiconnectsTable extends Migration
 
             $table->id();
             $table->foreignId('wfm_id')->constrained('wfms')->onDelete('cascade')->onUpdate('cascade');
+            $table->date('tanggal')->nullable();
             $table->string('no_ao')->nullable();
             $table->string('witel')->nullable();
             $table->string('olo')->nullable();
-            $table->text('lokasi')->nullable();
-            $table->string('jenis_ont')->nullable();
-            $table->integer('jumlah_ont')->nullable();
+            $table->text('alamat')->nullable();
+            $table->string('jenis_nte')->nullable();
+            $table->integer('jumlah_nte')->nullable();
             $table->string('status')->nullable();
             $table->date('plan_cabut')->nullable();
             $table->string('pic')->nullable();

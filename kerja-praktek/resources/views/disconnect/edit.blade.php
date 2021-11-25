@@ -17,6 +17,10 @@
                                 class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="ao">TANGGAL</label>
+                            <input type="date" name="tanggal" id="ao" value="{{ $dis->tanggal }}" class="form-control">
+                        </div>
+                        <div class="form-group">
                             <label for="ao">AO</label>
                             <input type="text" name="no_ao" id="ao" value="{{ $dis->no_ao }}" class="form-control">
                         </div>
@@ -31,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="lokasi">ALAMAT</label>
-                            <input type="text" name="lokasi" id="lokasi" value="{{ $dis->lokasi }}"
+                            <input type="text" name="alamat" id="lokasi" value="{{ $dis->alamat }}"
                                 class="form-control">
                         </div>
                         {{-- <div class="form-group">
@@ -39,9 +43,9 @@
                             <input type="text" name="kota" id="kota" value="{{ $dis->kota }}" class="form-control">
                         </div> --}}
                         <div class="form-group">
-                            <label for="jenis_ont">JENIS ONT</label>
-                            <select name="jenis_ont" id="jenis_ont" class="form-control">
-                                <option value="{{ $dis->jenis_ont }}">{{ $dis->jenis_ont }}</option>
+                            <label for="jenis_ont">JENIS NTE</label>
+                            <select name="jenis_nte" id="jenis_ont" class="form-control">
+                                <option value="{{ $dis->jenis_nte }}">{{ $dis->jenis_nte }}</option>
                                 <option value="L2SW">L2SW</option>
                                 <option value="Big ONT Huawei">Big ONT Huawei</option>
                                 <option value="Big ONT ZTE">Big ONT ZTE</option>
@@ -55,9 +59,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="jumlah_ont">JUMLAH ONT</label>
-                            <select name="jumlah_ont" id="jumlah_ont" class="form-control">
-                                <option value="{{ $dis->jumlah_ont }}">{{ $dis->jumlah_ont }}</option>
+                            <label for="jumlah_ont">JUMLAH NTE</label>
+                            <select name="jumlah_nte" id="jumlah_ont" class="form-control">
+                                <option value="{{ $dis->jumlah_nte }}">{{ $dis->jumlah_nte }}</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

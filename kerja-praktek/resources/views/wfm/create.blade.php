@@ -7,7 +7,7 @@
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
                     <h4 class="form-title">Form New Deployment</h4>
-                    <form action="{{ route('wfm.store') }}" method="POST" name="deploymentAdd">
+                    <form action="{{ route('wfm.store') }}" method="POST" enctype="multipart/form-data" name="deploymentAdd">
                         @csrf
                         <div class="form-group">
                             <label for="tgl_bulan_th">TGL/BLN/THN</label>
@@ -202,6 +202,22 @@
                             <input type="text" name="type" id="type" class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="nama">NAMA SWITCH</label>
+                            <textarea class="form-control" name="nama" id="nama" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="ip4">IP SWITCH</label>
+                            <textarea class="form-control" name="ip4" id="ip4" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="downlink">DOWNLINK</label>
+                            <textarea class="form-control" name="downlink" id="downlink" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="type_switch">TYPE SWITCH</label>
+                            <textarea class="form-control" name="type_switch" id="type_switch" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
                             <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
                             <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul" rows="3"></textarea>
                         </div>
@@ -213,6 +229,13 @@
                             <label for="capture_gpon">CAPTURE GPON</label>
                             <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"></textarea>
                         </div>
+                        {{-- image --}}
+                        <div class="custom-file mb-3">
+                            <input type="file" name="capture_gpon_image" class="custom-file-input" id="validatedCustomFile">
+                            <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar...</label>
+                            {{-- <div class="invalid-feedback">Example invalid custom file feedback</div> --}}
+                          </div>
+
                         <div class="form-group">
                             <label for="pic">PIC</label>
                             <input type="text" name="pic" id="pic" class="form-control">

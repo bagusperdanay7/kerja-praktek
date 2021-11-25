@@ -201,9 +201,14 @@
                             <th>SN</th>
                             <th>PORT</th>
                             <th>TYPE</th>
+                            <th>NAMA SWITCH</th>
+                            <th>IP SWITCH</th>
+                            <th>DOWNLINK</th>
+                            <th>TYPE SWITCH</th>
                             <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
                             <th class="text-nowrap">CAPTURE METRO ACCESS</th>
                             <th class="text-nowrap">CAPTURE GPON</th>
+                            <th>CAPTURE GPON IMAGE</th>
                             <th>PIC</th>
                             @canany(['admin', 'editor'])
                             <th scope="col"><span class="las la-ellipsis-v"></span></th>
@@ -251,9 +256,16 @@
                                 <td>{{$wfm->sn }}</td>
                                 <td>{{$wfm->port4 }}</td>
                                 <td>{{$wfm->type }}</td>
+                                <td>{{ $wfm->nama }}</td>
+                                <td>{{ $wfm->ip4 }}</td>
+                                <td>{{ $wfm->downlink }}</td>
+                                <td>{{ $wfm->type_switch }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_metro_backhaul }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>
+                                <td>
+                                    <img src="{{ asset('img/'. $wfm->capture_gpon_image) }}" style="width:100px;height:100px" alt="">
+                                </td>
                                 <td>{{$wfm->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">

@@ -65,9 +65,14 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             $wfm->sn,
             $wfm->port4,
             $wfm->type,
+            $wfm->nama,
+            $wfm->ip4,
+            $wfm->downlink,
+            $wfm->type_switch,
             $wfm->capture_metro_backhaul,
             $wfm->capture_metro_access,
             $wfm->capture_gpon,
+            $wfm->capture_gpon_image,
             $wfm->pic
 
         ];
@@ -115,8 +120,14 @@ class WfmExport implements FromCollection,WithHeadings,WithMapping
             'SN',
             'PORT',
             'TYPE',
+            'NAMA SWITCH',
+            'IP SWITCH',
+            'DOWNLINK SWITCH',
+            'TYPE SWITCH',
             'CAPTURE METRO BACKHAUL',
+            'CAPTURE METRO ACCESS',
             'CAPTURE GPON',
+            'IMAGE',
             'PIC'
         ];
     }
