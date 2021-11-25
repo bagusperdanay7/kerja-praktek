@@ -109,6 +109,10 @@
             {{-- akhir form filter --}}
 
             <span id="ct" class="mt-3 d-block text-right"></span>
+            <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Import Excel
+                </button>
             <div class="card mt-2 mb-5 shadow-sm">
                 <div class="card-body">
                     <h2 class="title-table">Progress Lapangan</h2>

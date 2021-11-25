@@ -70,7 +70,12 @@ class Wfm extends Model
         // filter tanggal
         $query->when(
             $filters['tgl_bulan_th'] ?? false,
-            fn ($query, $tgl_bulan_th) => $query->where('tgl_bulan_th', 'like', '%' . $tgl_bulan_th . '%')
+            fn ($query, $tgl_bulan_th) =>  $query->where('tgl_bulan_th', $tgl_bulan_th)
+        );
+
+        $query->when(
+            $filters['tgl_bulan_sd'] ?? false,
+            fn ($query, $tgl_bulan_sd) =>  $query->where('tgl_bulan_th', $tgl_bulan_sd)
         );
 
         // filter olo

@@ -94,7 +94,7 @@ Route::post('/import/rekap', [RekapController::class, 'importRekap'])->name('rek
 
 // rekap progress
 Route::get('/rekap_progress', [RekapProgressController::class, 'index'])->name('rekapProgress.index')->middleware('auth');
-Route::get('/rekap_progress/export',[RekapProgressController::class, 'exportRekapProgres'])->name('rekapProgress.export');
+Route::get('/rekap_progress/export', [RekapProgressController::class, 'exportRekapProgres'])->name('rekapProgress.export');
 
 // progress lapangan
 Route::get('/progress_lapangan', [ProgresLapanganController::class, 'index'])->name('progress.index')->middleware('auth');
@@ -103,6 +103,8 @@ Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'stor
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit')->middleware('editor');
 Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
 Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
+
+
 
 // deployment
 Route::get('/deployment', [DeploymentController::class, 'index'])->name('dep.index')->middleware('auth');

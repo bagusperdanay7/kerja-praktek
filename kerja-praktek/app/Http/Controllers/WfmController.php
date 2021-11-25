@@ -31,10 +31,9 @@ class WfmController extends Controller
             'database' => Database::all(),
             'wfm_all' => Wfm::all(),
             'wfms' => Wfm::orderBy('id')->filter(request([
-                'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm'
+                'no_ao', 'tgl_bulan_th', 'witel', 'olo_isp', 'order_type', 'produk', 'status_ncx', 'status_wfm', 'tgl_bulan_sd'
             ]))->get()
         ]);
-
     }
 
 
@@ -328,6 +327,13 @@ class WfmController extends Controller
         sleep(1);
         return back();
     }
+
+    // public function searchDate(Request $request) {
+    //     $dariDate = $request->input('tgl_bulan_th');
+    //     $sampaiDate = $request->input('tgl_bulan_sd');
+
+    //     $query = DB:table('wfms')->select()->where('tgl_bulan_th', '>=', $dariDate)->where('tgl_bulan_th', '<=', $sampaiDate)
+    // }
 
     public function exportWfm()
     {
