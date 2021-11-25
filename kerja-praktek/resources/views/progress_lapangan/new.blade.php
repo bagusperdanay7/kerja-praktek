@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="alamat_toko">Alamat / Nama Toko</label>
+                                <label for="alamat_toko">Alamat</label>
                                 <textarea name="alamat_toko" id="alamat_toko" rows="3" class="form-control"></textarea>
                             </div>
                         </div>

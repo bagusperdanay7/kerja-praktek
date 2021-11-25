@@ -18,7 +18,7 @@ class RekapProgressController extends Controller
      */
     public function index()
     {
-        $rekap_progress = DB::select("SELECT olo, COUNT(IF(progress = 'In Progress',1,NULL))  'plan_aktivasi', COUNT(IF(progress = 'Done',1,NULL)) 'plant_modify', COUNT(IF(progress = 'Cancel',1,NULL)) 'plant_dc' FROM progres_lapangans GROUP BY olo");
+        $rekap_progress = DB::select("SELECT olo, COUNT(IF(progress = 'In Progress',1,NULL))  'plan_aktivasi', COUNT(IF(progress = 'Done',1,NULL)) 'plant_modify', COUNT(IF(progress = 'Cancel',1,NULL)) 'plant_dc' FROM progres_lapangans GROUP BY olo ORDER BY `plan_aktivasi` DESC");
 
 
         // $totalPlanModify = DB::table('rekaps')->sum('plan_modify');
@@ -92,7 +92,8 @@ class RekapProgressController extends Controller
         //
     }
 
-    public function exportRekapProgres(){
+    public function exportRekapProgres()
+    {
         return Excel::download(new RekapProgres, 'rekap_progres_lapangan.xlsx');
     }
 }

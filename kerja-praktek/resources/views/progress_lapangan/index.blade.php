@@ -125,12 +125,12 @@
                                 <th scope="col" class="text-nowrap">No Ao</th>
                                 <th scope="col">Olo</th>
                                 <th scope="col">Produk</th>
-                                <th scope="col" class="text-nowrap">Alamat Toko</th>
+                                <th scope="col" class="text-nowrap">Alamat</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT1</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT2</th>
                                 <th scope="col" class="text-nowrap">Datek ODP</th>
-                                <th scope="col">Progress</th>
                                 <th scope="col" class="text-nowrap">Datek GPON</th>
+                                <th scope="col">Progress</th>
                                 <th scope="col">Keterangan</th>
                                 @canany(['admin', 'editor'])
                                 <th scope="col"><i class="las la-ellipsis-v"></i></th>
@@ -176,8 +176,8 @@
                                 <td>{{ $item->tanggal_order_pt2 }}</td>
                                 <td>{{ $item->keterangan_pt2 }}</td>
                                 <td>{{ $item->datek_odp }}</td>
-                                <td>{{ $item->progress }}</td>
                                 <td>{{ $item->datek_gpon }}</td>
+                                <td>{{ $item->progress }}</td>
                                 <td>{{ $item->keterangan }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">

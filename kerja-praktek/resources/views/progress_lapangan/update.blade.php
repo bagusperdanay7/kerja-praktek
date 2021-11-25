@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="alamat_toko">Alamat / Nama Toko</label>
+                                <label for="alamat_toko">Alamat</label>
                                 <textarea name="alamat_toko" id="alamat_toko" rows="3"
                                     class="form-control">{{ $progress->alamat_toko }}</textarea>
                             </div>
@@ -108,6 +108,11 @@
                                 value="{{ $progress->datek_odp }}">
                         </div>
                         <div class="form-group">
+                            <label for="datek_gpon">Datek GPON</label>
+                            <input type="text" name="datek_gpon" id="datek_gpon" class="form-control"
+                                value="{{ $progress->datek_gpon }}">
+                        </div>
+                        <div class="form-group">
                             <label for="progress">Progress</label>
                             <select name="progress" id="progress" class="form-control">
                                 <option value="{{ $progress->progress }}">{{ $progress->progress }}</option>
@@ -116,11 +121,6 @@
                                 <option value="Done">Done</option>
                                 <option value="Cancel">Cancel</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="datek_gpon">Datek GPON</label>
-                            <input type="text" name="datek_gpon" id="datek_gpon" class="form-control"
-                                value="{{ $progress->datek_gpon }}">
                         </div>
                         <div class="form-group">
                             <label for="keterangan">Keterangan</label>

@@ -48,6 +48,9 @@
                                 <tfoot>
                                     <tr>
                                         <th colspan="2" class="text-center">TOTAL</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
                                         {{-- <th class="text-center">{{ $totalPlanModify }}</th>
                                         <th class="text-center">{{ $totalPlanDc }}</th> --}}
                                     </tr>

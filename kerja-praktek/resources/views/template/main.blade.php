@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
 
     <!-- Data Tables -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}">
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}"> --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}">
 
     {{-- CSS Custom --}}
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -45,7 +46,8 @@
 
     <!-- JS Custom -->
     <script src="{{ asset('js/main.js') }}"></script>
-    <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script>
+    {{-- <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script> --}}
+    <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
     <script>
         $(document).ready( function () {
