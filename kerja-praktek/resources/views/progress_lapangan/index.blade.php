@@ -109,13 +109,22 @@
             {{-- akhir form filter --}}
 
             <span id="ct" class="mt-3 d-block text-right"></span>
-            <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Import Excel
-                </button>
             <div class="card mt-2 mb-5 shadow-sm">
                 <div class="card-body">
-                    <h2 class="title-table">Progress Lapangan</h2>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2 class="">Progress Lapangan</h2>
+                        </div>
+                        <div class="col text-right">
+                            <button type="button" class="btn btn-outline" data-toggle="modal"
+                                data-target="#importButton">
+                                <i class="las la-upload"></i> Import
+                            </button>
+                            <a href="{{ route('progress.export') }}" class="btn btn-second-thin ml-2">
+                                <i class="las la-download"></i> Export
+                            </a>
+                        </div>
+                    </div>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
                             <tr>
@@ -206,6 +215,115 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Impor -->
+        <div class="modal fade" id="importButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="importButtonLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="importButtonLabel">Import Excel</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('progress.import')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile04" required
+                                        aria-describedby="inputGroupFileAddon04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Pilih File</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-second btn-block">Import</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
+                            data-target="#templateButton">Lihat Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Template -->
+        <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="templatelabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="templatelabel">Template Tabel Progress</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak
+                            terjadi error!</p>
+                        <table class="table table-sm table-responsive table-striped template-tabel">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Witel</th>
+                                    <th scope="col" class="text-nowrap">No Ao</th>
+                                    <th scope="col">Olo</th>
+                                    <th scope="col">Produk</th>
+                                    <th scope="col" class="text-nowrap">Alamat</th>
+                                    <th scope="col" class="text-nowrap">Tanggal Order PT1</th>
+                                    <th scope="col" class="text-nowrap">Keterangan PT1</th>
+                                    <th scope="col" class="text-nowrap">Tanggal Order PT2</th>
+                                    <th scope="col" class="text-nowrap">Keterangan PT2</th>
+                                    <th scope="col" class="text-nowrap">Datek ODP</th>
+                                    <th scope="col" class="text-nowrap">Datek GPON</th>
+                                    <th scope="col">Progress</th>
+                                    <th scope="col">Keterangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12-12-2021</td>
+                                    <td>BANDUNG</td>
+                                    <td>2-780564639</td>
+                                    <td>PT. TELKOM INDONESIA</td>
+                                    <td>METRO</td>
+                                    <td>Jalan Dipatiukur 203, Coblong, Bandung</td>
+                                    <td>10-12-2021</td>
+                                    <td>-</td>
+                                    <td>11-12-2021</td>
+                                    <td>-</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>In Progress</td>
+                                    <td>Tidak Ada</td>
+                                </tr>
+
+                                <tr>
+                                    <td>11-11-2021</td>
+                                    <td>KARAWANG</td>
+                                    <td>2-35647564</td>
+                                    <td>PT. TELKOM INDONESIA</td>
+                                    <td>ASTINET</td>
+                                    <td>Jalan Mutiara No 20, Telukjambe Timur, Karawang</td>
+                                    <td>01-11-2021</td>
+                                    <td>-</td>
+                                    <td>07-11-2021</td>
+                                    <td>-</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>In Progress</td>
+                                    <td>Tidak Ada</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

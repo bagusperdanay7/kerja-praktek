@@ -1,11 +1,12 @@
+/* Inisialisasi Warna di root */
 :root {
-    --main: #E71618;
+    --main: #e71618;
     --main-80: #eb4446;
     --main-60: #f07374;
     --main-50: #f38a8b;
     --main-40: #f5a1a2;
     --main-10: #fce7e7;
-    --secondary: #3E00FF;
+    --secondary: #3e00ff;
     --secondary-80: #6432ff;
     --secondary-60: #8b66ff;
     --secondary-50: #9e7fff;
@@ -17,20 +18,20 @@
     --success-50: #198754;
     --success-40: #198754;
     --success-10: #198754;
-    --warning: #FFC107;
+    --warning: #ffc107;
     --warning-80: #ffcd38;
     --warning-60: #ffd96a;
     --warning-50: #ffe083;
     --warning-40: #ffe69b;
     --warning-10: #fff8e6;
-    --error: #DC3545;
+    --error: #dc3545;
     --error-80: #e35d6a;
     --error-60: #ea858f;
     --error-50: #ed9aa2;
     --error-40: #f1aeb4;
     --error-10: #fbeaec;
-    --white-light: #FCFCFE;
-    --white-background: #F5F3F6;
+    --white-light: #fcfcfe;
+    --white-background: #f5f3f6;
     --white: #ffffff;
     --black: #0f0f0f;
     --black-80: #3e3e3e;
@@ -40,16 +41,19 @@
     --black-10: #e7e7e7;
 }
 
+/* Style All Element */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Style All Body */
 body {
     overflow-x: hidden;
 }
 
+/* Style Text Selection */
 ::-moz-selection {
     /* Code for Firefox */
     color: var(--white);
@@ -61,7 +65,7 @@ body {
     background: var(--main);
 }
 
-/* utilities & bootstrap */
+/* Komponen Button */
 
 .btn-main {
     color: var(--main);
@@ -81,20 +85,60 @@ body {
     border-color: var(--main);
 }
 
-/* .form-control:focus {
-    border-color: var(--main);
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--main-40);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--main-40);
-} */
+.btn-filter {
+    background-color: var(--secondary);
+    color: var(--white);
+    opacity: 0.8;
+}
 
+.btn-filter:hover {
+    transition: all ease-in 0.8;
+    opacity: 1;
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-reset {
+    transition: all 0.8;
+    color: var(--black-80);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-reset:hover {
+    transition: all 0.8;
+    color: var(--black);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+.btn-second-thin {
+    background-color: var(--secondary-10);
+    color: var(--secondary);
+    opacity: 0.8;
+}
+
+.btn-second,
+.btn-second:hover {
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.btn-white {
+    background-color: var(--white-background);
+}
+
+.btn-outline {
+    color: var(--black);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    opacity: 1;
+}
+
+/* Komponen Dropdown */
 .dropdown-item:active {
     color: var(--main);
     background-color: var(--black-10);
 }
 
-/* navbar  */
-
-
+/* Style Navbar  */
 ul {
     list-style: none;
 }
@@ -130,7 +174,9 @@ ul li {
     color: var(--main);
 }
 
-/* main */
+/* Penutup Style Navbar  */
+
+/* Style di Main */
 
 body {
     background-color: var(--white-background);
@@ -140,7 +186,9 @@ body {
     display: none;
 }
 
-/* Index */
+/* Penutup Style di Main */
+
+/* Style di Index */
 .isi {
     padding: 0 30px;
 }
@@ -201,31 +249,6 @@ th {
     color: var(--black-80);
 }
 
-.btn-filter {
-    background-color: var(--secondary);
-    color: var(--white);
-    opacity: 0.8;
-}
-
-.btn-filter:hover {
-    transition: all ease-in 0.8;
-    opacity: 1;
-    background-color: var(--secondary);
-    color: var(--white);
-}
-
-.btn-reset {
-    transition: all 0.8;
-    color: var(--black-80);
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.btn-reset:hover {
-    transition: all 0.8;
-    color: var(--black);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-}
-
 .dropleft span {
     cursor: pointer;
 }
@@ -233,13 +256,6 @@ th {
 .header-tabel {
     font-size: 36px;
 }
-
-.btn-second,
-.btn-second:hover {
-    background-color: var(--secondary);
-    color: var(--white);
-}
-
 
 .nav-pills a:hover {
     color: var(--secondary) !important;
@@ -268,14 +284,19 @@ th {
     color: var(--black-80);
 }
 
-.tab-rekap-item a {
-    text-decoration: none;
-    color: var(--black-80);
+.template-tabel th {
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
-/* create & edit */
-.form-title,
-.title-head {
+.template-tabel tr {
+    font-size: 12px;
+}
+
+/* Penutup Style di Index */
+
+/* Style create & edit */
+.form-title {
     margin-bottom: 30px;
 }
 
@@ -296,13 +317,9 @@ th {
 .popoutWarning {
     display: contents;
 }
+/* Penutup Style create & edit */
 
-.btn-white {
-    background-color: var(--white-background);
-}
-
-
-/* login */
+/* Style login */
 .login-icon {
     transform: translate(295px, -30px);
 }
@@ -311,8 +328,9 @@ th {
     color: var(--error);
     transform: translateY(-25px);
 }
+/* Penutup Style Login */
 
-/* Error Page */
+/* Style Error Page */
 .logo-brand {
     margin: 20px 0;
 }
@@ -338,7 +356,6 @@ th {
 
 /* Handphone */
 @media (max-width: 575.98px) {
-
     .main-content {
         margin: 5px;
     }
@@ -351,8 +368,8 @@ th {
     .navbar-nav {
         margin: 10px 0 5px 0;
     }
-
 }
 
 /* Tablet */
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+}

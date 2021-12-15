@@ -103,8 +103,8 @@ Route::post('/progress_lapangan/store', [ProgresLapanganController::class, 'stor
 Route::get('/progress_lapangan/edit/{progress}', [ProgresLapanganController::class, 'edit'])->name('progress.edit')->middleware('editor');
 Route::put('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'update'])->name('progress.update');
 Route::delete('/progress_lapangan/update/{progress}', [ProgresLapanganController::class, 'destroy'])->name('progress.destroy');
-
-
+Route::get('/export/progress_lapangan', [ProgresLapanganController::class, 'exportProgressLapangan'])->name('progress.export');
+Route::post('/import/progress_lapangan', [ProgresLapanganController::class, 'importProgressLapangan'])->name('progress.import');
 
 // deployment
 Route::get('/deployment', [DeploymentController::class, 'index'])->name('dep.index')->middleware('auth');
