@@ -325,7 +325,7 @@
                             <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                    <input type="file" name="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
                                     <label class="custom-file-label" for="importFile">Pilih File</label>
                                 </div>
                             </div>
