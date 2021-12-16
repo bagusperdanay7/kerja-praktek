@@ -126,4 +126,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Dialog ketika mengisi form direload
+    window.addEventListener("beforeunload", (event) => {
+        event.preventDefault();
+        event.returnValue = "";
+    });
+
+</script>
 @endsection

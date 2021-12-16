@@ -13,18 +13,18 @@
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
-                            <label for="ao">NO AO</label>
-                            <select class="form-control" id="ao" name="ao">
-                                @if (request('ao'))
-                                <option value="{{ request('ao') }}">{{ request('ao') }}</option>
-                                @else
-                                <option value="">Pilih No AO</option>
-                                @endif
+                            <label for="ao">No. AO</label>
+                            @if (request('ao'))
+                            <input list="aos" name="ao" id="ao" class="form-control" value="{{ request('ao') }}" autocomplete="off">
+                            @else
+                            <input list="aos" name="ao" id="ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            @endif
 
-                                @foreach ($progress_all as $progress_a)
-                                <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
-                                @endforeach
-                            </select>
+                            <datalist id="aos">
+                            @foreach ($progress_all as $progress_a)
+                            <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
+                            @endforeach
+                            </datalist>
                         </div>
                         <div class="col">
                             <label for="tanggal">Tanggal</label>
@@ -125,48 +125,32 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-responsive table-hover" id="table_id">
+                    <table class="table table-responsive table-hover display" id="table_id" style="width: 100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Witel</th>
-                                <th scope="col" class="text-nowrap">No Ao</th>
-                                <th scope="col">Olo</th>
-                                <th scope="col">Produk</th>
-                                <th scope="col" class="text-nowrap">Alamat</th>
+                                <th scope="col" rowspan="2">No</th>
+                                <th scope="col" rowspan="2">Tanggal</th>
+                                <th scope="col" rowspan="2">Witel</th>
+                                <th scope="col" class="text-nowrap" rowspan="2">No Ao</th>
+                                <th scope="col" rowspan="2">Olo</th>
+                                <th scope="col" rowspan="2">Produk</th>
+                                <th scope="col" class="text-nowrap" rowspan="2">Alamat</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT1</th>
                                 <th scope="col" colspan="2" class="text-center">Progress PT2</th>
-                                <th scope="col" class="text-nowrap">Datek ODP</th>
-                                <th scope="col" class="text-nowrap">Datek GPON</th>
-                                <th scope="col">Progress</th>
-                                <th scope="col">Keterangan</th>
+                                <th scope="col" class="text-nowrap" rowspan="2">Datek ODP</th>
+                                <th scope="col" class="text-nowrap" rowspan="2">Datek GPON</th>
+                                <th scope="col" rowspan="2">Progress</th>
+                                <th scope="col" rowspan="2">Keterangan</th>
                                 @canany(['admin', 'editor'])
-                                <th scope="col"><i class="las la-ellipsis-v"></i></th>
+                                <th scope="col" rowspan="2"><i class="las la-ellipsis-v"></i></th>
                                 @endcanany
                             </tr>
-                        </thead>
 
-                        <thead>
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
                                 <th scope="row" class="text-nowrap">Tanggal Order</th>
                                 <th scope="row">Keterangan</th>
                                 <th scope="row" class="text-nowrap">Tanggal Order</th>
-                                <th>Keterangan</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                @canany(['admin', 'editor'])
-                                <th></th>
-                                @endcanany
+                                <th scope="row">Keterangan</th>
                             </tr>
                         </thead>
 
@@ -236,9 +220,8 @@
                             <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile04" required
-                                        aria-describedby="inputGroupFileAddon04">
-                                    <label class="custom-file-label" for="inputGroupFile04">Pilih File</label>
+                                    <input type="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                    <label class="custom-file-label" for="importFile">Pilih File</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-second btn-block">Import</button>

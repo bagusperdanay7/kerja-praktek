@@ -13,18 +13,18 @@
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
-                            <label for="no_ao">NO AO</label>
-                            <select class="form-control" id="no_ao" name="no_ao">
-                                @if (request('no_ao'))
-                                <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
-                                @else
-                                <option value="">Pilih No AO</option>
-                                @endif
+                            <label for="no_ao">No. AO</label>
+                            @if (request('no_ao'))
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" value="{{ request('no_ao') }}" autocomplete="off">
+                            @else
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            @endif
 
-                                @foreach ($wfm_all as $wfm_a)
-                                <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
-                                @endforeach
-                            </select>
+                            <datalist id="no_aos">
+                            @foreach ($wfm_all as $wfm_a)
+                            <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
+                            @endforeach
+                            </datalist>
                         </div>
                         <div class="col">
                             <label for="tgl_bulan_th">Dari Tanggal</label>
@@ -325,9 +325,8 @@
                             <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile04" required
-                                    aria-describedby="inputGroupFileAddon04">
-                                    <label class="custom-file-label" for="inputGroupFile04">Pilih File</label>
+                                    <input type="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                    <label class="custom-file-label" for="importFile">Pilih File</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-second btn-block">Import</button>
@@ -336,7 +335,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
-                        data-target="#templateButton">Lihat Template</button>
+                            data-target="#templateButton">Lihat Template</button>
                     </div>
                 </div>
             </div>
@@ -354,7 +353,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak terjadi error!</p>
+                        <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak
+                            terjadi error!</p>
                         <table class="table table-sm table-responsive table-striped template-tabel">
                             <thead>
                                 <tr>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand">
-            <img src="{{ asset('img/telkom.svg') }}" alt="logo telkom" style="max-height: 50px;">
+            <img src="{{ asset('img/logo.jpeg') }}" alt="logo aplikasi" style="max-height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
             aria-controls="navDropdown" aria-expanded="false" aria-label="Toggle navigation">

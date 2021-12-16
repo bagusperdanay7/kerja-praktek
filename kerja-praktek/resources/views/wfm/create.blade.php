@@ -242,7 +242,7 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('wfm.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button type="submit" class="btn btn-main"  onclick="return validasiTambahDeployment();">Simpan Data</button>
+                            <button type="submit" class="btn btn-main" id="tombolSimpan">Simpan Data</button>
                         </div>
                     </form>
                 </div>
@@ -250,4 +250,5 @@
         </div>
     </div>
 </div>
+
 @endsection

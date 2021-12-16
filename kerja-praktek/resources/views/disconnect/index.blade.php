@@ -13,18 +13,18 @@
                     {{-- filter field --}}
                     <div class="form-row">
                         <div class="col">
-                            <label for="no_ao">NO AO</label>
-                            <select class="form-control" id="no_ao" name="no_ao">
-                                @if (request('no_ao'))
-                                <option value="{{ request('no_ao') }}">{{ request('no_ao') }}</option>
-                                @else
-                                <option value="">Pilih No AO</option>
-                                @endif
+                            <label for="no_ao">No. AO</label>
+                            @if (request('no_ao'))
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" value="{{ request('no_ao') }}" autocomplete="off">
+                            @else
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            @endif
 
-                                @foreach ($wfms as $wfm)
-                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                                @endforeach
-                            </select>
+                            <datalist id="no_aos">
+                            @foreach ($wfms as $wfm)
+                            <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                            @endforeach
+                            </datalist>
                         </div>
                         <div class="col">
                             <label for="plan_cabut">Tanggal</label>

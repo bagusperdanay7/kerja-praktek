@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
 
     <!-- Data Tables -->
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.dataTables.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('DataTables/datatables.min.css') }}">
 
     {{-- CSS Custom --}}
@@ -46,13 +45,40 @@
 
     <!-- JS Custom -->
     <script src="{{ asset('js/main.js') }}"></script>
-    {{-- <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script> --}}
+
+    <!--  Data Table-->
     <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
 
     <script>
-        $(document).ready( function () {
-            $('#table_id').DataTable();
+        $(document).ready(function() {
+            $('#table_id').DataTable( {
+                "language": {
+                  "decimal":        "",
+                  "emptyTable":     "Tidak ada data di dalam table",
+                  "info":           "Menampilkan _START_ ke _END_ dari _TOTAL_ data",
+                  "infoEmpty":      "Menampilkan 0 ke 0 dari 0 data",
+                  "infoFiltered":   "(terfilter dari _MAX_ total data)",
+                  "infoPostFix":    "",
+                  "thousands":      ",",
+                  "lengthMenu":     "Tampilkan _MENU_ data",
+                  "loadingRecords": "Sedang Memuat...",
+                  "processing":     "Sedang Memproses...",
+                  "search":         "Cari:",
+                  "zeroRecords":    "Tidak ada data yang ditemukan",
+                  "paginate": {
+                      "first":      "First",
+                      "last":       "Last",
+                      "next":       "Next",
+                      "previous":   "Previous"
+                  },
+                  "aria": {
+                      "sortAscending":  ": activate to sort column ascending",
+                      "sortDescending": ": activate to sort column descending"
+                  }
+                }, 
+            } );
         } );
+
         $(document).ready( function () {
             $('#table_id_2').DataTable();
         } );

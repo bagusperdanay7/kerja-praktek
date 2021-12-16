@@ -1,29 +1,29 @@
 /* Inisialisasi Warna di root */
 :root {
-    --main: #e71618;
-    --main-80: #eb4446;
-    --main-60: #f07374;
-    --main-50: #f38a8b;
-    --main-40: #f5a1a2;
-    --main-10: #fce7e7;
-    --secondary: #3e00ff;
-    --secondary-80: #6432ff;
-    --secondary-60: #8b66ff;
-    --secondary-50: #9e7fff;
-    --secondary-40: #b199ff;
-    --secondary-10: #ebe5ff;
+    --primary: #EF5849;
+    --primary-80: #f2796d;
+    --primary-60: #f59a91;
+    --primary-50: #f7aba4;
+    --primary-40: #f8bcb6;
+    --primary-10: #fdeeec;
+    --secondary: #2D4664;
+    --secondary-80: #566a83;
+    --secondary-60: #8190a2;
+    --secondary-50: #96a2b1;
+    --secondary-40: #abb5c1;
+    --secondary-10: #eaecef;
+    --kuning: #FEC857;
+    --kuning-80: #fed378;
+    --kuning-60: #fede9a;
+    --kuning-50: #fee3ab;
+    --kuning-40: #fee9bb;
+    --kuning-10: #fef9ee;
     --success: #198754;
     --success-80: #198754;
     --success-60: #198754;
     --success-50: #198754;
     --success-40: #198754;
     --success-10: #198754;
-    --warning: #ffc107;
-    --warning-80: #ffcd38;
-    --warning-60: #ffd96a;
-    --warning-50: #ffe083;
-    --warning-40: #ffe69b;
-    --warning-10: #fff8e6;
     --error: #dc3545;
     --error-80: #e35d6a;
     --error-60: #ea858f;
@@ -33,12 +33,13 @@
     --white-light: #fcfcfe;
     --white-background: #f5f3f6;
     --white: #ffffff;
-    --black: #0f0f0f;
-    --black-80: #3e3e3e;
-    --black-60: #6f6f6f;
-    --black-50: #878787;
-    --black-40: #9f9f9f;
-    --black-10: #e7e7e7;
+    --abu: #4D4D4D;
+    --black: #000000;
+    --black-80: #323232;
+    --black-60: #666666;
+    --black-50: #7f7f7f;
+    --black-40: #999999;
+    --black-10: #e5e5e5;
 }
 
 /* Style All Element */
@@ -57,32 +58,32 @@ body {
 ::-moz-selection {
     /* Code for Firefox */
     color: var(--white);
-    background: var(--main);
+    background: var(--primary);
 }
 
 ::selection {
     color: var(--white);
-    background: var(--main);
+    background: var(--primary);
 }
 
 /* Komponen Button */
 
 .btn-main {
-    color: var(--main);
+    color: var(--primary);
 }
 
 .btn-main {
     color: white;
-    background-color: var(--main);
-    border-color: var(--main);
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-main:hover,
 .btn-main:active,
 .btn-main:focus {
     color: white;
-    background-color: var(--main);
-    border-color: var(--main);
+    background-color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn-filter {
@@ -111,9 +112,15 @@ body {
 }
 
 .btn-second-thin {
-    background-color: var(--secondary-10);
-    color: var(--secondary);
-    opacity: 0.8;
+    background-color: var(--primary);
+    color: var(--white);
+    transition: all 0.5s;
+}
+
+.btn-second-thin:hover {
+    background-color: var(--primary-10);
+    color: var(--primary);
+    transition: all 0.5s;
 }
 
 .btn-second,
@@ -134,7 +141,7 @@ body {
 
 /* Komponen Dropdown */
 .dropdown-item:active {
-    color: var(--main);
+    color: var(--primary);
     background-color: var(--black-10);
 }
 
@@ -148,7 +155,7 @@ ul li {
 }
 
 .nav-active {
-    color: var(--main) !important;
+    color: var(--primary) !important;
     font-weight: 500;
 }
 
@@ -159,7 +166,7 @@ ul li {
 }
 
 .nav-link:hover {
-    color: var(--main) !important;
+    color: var(--primary) !important;
 }
 
 .dropmenu a {
@@ -171,7 +178,7 @@ ul li {
 }
 
 .dropdown-item:hover {
-    color: var(--main);
+    color: var(--primary);
 }
 
 /* Penutup Style Navbar  */
@@ -344,12 +351,16 @@ th {
     font-weight: 700;
     font-size: 200px;
     margin: 20px;
-    color: var(--error);
+    color: var(--primary);
 }
 
 .error-body a {
     margin-top: 20px;
     text-decoration: none;
+}
+
+.error-background {
+    background-color: white;
 }
 
 /* RESPONSIVE */
