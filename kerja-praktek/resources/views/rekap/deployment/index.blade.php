@@ -7,18 +7,25 @@
             <span id="ct" class="mt-3 d-block text-right"></span>
             <ul class="nav tab-nav ml-n1 my-3">
                 <li class="nav-item tab-rekap-item">
-                    <a href="{{ route('rekap.index') }}#rekap-deployment" class="tab-rekap tab-active">Rekap Deployment</a>
+                    <a href="{{ route('rekap.index') }}#rekap-deployment" class="tab-rekap tab-active">Rekap
+                        Deployment</a>
                 </li>
                 <li class="nav-item tab-rekap-item">
                     <a href="{{ route('rekapProgress.index') }}#rekap-progress" class="tab-rekap">Rekap Progress</a>
                 </li>
             </ul>
 
-            <div class="card mt-2 mb-5 shadow-sm" id="rekap-deployment">
+            <div class="card mt-2 mb-2 shadow-sm" id="rekap-deployment">
                 <div class="card-body">
-                    <div class="d-flex align-self-center justify-content-between title-head">
-                        <h2 class="">Rekap Deployment</h2>
-                        <a href="{{route('rekap.export')}}" class="btn btn-primary h-25">Export</a>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2 class="">Rekap Deployment</h2>
+                        </div>
+                        <div class="col text-right button-list">
+                            <a href="{{route('rekap.export')}}" class="btn btn-second-thin">
+                                <i class="las la-download"></i> Export
+                            </a>
+                        </div>
                     </div>
                     <table class="table table-hover table-responsive-md" id="table_id">
                         <thead>

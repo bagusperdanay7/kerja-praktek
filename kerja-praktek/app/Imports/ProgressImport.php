@@ -15,12 +15,29 @@ class ProgressImport implements ToModel
     public function model(array $row)
     {
         return new ProgresLapangan([
-            'tanggal' => $row[0],
+            'tanggal' => $this->transformDate($row[0]),
             'witel' => $row[1],
-            'ao' => $row[1],
-            'olo' => $row[1],
-            'produk' => $row[1],
-
+            'ao' => $row[2],
+            'olo' => $row[3],
+            'produk' => $row[4],
+            'alamat_toko' => $row[5],
+            'tanggal_order_pt1' => $row[6],
+            'keterangan_pt1' => $row[7],
+            'tanggal_order_pt2' => $row[8],
+            'keterangan_pt2' => $row[9],
+            'datek_odp' => $row[10],
+            'datek_gpon' => $row[11],
+            'progress' => $row[12],
+            'keterangan' => $row[13],
         ]);
+    }
+
+    public function transformDate($value, $format = 'd/m/y')
+    {
+        try {
+            return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+        } catch (\ErrorException $e) {
+            return \Carbon\Carbon::createFromFormat($format, $value);
+        }
     }
 }

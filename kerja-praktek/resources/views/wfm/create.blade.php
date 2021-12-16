@@ -234,7 +234,7 @@
                             <input type="file" name="capture_gpon_image" class="custom-file-input" id="validatedCustomFile">
                             <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar...</label>
                             {{-- <div class="invalid-feedback">Example invalid custom file feedback</div> --}}
-                          </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="pic">PIC</label>

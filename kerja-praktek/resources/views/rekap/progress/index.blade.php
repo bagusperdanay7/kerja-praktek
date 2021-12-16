@@ -16,10 +16,18 @@
             </ul>
 
             {{-- Table Rekap Progress --}}
-            <a href="{{ route('rekapProgress.export') }}" class="btn btn-primary">Export Excel</a>
             <div class="card mt-2 mb-5 shadow-sm" id="rekap-progress">
                 <div class="card-body">
-                    <h2 class="title-table">Rekap Progress</h2>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2 class="">Rekap Progress</h2>
+                        </div>
+                        <div class="col text-right button-list">
+                            <a href="{{route('rekap.export')}}" class="btn btn-second-thin">
+                                <i class="las la-download"></i> Export
+                            </a>
+                        </div>
+                    </div>
                     <table class="table table-hover" id="table_id_2">
                         <thead>
                             <tr>

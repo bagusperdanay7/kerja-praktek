@@ -151,16 +151,25 @@
             {{-- akhir form filter --}}
 
             <span id="ct" class="mt-3 d-block text-right"></span>
-            <a href="{{ route('wfm.export') }}" class="btn btn-success">Export to excel</a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Import Excel
-                </button>
             <div class="card mt-2 mb-5 shadow-sm">
                 {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
 
                 <div class="card-body">
-                    <h2 class="title-table">Deployment</h2>
-                    <table class="table table-responsive table-hover " id="table_id">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2 class="">Deployment</h2>
+                        </div>
+                        <div class="col text-right">
+                            <button type="button" class="btn btn-outline" data-toggle="modal"
+                                data-target="#importButton">
+                                <i class="las la-upload"></i> Import
+                            </button>
+                            <a href="{{ route('wfm.export') }}" class="btn btn-second-thin ml-2">
+                                <i class="las la-download"></i> Export
+                            </a>
+                        </div>
+                    </div>
+                    <table class="table table-responsive table-hover" id="table_id">
                         <thead>
                             <th>No</th>
                             <th>TGL/BLN/THN</th>
@@ -264,7 +273,8 @@
                                 <td class="text-nowrap">{{ $wfm->capture_metro_access }}</td>
                                 <td class="text-nowrap">{{ $wfm->capture_gpon }}</td>
                                 <td>
-                                    <img src="{{ asset('img/'. $wfm->capture_gpon_image) }}" style="width:100px;height:100px" alt="">
+                                    <img src="{{ asset('img/'. $wfm->capture_gpon_image) }}"
+                                        style="width:100px;height:100px" alt="">
                                 </td>
                                 <td>{{$wfm->pic }}</td>
                                 @canany(['admin', 'editor'])
@@ -298,13 +308,13 @@
             </div>
         </div>
 
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+        <!-- Modal Impor -->
+        <div class="modal fade" id="importButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="importButtonLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="importButtonLabel">Import Excel</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -312,21 +322,198 @@
                     <div class="modal-body">
                         <form action="{{ route('wfm.import')}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Pilih file</label>
-                                <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1"
-                                    required>
+                            <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile04" required
+                                    aria-describedby="inputGroupFileAddon04">
+                                    <label class="custom-file-label" for="inputGroupFile04">Pilih File</label>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-secondary">Import</button>
-                            </div>
+                            <button type="submit" class="btn btn-second btn-block">Import</button>
                         </form>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-second-thin text-bold" data-toggle="modal"
+                        data-target="#templateButton">Lihat Template</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal Template -->
+        <div class="modal fade" id="templateButton" data-backdrop="static" data-keyboard="false" tabindex="-1"
+            aria-labelledby="templatelabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="templatelabel">Template Tabel Deployment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Pastikan urutan kolom file excel yang akan diupload sesuai seperti tabel template agar tidak terjadi error!</p>
+                        <table class="table table-sm table-responsive table-striped template-tabel">
+                            <thead>
+                                <tr>
+                                    <th>Tgl/Bln/Thn</th>
+                                    <th class="text-nowrap">No. ao</th>
+                                    <th>Witel</th>
+                                    <th class="text-nowrap">OLO / ISP</th>
+                                    <th class="text-nowrap">Site kriteria</th>
+                                    <th>SID</th>
+                                    <th class="text-nowrap">Site ID</th>
+                                    <th class="text-nowrap">Order type</th>
+                                    <th>Produk</th>
+                                    <th>Satuan</th>
+                                    <th class="text-nowrap">Kapasitas [BW]</th>
+                                    <th>Longitude</th>
+                                    <th>Latitude</th>
+                                    <th class="text-nowrap">Alamat asal</th>
+                                    <th class="text-nowrap">Alamat tujuan</th>
+                                    <th class="text-nowrap">Status NCX</th>
+                                    <th class="text-nowrap">Berita acara</th>
+                                    <th class="text-nowrap">Tgl Complete WFM</th>
+                                    <th class="text-nowrap">Status WFM</th>
+                                    <th class="text-nowrap">Alasan cancel</th>
+                                    <th class="text-nowrap">Cancel by</th>
+                                    <th class="text-nowrap">Start cancel date</th>
+                                    <th class="text-nowrap">Ready after cancel</th>
+                                    <th>Integrasi</th>
+                                    <th class="text-nowrap">Metro backhaull</th>
+                                    <th>IP</th>
+                                    <th>PORT</th>
+                                    <th class="text-nowrap">Metro access</th>
+                                    <th>IP</th>
+                                    <th>PORT</th>
+                                    <th>VLAN</th>
+                                    <th>VCID</th>
+                                    <th>GPON</th>
+                                    <th>IP</th>
+                                    <th>PORT</th>
+                                    <th>SN</th>
+                                    <th>PORT</th>
+                                    <th>TYPE</th>
+                                    <th class="text-nowrap">Nama switch</th>
+                                    <th class="text-nowrap">IP switch</th>
+                                    <th>Downlink</th>
+                                    <th class="text-nowrap">Type SWITCH</th>
+                                    <th class="text-nowrap">CAPTURE METRO BACKHAUL</th>
+                                    <th class="text-nowrap">CAPTURE METRO ACCESS</th>
+                                    <th class="text-nowrap">CAPTURE GPON</th>
+                                    <th class="text-nowrap">CAPTURE GPON IMAGE</th>
+                                    <th>PIC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>12-12-2021</td>
+                                    <td>2-780564639</td>
+                                    <td>TASIKMALAYA</td>
+                                    <td>CITRA JELAJAH INFORMATIKA (CIFO)</td>
+                                    <td>SINGLE</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>NEW INSTALL</td>
+                                    <td>METRO</td>
+                                    <td>MBps</td>
+                                    <td>100</td>
+                                    <td>107,895</td>
+                                    <td>-7,484347</td>
+                                    <td>Singajaya, Kabupaten Garut, Jawa Barat Garut Indonesia CIFO KEC SINGAJAYA</td>
+                                    <td>-</td>
+                                    <td>Fulfill Billing Completed</td>
+                                    <td></td>
+                                    <td>15-12-2021</td>
+                                    <td>CLOSE</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>16-12-2021</td>
+                                    <td>ME9-D3-LBG</td>
+                                    <td>172.30.193.1</td>
+                                    <td>3/2/2</td>
+                                    <td>ME-B-JWB-CKG</td>
+                                    <td>172.30.193.1</td>
+                                    <td>3/2/2</td>
+                                    <td>2080</td>
+                                    <td>1934412080</td>
+                                    <td>GPON02-D3-CKJ-2</td>
+                                    <td>172.30.193.1</td>
+                                    <td>1/2/2</td>
+                                    <td>48575443E09915A3</td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td>Huawei</td>
+                                    <td>199.202.93.2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>11-11-2021</td>
+                                    <td>2-780564639</td>
+                                    <td>BANDUNG</td>
+                                    <td>PT. TELKOM INDONESIA</td>
+                                    <td>SINGLE</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>NEW INSTALL</td>
+                                    <td>METRO</td>
+                                    <td>MBps</td>
+                                    <td>100</td>
+                                    <td>107,895</td>
+                                    <td>-7,484347</td>
+                                    <td>Coblong, Bandung</td>
+                                    <td>-</td>
+                                    <td>Fulfill Billing Completed</td>
+                                    <td></td>
+                                    <td>15-12-2021</td>
+                                    <td>CLOSE</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>16-12-2021</td>
+                                    <td>ME9-D3-LBG</td>
+                                    <td>172.30.193.1</td>
+                                    <td>3/2/2</td>
+                                    <td>ME-B-JWB-CKG</td>
+                                    <td>172.30.193.1</td>
+                                    <td>3/2/2</td>
+                                    <td>2080</td>
+                                    <td>1934412080</td>
+                                    <td>GPON02-D3-CKJ-2</td>
+                                    <td>172.30.193.1</td>
+                                    <td>1/2/2</td>
+                                    <td>48575443E09915A3</td>
+                                    <td>1</td>
+                                    <td></td>
+                                    <td>Huawei</td>
+                                    <td>199.202.93.2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 @endsection

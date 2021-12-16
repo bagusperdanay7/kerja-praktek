@@ -23,10 +23,19 @@
 
     <div class="row">
         <div class="col">
+            <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card my-5 shadow-sm">
                 <div class="card-body">
-                    <h2 class="title-table">User Management</h2>
-                    <a href="{{ route('management.create') }}" class="btn btn-main mb-3">Tambah User</a>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h2 class="">User Management</h2>
+                        </div>
+                        <div class="col text-right">
+                            <a href="{{ route('management.create') }}" class="btn btn-second ml-2">
+                                <i class="las la-plus"></i> Tambah User
+                            </a>
+                        </div>
+                    </div>
                     <table class="table table-responsive table-hover" id="table_id">
                         <thead>
                             <tr>
