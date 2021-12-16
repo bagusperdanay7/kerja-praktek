@@ -24,6 +24,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <p></p>
                         <div class="form-group">
                             <label for="kegiatan">Kegiatan</label>
                             <input type="text" name="kegiatan" id="kegiatan" class="form-control" value="{{ $pekerjaan_lapangan->kegiatan }}">
