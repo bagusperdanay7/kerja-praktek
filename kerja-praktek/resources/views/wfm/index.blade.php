@@ -133,7 +133,9 @@
                                 @endif
 
                                 @foreach ($wfm_all as $wfm_a)
+                                @if ($wfm_a->status_wfm != '')    
                                 <option value="{{ $wfm_a->status_wfm }}">{{ $wfm_a->status_wfm }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
