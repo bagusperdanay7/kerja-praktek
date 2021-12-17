@@ -156,6 +156,6 @@ class ProgresLapanganController extends Controller
 
         Excel::import(new ProgressImport, public_path('/database_temp/' . $namaFile));
 
-        return redirect()->route('progress.index');
+        return redirect()->route('progress.index')->with('success', 'Data Berhasil diImpor!');
     }
 }

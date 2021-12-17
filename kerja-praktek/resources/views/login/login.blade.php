@@ -15,12 +15,15 @@
     <link rel="stylesheet" href="{{ asset('line-awesome/css/line-awesome.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/AdminLTE.min.css') }}">
+    <!-- Favicon style -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/logo_favicon.png') }}">
+    
 </head>
 
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <h2 class="text-bold">Form Login</h2>
+            <img src="{{ asset('img/logo_idola.png') }}" class="img-fluid" width="500" alt="">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
