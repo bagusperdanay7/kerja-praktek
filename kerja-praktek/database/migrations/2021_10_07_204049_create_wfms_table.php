@@ -35,7 +35,7 @@ class CreateWfmsTable extends Migration
             $table->text('alamat_tujuan')->nullable();
             $table->string('status_ncx')->nullable();
             $table->string('berita_acara')->nullable();
-            $table->text('tgl_complete')->nullable();
+            $table->date('tgl_complete')->nullable();
             $table->string('status_wfm')->nullable();
             $table->string('alasan_cancel')->nullable();
             $table->string('cancel_by')->nullable();

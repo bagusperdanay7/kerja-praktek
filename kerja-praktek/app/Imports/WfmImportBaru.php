@@ -35,7 +35,7 @@ class WfmImportBaru implements ToCollection
                 'alamat_tujuan' =>$row[14],
                 'status_ncx' =>$row[15],
                 'berita_acara' =>$row[16],
-                'tgl_complete' =>$row[17],
+                'tgl_complete' =>$this->transformDate($row[17]),
                 'status_wfm' =>$row[18],
                 'alasan_cancel' =>$row[19],
                 'cancel_by' =>$row[20],
@@ -94,9 +94,9 @@ class WfmImportBaru implements ToCollection
     } catch (\ErrorException $e) {
         return \Carbon\Carbon::createFromFormat($format, $value);
     }
-}
+ }
 
-    public function transformDateComplete($value, $format = 'd/m/y'){
+    public function transformDateComplete($value, $format = 'Y-m-d'){
         try {
             return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
         } catch (\ErrorException $e) {
