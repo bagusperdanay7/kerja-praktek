@@ -140,37 +140,10 @@ class WfmController extends Controller
             // $rekap->status_lapangan = "";
             $rekap->save();
 
-            // if ($wfm->order_type == "NEW INSTALL") {
 
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = $query1;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } elseif ($wfm->order_type == "MODIFY") {
-
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = 0;
-            //     $rekap->modify = $query2;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } else
             if ($wfm->order_type == "DISCONNECT") {
 
-                // $rekap->wfm_id = $wfm->id;
-                // $rekap->olo = $wfm->olo_isp;
-                // $rekap->aktivasi = 0;
-                // $rekap->modify = 0;
-                // $rekap->disconnect = $query3;
-                // $rekap->resume = 0;
-                // $rekap->suspend = 0;
-                // $rekap->save();
+
 
                 $diconnect->wfm_id = $wfm->id;
                 $diconnect->tanggal = $wfm->tgl_bulan_th;
@@ -185,27 +158,7 @@ class WfmController extends Controller
                 $diconnect->pic = "";
                 $diconnect->save();
             }
-            // } elseif ($wfm->order_type == "RESUME") {
 
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = 0;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = $query4;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } elseif ($wfm->order_type == "SUSPEND") {
-
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = $query1;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = $query5;
-            //     $rekap->save();
-            // }
         }else{
             $imgName = "avatar.jpg";
             $wfm = Wfm::create([
@@ -276,37 +229,8 @@ class WfmController extends Controller
             // $rekap->status_lapangan = "";
             $rekap->save();
 
-            // if ($wfm->order_type == "NEW INSTALL") {
-
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = $query1;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } elseif ($wfm->order_type == "MODIFY") {
-
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = 0;
-            //     $rekap->modify = $query2;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } else
             if ($wfm->order_type == "DISCONNECT") {
 
-                // $rekap->wfm_id = $wfm->id;
-                // $rekap->olo = $wfm->olo_isp;
-                // $rekap->aktivasi = 0;
-                // $rekap->modify = 0;
-                // $rekap->disconnect = $query3;
-                // $rekap->resume = 0;
-                // $rekap->suspend = 0;
-                // $rekap->save();
 
                 $diconnect->wfm_id = $wfm->id;
                 $diconnect->tanggal = $wfm->tgl_bulan_th;
@@ -321,27 +245,7 @@ class WfmController extends Controller
                 $diconnect->pic = "";
                 $diconnect->save();
             }
-            // } elseif ($wfm->order_type == "RESUME") {
 
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = 0;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = $query4;
-            //     $rekap->suspend = 0;
-            //     $rekap->save();
-            // } elseif ($wfm->order_type == "SUSPEND") {
-
-            //     $rekap->wfm_id = $wfm->id;
-            //     $rekap->olo = $wfm->olo_isp;
-            //     $rekap->aktivasi = $query1;
-            //     $rekap->modify = 0;
-            //     $rekap->disconnect = 0;
-            //     $rekap->resume = 0;
-            //     $rekap->suspend = $query5;
-            //     $rekap->save();
-            // }
         }
 
 
@@ -453,20 +357,6 @@ class WfmController extends Controller
 
         $wfm->save();
 
-
-        // if($request->order_type == "DISCONNECT"){
-        //     $diconnect = new Diconnect();
-        //     $diconnect->wfm_id = $wfm->id;
-        //     $diconnect->older = $wfm->no_ao;
-        //     $diconnect->customer = $wfm->olo_isp;
-        //     $diconnect->lokasi = $wfm->alamat_asal;
-        //     $diconnect->kota = $wfm->witel;
-        //     $diconnect->jenis_ont = "";
-        //     $diconnect->status = "";
-        //     $diconnect->plan_cabut = "";
-        //     $diconnect->pic = "";
-        // }
-
         if ($wfm->order_type == "DISCONNECT") {
             Diconnect::create([
                 'wfm_id' => $wfm->id,
@@ -482,16 +372,6 @@ class WfmController extends Controller
         }
 
 
-        //     $user = User::create([
-        //         'name' => $request->name,
-        //         'email' => $request->email,
-        //         'password' => Hash::make($request->password)
-        //     ]);
-
-        //    Handphone::create([
-        //        'user_id' => $user->id,
-        //        'noHp' => $request->noHp
-        //    ]);
         sleep(1);
         return redirect()->route('wfm.index');
     }
@@ -508,13 +388,6 @@ class WfmController extends Controller
         sleep(1);
         return back();
     }
-
-    // public function searchDate(Request $request) {
-    //     $dariDate = $request->input('tgl_bulan_th');
-    //     $sampaiDate = $request->input('tgl_bulan_sd');
-
-    //     $query = DB:table('wfms')->select()->where('tgl_bulan_th', '>=', $dariDate)->where('tgl_bulan_th', '<=', $sampaiDate)
-    // }
 
     public function exportWfm()
     {

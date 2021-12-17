@@ -19,15 +19,6 @@ class DisconnectController extends Controller
      */
     public function index()
     {
-        // return view('disconnect.index', [
-        //     "title" => "Disconnect",
-        //     'database' => Database::all(),
-        //     'wfms' => Wfm::all(),
-        //     'disconnects' => Diconnect::all(),
-        //     'disconnect' => Diconnect::orderBy('id')->filter(request([
-        //         'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
-        //     ]))->get()
-        // ]);
 
         $disconnect = DB::table('diconnects')
             ->join('wfms', 'wfms.id', '=', 'diconnects.wfm_id')
