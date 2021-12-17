@@ -127,12 +127,12 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
     // Dialog ketika mengisi form direload
     window.addEventListener("beforeunload", (event) => {
         event.preventDefault();
         event.returnValue = "";
     });
 
-</script>
+</script> --}}
 @endsection

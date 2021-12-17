@@ -41,6 +41,7 @@
                         <div class="form-group">
                             <label for="site_kriteria">SITE KRITERIA</label>
                             <select name="site_kriteria" id="site_kriteria" class="form-control">
+                                <option value="{{ $wfm->site_kriteria }}">{{ $wfm->site_kriteria }}</option>
                                 @foreach ($database as $item)
                                 @if ($item->site_kriteria !== '')
                                 <option value="{{ $item->site_kriteria }}">{{ $item->site_kriteria }}</option>
@@ -59,6 +60,7 @@
                         <div class="form-group">
                             <label for="order_type">ORDER TYPE</label>
                             <select name="order_type" id="order_type" class="form-control">
+                                <option value="{{ $wfm->order_type }}">{{ $wfm->order_type }}</option>
                                 @foreach ($database as $item)
                                 @if ($item->order_type !== '')
                                 <option value="{{ $item->order_type }}">{{ $item->order_type }}</option>
@@ -69,6 +71,7 @@
                         <div class="form-group">
                             <label for="produk">PRODUK</label>
                             <select name="produk" id="produk" class="form-control">
+                                <option value="{{ $wfm->produk }}">{{ $wfm->produk }}</option>
                                 @foreach ($database as $item)
                                 @if ($item->produk !== '')
                                 <option value="{{ $item->produk }}">{{ $item->produk }}</option>
@@ -79,6 +82,7 @@
                         <div class="form-group">
                             <label for="satuan">SATUAN</label>
                             <select name="satuan" id="satuan" class="form-control">
+                                <option value="{{ $wfm->satuan }}">{{ $wfm->satuan }}</option>
                                 @foreach ($database as $item)
                                 @if ($item->satuan !== '')
                                 <option value="{{ $item->satuan }}">{{ $item->satuan }}</option>
@@ -112,6 +116,7 @@
                         <div class="form-group">
                             <label for="status_ncx">STATUS NCX</label>
                             <select name="status_ncx" id="status_ncx" class="form-control">
+                                <option value="{{ $wfm->status_ncx }}">{{ $wfm->status_ncx }}</option>
                                 @foreach ($database as $item)
                                 @if ($item->status_ncx !== '')
                                 <option value="{{ $item->status_ncx }}">{{ $item->status_ncx }}</option>
@@ -245,9 +250,9 @@
                         </div>
                         {{-- image --}}
                         <div class="custom-file mb-3">
-                            <input type="file" name="capture_gpon_image" value="{{ $wfm->capture_gpon_image }}" class="custom-file-input" id="validatedCustomFile" >
+                            <input type="file" name="capture_gpon_image" value="{{ $wfm->capture_gpon_image }}" class="custom-file-input" id="validatedCustomFile" accept=".png, .jpg, .jpeg">
                             <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar...</label>
-                          </div>
+                        </div>
                         <div class="form-group">
                             <label for="pic">PIC</label>
                             <input type="text" name="pic" id="pic" class="form-control" value="{{ $wfm->pic }}">

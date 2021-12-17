@@ -42,7 +42,7 @@ class ProgresLapanganController extends Controller
     public function create()
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('progress_lapangan.new', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
+            return view('progress_lapangan.create', ['title' => 'Tambah Data - Progress Lapangan', 'database' => Database::all(), 'wfm' => Wfm::all()]);
         } else {
             abort(403);
         }
@@ -140,7 +140,7 @@ class ProgresLapanganController extends Controller
     public function edit(ProgresLapangan $progress)
     {
         if (Gate::any(['admin', 'editor'])) {
-            return view('progress_lapangan.update', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
+            return view('progress_lapangan.edit', ['title' => 'Update Data - Progress Lapangan', 'progress' => $progress, 'database' => Database::all(), 'wfm' => Wfm::all()]);
         } else {
             abort(403);
         }
