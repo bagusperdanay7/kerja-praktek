@@ -127,7 +127,7 @@
                             </a>
                         </div>
                     </div>
-                    <table class="table table-responsive table-hover display" id="table_id" style="width: 100%">
+                    <table class="table table-responsive table-hover" id="table_id" style="width: 100%">
                         <thead>
                             <tr>
                                 <th scope="col" rowspan="2">No</th>
