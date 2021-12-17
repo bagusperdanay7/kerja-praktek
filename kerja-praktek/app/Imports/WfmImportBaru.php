@@ -96,6 +96,12 @@ class WfmImportBaru implements ToCollection
     }
 }
 
-
+    public function transformDateComplete($value, $format = 'd/m/y'){
+        try {
+            return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
+        } catch (\ErrorException $e) {
+            return \Carbon\Carbon::createFromFormat($format, $value);
+        }
+    }
 
 }

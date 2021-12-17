@@ -86,15 +86,6 @@ class DatabaseController extends Controller
     public function update(Request $request, Database $database)
     {
 
-        // $database->update([
-        //     'witel' => $request->witel,
-        //     'olo_isp' => $request->olo_isp,
-        //     'site_kriteria' => $request->site_kriteria,
-        //     'order_type' => $request->order_type,
-        //     'produk' => $request->produk,
-        //     'satuan' => $request->satuan,
-        //     'status_ncx' => $request->status_ncx
-        // ]);
         $database->witel = $request->witel;
         $database->olo_isp = $request->olo_isp;
         $database->site_kriteria = $request->site_kriteria;
