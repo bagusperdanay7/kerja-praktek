@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand">
-            <img src="{{ asset('img/logo.jpeg') }}" alt="logo aplikasi" style="max-height: 50px;">
+            <img src="{{ asset('img/logo.jpeg') }}" alt="logo aplikasi" style="max-height: 50px;" title="Logo Aplikasi">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navDropdown"
             aria-controls="navDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
         <ul class="navbar-nav ml-2">
             <li class="nav-item dropdown">
                 <img src="{{ asset('img/user.png') }}" role="button" alt="user profile"
-                    class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown"
+                    class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" title="Klik Untuk Selengkapnya"
                     aria-haspopup="true" aria-expanded="false" style="width: 48px">
                 <div class="dropdown-menu dropdown-menu-right w-25" aria-labelledby="user-menu">
                     <a class="dropdown-item text-center">{{ auth()->user()->name }}</a>

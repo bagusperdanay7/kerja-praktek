@@ -68,7 +68,7 @@ class WfmController extends Controller
 
 
 
-        if(isset($request->capture_gpon_image)){
+        if (isset($request->capture_gpon_image)) {
             $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
             $request->capture_gpon_image->move(public_path('img'), $imgName);
 
@@ -152,14 +152,13 @@ class WfmController extends Controller
                 $diconnect->olo = $wfm->olo_isp;
                 $diconnect->alamat = $wfm->alamat_asal;
                 $diconnect->jenis_nte = "";
-                $diconnect->jumlah_nte ="";
+                $diconnect->jumlah_nte = "";
                 $diconnect->status = "";
                 $diconnect->plan_cabut = $wfm->tgl_bulan_th;
                 $diconnect->pic = "";
                 $diconnect->save();
             }
-
-        }else{
+        } else {
             $imgName = "avatar.jpg";
             $wfm = Wfm::create([
                 'tgl_bulan_th' => $request->tgl_bulan_th,
@@ -239,13 +238,12 @@ class WfmController extends Controller
                 $diconnect->olo = $wfm->olo_isp;
                 $diconnect->alamat = $wfm->alamat_asal;
                 $diconnect->jenis_nte = "";
-                $diconnect->jumlah_nte ="";
+                $diconnect->jumlah_nte = "";
                 $diconnect->status = "";
                 $diconnect->plan_cabut = $wfm->tgl_bulan_th;
                 $diconnect->pic = "";
                 $diconnect->save();
             }
-
         }
 
 
@@ -349,7 +347,7 @@ class WfmController extends Controller
         $wfm->capture_gpon = $request->capture_gpon;
         $wfm->pic = $request->pic;
 
-        if($request->hasFile('capture_gpon_image')){
+        if ($request->hasFile('capture_gpon_image')) {
             $imgName = $request->capture_gpon_image->getClientOriginalName() . '-' . time() . '.' . $request->capture_gpon_image->extension();
             $request->capture_gpon_image->move(public_path('img'), $imgName);
             $wfm->capture_gpon_image = $imgName;
@@ -402,6 +400,6 @@ class WfmController extends Controller
 
         Excel::import(new WfmImportBaru, public_path('/database_temp/' . $namaFile));
 
-        return redirect()->route('wfm.index');
+        return redirect()->route('wfm.index')->with('success', 'Data Berhasil diImpor!');
     }
 }

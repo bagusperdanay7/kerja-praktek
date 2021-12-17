@@ -31,7 +31,7 @@ class DisconnectController extends Controller
             'database' => Database::all(),
             'wfms' => Wfm::all(),
             'disconnects' => Diconnect::orderBy('id')->filter(request([
-                'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_ont', 'status'
+                'no_ao', 'plan_cabut', 'witel', 'olo', 'jenis_nte', 'status'
             ]))->get()
         ]);
     }
