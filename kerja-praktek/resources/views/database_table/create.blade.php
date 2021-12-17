@@ -39,7 +39,8 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('database.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button class="btn btn-main" type="submit" onclick="return validasiTambah();">Simpan Data</button>
+                            <button class="btn btn-main" type="submit" onclick="return validasiTambah();">Simpan
+                                Data</button>
                         </div>
                     </form>
                 </div>

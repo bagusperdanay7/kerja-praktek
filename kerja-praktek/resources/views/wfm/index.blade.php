@@ -3,22 +3,22 @@
 @section('contain')
 <div class="container-fluid isi">
     @if (session()->has('success'))
-        <div class="success-tambah align-items-center mt-3" id="success-tambah">
-            <div class="d-flex">
-                <div class="ml-3 p-2 align-self-center text-success">
-                    <i class="las la-check display-4"></i>
-                </div>
-                <div class="p-2 flex-grow-1 border-right">
-                    <h3 class="mt-2">Success</h3>
-                    <p class="pesan-berhasil">{{ session('success') }}</p>
-                </div>
-                <div class="px-4 align-self-center">
-                    <button id="close-flash" class="close" onclick="hideFlash()">
-                        <span class="font-weight-normal">CLOSE</span>
-                    </button>
-                </div>
+    <div class="success-tambah align-items-center mt-3" id="success-tambah">
+        <div class="d-flex">
+            <div class="ml-3 p-2 align-self-center text-success">
+                <i class="las la-check display-4"></i>
+            </div>
+            <div class="p-2 flex-grow-1 border-right">
+                <h3 class="mt-2">Success</h3>
+                <p class="pesan-berhasil">{{ session('success') }}</p>
+            </div>
+            <div class="px-4 align-self-center">
+                <button id="close-flash" class="close" onclick="hideFlash()">
+                    <span class="font-weight-normal">CLOSE</span>
+                </button>
             </div>
         </div>
+    </div>
     @endif
 
 
@@ -35,15 +35,17 @@
                         <div class="col">
                             <label for="no_ao">No. AO</label>
                             @if (request('no_ao'))
-                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" value="{{ request('no_ao') }}" autocomplete="off">
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
+                                value="{{ request('no_ao') }}" autocomplete="off">
                             @else
-                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
+                                placeholder="Masukkan No. AO" autocomplete="off">
                             @endif
 
                             <datalist id="no_aos">
-                            @foreach ($wfm_all as $wfm_a)
-                            <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
-                            @endforeach
+                                @foreach ($wfm_all as $wfm_a)
+                                <option value="{{ $wfm_a->no_ao }}">{{ $wfm_a->no_ao }}</option>
+                                @endforeach
                             </datalist>
                         </div>
                         <div class="col">
@@ -174,8 +176,6 @@
 
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
-                {{-- <a href="{{ route('wfm.create') }}" class="btn btn-primary">Tambah data</a> --}}
-
                 <div class="card-body">
                     <div class="row mb-3">
                         <div class="col">
@@ -347,7 +347,8 @@
                             <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
+                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
                                     <label class="custom-file-label" for="importFile">Pilih File</label>
                                 </div>
                             </div>

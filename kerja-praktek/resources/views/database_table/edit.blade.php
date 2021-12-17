@@ -12,7 +12,8 @@
                         @method('put')
                         <div class="form-group">
                             <label for="witel">WITEL</label>
-                            <input type="text" name="witel" id="witel" class="form-control" value="{{ $database->witel }}">
+                            <input type="text" name="witel" id="witel" class="form-control"
+                                value="{{ $database->witel }}">
                         </div>
                         <div class="form-group">
                             <label for="olo">OLO / ISP</label>

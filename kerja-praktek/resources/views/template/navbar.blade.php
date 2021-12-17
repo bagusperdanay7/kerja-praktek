@@ -49,7 +49,7 @@
                         <a class="dropdown-item" href="{{ route('wfm.index') }}">Deployment</a>
                         <a class="dropdown-item" href="{{ route('progress.index') }}">Progress Lapangan</a>
                         <a class="dropdown-item" href="{{ route('rekap.index') }}">Rekap</a>
-                        <a class="dropdown-item" href="{{ route('rekap.index') }}">EXE SUMM</a>
+                        <a class="dropdown-item" href="{{ route('xSumm.index') }}">EXE SUMM</a>
                     </div>
                 </li>
                 <li class="nav-item menu">
@@ -66,8 +66,8 @@
         <ul class="navbar-nav ml-2">
             <li class="nav-item dropdown">
                 <img src="{{ asset('img/user.png') }}" role="button" alt="user profile"
-                    class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown" title="Klik Untuk Selengkapnya"
-                    aria-haspopup="true" aria-expanded="false" style="width: 48px">
+                    class="user-pic rounded-circle dropdown-toggle" id="user-menu" data-toggle="dropdown"
+                    title="Klik Untuk Selengkapnya" aria-haspopup="true" aria-expanded="false" style="width: 48px">
                 <div class="dropdown-menu dropdown-menu-right w-25" aria-labelledby="user-menu">
                     <a class="dropdown-item text-center">{{ auth()->user()->name }}</a>
                     <div class="dropdown-divider"></div>

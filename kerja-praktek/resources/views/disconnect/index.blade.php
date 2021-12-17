@@ -15,15 +15,17 @@
                         <div class="col">
                             <label for="no_ao">No. AO</label>
                             @if (request('no_ao'))
-                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" value="{{ request('no_ao') }}" autocomplete="off">
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
+                                value="{{ request('no_ao') }}" autocomplete="off">
                             @else
-                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            <input list="no_aos" name="no_ao" id="no_ao" class="form-control"
+                                placeholder="Masukkan No. AO" autocomplete="off">
                             @endif
 
                             <datalist id="no_aos">
-                            @foreach ($wfms as $wfm)
-                            <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
-                            @endforeach
+                                @foreach ($wfms as $wfm)
+                                <option value="{{ $wfm->no_ao }}">{{ $wfm->no_ao }}</option>
+                                @endforeach
                             </datalist>
                         </div>
                         <div class="col">
@@ -113,20 +115,15 @@
 
             <span id="ct" class="mt-3 d-block text-right"></span>
             <div class="card mt-2 mb-5 shadow-sm">
-                {{-- <a href="{{ route('database.create') }}" class="btn btn-primary mb-3">Tambah Data</a> --}}
-                {{-- <a href="{{ route('database.export') }}" class="btn btn-success mb-3">Export Excel</a>
-                <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
-                    Import Excel
-                </button> --}}
 
-                {{-- biasa --}}
-                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') || request('jenis_nte') || request('status'))
+                {{-- filter --}}
+                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') ||
+                request('jenis_nte') || request('status'))
                 <div class="card-body">
                     <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                {{-- <th scope="col">WFM ID</th> --}}
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">NO</th>
                                 <th scope="col">AO</th>
@@ -147,8 +144,6 @@
 
                             @foreach ($disconnects as $items)
                             <tr>
-                                {{-- <td>{{ $items->wfm_id; }}</td> --}}
-
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $items->tanggal }}</td>
                                 <td>{{ $items->no_ao }}</td>
@@ -194,7 +189,6 @@
                     <table class="table table-responsive-lg table-hover" id="table_id">
                         <thead>
                             <tr>
-                                {{-- <th scope="col">WFM ID</th> --}}
                                 <th scope="col">NO</th>
                                 <th scope="col">TANGGAL</th>
                                 <th scope="col">AO</th>

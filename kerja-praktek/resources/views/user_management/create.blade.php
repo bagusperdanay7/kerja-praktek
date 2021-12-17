@@ -11,11 +11,14 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
+                            <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}"
+                                required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
+                            <input type="email" name="email" id="email"
+                                class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                                required>
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -24,7 +27,9 @@
                         </div>
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" required>
+                            <input type="text" name="username" id="username"
+                                class="form-control @error('username') is-invalid @enderror"
+                                value="{{ old('username') }}" required>
                             @error('username')
                             <div class="invalid-feedback">
                                 {{ $message }}

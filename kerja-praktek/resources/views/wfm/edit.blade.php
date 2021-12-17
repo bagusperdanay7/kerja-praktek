@@ -55,7 +55,8 @@
                         </div>
                         <div class="form-group">
                             <label for="site_id">SITE ID</label>
-                            <input type="text" name="site_id" id="site_id" class="form-control" value="{{ $wfm->site_id }}">
+                            <input type="text" name="site_id" id="site_id" class="form-control"
+                                value="{{ $wfm->site_id }}">
                         </div>
                         <div class="form-group">
                             <label for="order_type">ORDER TYPE</label>
@@ -107,11 +108,13 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat_asal">ALAMAT ASAL</label>
-                            <textarea class="form-control" name="alamat_asal" id="alamat_asal" rows="3" value="{{ $wfm->alamat_asal }}">{{ $wfm->alamat_asal }}</textarea>
+                            <textarea class="form-control" name="alamat_asal" id="alamat_asal" rows="3"
+                                value="{{ $wfm->alamat_asal }}">{{ $wfm->alamat_asal }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="alamat_tujuan">ALAMAT TUJUAN</label>
-                            <textarea class="form-control" name="alamat_tujuan" id="alamat_tujuan" rows="3" value="{{ $wfm->alamat_tujuan }}">{{ $wfm->alamat_tujuan }}</textarea>
+                            <textarea class="form-control" name="alamat_tujuan" id="alamat_tujuan" rows="3"
+                                value="{{ $wfm->alamat_tujuan }}">{{ $wfm->alamat_tujuan }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="status_ncx">STATUS NCX</label>
@@ -178,7 +181,8 @@
                         </div>
                         <div class="form-group">
                             <label for="metro2">METRO</label>
-                            <input type="text" name="metro2" id="metro2" class="form-control" value="{{ $wfm->metro2 }}">
+                            <input type="text" name="metro2" id="metro2" class="form-control"
+                                value="{{ $wfm->metro2 }}">
                         </div>
                         <div class="form-group">
                             <label for="ip2">IP</label>
@@ -222,35 +226,45 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">NAMA SWITCH</label>
-                            <textarea class="form-control" name="nama" id="nama" rows="3" value="{{ $wfm->nama }}">{{ $wfm->nama }}</textarea>
+                            <textarea class="form-control" name="nama" id="nama" rows="3"
+                                value="{{ $wfm->nama }}">{{ $wfm->nama }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="ip4">IP SWITCH</label>
-                            <textarea class="form-control" name="ip4" id="ip4" rows="3" value="{{ $wfm->ip4 }}">{{ $wfm->ip4 }}</textarea>
+                            <textarea class="form-control" name="ip4" id="ip4" rows="3"
+                                value="{{ $wfm->ip4 }}">{{ $wfm->ip4 }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="downlink">DOWNLINK</label>
-                            <textarea class="form-control" name="downlink" id="downlink" rows="3" value="{{ $wfm->downlink }}">{{ $wfm->downlink }}</textarea>
+                            <textarea class="form-control" name="downlink" id="downlink" rows="3"
+                                value="{{ $wfm->downlink }}">{{ $wfm->downlink }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="type_switch">TYPE SWITCH</label>
-                            <textarea class="form-control" name="type_switch" id="type_switch" rows="3" value="{{ $wfm->type_switch }}">{{ $wfm->type_switch }}</textarea>
+                            <textarea class="form-control" name="type_switch" id="type_switch" rows="3"
+                                value="{{ $wfm->type_switch }}">{{ $wfm->type_switch }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="capture_metro_backhaul">CAPTURE METRO BACKHAUL</label>
-                            <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul" rows="3" value="{{ $wfm->capture_metro_backhaul }}">{{ $wfm->capture_metro_backhaul }}</textarea>
+                            <textarea class="form-control" name="capture_metro_backhaul" id="capture_metro_backhaul"
+                                rows="3"
+                                value="{{ $wfm->capture_metro_backhaul }}">{{ $wfm->capture_metro_backhaul }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="capture_metro_access">CAPTURE METRO ACCESS</label>
-                            <textarea class="form-control" name="capture_metro_access" id="capture_metro_access" rows="3" value="{{ $wfm->capture_metro_access }}">{{ $wfm->capture_metro_access }}</textarea>
+                            <textarea class="form-control" name="capture_metro_access" id="capture_metro_access"
+                                rows="3"
+                                value="{{ $wfm->capture_metro_access }}">{{ $wfm->capture_metro_access }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="capture_gpon">CAPTURE GPON</label>
-                            <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3" value="{{ $wfm->capture_gpon }}">{{ $wfm->capture_gpon }}</textarea>
+                            <textarea class="form-control" name="capture_gpon" id="capture_gpon" rows="3"
+                                value="{{ $wfm->capture_gpon }}">{{ $wfm->capture_gpon }}</textarea>
                         </div>
                         {{-- image --}}
                         <div class="custom-file mb-3">
-                            <input type="file" name="capture_gpon_image" value="{{ $wfm->capture_gpon_image }}" class="custom-file-input" id="validatedCustomFile" accept=".png, .jpg, .jpeg">
+                            <input type="file" name="capture_gpon_image" value="{{ $wfm->capture_gpon_image }}"
+                                class="custom-file-input" id="validatedCustomFile" accept=".png, .jpg, .jpeg">
                             <label class="custom-file-label" for="validatedCustomFile">Pilih Gambar...</label>
                         </div>
                         <div class="form-group">
@@ -259,7 +273,8 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('wfm.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button type="submit" class="btn btn-main" onclick="return validasiEdit();">Update Data</button>
+                            <button type="submit" class="btn btn-main" onclick="return validasiEdit();">Update
+                                Data</button>
                         </div>
                     </form>
                 </div>
@@ -268,4 +283,3 @@
     </div>
 </div>
 @endsection
-{{-- asc --}}

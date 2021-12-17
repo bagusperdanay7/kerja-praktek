@@ -10,10 +10,6 @@
                     <form action="{{ route('rekap.update',$rekap->id) }}" method="POST">
                         @csrf
                         @method('put')
-                        {{-- <div class="form-group">
-                            <label for="no">NO</label>
-                            <input type="text" name="no" id="no" class="form-control" value="{{ $rekap->no }}">
-                        </div> --}}
                         <div class="form-group">
                             <label for="olo">OLO</label>
                             <input type="text" name="olo" id="olo" class="form-control" value="{{ $rekap->olo }}">
@@ -61,7 +57,8 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('rekap.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button type="submit" class="btn btn-main" onclick="return validasiEdit();">Update Data</button>
+                            <button type="submit" class="btn btn-main" onclick="return validasiEdit();">Update
+                                Data</button>
                         </div>
                     </form>
                 </div>

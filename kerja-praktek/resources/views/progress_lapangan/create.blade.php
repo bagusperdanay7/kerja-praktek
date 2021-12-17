@@ -26,7 +26,7 @@
 
                         <div class="form-group">
                             <label for="ao">No Ao</label>
-                                <input type="text" name="ao" id="ao" class="form-control">
+                            <input type="text" name="ao" id="ao" class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -44,7 +44,7 @@
                                 <option value="">Pilih Produk</option>
                                 @foreach ($database as $db)
                                 @if ($db->produk !== '')
-                                <option value="{{ $db->produk }}">{{ $db->produk }}</option>  
+                                <option value="{{ $db->produk }}">{{ $db->produk }}</option>
                                 @endif
                                 @endforeach
                             </select>
@@ -126,13 +126,4 @@
         </div>
     </div>
 </div>
-
-{{-- <script>
-    // Dialog ketika mengisi form direload
-    window.addEventListener("beforeunload", (event) => {
-        event.preventDefault();
-        event.returnValue = "";
-    });
-
-</script> --}}
 @endsection

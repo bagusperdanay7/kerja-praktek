@@ -30,18 +30,13 @@
                         </div>
                         <div class="form-group">
                             <label for="customer">OLO</label>
-                            <input type="text" name="olo" id="customer" value="{{ $dis->olo }}"
-                                class="form-control">
+                            <input type="text" name="olo" id="customer" value="{{ $dis->olo }}" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="lokasi">ALAMAT</label>
                             <input type="text" name="alamat" id="lokasi" value="{{ $dis->alamat }}"
                                 class="form-control">
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="kota">KOTA</label>
-                            <input type="text" name="kota" id="kota" value="{{ $dis->kota }}" class="form-control">
-                        </div> --}}
                         <div class="form-group">
                             <label for="jenis_ont">JENIS NTE</label>
                             <select name="jenis_nte" id="jenis_ont" class="form-control">
@@ -78,7 +73,8 @@
                         </div>
                         <div class="form-group">
                             <label for="plan_cabut">PLAN CABUT</label>
-                            <input class="form-control" type="date" name="plan_cabut" id="plan_cabut" value="{{ $dis->plan_cabut }}">
+                            <input class="form-control" type="date" name="plan_cabut" id="plan_cabut"
+                                value="{{ $dis->plan_cabut }}">
                         </div>
                         <div class="form-group">
                             <label for="wfm_id">PIC</label>
@@ -86,7 +82,8 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('dis.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Update Data</button>
+                            <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Update
+                                Data</button>
                         </div>
                     </form>
                 </div>

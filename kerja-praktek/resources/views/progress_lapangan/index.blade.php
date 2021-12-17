@@ -15,15 +15,17 @@
                         <div class="col">
                             <label for="ao">No. AO</label>
                             @if (request('ao'))
-                            <input list="aos" name="ao" id="ao" class="form-control" value="{{ request('ao') }}" autocomplete="off">
+                            <input list="aos" name="ao" id="ao" class="form-control" value="{{ request('ao') }}"
+                                autocomplete="off">
                             @else
-                            <input list="aos" name="ao" id="ao" class="form-control" placeholder="Masukkan No. AO" autocomplete="off">
+                            <input list="aos" name="ao" id="ao" class="form-control" placeholder="Masukkan No. AO"
+                                autocomplete="off">
                             @endif
 
                             <datalist id="aos">
-                            @foreach ($progress_all as $progress_a)
-                            <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
-                            @endforeach
+                                @foreach ($progress_all as $progress_a)
+                                <option value="{{ $progress_a->ao }}">{{ $progress_a->ao }}</option>
+                                @endforeach
                             </datalist>
                         </div>
                         <div class="col">
@@ -220,7 +222,8 @@
                             <p><i class="las la-info-circle"></i> Sebelum Import pastikan sesuai dengan template!</p>
                             <div class="input-group mb-3">
                                 <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="importFile" required accept=".xlsx, .csv, .xls, .ods, .tsv">
+                                    <input type="file" name="file" class="custom-file-input" id="importFile" required
+                                        accept=".xlsx, .csv, .xls, .ods, .tsv">
                                     <label class="custom-file-label" for="importFile">Pilih File</label>
                                 </div>
                             </div>
@@ -303,7 +306,6 @@
                                     <td>In Progress</td>
                                     <td>Tidak Ada</td>
                                 </tr>
-                                
                             </tbody>
                         </table>
                     </div>

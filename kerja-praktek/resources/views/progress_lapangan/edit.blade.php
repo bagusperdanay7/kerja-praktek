@@ -12,7 +12,8 @@
                         @method('put')
                         <div class="form-group">
                             <label for="tanggal">Tanggal</label>
-                            <input type="date" name="tanggal" id="tanggal" class="form-control" value="{{ $progress->tanggal }}">
+                            <input type="date" name="tanggal" id="tanggal" class="form-control"
+                                value="{{ $progress->tanggal }}">
                         </div>
                         <div class="form-group">
                             <label for="witel">Witel</label>
@@ -25,7 +26,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="ao">No Ao</label>
                             <select name="ao" id="ao" class="form-control">
@@ -35,7 +36,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="olo">Olo</label>
                             <select name="olo" id="olo" class="form-control">
@@ -63,17 +64,17 @@
                                     class="form-control">{{ $progress->alamat_toko }}</textarea>
                             </div>
                         </div>
-        
+
                         <h5>Progress PT1</h5>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="tanggal_order_pt1">Tanggal Order</label>
-                                    <input type="date" name="tanggal_order_pt1" id="tanggal_order_pt1" class="form-control"
-                                        value="{{ $progress->tanggal_order_pt1 }}">
+                                    <input type="date" name="tanggal_order_pt1" id="tanggal_order_pt1"
+                                        class="form-control" value="{{ $progress->tanggal_order_pt1 }}">
                                 </div>
                             </div>
-        
+
                             <div class="col">
                                 <div class="form-group">
                                     <label for="keterangan_pt1">Keterangan</label>
@@ -82,17 +83,17 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <h5>Progress PT2</h5>
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
                                     <label for="tanggal_order_pt2">Tanggal Order</label>
-                                    <input type="date" name="tanggal_order_pt2" id="tanggal_order_pt2" class="form-control"
-                                        value="{{ $progress->tanggal_order_pt2 }}">
+                                    <input type="date" name="tanggal_order_pt2" id="tanggal_order_pt2"
+                                        class="form-control" value="{{ $progress->tanggal_order_pt2 }}">
                                 </div>
                             </div>
-        
+
                             <div class="col">
                                 <div class="form-group">
                                     <label for="keterangan_pt2">Keterangan</label>
@@ -101,7 +102,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <div class="form-group">
                             <label for="datek_odp">Datek ODP</label>
                             <input type="text" name="datek_odp" id="datek_odp" class="form-control"
@@ -128,7 +129,8 @@
                         </div>
                         <div class="form-group text-right mt-4">
                             <a href="{{ route('progress.index') }}" class="btn btn-white mr-2" type="reset">Cancel</a>
-                            <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Simpan Data</button>
+                            <button class="btn btn-main" type="submit" onclick="return validasiEdit();">Simpan
+                                Data</button>
                         </div>
                     </form>
                 </div>
