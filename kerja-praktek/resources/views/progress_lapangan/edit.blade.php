@@ -116,7 +116,6 @@
                             <label for="progress">Progress</label>
                             <select name="progress" id="progress" class="form-control">
                                 <option value="{{ $progress->progress }}">{{ $progress->progress }}</option>
-                                <option value="Open">Open</option>
                                 <option value="In Progress">In Progress</option>
                                 <option value="Done">Done</option>
                                 <option value="Cancel">Cancel</option>

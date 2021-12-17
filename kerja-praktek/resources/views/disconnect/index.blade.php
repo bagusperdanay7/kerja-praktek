@@ -65,10 +65,10 @@
                         </div>
 
                         <div class="col">
-                            <label for="jenis_ont">Jenis NTE</label>
-                            <select class="form-control" id="jenis_ont" name="jenis_ont">
-                                @if (request('jenis_ont'))
-                                <option value="{{ request('jenis_ont') }}">{{ request('jenis_ont') }}</option>
+                            <label for="jenis_nte">Jenis NTE</label>
+                            <select class="form-control" id="jenis_nte" name="jenis_nte">
+                                @if (request('jenis_nte'))
+                                <option value="{{ request('jenis_nte') }}">{{ request('jenis_nte') }}</option>
                                 @else
                                 <option value="">Pilih Jenis NTE</option>
                                 @endif
@@ -120,7 +120,7 @@
                 </button> --}}
 
                 {{-- biasa --}}
-                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') || request('jenis_ont') || request('status'))
+                @if (request('no_ao') || request('plan_cabut') || request('olo') || request('witel') || request('jenis_nte') || request('status'))
                 <div class="card-body">
                     <h2 class="title-table">Disconnect</h2>
                     <table class="table table-responsive-lg table-hover" id="table_id">
@@ -162,7 +162,7 @@
                                 <td>{{ $items->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">
-                                    <div class="dropleft">
+                                    <div class="dropleft" title="Menu">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">
@@ -230,7 +230,7 @@
                                 <td>{{ $item->pic }}</td>
                                 @canany(['admin', 'editor'])
                                 <td class="text-center">
-                                    <div class="dropleft">
+                                    <div class="dropleft" title="Menu">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">

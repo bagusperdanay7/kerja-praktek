@@ -15,9 +15,8 @@ class WfmImportBaru implements ToCollection
 
     public function collection(Collection  $rows)
     {
-        foreach($rows as $row){
-           $wfm = Wfm::create([
-
+        foreach ($rows as $row) {
+            $wfm = Wfm::create([
                 'tgl_bulan_th' =>$this->transformDate($row[0]),
                 'no_ao' =>$row[1],
                 'witel' =>$row[2],
@@ -42,30 +41,30 @@ class WfmImportBaru implements ToCollection
                 'start_cancel' =>$row[21],
                 'ready_after_cancel' =>$row[22],
                 'integrasi' => $row[23],
-                'metro' =>$row[24],
-                'ip' =>$row[25],
-                'port' =>$row[26],
-                'metro2' =>$row[27],
-                'ip2' =>$row[28],
-                'port2' =>$row[29],
-                'vlan' =>$row[30],
-                'vcid' =>$row[31],
-                'gpon' =>$row[32],
-                'ip3' =>$row[33],
-                'port3' =>$row[34],
-                'sn' =>$row[35],
-                'port4' =>$row[36],
-                'type' =>$row[37],
-                'nama' =>$row[38],
-                'ip4' =>$row[39],
-                'downlink' =>$row[40],
-                'type_switch' =>$row[41],
+                'metro' => $row[24],
+                'ip' => $row[25],
+                'port' => $row[26],
+                'metro2' => $row[27],
+                'ip2' => $row[28],
+                'port2' => $row[29],
+                'vlan' => $row[30],
+                'vcid' => $row[31],
+                'gpon' => $row[32],
+                'ip3' => $row[33],
+                'port3' => $row[34],
+                'sn' => $row[35],
+                'port4' => $row[36],
+                'type' => $row[37],
+                'nama' => $row[38],
+                'ip4' => $row[39],
+                'downlink' => $row[40],
+                'type_switch' => $row[41],
                 'capture_metro_backhaul' => "",
                 'capture_metro_access' => "",
                 'capture_gpon' => "",
                 'capture_gpon_image' => "",
-                'capture_done' =>$row[42],
-                'pic' =>$row[43],
+                'capture_done' => $row[42],
+                'pic' => $row[43],
 
             ]);
 
@@ -83,25 +82,17 @@ class WfmImportBaru implements ToCollection
                 'pic'
             ]);
         }
-
-
-
     }
 
-    public function transformDate($value, $format = 'd/m/y'){
-    try {
-        return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
-    } catch (\ErrorException $e) {
-        return \Carbon\Carbon::createFromFormat($format, $value);
-    }
- }
 
-    public function transformDateComplete($value, $format = 'Y-m-d'){
+
+    public function transformDate($value, $format = 'd/m/y')
+    {
+
         try {
             return \Carbon\Carbon::instance(\PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($value));
         } catch (\ErrorException $e) {
             return \Carbon\Carbon::createFromFormat($format, $value);
         }
     }
-
 }

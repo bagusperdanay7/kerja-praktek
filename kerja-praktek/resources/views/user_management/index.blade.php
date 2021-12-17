@@ -58,7 +58,7 @@
                                 <td>{{ $item->password }}</td>
                                 <td>{{ $item->role }}</td>
                                 <td class="text-center">
-                                    <div class="dropleft">
+                                    <div class="dropleft" title="Menu">
                                         <span class="las la-ellipsis-v" id="menuEdit" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false"></span>
                                         <div class="dropdown-menu" aria-labelledby="menuEdit">

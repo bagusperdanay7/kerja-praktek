@@ -55,10 +55,10 @@ class Diconnect extends Model
             fn ($query, $witel) => $query->where('witel', 'like', '%' . $witel)
         );
 
-        // filter jenis ont
+        // filter jenis nte
         $query->when(
-            $filters['jenis_ont'] ?? false,
-            fn ($query, $jenis_ont) => $query->where('jenis_ont', 'like', '%' . $jenis_ont . '%')
+            $filters['jenis_nte'] ?? false,
+            fn ($query, $jenis_nte) => $query->where('jenis_nte', 'like', '%' . $jenis_nte . '%')
         );
 
         // filter status
