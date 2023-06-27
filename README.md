@@ -7,7 +7,7 @@ Anggota Dalam Kelompok Ini terdiri dari:
 * Bagus Perdana Yusuf
 
 ## Tentang Repository ini
-Repository ini adalah hasil akhir aplikasi web Sistem Informasi Pengelolaan Pelanggan Wholesale
+Repository ini adalah hasil akhir aplikasi web Sistem Informasi Pengelolaan Pelanggan Wholesale. Data yang digunakan pada aplikasi ini (versi public), sudah diubah sedemikian rupa sehingga bersifat dummy.
 
 ***
 Jangan Lupa kalau error pastiin file .env nya sesuai sama laptop kalian
