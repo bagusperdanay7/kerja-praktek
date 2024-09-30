@@ -29,6 +29,7 @@ Repository ini dikhususkan untuk kerja praktek yang dilaksanakan pada bulan **Se
 | Tech Stack & Tools                     | Version |
 | -------------------------------------- | ------- |
 | Bootstrap CSS                          | 4.0+    |
+| Composer                               | 2.20+   |
 | DataTables                             | 1.11+   |
 | Laravel                                | 8.54+   |
 | Line Awesome                           | 1.0.2+  |
