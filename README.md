@@ -14,13 +14,60 @@ Repository ini dikhususkan untuk kerja praktek yang dilaksanakan pada bulan **Se
 
 ## Preview
 
+> [!IMPORTANT]  
+> Beberapa data seperti alamat, AO dan SID tidak dapat ditampilkan karena data-data tersebut sensitif bagi perusahaan. Untuk Data yang terdapat pada halaman Data Management hanya data user untuk pengujian aplikasi, sehingga tidak perlu disensor.
+
 ### Login Page
 
-![Login Page](docs/image/login-ui.png)
+![Login Page](docs/image/Login-page.png)
 
-### Home
+### Login Page (Mobile)
 
-![Home Page](docs/image/home-ui.png)
+![Login Page - Mobile](docs/image/Login-page-mobile.png)
+
+### Rekap Deployment Page
+
+![Home Page](docs/image/Rekap-deployment-page.png)
+
+### Rekap Progress Page
+
+![Home Page](docs/image/Rekap-progress-page.png)
+
+### WFM Deployment Page
+
+![WFM Deployment Page](docs/image/Wfm-deployment-page.png)
+
+### WFM Deployment - Create Form
+
+![WFM Deployment - Create Form](docs/image/Wfm-create-page.png)
+
+### WFM page - Import feature
+
+![WFM page - Import feature](docs/image/Import-feature.png)
+
+### Progress Lapangan Page
+
+![Progress Lapangan Page](docs/image/Progres-lapangan-page.png)
+
+### Progress Lapangan - Create Form
+
+![Progress Lapangan - Create Form](docs/image/Progress-lapangan-create-page.png)
+
+### Progress Lapangan - Edit Form
+
+![Progress Lapangan - Edit Form](docs/image/Progress-lapangan-edit-page.png)
+
+### Disconnect
+
+![Disconnect Page](docs/image/Disconnect-page.png)
+
+### Exe Summ
+
+![Exe Summ Page](docs/image/Exe-summ-page.png)
+
+### User Management Page
+
+![User Management Page](docs/image/User-management-page.png)
 
 ## Technology stack & Tools
 
@@ -31,6 +78,7 @@ Repository ini dikhususkan untuk kerja praktek yang dilaksanakan pada bulan **Se
 | Bootstrap CSS                          | 4.0+    |
 | Composer                               | 2.20+   |
 | DataTables                             | 1.11+   |
+| PHP                                    | 7.4.20+ |
 | Laravel                                | 8.54+   |
 | Line Awesome                           | 1.0.2+  |
 | Sweet Alert                            | 2.0+    |
