@@ -1,21 +1,59 @@
-# Sistem Informasi Pengelolaan Data Teknis Pelanggan Wholesale - Kerja Praktek | UNIKOM
+# Web-based Wholesale Customer Technical Data Management Information System - Telkom Intership | UNIKOM
 
-Repository ini dikhususkan untuk kerja praktek yang dilaksanakan pada bulan **September 2021** hingga **Desember 2021** di perusahaan Telkom Indonesia Graha Merah Putih Bandung.
+[**Dokumentasi Bahasa Indonesia (Indonesian Documentation)**](/docs/id/README.md)
 
-## Tentang Repository ini
+This repository is dedicated to the internship that was held from **September 2021** to **December 2021** at the Telkom Indonesia Graha Merah Putih Bandung company.
 
-**Sistem Informasi Pengelolaan Pelanggan Data Teknis Pelanggan Wholesale Berbasis Web** adalah aplikasi hasil Kerja Praktek di Perusahaan PT Telkom Indonesia Graha Merah Putih Bandung. Berdasarkan Surat Keterangan Persetujuan Publikasi, maka data/database orisinal tidak dapat ditampilkan karena bersifat rahasia dan milik hak cipta perusahaan PT Telkom Indonesia Graha Merah Putih Bandung. Maka untuk kebutuhan demo aplikasi, kami mengganti data orisinal dengan data yang telah diubah sedemikian rupa (dummy) yang dapat diperlihatkan ke khalayak publik.
+**Web-based Wholesale Customer Technical Data Management Information System** is an application based on an internship at PT Telkom Indonesia Graha Merah Putih, Bandung City, West Java, Indonesia. Built using the PHP Programming language with the Laravel framework. According to the Publication Agreement Certificate, the original data/database is confidential and protected under the copyright of PT Telkom Indonesia Graha Merah Putih Bandung. Therefore, for the purpose of the application demo, we have substituted the original data with modified (dummy) data that can be publicly displayed.
+
+## Features
+
+The features contained in this web application are as follows:
+
+-   Role-based login authentication (administrator, editor, and user view)
+-   CRUD (create, read, update, and delete) operations
+-   Excel file import and export
+-   Data filtering according to specific criteria
+-   Administrator-only user data management
 
 ## Team
 
--   Bagus Perdana Yusuf
--   Raden Fachrul Ramzy Muhammad
--   Robi Nurhidayat
+-   Bagus Perdana Yusuf (Front-end Developer, Back-end Developer)
+-   Raden Fachrul Ramzy Muhammad (Front-end Developer, Back-end Developer)
+-   Robi Nurhidayat (Back-end Developer, Front-end Developer)
+
+### Tasks & Responsibilities (Bagus)
+
+-   Worked collaboratively with a team of 3 people in building a Data Management Information System website that helps facilitate employees in the process of managing customer technical data by utilizing HTML, CSS, JavaScript and PHP Laravel in the team.
+-   Designed software in accordance with the needs of the company and reported the progress of the software being built weekly.
+-   Conducted Create, Read, Update, and Delete (CRUD) operations on the progres lapangan (field progress) page and help create user authentication.
+-   Created a data filtering feature based on the criteria specified on the deployment, progres lapangan (field progress), and disconnect pages.
+-   Translated the wireframe design into program code to create the website application's user interface and created a mini real-time clock function using JavaScript.
+-   Conceptualized the initial web application design through wireframes using Balsamiq Cloud.
+
+### Tasks & Responsibilities (Raden Fachrul)
+
+-   Built a website-based information system to facilitate the management of customer technical data by working with teammates to design and develop applications together.
+-   Designed software in accordance with the needs of the company and reported the progress of the software being built weekly.
+-   Created a role-based login authentication feature consisting of three roles (administrator, editor, user view) and designed the user interface for the login page.
+-   Created user management features for administrators, including the ability to create user data, update user data, and delete user data.
+-   Translated the wireframe design into program code to create the website application's user interface.
+-   Conceptualized the initial web application design through wireframes using Balsamiq Cloud.
+
+### Tasks & Responsibilities (Robi)
+
+-   Built a website-based information system to facilitate the management of customer technical data by working with teammates to design and develop applications together.
+-   Designed software in accordance with the needs of the company and reported the progress of the software being built weekly.
+-   Created features to export data into an Excel file, as well as import data from an Excel file into a database.
+-   Performed Create, Read, Update, and Delete (CRUD) operations on deployment, recap, disconnect, and exe summ pages.
+-   Transformed existing data from Excel into a structured database schema and model to minimize redundancy and boost efficiency.
+-   Translated the wireframe design into program code to create the website application's user interface.
+-   Conceptualized the initial web application design through wireframes using Balsamiq Cloud.
 
 ## Preview
 
 > [!IMPORTANT]  
-> Beberapa data seperti alamat, AO dan SID tidak dapat ditampilkan karena data-data tersebut sensitif bagi perusahaan. Untuk Data yang terdapat pada halaman Data Management hanya data user untuk pengujian aplikasi, sehingga tidak perlu disensor.
+> Certain data, like addresses, AO, and SID, cannot be shown due to their sensitivity to the company. The data present on the Data Management page is solely for application testing purposes and therefore does not need to be censored.
 
 ### Login Page
 
@@ -71,31 +109,33 @@ Repository ini dikhususkan untuk kerja praktek yang dilaksanakan pada bulan **Se
 
 ## Technology stack & Tools
 
-**Program ini membutuhkan:**
+**This program needs:**
 
-| Tech Stack & Tools                     | Version |
-| -------------------------------------- | ------- |
-| Bootstrap CSS                          | 4.0+    |
-| Composer                               | 2.20+   |
-| DataTables                             | 1.11+   |
-| PHP                                    | 7.4.20+ |
-| Laravel                                | 8.54+   |
-| Line Awesome                           | 1.0.2+  |
-| Sweet Alert                            | 2.0+    |
-| Visual Studio Code                     | Latest  |
-| WAMP / XAMP (PHP, MySQL, Apache/Nginx) | Latest  |
+| Tech Stack & Tools              | Version |
+| ------------------------------- | ------- |
+| Bootstrap CSS                   | 4.0+    |
+| Composer                        | 2.20+   |
+| DataTables                      | 1.11+   |
+| PHP                             | 7.4.20+ |
+| Laravel                         | 8.54+   |
+| Line Awesome                    | 1.0.2+  |
+| Sweet Alert                     | 2.0+    |
+| Visual Studio Code              | Latest  |
+| XAMP (PHP, MySQL, Apache/Nginx) | 7.4+    |
+| Balsamic Cloud                  | -       |
+| Draw.io                         | -       |
 
 ## Setup
 
-### Kustomisasi `.env`
+### Customization `.env`
 
 1. Copy .env-example
-2. Rename .env-example copy menjadi .env
-3. Ubah isi `.env`nya
+2. Rename .env-example copy to .env
+3. Modify the `.env` content
 
 ### Install Dependencies
 
-Buka terminal, ketikkan perintah:
+Open terminal, type the following commands:
 
 ```shell
 composer update
@@ -104,74 +144,9 @@ npm install
 
 ### Run Program
 
-Buka terminal, ketikkan perintah:
+Open terminal, type the following commands:
 
 ```shell
 php artisan key:generate
 php artisan serve
 ```
-
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[CMS Max](https://www.cmsmax.com/)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
